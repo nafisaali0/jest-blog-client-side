@@ -8,7 +8,8 @@ const SignUp = () => {
 
     const { signUpUser } = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState('')
-
+    const passwordRequirement = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).{6,}$/;
+    
 
     const handleSignUp = e => {
         e.preventDefault();
@@ -21,6 +22,16 @@ const SignUp = () => {
 
 
         setSignUpError('')//clean error state
+
+        // grap error before data going to server
+        if (!passwordRequirement.test(password)) {
+            setSignUpError('Your password should be capital letter, regular expression and length would be 6')
+            return Swal.fire({
+                icon: 'error',
+                title: (signUpError),
+                text: 'Can Not Register',
+            })
+        }
 
         // email/password signUp auth
         signUpUser(email, password)
