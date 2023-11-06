@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import banner from '../../../assets/image/background/wave.svg'
-import './newsletter.css'
 import Swal from 'sweetalert2'
 
 
@@ -12,7 +11,9 @@ const NewsLetter = () => {
 
     const handleNewsLetter = e => {
         e.preventDefault();
-        setEmailInput('')
+
+        setEmailInput('')//clear input
+
         const email = e.target.email.value
         // console.log(email)
         setEmailInput(email)
@@ -29,7 +30,7 @@ const NewsLetter = () => {
 
     return (
         <>
-            <div className='h-[270px] mt-10'
+            <div className='h-[300px] mt-10'
                 style={{
                     backgroundImage: `url(${banner})`,
                     backgroundRepeat: 'no-repeat',
@@ -46,8 +47,6 @@ const NewsLetter = () => {
                         <form onSubmit={handleNewsLetter} className='px-5 lg:px-0 flex-1 flex'>
                             <div>
                                 <input type="text" placeholder="Your Email" name="email" className="w-[300px] px-5 py-2" />
-                                {/* onClick={handleSearchButton} */}
-                                {/* onChange={handleInput} */}
                             </div>
                             <div>
                                 <button type="submit" className="px-5 py-2 bg-[#5b608b] text-white">Subscribe</button>
