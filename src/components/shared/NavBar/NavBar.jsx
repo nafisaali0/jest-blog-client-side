@@ -7,7 +7,7 @@ import logo from '../../../assets/image/logo/Logo_removebg.png'
 const NavBar = () => {
     const { user } = useContext(AuthContext)
     return (
-        <div className="bg-[#e7e7e9]">
+        <div className="bg-[#e7e7e9] z-10">
             <div className=" container mx-auto overflow-hidden">
                 <div className="drawer">
                     <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />

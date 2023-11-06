@@ -33,7 +33,7 @@ const SubNavBar = () => {
                             <div className="dropdown dropdown-end text-[#474f85] font-bold font-roboto">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                     <div className="w-20 lg:w-36 border-black border-2 rounded-full">
-                                        <img src={user.photoURL ? user.photoURL : `${logo}`} />
+                                        <img src={user.photoURL ? user.photoURL : ``} />
                                     </div>
                                 </label>
                                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
