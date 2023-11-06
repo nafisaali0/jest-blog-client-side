@@ -63,8 +63,6 @@ const SignUp = () => {
             })
     }
 
-
-
     return (
         <div className="bg-[#f3f3f4] w-[100%] lg:h-[100vh] overflow-hidden" >
             <div className='container mx-auto flex flex-col justify-center items-center drop-shadow-lg md:pt-12 lg:pt-20'>
