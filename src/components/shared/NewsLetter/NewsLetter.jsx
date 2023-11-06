@@ -1,22 +1,56 @@
-// import banner from '../../../assets/image/background/bg1.png'
+import { useState } from 'react';
+import banner from '../../../assets/image/background/wave.svg'
 import './newsletter.css'
-// style={{ backgroundImage: `url(${banner})` }}
+import Swal from 'sweetalert2'
+
+
+
+
 const NewsLetter = () => {
+
+    const [emailInput, setEmailInput] = useState()
+
+    const handleNewsLetter = e => {
+        e.preventDefault();
+        setEmailInput('')
+        const email = e.target.email.value
+        // console.log(email)
+        setEmailInput(email)
+
+        if (emailInput) {
+            return (
+                Swal.fire(
+                    'Thank You For Subscribe!'
+                ),
+                e.target.reset()
+            )
+        }
+    }
+
     return (
         <>
-            <div className="bg-black mt-10" >
-                <div className='container mx-auto flex flex-col justify-center items-center p-10'>
-                    <div className='flex flex-col lg:flex-row gap-5 items-center'>
-                        <div className='text-white text-3xl flex-1'>
-                            <h1>Get more updates...</h1>
-                            <p>Do you want to get notified when a new component is added to JESTBLOG? Sign up for our newsletter and youll be among the first to find out about new features, components, versions, and tools.</p>
+            <div className='h-[270px] mt-10'
+                style={{
+                    backgroundImage: `url(${banner})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover'
+                }}></div>
+            <div className="bg-black">
+                <div className='container mx-auto flex flex-col justify-center items-center border-b-2 border-[#5b608b] py-6'>
+                    <div className='flex flex-col lg:flex-row gap-5 items-center '>
+                        <div className='text-white flex-1 px-9 md:px-0'>
+                            <h1 className='text-xl md:text-3xl'>Get more updates...</h1>
+                            <p className='text-sm lg:text-xl'>Subscribe for our newsletter and youll be among the first to find out about new Blogs, versions, and tools.</p>
                         </div>
-                        <form>
-                            <div className="flex-1 search">
-                                <input type="text" placeholder="Your Email" name="email" className="searchTerm" />
-                                <button className="searchButton">Subscribe</button>
+                        <form onSubmit={handleNewsLetter} className='px-5 lg:px-0 flex-1 flex'>
+                            <div>
+                                <input type="text" placeholder="Your Email" name="email" className="w-[300px] px-5 py-2" />
                                 {/* onClick={handleSearchButton} */}
                                 {/* onChange={handleInput} */}
+                            </div>
+                            <div>
+                                <button type="submit" className="px-5 py-2 bg-[#5b608b] text-white">Subscribe</button>
                             </div>
                         </form>
                     </div>

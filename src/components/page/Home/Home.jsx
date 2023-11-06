@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="bg-[#e7e7e9] overflow-hidden">
       <Banner></Banner>
-      {/* <NewsLetter></NewsLetter> */}
+      <NewsLetter></NewsLetter>
       <Footer></Footer>
     </div>
   );
