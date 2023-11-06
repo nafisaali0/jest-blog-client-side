@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from './../../../Providers/AuthProvider';
-import logo from '../../../assets/image/logo/Logo_removebg.png'
+// import logo from '../../../assets/image/logo/Logo_removebg.png'
 import icon1 from '../../../assets/image/icons/facebook.svg'
 import icon2 from '../../../assets/image/icons/linkedin.svg'
 import icon3 from '../../../assets/image/icons/github1.svg'

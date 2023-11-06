@@ -7,7 +7,7 @@ import image5 from '../../../assets/image/Banner/banner5.jpg'
 
 const Banner = () => {
     return (
-        <div className='overflow-hidden z-0'>
+        <div className='overflow-hidden'>
             <div className="carousel w-full mb-10">
                 <div id="slide1" className="carousel-item relative w-full h-[50rem]">
                     <img src={image1} className="w-full" />
