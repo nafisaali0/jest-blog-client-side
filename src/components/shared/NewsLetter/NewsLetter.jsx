@@ -30,7 +30,7 @@ const NewsLetter = () => {
 
     return (
         <>
-            <div className='h-[300px] mt-10'
+            <div className='h-[370px] mt-10'
                 style={{
                     backgroundImage: `url(${banner})`,
                     backgroundRepeat: 'no-repeat',

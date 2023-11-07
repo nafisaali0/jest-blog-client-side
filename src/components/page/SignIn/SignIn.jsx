@@ -4,6 +4,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from 'sweetalert2'
 
 const SignIn = () => {
+
     const { signInUser, googleLogIn } = useContext(AuthContext)
     const [signInError, setSignInError] = useState()
     const navigate = useNavigate()
@@ -69,7 +70,7 @@ const SignIn = () => {
     }
 
     return (
-        <div className="bg-[#f3f3f4] w-[100vw] lg:h-[100vh] md:h-[100%]" >
+        <div className="bg-[#f3f3f4] w-[100%] lg:h-[100vh] md:h-[100%]" >
             <div className='container mx-auto overflow-hidden flex flex-col justify-center items-center drop-shadow-lg md:pt-12 lg:pt-20'>
                 <div className="bg-white m-10 p-7 md:w-[700px]">
                     <div className="text-black my-5 font-bold text-2xl">
