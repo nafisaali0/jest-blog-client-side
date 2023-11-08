@@ -18,11 +18,11 @@ const NavBar = () => {
                             <nav className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#e7e7e9] rounded-box w-52">
                                     <NavLink to="/">Home</NavLink>
-                                    <NavLink to="/addProduct">Add Blog</NavLink>
-                                    <NavLink to="/services">All Blogs</NavLink>
+                                    <NavLink to="/addblog">Add Blog</NavLink>
+                                    <NavLink to="/allblogs">All Blogs</NavLink>
                                     <NavLink to="/blog">Blog</NavLink>
                                     {
-                                        user?.email ? <NavLink to="/bookings">Wishlist</NavLink> : ''
+                                        user?.email ? <NavLink to="/wishlist">Wishlist</NavLink> : ''
                                     }
                                 </ul>
                             </nav>
@@ -34,11 +34,11 @@ const NavBar = () => {
                         <ul className="menu menu-horizontal items-center hidden lg:flex">
                             <nav className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>
                                 <NavLink to="/">Home</NavLink>
-                                <NavLink to="/addProduct">Add Blog</NavLink>
-                                <NavLink to="/services">All Blogs</NavLink>
+                                <NavLink to="/addblog">Add Blog</NavLink>
+                                <NavLink to="/allblogs">All Blogs</NavLink>
                                 <NavLink to="/blog">Blog</NavLink>
                                 {
-                                    user?.email ? <NavLink to="/bookings">Wishlist</NavLink> : ''
+                                    user?.email ? <NavLink to="/wishlist">Wishlist</NavLink> : ''
                                 }
                             </nav>
                         </ul>

@@ -9,7 +9,7 @@ const MapBlogs = () => {
         fetch('http://localhost:5000/blogs')
             .then(res => res.json())
             .then(data => setBlogs(data))
-        // console.log(blogs)
+           //console.log(blogs)
     }, [])
 
 

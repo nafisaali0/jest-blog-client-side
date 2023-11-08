@@ -4,6 +4,8 @@ import Home from './../components/page/Home/Home';
 import SignUp from './../components/page/SignUp/SignUp';
 import SignIn from './../components/page/SignIn/SignIn';
 import ErrorPage from './../components/page/ErrorPage/ErrorPage';
+import AllBlogs from "../components/page/AllBlogs/AllBlogs";
+import AddBlog from "../components/page/AddBlog/AddBlog";
 
 
 
@@ -25,6 +27,15 @@ const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp></SignUp>
             },
+            {
+                path: '/allblogs',
+                element: <AllBlogs></AllBlogs>,
+                loader: () => fetch('http://localhost:5000/blogs')
+            },
+            {
+                path: '/addblog',
+                element: <AddBlog></AddBlog>
+            }
         ],
     },
 ]);
