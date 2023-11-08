@@ -1,25 +1,39 @@
 import { useLoaderData } from "react-router-dom";
 import ShowAllBlogs from "./ShowAllBlogs";
 import RightSide from "./RightSide";
+import { useState } from "react";
 
 const AllBlogs = () => {
 
     const blogs = useLoaderData();
-    console.log(blogs)
+    const [filerBlogs, setFilterBlogs] = useState(blogs)
+    // console.log(filerBlogs)
+    // console.log(blogs)
+
+    const handleSearchFilter = (e) => {
+        // console.log(e)
+        const title = blogs.filter(blogTitle => blogTitle.title === e)
+        if (title) {
+            setFilterBlogs(title)
+        }
+
+    }
+
+
 
     return (
         <div className="overflow-hidden bg-[#f0f2f5]">
             <div className="container mx-auto my-10 grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="md:col-span-2 grid grid-cols-1 gap-5">
                     {
-                        blogs.map(blog =>
+                        filerBlogs.map(blog =>
                             <ShowAllBlogs key={blog._id} blog={blog}></ShowAllBlogs>
                         )
                     }
 
                 </div>
                 <div>
-                    <RightSide></RightSide>
+                    <RightSide handleSearchFilter={handleSearchFilter}></RightSide>
                 </div>
             </div>
         </div>
