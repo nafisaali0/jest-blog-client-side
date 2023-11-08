@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const RightSide = ({ handleSearchFilter }) => {
+const RightSide = ({ handleSearchFilter, handleFilter }) => {
 
-    // const [blogs, setBlogs] = useState([])
+    const [categorys, setCategorys] = useState([])
 
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/blogs')
-    //         .then(res => res.json())
-    //         .then(data => setBlogs(data))
-    // }, [])
-    // console.log(blogs)
+    useEffect(() => {
+        fetch('http://localhost:5000/category')
+            .then(res => res.json())
+            .then(data => setCategorys(data))
+    }, [])
+    // console.log(categorys)
 
     const handleSearch = e => {
         e.preventDefault();
@@ -18,7 +18,6 @@ const RightSide = ({ handleSearchFilter }) => {
         const title = e.target.title.value
         handleSearchFilter(title)
     }
-
 
     return (
         <>
@@ -40,12 +39,15 @@ const RightSide = ({ handleSearchFilter }) => {
                 <div className="dropdown dropdown-open">
                     <label tabIndex={0} className="btn m-1">Category</label>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                        {/* <li onClick={() => handleFilter('All')}><a>All</a></li>
-                        <li onClick={() => handleFilter('Web Development')}><a>Web Development</a></li>
-                        <li onClick={() => handleFilter('Self Development')}><a>Self Development</a></li>
-                        <li onClick={() => handleFilter('Science')}><a>Science</a></li>
-                        <li onClick={() => handleFilter('Productivity')}><a>Productivity</a></li>
-                        <li onClick={() => handleFilter('Marketing')}><a>Marketing</a></li> */}
+                        {/* <li onClick={() => handleFilter('All')}><a>All</a></li>                         */}
+                        {
+                            categorys.map(category =>
+                                <>
+                                    <li onClick={() => handleFilter(`${category.category}`)} key={category._id}><a>{category.category}</a></li>
+                                </>
+
+                            )
+                        }
                     </ul>
                 </div>
             </div>
@@ -54,7 +56,8 @@ const RightSide = ({ handleSearchFilter }) => {
 };
 
 RightSide.propTypes = {
-    handleSearchFilter: PropTypes.func
+    handleSearchFilter: PropTypes.func,
+    handleFilter: PropTypes.func
 };
 
 export default RightSide;

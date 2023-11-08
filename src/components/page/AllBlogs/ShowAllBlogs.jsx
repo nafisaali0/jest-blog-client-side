@@ -4,7 +4,7 @@ import iconD from '../../../assets/image/icons/details1.svg'
 import iconW from '../../../assets/image/icons/wishlist2.svg'
 
 const ShowAllBlogs = ({ blog }) => {
-    const { title, details_image, short_description, category } = blog
+    const { _id, title, details_image, short_description, category } = blog
 
     return (
         <div>
@@ -18,7 +18,7 @@ const ShowAllBlogs = ({ blog }) => {
                         <span className='px-3 py-2 bg-[#5b608b] text-lg text-white font-semibold rounded-full'>{category}</span>
                     </div>
                     <div className='flex gap-5 mt-3'>
-                        <Link to={'/blogdetails'}>
+                        <Link to={`/blogdetails/${_id}`}>
                             <img title="See Details" className='w-[30px] h-[30px]' src={iconD} alt="detailsbutton" />
                         </Link>
                         <Link to={'/wishlist'}>

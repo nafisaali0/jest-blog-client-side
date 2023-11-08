@@ -6,6 +6,7 @@ import SignIn from './../components/page/SignIn/SignIn';
 import ErrorPage from './../components/page/ErrorPage/ErrorPage';
 import AllBlogs from "../components/page/AllBlogs/AllBlogs";
 import AddBlog from "../components/page/AddBlog/AddBlog";
+import BlogDetails from './../components/page/BlogDetails/BlogDetails';
 
 
 
@@ -35,7 +36,13 @@ const router = createBrowserRouter([
             {
                 path: '/addblog',
                 element: <AddBlog></AddBlog>
-            }
+
+            },
+            {
+                path: '/blogdetails/:id',
+                element: <BlogDetails></BlogDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+            },
         ],
     },
 ]);

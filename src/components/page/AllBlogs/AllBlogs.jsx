@@ -16,7 +16,14 @@ const AllBlogs = () => {
         if (title) {
             setFilterBlogs(title)
         }
+    }
 
+    const handleFilter = filter => {
+        // console.log(filter)
+        const category = blogs.filter(blogCategory => blogCategory.category === filter)
+        if (category) {
+            setFilterBlogs(category)
+        }
     }
 
 
@@ -33,7 +40,7 @@ const AllBlogs = () => {
 
                 </div>
                 <div>
-                    <RightSide handleSearchFilter={handleSearchFilter}></RightSide>
+                    <RightSide handleSearchFilter={handleSearchFilter} handleFilter={handleFilter}></RightSide>
                 </div>
             </div>
         </div>
