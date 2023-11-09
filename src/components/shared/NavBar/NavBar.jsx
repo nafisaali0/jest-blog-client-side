@@ -2,14 +2,14 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from './../../../Providers/AuthProvider';
 import './navbar.css'
-import logo from '../../../assets/image/logo/Logo_removebg.png'
+import logo from '../../../assets/image/logo/logof3.png'
 
 const NavBar = () => {
     const { user } = useContext(AuthContext)
     return (
         <>
             <div className="bg-[#e7e7e9]">
-                <div className="navbar container mx-auto mt-3">
+                <div className="navbar container mx-auto">
                     <div className="navbar-start">
                         <div className="dropdown">
                             <label tabIndex={0} className="btn btn-ghost text-[#5b608b] lg:hidden">

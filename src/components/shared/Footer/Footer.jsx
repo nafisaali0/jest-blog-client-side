@@ -1,4 +1,4 @@
-import logo from '../../../assets/image/logo/Logo.png'
+import logo from '../../../assets/image/logo/logof4.png'
 import icon1 from '../../../assets/image/icons/facebook.svg'
 import icon2 from '../../../assets/image/icons/github1.svg'
 import icon3 from '../../../assets/image/icons/linkedin.svg'

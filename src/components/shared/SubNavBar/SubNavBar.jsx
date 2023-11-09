@@ -18,7 +18,7 @@ const SubNavBar = () => {
             })
     }
     return (
-        <div className="flex items-center h-[4rem] p-2">
+        <div className="flex items-center h-[4rem] p-2 bg-white">
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className='flex gap-1 items-center flex-wrap justify-center md:justify-start'>

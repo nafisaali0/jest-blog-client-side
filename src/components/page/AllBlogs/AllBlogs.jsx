@@ -26,8 +26,6 @@ const AllBlogs = () => {
         }
     }
 
-
-
     return (
         <div className="overflow-hidden bg-[#f0f2f5]">
             <div className="container mx-auto my-10 grid grid-cols-1 md:grid-cols-3 gap-6">
