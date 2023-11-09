@@ -3,15 +3,22 @@ import { Link, useLoaderData } from "react-router-dom";
 import icon1 from '../../../assets/image/icons/wishlist1.svg'
 import icon2 from '../../../assets/image/icons/edit.svg'
 import CreateComment from "./CreateComment";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
+
+
+
 const BlogDetails = () => {
 
+
+    const { user } = useContext(AuthContext)
     // const { id } = useParams();
     // console.log(id)
 
     const blog = useLoaderData();
     // console.log(blog)
 
-    const { _id, title, details_image, short_description, long_description, category, date, owner_name, owner_image } = blog
+    const { _id, title, details_image, short_description, long_description, category, date, owner_name, owner_image, owner_Email } = blog
 
     return (
         <div className=" max-w-5xl mx-auto overflow-hidden mb-10 p-5">
@@ -36,7 +43,13 @@ const BlogDetails = () => {
                     </div>
                     <div className="flex gap-5 my-5">
                         <Link><img className="w-8" src={icon1} alt="" /></Link>
-                        <Link><img className="w-8" src={icon2} alt="" /></Link>
+                        {
+                            user?.email === owner_Email ? 
+                            <>
+                                <Link><img className="w-8" src={icon2} alt="" /></Link>
+                            </> : ''
+                        }
+
                     </div>
                 </div>
                 <div className="my-5">
@@ -50,7 +63,7 @@ const BlogDetails = () => {
                 </div>
             </div>
             <div>
-                <CreateComment></CreateComment>
+                <CreateComment id={_id}></CreateComment>
             </div>
         </div>
     );
