@@ -12,12 +12,8 @@ const BlogDetails = () => {
 
 
     const { user } = useContext(AuthContext)
-    // const { id } = useParams();
-    // console.log(id)
-
     const blog = useLoaderData();
-    // console.log(blog)
-
+    
     const { _id, title, details_image, short_description, long_description, category, date, owner_name, owner_image, owner_Email } = blog
 
     return (
@@ -44,10 +40,10 @@ const BlogDetails = () => {
                     <div className="flex gap-5 my-5">
                         <Link><img className="w-8" src={icon1} alt="" /></Link>
                         {
-                            user?.email === owner_Email ? 
-                            <>
-                                <Link><img className="w-8" src={icon2} alt="" /></Link>
-                            </> : ''
+                            user?.email === owner_Email ?
+                                <>
+                                    <Link><img className="w-8" src={icon2} alt="" /></Link>
+                                </> : ''
                         }
 
                     </div>
@@ -63,7 +59,7 @@ const BlogDetails = () => {
                 </div>
             </div>
             <div>
-                <CreateComment id={_id}></CreateComment>
+                <CreateComment id={_id} blog_Email={owner_Email}></CreateComment>
             </div>
         </div>
     );
