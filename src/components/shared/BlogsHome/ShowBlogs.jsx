@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import iconD from '../../../assets/image/icons/details1.svg'
-import iconW from '../../../assets/image/icons/wishlist2.svg'
+import iconW from '../../../assets/image/icons/wishlist1.svg'
 
 const ShowBlogs = ({ blog }) => {
 

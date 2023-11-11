@@ -8,13 +8,13 @@ const AddBlog = () => {
     const { user } = useContext(AuthContext)
     const [categorys, setCategorys] = useState([])
     const [category, setCategory] = useState('')
-    // console.log(selectedCategory)
+    
     useEffect(() => {
         fetch('http://localhost:5000/category')
             .then(res => res.json())
             .then(data => setCategorys(data))
     }, [])
-    // console.log(categorys)
+    
 
     const handleCreateBlog = e => {
         e.preventDefault();

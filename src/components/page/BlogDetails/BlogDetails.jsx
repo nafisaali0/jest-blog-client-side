@@ -10,10 +10,9 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 
 const BlogDetails = () => {
 
-
     const { user } = useContext(AuthContext)
     const blog = useLoaderData();
-    
+
     const { _id, title, details_image, short_description, long_description, category, date, owner_name, owner_image, owner_Email } = blog
 
     return (
@@ -38,14 +37,13 @@ const BlogDetails = () => {
                         <span className='px-3 py-2 bg-[#5b608b] text-xs text-white font-semibold rounded-lg'>{category}</span>
                     </div>
                     <div className="flex gap-5 my-5">
-                        <Link><img className="w-8" src={icon1} alt="" /></Link>
+                        <Link><img title="Wishlist" className="w-8" src={icon1} alt="" /></Link>
                         {
                             user?.email === owner_Email ?
                                 <>
-                                    <Link><img className="w-8" src={icon2} alt="" /></Link>
+                                    <Link to={`/update/${_id}`}><img title="Update" className="w-8" src={icon2} alt="" /></Link>
                                 </> : ''
                         }
-
                     </div>
                 </div>
                 <div className="my-5">

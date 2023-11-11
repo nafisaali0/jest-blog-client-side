@@ -34,6 +34,7 @@ const CreateComment = ({ id, blog_Email }) => {
                 })
             )
         } else {
+            
             //post comment
             fetch('http://localhost:5000/comments', {
                 method: 'POST',
@@ -64,8 +65,9 @@ const CreateComment = ({ id, blog_Email }) => {
                     setCommentDelete(data)
             })
     }, [id])
-    console.log(comments)
-    console.log(commentDelete)
+    // has issue!
+    // console.log(comments)
+    // console.log(commentDelete)
     return (
         <>
             <form onSubmit={handlePostComment} disabled={isButtonDisabled}>
