@@ -5,15 +5,39 @@ import icon2 from '../../../assets/image/icons/edit.svg'
 import CreateComment from "./CreateComment";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 
 const BlogDetails = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)//currrent user for update condition and wishlist
     const blog = useLoaderData();
 
-    const { _id, title, details_image, short_description, long_description, category, date, owner_name, owner_image, owner_Email } = blog
+    const { _id, title, details_image, short_description, long_description, category, date, time, owner_name, owner_image, owner_Email } = blog
+
+    const handleWishList = () => {
+
+        const email = user.email
+        const blogWishListInfo = { email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
+
+        //send wishlist data to the server and below link from backend's created API and load in mongo as DB
+        fetch('http://localhost:5000/wishlist', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(blogWishListInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire(
+                        'Added Blog to WishList'
+                    )
+                }
+            })
+    }
 
     return (
         <div className=" max-w-5xl mx-auto overflow-hidden mb-10 p-5">
@@ -37,7 +61,7 @@ const BlogDetails = () => {
                         <span className='px-3 py-2 bg-[#5b608b] text-xs text-white font-semibold rounded-lg'>{category}</span>
                     </div>
                     <div className="flex gap-5 my-5">
-                        <Link><img title="Wishlist" className="w-8" src={icon1} alt="" /></Link>
+                        <img title="Wishlist" onClick={handleWishList} className="w-8" src={icon1} alt="" />
                         {
                             user?.email === owner_Email ?
                                 <>
@@ -57,7 +81,13 @@ const BlogDetails = () => {
                 </div>
             </div>
             <div>
-                <CreateComment id={_id} blog_Email={owner_Email}></CreateComment>
+                <div>
+                    <h1 className="text-3xl font-bold">Comment</h1>
+                </div>
+                <CreateComment
+                    id={_id}
+                    blog_Email={owner_Email}>
+                </CreateComment>
             </div>
         </div>
     );

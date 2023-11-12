@@ -10,7 +10,6 @@ const RightSide = ({ handleSearchFilter, handleFilter }) => {
             .then(res => res.json())
             .then(data => setCategorys(data))
     }, [])
-    // console.log(categorys)
 
     const handleSearch = e => {
         e.preventDefault();
@@ -39,7 +38,6 @@ const RightSide = ({ handleSearchFilter, handleFilter }) => {
                 <div className="dropdown dropdown-open">
                     <label tabIndex={0} className="btn m-1">Category</label>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                        {/* <li onClick={() => handleFilter('All')}><a>All</a></li>                         */}
                         {
                             categorys.map(category =>
                                 <>

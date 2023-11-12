@@ -2,9 +2,39 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import iconD from '../../../assets/image/icons/details1.svg'
 import iconW from '../../../assets/image/icons/wishlist1.svg'
+import Swal from 'sweetalert2';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const ShowAllBlogs = ({ blog }) => {
-    const { _id, title, details_image, short_description, category } = blog
+
+    const { user } = useContext(AuthContext)//send currentUser to wishlist 
+    //blog come from allblogs comp and distructure blogs data
+    const { _id, title, details_image, short_description, category, long_description, date, time, owner_name, owner_image, owner_Email } = blog
+
+    const handleWishList = () => {
+
+        const email = user.email
+        const blogWishListInfo = { email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
+     
+        //send wishlist data to the server and below link to backend's created API and load in mongo as DB
+        fetch('http://localhost:5000/wishlist', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(blogWishListInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire(
+                        'Added Blog to WishList'
+                    )
+                }
+            })
+    }
 
     return (
         <div>
@@ -21,9 +51,7 @@ const ShowAllBlogs = ({ blog }) => {
                         <Link to={`/blogdetails/${_id}`}>
                             <img title="See Details" className='w-[30px] h-[30px]' src={iconD} alt="detailsbutton" />
                         </Link>
-                        <Link to={'/wishlist'}>
-                            <img title="Wishlist" className='w-[30px] h-[30px]' src={iconW} alt="detailsbutton" />
-                        </Link>
+                        <img title="Wishlist" onClick={handleWishList} className='w-[30px] h-[30px]' src={iconW} alt="detailsbutton" />
                     </div>
                 </div>
             </div>

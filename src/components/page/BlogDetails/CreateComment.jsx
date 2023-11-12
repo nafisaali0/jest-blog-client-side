@@ -6,12 +6,9 @@ import ShowComments from './ShowComments';
 
 const CreateComment = ({ id, blog_Email }) => {
 
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)//uses: currentUser cannot comment own blog
     const [comments, setComments] = useState([]);
-    const [commentDelete, setCommentDelete] = useState([])
     const [isButtonDisabled, setisButtonDisabled] = useState(false)
-
-
 
     //create comment 
     const handlePostComment = e => {
@@ -24,6 +21,7 @@ const CreateComment = ({ id, blog_Email }) => {
         const owner_Email = user.email;
         const newBlog = { blog_id, comment, owner_name, owner_image, owner_Email }
 
+        // currentUser cannot comment own blog
         if (user.email === blog_Email) {
             setisButtonDisabled(true)
             return (
@@ -34,8 +32,7 @@ const CreateComment = ({ id, blog_Email }) => {
                 })
             )
         } else {
-            
-            //post comment
+            //create comment to backend api
             fetch('http://localhost:5000/comments', {
                 method: 'POST',
                 headers: {
@@ -48,26 +45,21 @@ const CreateComment = ({ id, blog_Email }) => {
                     console.log(data)
                     if (data.insertedId) {
                         Swal.fire(
-                            'Successfully Created Blog'
+                            'Successfully add comment'
                         )
                     }
                 })
         }
     }
 
-
-    // show comment
+    // show comment from backend api
     useEffect(() => {
         fetch(`http://localhost:5000/comments?blog_id=${id}`)
             .then(res => res.json())
             .then(data => {
-                setComments(data),
-                    setCommentDelete(data)
+                setComments(data)
             })
     }, [id])
-    // has issue!
-    // console.log(comments)
-    // console.log(commentDelete)
     return (
         <>
             <form onSubmit={handlePostComment} disabled={isButtonDisabled}>
@@ -85,10 +77,9 @@ const CreateComment = ({ id, blog_Email }) => {
             <div className="flex flex-col gap-3">
                 {
                     comments.map(comment =>
-                        <ShowComments key={comment._id}
-                            comment={comment}
-                            commentDelete={commentDelete}
-                            setCommentDelete={setCommentDelete}>
+                        <ShowComments
+                            key={comment._id}
+                            comment={comment}>
                         </ShowComments>
                     )
                 }

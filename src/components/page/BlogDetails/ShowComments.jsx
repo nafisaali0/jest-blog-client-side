@@ -4,13 +4,13 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 
-const ShowComments = ({ comment, commentDelete, setCommentDelete }) => {
+const ShowComments = ({ comment }) => {
     const { user } = useContext(AuthContext)
-    const { _id } = comment
+    const { _id } = comment//data come from CreateComment comp
 
     // delete currentUser comment
-    const handleDelete = (id) => {
-     
+    const handleDelete = () => {
+
         fetch(`http://localhost:5000/comments/${_id}`, {
             method: 'DELETE'
         })
@@ -20,13 +20,9 @@ const ShowComments = ({ comment, commentDelete, setCommentDelete }) => {
                 if (data.deletedCount > 0) {
                     Swal.fire(
                         'Deleted!',
-                        'Your coffee has been deleted.',
+                        'Your comment has been deleted.',
                         'success'
                     )
-                    // not working this
-                    // filter to check which comments have after delete in state and change the state value 
-                    const remaining = commentDelete.filter(deletedCMT => deletedCMT._id !== id)
-                    setCommentDelete(remaining)
                 }
 
             })

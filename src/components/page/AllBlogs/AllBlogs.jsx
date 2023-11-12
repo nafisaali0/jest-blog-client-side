@@ -7,19 +7,16 @@ const AllBlogs = () => {
 
     const blogs = useLoaderData();
     const [filerBlogs, setFilterBlogs] = useState(blogs)
-    // console.log(filerBlogs)
-    // console.log(blogs)
 
+    //condintion for search by title
     const handleSearchFilter = (e) => {
-        // console.log(e)
         const title = blogs.filter(blogTitle => blogTitle.title === e)
         if (title) {
             setFilterBlogs(title)
         }
     }
-
+    //condintion for filter by category
     const handleFilter = filter => {
-        // console.log(filter)
         const category = blogs.filter(blogCategory => blogCategory.category === filter)
         if (category) {
             setFilterBlogs(category)
@@ -32,13 +29,20 @@ const AllBlogs = () => {
                 <div className="md:col-span-2 grid grid-cols-1 gap-5">
                     {
                         filerBlogs.map(blog =>
-                            <ShowAllBlogs key={blog._id} blog={blog}></ShowAllBlogs>
+                            <ShowAllBlogs
+                                key={blog._id}
+                                blog={blog}>
+                            </ShowAllBlogs>
                         )
                     }
 
                 </div>
                 <div>
-                    <RightSide handleSearchFilter={handleSearchFilter} handleFilter={handleFilter}></RightSide>
+                    {/* search data and filter data come from therre */}
+                    <RightSide
+                        handleSearchFilter={handleSearchFilter}
+                        handleFilter={handleFilter}>
+                    </RightSide>
                 </div>
             </div>
         </div>

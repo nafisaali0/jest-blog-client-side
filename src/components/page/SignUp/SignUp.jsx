@@ -18,7 +18,7 @@ const SignUp = () => {
         const photo = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value
-        console.log(username, photo, email, password)
+        // console.log(username, photo, email, password)
 
 
         setSignUpError('')//clean error state
@@ -29,7 +29,7 @@ const SignUp = () => {
             return Swal.fire({
                 icon: 'error',
                 title: (signUpError),
-                text: 'Can Not Register',
+                text: 'Can Not Sign Up',
             })
         }
 
@@ -45,7 +45,7 @@ const SignUp = () => {
                 return (
                     console.log(result.user),
                     Swal.fire(
-                        'Register Successfully!'
+                        'Sign Up Successfully!'
                     ),
                     e.target.reset()
                 )
@@ -57,7 +57,7 @@ const SignUp = () => {
                     Swal.fire({
                         icon: 'error',
                         title: (signUpError),
-                        text: 'Can Not Register',
+                        text: 'Can Not  Sing Up',
                     })
                 )
             })

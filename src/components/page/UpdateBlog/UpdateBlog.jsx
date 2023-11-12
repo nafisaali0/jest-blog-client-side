@@ -7,15 +7,11 @@ import { useLoaderData } from "react-router-dom";
 
 const UpdateBlog = () => {
 
-    //get specific product through unique id from backend created api   
-    const blogs = useLoaderData()
-    // console.log(blogs)
-
+    const blogs = useLoaderData()//load all blogs info
     const { _id, title, short_description, long_description, details_image, } = blogs
-
     const { user } = useContext(AuthContext)
-    const [categorys, setCategorys] = useState([])
-    const [category, setCategory] = useState('')
+    const [categorys, setCategorys] = useState([])//show category from backend
+    const [category, setCategory] = useState('')//set category value to send it to update blog
 
     useEffect(() => {
         fetch('http://localhost:5000/category')
@@ -37,7 +33,7 @@ const UpdateBlog = () => {
         const owner_image = user.photoURL;
         const owner_Email = user.email;
         const updateBlog = { title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
-        console.log(updateBlog)
+        // console.log(updateBlog)
 
 
         // sent update productinfo to server

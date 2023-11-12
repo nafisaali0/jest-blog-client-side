@@ -8,6 +8,8 @@ import AllBlogs from "../components/page/AllBlogs/AllBlogs";
 import AddBlog from "../components/page/AddBlog/AddBlog";
 import BlogDetails from './../components/page/BlogDetails/BlogDetails';
 import UpdateBlog from './../components/page/UpdateBlog/UpdateBlog';
+import WishList from './../components/page/WishList/WishList';
+import FeatureBlog from './../components/page/FeaturedBlogs.jsx/FeatureBlog';
 
 
 
@@ -37,7 +39,6 @@ const router = createBrowserRouter([
             {
                 path: '/addblog',
                 element: <AddBlog></AddBlog>
-
             },
             {
                 path: '/blogdetails/:id',
@@ -48,6 +49,14 @@ const router = createBrowserRouter([
                 path: '/update/:id',
                 element: <UpdateBlog></UpdateBlog>,
                 loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+            },
+            {
+                path: '/wishlist',
+                element: <WishList></WishList>,
+            },
+            {
+                path: '/featureblog',
+                element: <FeatureBlog></FeatureBlog>,
             },
         ],
     },
