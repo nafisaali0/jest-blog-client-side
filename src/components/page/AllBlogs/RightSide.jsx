@@ -34,10 +34,10 @@ const RightSide = ({ handleSearchFilter, handleFilter }) => {
                     </div>
                 </form>
             </div>
-            <div>
-                <div className="dropdown dropdown-open">
-                    <label tabIndex={0} className="btn m-1">Category</label>
-                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+            <div className='my-5'>
+                <details className="dropdown">
+                    <summary className="m-1 btn bg-[#5b608b] text-white">Category</summary>
+                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                         {
                             categorys.map(category =>
                                 <>
@@ -47,7 +47,7 @@ const RightSide = ({ handleSearchFilter, handleFilter }) => {
                             )
                         }
                     </ul>
-                </div>
+                </details>
             </div>
         </>
     );

@@ -14,10 +14,12 @@ const MapBlogs = () => {
 
     return (
         <>
-            <div className="container mx-auto my-10 p-3">
+            <div className="md:col-span-2 grid grid-cols-1 gap-5 my-5 p-3">
                 <div>
-                    <h1 className="text-3xl font-bold">Blogs</h1>
-                    <div className="grid grid-cols-1  gap-3 my-10">
+                    <div className="my-5">
+                        <h1 className="text-3xl font-bold my-5">Blogs</h1>
+                    </div>
+                    <div className="grid grid-cols-1 gap-3 my-5">
                         {
                             blogs.slice(0, 6).map(blog =>
                                 <ShowBlogs key={blog._id} blog={blog}></ShowBlogs>

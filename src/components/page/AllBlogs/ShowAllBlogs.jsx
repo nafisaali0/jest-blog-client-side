@@ -49,9 +49,9 @@ const ShowAllBlogs = ({ blog }) => {
                     </div>
                     <div className='flex gap-5 mt-3'>
                         <Link to={`/blogdetails/${_id}`}>
-                            <img title="See Details" className='w-[30px] h-[30px]' src={iconD} alt="detailsbutton" />
+                            <img title="See Details" className='w-[30px] h-[30px] cursor-pointer' src={iconD} alt="detailsbutton" />
                         </Link>
-                        <img title="Wishlist" onClick={handleWishList} className='w-[30px] h-[30px]' src={iconW} alt="detailsbutton" />
+                        <img title="Wishlist" onClick={handleWishList} className='w-[30px] h-[30px] cursor-pointer' src={iconW} alt="detailsbutton" />
                     </div>
                 </div>
             </div>

@@ -10,6 +10,8 @@ import BlogDetails from './../components/page/BlogDetails/BlogDetails';
 import UpdateBlog from './../components/page/UpdateBlog/UpdateBlog';
 import WishList from './../components/page/WishList/WishList';
 import FeatureBlog from './../components/page/FeaturedBlogs.jsx/FeatureBlog';
+import CategoryBlogs from './../components/page/CategoryBlogs/CategoryBlogs';
+import PrivateRoutes from './PrivateRoutes';
 
 
 
@@ -38,25 +40,31 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addblog',
-                element: <AddBlog></AddBlog>
+                element: <PrivateRoutes><AddBlog></AddBlog></PrivateRoutes>
             },
             {
                 path: '/blogdetails/:id',
-                element: <BlogDetails></BlogDetails>,
+                element: <PrivateRoutes><BlogDetails></BlogDetails></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
             },
             {
                 path: '/update/:id',
-                element: <UpdateBlog></UpdateBlog>,
+                element: <PrivateRoutes><UpdateBlog></UpdateBlog></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
             },
             {
                 path: '/wishlist',
-                element: <WishList></WishList>,
+                element: <PrivateRoutes><WishList></WishList></PrivateRoutes>,
             },
             {
                 path: '/featureblog',
                 element: <FeatureBlog></FeatureBlog>,
+                loader: () => fetch('http://localhost:5000/blogs')
+            },
+            {
+                path: '/blogs/category/:category',
+                element: <CategoryBlogs></CategoryBlogs>,
+                loader: ({ params }) => fetch(`http://localhost:5000/blogs/category/${params.category}`)
             },
         ],
     },

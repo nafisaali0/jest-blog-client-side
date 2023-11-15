@@ -20,7 +20,7 @@ const NavBar = () => {
                                     <NavLink to="/">Home</NavLink>
                                     <NavLink to="/addblog">Add Blog</NavLink>
                                     <NavLink to="/allblogs">All Blogs</NavLink>
-                                    <NavLink to="/blog">Featured Blogs</NavLink>
+                                    <NavLink to="/featureblog">Featured Blogs</NavLink>
                                     {
                                         user?.email ? <NavLink to="/wishlist">Wishlist</NavLink> : ''
                                     }

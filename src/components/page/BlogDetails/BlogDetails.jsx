@@ -40,7 +40,7 @@ const BlogDetails = () => {
     }
 
     return (
-        <div className=" max-w-5xl mx-auto overflow-hidden mb-10 p-5">
+        <div className=" max-w-5xl mx-auto overflow-hidden my-10 p-3">
             <div className="">
                 <div className="text-4xl font-bold">
                     <h1>{title}</h1>
@@ -61,11 +61,11 @@ const BlogDetails = () => {
                         <span className='px-3 py-2 bg-[#5b608b] text-xs text-white font-semibold rounded-lg'>{category}</span>
                     </div>
                     <div className="flex gap-5 my-5">
-                        <img title="Wishlist" onClick={handleWishList} className="w-8" src={icon1} alt="" />
+                        <img title="Wishlist" onClick={handleWishList} className="w-8 cursor-pointer" src={icon1} alt="" />
                         {
                             user?.email === owner_Email ?
                                 <>
-                                    <Link to={`/update/${_id}`}><img title="Update" className="w-8" src={icon2} alt="" /></Link>
+                                    <Link to={`/update/${_id}`}><img title="Update" className="w-8 cursor-pointer" src={icon2} alt="" /></Link>
                                 </> : ''
                         }
                     </div>
@@ -80,8 +80,8 @@ const BlogDetails = () => {
                     <p className="text-lg my-5">{long_description}</p>
                 </div>
             </div>
-            <div>
-                <div>
+            <div className="my-10">
+                <div className="my-5">
                     <h1 className="text-3xl font-bold">Comment</h1>
                 </div>
                 <CreateComment

@@ -63,7 +63,7 @@ const CreateComment = ({ id, blog_Email }) => {
     return (
         <>
             <form onSubmit={handlePostComment} disabled={isButtonDisabled}>
-                <div className="form-control ">
+                <div className="form-control">
                     <label className="input-group">
                         <span className="bg-transparent"><img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" /></span>
                         <textarea rows={4} type="text" name="comment" placeholder="Write your thoughts here..." className="w-full rounded-xl p-2.5 border-b-2" />
@@ -74,7 +74,7 @@ const CreateComment = ({ id, blog_Email }) => {
                 </div>
             </form>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 my-5">
                 {
                     comments.map(comment =>
                         <ShowComments

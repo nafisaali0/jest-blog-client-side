@@ -5,7 +5,7 @@ import Footer from './../components/shared/Footer/Footer';
 
 const Root = () => {
     return (
-        <div className="bg-[#f0f2f5]">
+        <div className="bg-white">
             <SubNavBar></SubNavBar>
             <NavBar></NavBar>
             <Outlet></Outlet>

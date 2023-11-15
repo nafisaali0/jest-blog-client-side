@@ -30,8 +30,8 @@ const ShowComments = ({ comment }) => {
 
     return (
         <>
-            <div className='flex justify-between items-center'>
-                <div className="flex items-center gap-3 my-3">
+            <div className='flex justify-between items-center my-3'>
+                <div className="flex items-center gap-3">
                     <div>
                         <span className="bg-transparent"><img className="w-12 h-12 rounded-full" src={comment?.owner_image} alt="" /></span>
                     </div>

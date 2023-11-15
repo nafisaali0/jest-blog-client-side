@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 const NewsLetter = () => {
 
-    const [emailInput, setEmailInput] = useState()
+    const [emailInput, setEmailInput] = useState(" ")
 
     const handleNewsLetter = e => {
         e.preventDefault();
