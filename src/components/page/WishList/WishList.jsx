@@ -20,7 +20,7 @@ const WishList = () => {
             <div className='text-3xl font-bold my-5'>
                 <h2>Your WishList</h2>
             </div>
-            <div className="my-5">
+            <div className="my-5 grid grid-cols-1  gap-4">
                 {
                     wishList.map(wishBlog =>
                         <ShowWishList

@@ -38,7 +38,7 @@ const ShowBlogs = ({ blog }) => {
     }
     return (
         <div>
-            <div className="flex flex-col md:gap-6 bg-[#e7e7e9] border border-gray-200 rounded-lg shadow md:flex-row md:w-full hover:bg-gray-100">
+            <div className="flex flex-col md:gap-6 bg-[#e7e7e9] border border-gray-200 rounded-lg shadow md:flex-row md:max-w-4xl hover:bg-gray-100">
                 <img className="object-cover w-full rounded-t-lg h-96 lg:w-[500px] lg:h-[340px] md:w-[400px] md:rounded-l-lg" src={details_image} alt="" />
                 <div className="flex flex-col p-4">
                     <h5 className="mb-2 text-2xl font-bold  text-black">{title}</h5>

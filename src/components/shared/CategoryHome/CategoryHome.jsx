@@ -11,7 +11,7 @@ const CategoryHome = () => {
             .then(res => res.json())
             .then(data => setCategorys(data))
     }, [])
-    console.log(categorys)
+    // console.log(categorys)
 
     return (
         <>

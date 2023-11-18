@@ -25,13 +25,14 @@ const RecentBlog = () => {
 
     return (
         <>
-            <div className="my-5 p-3">
+            <div className="md:col-span-2 my-5 p-3">
                 <div className="my-5">
                     <h1 className="text-3xl font-bold">Recent Blog</h1>
                 </div>
+                {/* md:col-span-2 */}
                 <div className="grid grid-cols-1 gap-3 my-5">
                     {
-                        sortDateTimeBlogs.slice(0,5).map(blog =>
+                        sortDateTimeBlogs.slice(0,6).map(blog =>
                             <ShowRecentBlog
                                 key={blog._id} 
                                 blog={blog}>

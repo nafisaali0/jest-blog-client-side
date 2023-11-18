@@ -14,7 +14,7 @@ const MapBlogs = () => {
 
     return (
         <>
-            <div className="md:col-span-2 grid grid-cols-1 gap-5 my-5 p-3">
+            <div className="my-5 p-3">
                 <div>
                     <div className="my-5">
                         <h1 className="text-3xl font-bold my-5">Blogs</h1>
