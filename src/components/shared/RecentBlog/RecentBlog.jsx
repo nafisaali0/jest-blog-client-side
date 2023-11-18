@@ -29,7 +29,6 @@ const RecentBlog = () => {
                 <div className="my-5">
                     <h1 className="text-3xl font-bold">Recent Blog</h1>
                 </div>
-                {/* md:col-span-2 */}
                 <div className="grid grid-cols-1 gap-3 my-5">
                     {
                         sortDateTimeBlogs.slice(0,6).map(blog =>

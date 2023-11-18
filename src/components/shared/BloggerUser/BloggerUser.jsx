@@ -4,7 +4,6 @@ import ShowBloggerUser from "./ShowBloggerUser";
 const BloggerUser = () => {
 
     const [bloggerUser, setBloggerUser] = useState([])
-    // const [bloggerUser, setBloggerUser] = useState([])
     const [uniqueBloggerUser, setUniqueBloggerUser] = useState([])
 
     useEffect(() => {
@@ -12,7 +11,6 @@ const BloggerUser = () => {
             .then(res => res.json())
             .then(data => {
                 setBloggerUser(data)
-                // setUniqueBloggerUser(data)
             })
     }, [uniqueBloggerUser])
 
@@ -33,19 +31,16 @@ const BloggerUser = () => {
 
     return (
         <>
-            <div className="md:col-span-2 my-5 p-3">
+            <div className="my-5 p-3">
                 <div className="my-5">
-                    <h1 className="text-3xl font-bold">Recent Blog</h1>
+                    <h1 className="text-3xl font-bold">Blogger</h1>
                 </div>
-                {/* md:col-span-2 */}
-                <div className="grid grid-cols-1 gap-3 my-5">
+                <div className="grid grid-cols-1 gap-5 my-5">
                     {
                         uniqueBloggerUser.map(blog =>
                             <ShowBloggerUser
                                 key={blog._id}
-                                blog={blog}
-                                uniqueBloggerUser={uniqueBloggerUser}
-                                setUniqueBloggerUser={setUniqueBloggerUser}>
+                                blog={blog}>
                             </ShowBloggerUser>
                         )
                     }
@@ -56,3 +51,5 @@ const BloggerUser = () => {
 };
 
 export default BloggerUser;
+
+

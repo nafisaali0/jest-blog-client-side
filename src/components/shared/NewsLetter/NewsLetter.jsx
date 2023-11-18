@@ -3,8 +3,6 @@ import banner from '../../../assets/image/background/wave.svg'
 import Swal from 'sweetalert2'
 
 
-
-
 const NewsLetter = () => {
 
     const [emailInput, setEmailInput] = useState(" ")
