@@ -3,17 +3,18 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import moment from 'moment';
 import Swal from "sweetalert2";
 
+
 const AddBlog = () => {
 
     const { user } = useContext(AuthContext)//load currentUser check who create new blog
     const [categorys, setCategorys] = useState([])//this for show all category from server
     const [category, setCategory] = useState('')//this for set category value to send DB using post method
-    
+
     useEffect(() => {
         fetch('http://localhost:5000/category')
             .then(res => res.json())
             .then(data => setCategorys(data))
-    }, [])    
+    }, [])
 
     const handleCreateBlog = e => {
         e.preventDefault();

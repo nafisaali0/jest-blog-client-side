@@ -2,12 +2,17 @@ import logo from '../../../assets/image/logo/logof4.png'
 import icon1 from '../../../assets/image/icons/facebook.svg'
 import icon2 from '../../../assets/image/icons/github1.svg'
 import icon3 from '../../../assets/image/icons/linkedin.svg'
-
+import { motion } from 'framer-motion'
 import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <div className='bg-black pt-10 overflow-hidden'>
+        <motion.div className='bg-black pt-10 overflow-hidden'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 3 }}
+        >
             <footer className="bg-black">
                 <div className="mx-auto w-full container">
                     <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
@@ -91,7 +96,7 @@ const Footer = () => {
                 </div>
             </footer>
 
-        </div>
+        </motion.div>
     );
 };
 

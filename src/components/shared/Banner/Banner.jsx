@@ -6,21 +6,24 @@ import image4 from '../../../assets/image/Banner/banner4.jpg'
 import image5 from '../../../assets/image/Banner/banner5.jpg'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
 import './styles.css';
-
+import { motion } from 'framer-motion'
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const Banner = () => {
     return (
         <>
-            <div className='container mx-auto mt-10 p-3 overflow-hidden'>
+            <motion.div className='container mx-auto mt-10 p-3 overflow-hidden'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 4 }}
+            >
                 <Swiper
                     spaceBetween={40}
                     centeredSlides={true}
@@ -123,7 +126,7 @@ const Banner = () => {
                         <img src={image5} alt="Banner 5" className="w-full rounded-3xl" />
                     </SwiperSlide>
                 </Swiper>
-            </div>
+            </motion.div>
         </>
 
     );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ShowBloggerUser from "./ShowBloggerUser";
-
+import { motion } from 'framer-motion'
 const BloggerUser = () => {
 
     const [bloggerUser, setBloggerUser] = useState([])
@@ -31,7 +31,12 @@ const BloggerUser = () => {
 
     return (
         <>
-            <div className="my-5 p-3">
+            <motion.div className="my-5 p-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 3 }}
+            >
                 <div className="my-5">
                     <h1 className="text-3xl font-bold">Blogger</h1>
                 </div>
@@ -45,7 +50,7 @@ const BloggerUser = () => {
                         )
                     }
                 </div>
-            </div>
+            </motion.div>
         </>
     );
 };

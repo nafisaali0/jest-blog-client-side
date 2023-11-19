@@ -1,14 +1,17 @@
-// import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-// import { AuthContext } from './../../../Providers/AuthProvider';
 import './navbar.css'
 import logo from '../../../assets/image/logo/logof3-removebg.png'
-
+import { motion } from "framer-motion";
 const NavBar = () => {
-    // const { user } = useContext(AuthContext)
+
     return (
         <>
-            <div className="bg-[#e7e7e9]">
+            <motion.div className="bg-[#e7e7e9]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+            >
                 <div className="navbar container mx-auto">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -22,9 +25,6 @@ const NavBar = () => {
                                     <NavLink to="/allblogs">All Blogs</NavLink>
                                     <NavLink to="/featureblog">Featured Blogs</NavLink>
                                     <NavLink to="/wishlist">Wishlist</NavLink>
-                                    {/* {
-                                        user?.email ? <NavLink to="/wishlist">Wishlist</NavLink> : ''
-                                    } */}
                                 </ul>
                             </nav>
                         </div>
@@ -32,21 +32,20 @@ const NavBar = () => {
                     </div>
                     <div className="navbar-end ">
                         <img className="w-20 flex lg:hidden" src={logo} alt="" />
+
                         <ul className="menu menu-horizontal items-center hidden lg:flex">
-                            <nav className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>
-                                <NavLink to="/">Home</NavLink>
-                                <NavLink to="/addblog">Add Blog</NavLink>
-                                <NavLink to="/allblogs">All Blogs</NavLink>
-                                <NavLink to="/featureblog">Featured Blogs</NavLink>
-                                <NavLink to="/wishlist">Wishlist</NavLink>
-                                {/* {
-                                    user?.email ? <NavLink to="/wishlist">Wishlist</NavLink> : ''
-                                } */}
+                            <nav className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>                        
+                                    <NavLink to="/">Home</NavLink>
+                                    <NavLink to="/addblog">Add Blog</NavLink>
+                                    <NavLink to="/allblogs">All Blogs</NavLink>
+                                    <NavLink to="/featureblog">Featured Blogs</NavLink>
+                                    <NavLink to="/wishlist">Wishlist</NavLink>                     
                             </nav>
                         </ul>
+
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
 
     );

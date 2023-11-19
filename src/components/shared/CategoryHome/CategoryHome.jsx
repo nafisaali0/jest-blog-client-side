@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ShowCategoryHome from "./ShowCategoryHome";
-
+import { motion } from 'framer-motion'
 
 const CategoryHome = () => {
 
@@ -15,20 +15,26 @@ const CategoryHome = () => {
 
     return (
         <>
-            <div className="container mx-auto my-10 p-3">
+            <motion.div className="container mx-auto my-10 p-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 3 }}
+            >
                 <div className="text-3xl font-bold my-5">
                     <h1>Category</h1>
                 </div>
                 <div className="flex flex-wrap gap-5">
                     {
-                        categorys.map(showCategory =>
+                        categorys.map((showCategory,index) =>
                             <ShowCategoryHome
-                                key={showCategory._id}
-                                showCategory={showCategory}>
+                                key={index}
+                                showCategory={showCategory}
+                                index={index}>
                             </ShowCategoryHome>)
                     }
                 </div>
-            </div>
+            </motion.div>
         </>
     );
 };

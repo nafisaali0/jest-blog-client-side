@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import banner from '../../../assets/image/background/wave.svg'
 import Swal from 'sweetalert2'
+import { motion } from 'framer-motion';
 
 
 const NewsLetter = () => {
@@ -28,14 +29,23 @@ const NewsLetter = () => {
 
     return (
         <>
-            <div className='h-[370px] mt-10'
+            <motion.div className='h-[370px] mt-10'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 3 }}
                 style={{
                     backgroundImage: `url(${banner})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
                     backgroundSize: 'cover'
-                }}></div>
-            <div className="bg-black">
+                }}></motion.div>
+            <motion.div className="bg-black"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 3 }}
+            >
                 <div className='container mx-auto flex flex-col justify-center items-center border-b-2 border-[#5b608b] py-6'>
                     <div className='flex flex-col lg:flex-row gap-5 items-center '>
                         <div className='text-white flex-1 px-9 md:px-0'>
@@ -52,7 +62,7 @@ const NewsLetter = () => {
                         </form>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
     );
 };
