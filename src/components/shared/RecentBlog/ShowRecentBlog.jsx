@@ -31,7 +31,6 @@ const ShowRecentBlog = ({ blog }) => {
                 if (data.insertedId) {
                     Swal.fire(
                         'Added Blog to WishList'
-
                     )
                 }
             })
@@ -61,7 +60,7 @@ const ShowRecentBlog = ({ blog }) => {
                         <img title="Wishlist" onClick={handleWishList} className='w-[30px] h-[30px] cursor-pointer' src={iconW} alt="detailsbutton" />
                     </div>
                 </div>
-                <img className="object-cover w-full rounded-t-lg h-96 md:h-full md:w-60 md:rounded-none md:rounded-s-lg" src={details_image} alt="" />
+                <img className="object-cover w-full rounded-t-lg h-96 md:h-full md:w-80 md:rounded-none md:rounded-s-lg" src={details_image} alt="" />
             </a>
         </>
     );

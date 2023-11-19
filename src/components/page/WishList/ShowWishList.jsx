@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import icon1 from '../../../assets/image/icons/details1.svg'
 import icon2 from '../../../assets/image/icons/delete.svg'
 import Swal from 'sweetalert2';
-const ShowWishList = ({ wishBlog }) => {
+const ShowWishList = ({ wishBlog, wishList, setchangeWishListState }) => {
 
     const { _id, title, details_image, short_description, category } = wishBlog
 
@@ -32,11 +32,15 @@ const ShowWishList = ({ wishBlog }) => {
                                 'Your save blog has been deleted.',
                                 'success'
                             )
+                            // clear state after delete wishlist's blog
+                            const loadBlogAfterDelete = wishList.filter(blog => blog._id !== _id)
+                            setchangeWishListState(loadBlogAfterDelete)
                         }
 
                     })
             }
         })
+
     }
 
     return (
@@ -65,8 +69,8 @@ const ShowWishList = ({ wishBlog }) => {
 
 ShowWishList.propTypes = {
     wishBlog: PropTypes.obj,
-    wishListExist: PropTypes.func,
-    setWishListExist: PropTypes.func
+    wishList: PropTypes.array,
+    setchangeWishListState: PropTypes.func
 };
 
 export default ShowWishList;

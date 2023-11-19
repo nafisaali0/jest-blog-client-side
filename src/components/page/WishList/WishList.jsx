@@ -7,12 +7,14 @@ const WishList = () => {
     
     const { user } = useContext(AuthContext)
     const [wishList, setWishList] = useState([])    
+    const [changeWishListState, setchangeWishListState] = useState([])    
 
     useEffect(() => {
         fetch(`http://localhost:5000/wishlist?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
-                setWishList(data)
+                setWishList(data),
+                setchangeWishListState(data)
             })
     }, [user.email])
     return (
@@ -22,10 +24,12 @@ const WishList = () => {
             </div>
             <div className="my-5 grid grid-cols-1  gap-4">
                 {
-                    wishList.map(wishBlog =>
+                   changeWishListState.map(wishBlog =>
                         <ShowWishList
                             key={wishBlog._id}
-                            wishBlog={wishBlog}>
+                            wishBlog={wishBlog}
+                            wishList={wishList}
+                            setchangeWishListState={setchangeWishListState}>
                         </ShowWishList>
                     )
                 }

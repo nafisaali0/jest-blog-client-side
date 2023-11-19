@@ -10,18 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mui/material": "^5.14.17",
-    "@mui/styled-engine-sc": "^6.0.0-alpha.5",
     "firebase": "^10.5.2",
+    "framer-motion": "^10.16.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "moment": "^2.29.4",
     "react": "^18.2.0",
+    "react-data-table-component": "^7.5.4",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
     "sort-by": "^1.2.0",
     "styled-components": "^6.1.1",
-    "sweetalert2": "^11.9.0"
+    "sweetalert2": "^11.9.0",
+    "swiper": "^11.0.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

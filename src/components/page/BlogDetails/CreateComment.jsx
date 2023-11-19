@@ -7,8 +7,10 @@ import ShowComments from './ShowComments';
 const CreateComment = ({ id, blog_Email }) => {
 
     const { user } = useContext(AuthContext)//uses: currentUser cannot comment own blog
-    const [comments, setComments] = useState([]);
-    const [isButtonDisabled, setisButtonDisabled] = useState(false)
+    const [isButtonDisabled, setisButtonDisabled] = useState(false)//uses: comment post btn disabled for currentUser 
+    const [comments, setComments] = useState([]);//load all comments
+    const [changeCommentsState, setChangeCommentsState] = useState([]);//change comment state after delete comment
+
 
     //create comment 
     const handlePostComment = e => {
@@ -58,6 +60,7 @@ const CreateComment = ({ id, blog_Email }) => {
             .then(res => res.json())
             .then(data => {
                 setComments(data)
+                setChangeCommentsState(data)
             })
     }, [id])
     return (
@@ -76,10 +79,12 @@ const CreateComment = ({ id, blog_Email }) => {
 
             <div className="flex flex-col gap-3 my-5">
                 {
-                    comments.map(comment =>
+                    changeCommentsState.map(comment =>
                         <ShowComments
                             key={comment._id}
-                            comment={comment}>
+                            comment={comment}
+                            comments={comments}
+                            setChangeCommentsState={setChangeCommentsState}>
                         </ShowComments>
                     )
                 }

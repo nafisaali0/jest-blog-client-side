@@ -1,11 +1,11 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from './../../../Providers/AuthProvider';
+// import { AuthContext } from './../../../Providers/AuthProvider';
 import './navbar.css'
-import logo from '../../../assets/image/logo/logof3.png'
+import logo from '../../../assets/image/logo/logof3-removebg.png'
 
 const NavBar = () => {
-    const { user } = useContext(AuthContext)
+    // const { user } = useContext(AuthContext)
     return (
         <>
             <div className="bg-[#e7e7e9]">
@@ -21,9 +21,10 @@ const NavBar = () => {
                                     <NavLink to="/addblog">Add Blog</NavLink>
                                     <NavLink to="/allblogs">All Blogs</NavLink>
                                     <NavLink to="/featureblog">Featured Blogs</NavLink>
-                                    {
+                                    <NavLink to="/wishlist">Wishlist</NavLink>
+                                    {/* {
                                         user?.email ? <NavLink to="/wishlist">Wishlist</NavLink> : ''
-                                    }
+                                    } */}
                                 </ul>
                             </nav>
                         </div>
@@ -37,9 +38,10 @@ const NavBar = () => {
                                 <NavLink to="/addblog">Add Blog</NavLink>
                                 <NavLink to="/allblogs">All Blogs</NavLink>
                                 <NavLink to="/featureblog">Featured Blogs</NavLink>
-                                {
+                                <NavLink to="/wishlist">Wishlist</NavLink>
+                                {/* {
                                     user?.email ? <NavLink to="/wishlist">Wishlist</NavLink> : ''
-                                }
+                                } */}
                             </nav>
                         </ul>
                     </div>

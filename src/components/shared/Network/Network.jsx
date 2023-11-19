@@ -3,7 +3,7 @@ import image1 from '../../../assets/image/network/image2.jpg'
 import { Link } from 'react-router-dom';
 const Network = () => {
     return (
-        <div className='container mx-auto mt-5'>
+        <div className='container mx-auto mt-5 p-3'>
             <div className="hero h-[500px]" style={{ backgroundImage: `url(${image1})` }}>
                 <div className="hero-overlay bg-black bg-opacity-50"></div>
                 <div className="hero-content text-center text-neutral-content">

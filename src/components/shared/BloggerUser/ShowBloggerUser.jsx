@@ -1,13 +1,19 @@
 import PropTypes from 'prop-types';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import Loader from '../Loader/Loader';
 // import { useEffect, useState } from 'react';
 
 const ShowBloggerUser = ({ blog }) => {
 
     const { owner_name, owner_image, owner_Email } = blog
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const [following, setFollowing] = useState(false)
+
+    // wait for user    
+    if (loading) {
+        return <Loader></Loader>
+    }
 
     // follow Btn conditon
     const handleFollowUser = () => {

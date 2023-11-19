@@ -15,16 +15,19 @@ const Footer = () => {
                             <h2 className="mb-6 text-sm font-semibold text-white uppercase">Company</h2>
                             <ul className="text-white font-medium">
                                 <li className="mb-4">
-                                    <Link className=" hover:underline">Home</Link>
+                                    <Link to={'/'} className=" hover:underline">Home</Link>
                                 </li>
                                 <li className="mb-4">
-                                    <Link className=" hover:underline">Add Blog</Link>
+                                    <Link to={'/addblog'} className=" hover:underline">Add Blog</Link>
                                 </li>
                                 <li className="mb-4">
-                                    <Link className=" hover:underline">All Blogs</Link>
+                                    <Link to={'/allblogs'} className=" hover:underline">All Blogs</Link>
                                 </li>
                                 <li className="mb-4">
-                                    <Link className=" hover:underline">Blog</Link>
+                                    <Link to={'/featureblog'} className=" hover:underline">Feature Blog</Link>
+                                </li>
+                                <li className="mb-4">
+                                    <Link to={'/wishlist'} className=" hover:underline">Wishlist</Link>
                                 </li>
                             </ul>
                         </div>

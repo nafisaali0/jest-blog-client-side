@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 
-const ShowComments = ({ comment }) => {
+const ShowComments = ({ comment, comments, setChangeCommentsState }) => {
     const { user } = useContext(AuthContext)
     const { _id } = comment//data come from CreateComment comp
 
@@ -24,7 +24,9 @@ const ShowComments = ({ comment }) => {
                         'success'
                     )
                 }
-
+                // clear state after delete comments
+                const loadCommentsAfterDelete = comments.filter(comment => comment._id !== _id)
+                setChangeCommentsState(loadCommentsAfterDelete)
             })
     }
 
@@ -57,8 +59,8 @@ const ShowComments = ({ comment }) => {
 
 ShowComments.propTypes = {
     comment: PropTypes.obj,
-    commentDelete: PropTypes.func,
-    setCommentDelete: PropTypes.func
+    comments: PropTypes.array,
+    setChangeCommentsState: PropTypes.func
 };
 
 export default ShowComments;
