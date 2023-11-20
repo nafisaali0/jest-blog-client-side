@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import moment from 'moment';
 import ShowRecentBlog from "./ShowRecentBlog";
-import { motion } from 'framer-motion'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 
@@ -13,10 +12,10 @@ const RecentBlog = () => {
     useEffect(() => {
         setIsLoading(true);
         setTimeout(() => {
-            fetch('http://localhost:5000/blogs')
+            fetch('https://blog-server-side-ochre.vercel.app/blogs')
                 .then(res => res.json())
                 .then(data => setRecentBlogs(data))
-        }, 2000)
+        })
         setIsLoading(false)
     }, [])
 
@@ -35,12 +34,7 @@ const RecentBlog = () => {
 
     return (
         <>
-            <motion.div className="md:col-span-2 my-5 p-3"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 4 }}
-            >
+            <div className="md:col-span-2 my-5 p-3">
                 <div className="my-5">
                     <h1 className="text-3xl font-bold">Recent Blog</h1>
                 </div>
@@ -58,7 +52,7 @@ const RecentBlog = () => {
 
                     }
                 </div>
-            </motion.div>
+            </div>
         </>
     );
 };

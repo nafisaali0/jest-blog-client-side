@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home>,
+                element:<Home></Home>,
             },
             {
                 path: '/signin',
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path: '/allblogs',
                 element: <AllBlogs></AllBlogs>,
-                loader: () => fetch('http://localhost:5000/blogs')
+                loader: () => fetch('https://blog-server-side-ochre.vercel.app/blogs')
             },
             {
                 path: '/addblog',
@@ -45,12 +45,12 @@ const router = createBrowserRouter([
             {
                 path: '/blogdetails/:id',
                 element: <PrivateRoutes><BlogDetails></BlogDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+                loader: ({ params }) => fetch(`https://blog-server-side-ochre.vercel.app/blogs/${params.id}`)
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoutes><UpdateBlog></UpdateBlog></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+                loader: ({ params }) => fetch(`https://blog-server-side-ochre.vercel.app/blogs/${params.id}`)
             },
             {
                 path: '/wishlist',
@@ -59,12 +59,12 @@ const router = createBrowserRouter([
             {
                 path: '/featureblog',
                 element: <FeatureBlog></FeatureBlog>,
-                loader: () => fetch('http://localhost:5000/blogs')
+                loader: () => fetch('https://blog-server-side-ochre.vercel.app/blogs')
             },
             {
                 path: '/blogs/category/:category',
                 element: <CategoryBlogs></CategoryBlogs>,
-                loader: ({ params }) => fetch(`http://localhost:5000/blogs/category/${params.category}`)
+                loader: ({ params }) => fetch(`https://blog-server-side-ochre.vercel.app/blogs/category/${params.category}`)
             },
         ],
     },

@@ -1,17 +1,12 @@
 import { NavLink } from "react-router-dom";
 import './navbar.css'
 import logo from '../../../assets/image/logo/logof3-removebg.png'
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 const NavBar = () => {
 
     return (
         <>
-            <motion.div className="bg-[#e7e7e9]"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
-            >
+            <div className="bg-[#e7e7e9]">
                 <div className="navbar container mx-auto">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -45,7 +40,7 @@ const NavBar = () => {
 
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </>
 
     );

@@ -11,7 +11,7 @@ const ShowComments = ({ comment, comments, setChangeCommentsState }) => {
     // delete currentUser comment
     const handleDelete = () => {
 
-        fetch(`http://localhost:5000/comments/${_id}`, {
+        fetch(`https://blog-server-side-ochre.vercel.app/comments/${_id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

@@ -22,7 +22,7 @@ const BlogDetails = () => {
         const blogWishListInfo = { email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
 
         //send wishlist data to the server and below link from backend's created API and load in mongo as DB
-        fetch('http://localhost:5000/wishlist', {
+        fetch('https://blog-server-side-ochre.vercel.app/wishlist', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

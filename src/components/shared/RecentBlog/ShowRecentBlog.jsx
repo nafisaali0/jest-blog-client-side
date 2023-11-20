@@ -22,7 +22,7 @@ const ShowRecentBlog = ({ blog, isLoading }) => {
         const blogWishListInfo = { email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
 
         //send data to the server and below link from backend's created API and load in mongo as DB
-        fetch('http://localhost:5000/wishlist', {
+        fetch('https://blog-server-side-ochre.vercel.app/wishlist', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -71,7 +71,7 @@ const ShowRecentBlog = ({ blog, isLoading }) => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 4 }}
+                        transition={{ duration: 2 }}
                     >
                         <div className="flex flex-col justify-between p-4 leading-normal">
                             <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 ">{title}</h5>

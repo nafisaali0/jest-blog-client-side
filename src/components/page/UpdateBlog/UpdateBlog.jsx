@@ -14,7 +14,7 @@ const UpdateBlog = () => {
     const [category, setCategory] = useState('')//set category value to send it to update blog
 
     useEffect(() => {
-        fetch('http://localhost:5000/category')
+        fetch('https://blog-server-side-ochre.vercel.app/category')
             .then(res => res.json())
             .then(data => setCategorys(data))
     }, [])
@@ -37,7 +37,7 @@ const UpdateBlog = () => {
 
 
         // sent update productinfo to server
-        fetch(`http://localhost:5000/blogs/${_id}`, {
+        fetch(`https://blog-server-side-ochre.vercel.app/blogs/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

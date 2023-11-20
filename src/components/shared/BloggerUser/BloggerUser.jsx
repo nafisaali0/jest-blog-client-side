@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import ShowBloggerUser from "./ShowBloggerUser";
-import { motion } from 'framer-motion'
 const BloggerUser = () => {
 
     const [bloggerUser, setBloggerUser] = useState([])
     const [uniqueBloggerUser, setUniqueBloggerUser] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://blog-server-side-ochre.vercel.app/blogs')
             .then(res => res.json())
             .then(data => {
                 setBloggerUser(data)
@@ -34,12 +33,7 @@ const BloggerUser = () => {
 
     return (
         <>
-            <motion.div className="my-5 p-3"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 3 }}
-            >
+            <div className="my-5 p-3">
                 <div className="my-5">
                     <h1 className="text-3xl font-bold">Blogger</h1>
                 </div>
@@ -53,7 +47,7 @@ const BloggerUser = () => {
                         )
                     }
                 </div>
-            </motion.div>
+            </div>
         </>
     );
 };

@@ -35,7 +35,7 @@ const CreateComment = ({ id, blog_Email }) => {
             )
         } else {
             //create comment to backend api
-            fetch('http://localhost:5000/comments', {
+            fetch('https://blog-server-side-ochre.vercel.app/comments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -56,7 +56,7 @@ const CreateComment = ({ id, blog_Email }) => {
 
     // show comment from backend api
     useEffect(() => {
-        fetch(`http://localhost:5000/comments?blog_id=${id}`)
+        fetch(`https://blog-server-side-ochre.vercel.app/comments?blog_id=${id}`)
             .then(res => res.json())
             .then(data => {
                 setComments(data)

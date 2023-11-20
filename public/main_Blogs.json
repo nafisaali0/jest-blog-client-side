@@ -6,11 +6,7 @@
         "long_description": "Responsive web design is essential in today's digital landscape. Explore fluid grids, flexible images, and media queries. Learn to create web experiences that adapt to various screen sizes and master responsive web design to impress your audience.",
         "image": "https://i.ibb.co/G7jtVwN/card1.jpg",
         "details_image": "https://i.ibb.co/9sQwgZq/card1.jpg",
-        "date": "2023-11-08",
-        "time": "12:00 pm",
-        "category": "Web Development",
-        "owner_name": "Ella Johnson",
-        "owner_image": "https://i.ibb.co/CtqhBv9/user12.jpg"
+        "category": "Web Development"
     },
     {
         "id": 2,
@@ -19,11 +15,7 @@
         "long_description": "JavaScript frameworks have revolutionized web development. In this in-depth blog post, we provide a comprehensive comparison of popular JavaScript frameworks such as React, Angular, and Vue.js. Discuss their strengths, weaknesses, and use cases, helping you make informed decisions for your projects. Get ready to dive deep into the world of JavaScript frameworks and enhance your web development skills.",
         "image": "https://i.ibb.co/7KYnxGx/card2.jpg",
         "details_image": "https://i.ibb.co/D8gjTYQ/card2.jpg",
-        "date": "2023-11-12",
-        "time": "10:30 am",
-        "category": "Web Development",
-        "owner_name": "Daniel Carter",
-        "owner_image": "https://i.ibb.co/X2k4ZsV/user2.jpg"
+        "category": "Web Development"
     },
     {
         "id": 3,
@@ -32,11 +24,7 @@
         "long_description": "Budgeting is the foundation of sound financial management. In this informative blog post, we guide you through the basics of budgeting, including setting financial goals, creating a budget plan, and managing your expenses. With practical tips and real-life examples, you'll be well on your way to achieving financial freedom and securing your future.",
         "image": "https://i.ibb.co/SRxkb5q/card3.jpg",
         "details_image": "https://i.ibb.co/gmmjzJM/card3.jpg",
-        "date": "2023-11-10",
-        "time": "3:00 pm",
-        "category": "Money",
-        "owner_name": "Sophia Anderson",
-        "owner_image": "https://i.ibb.co/6gGB1VT/user11.jpg"
+        "category": "Money"
     },
     {
         "id": 4,
@@ -45,11 +33,7 @@
         "long_description": "Real estate can be a lucrative investment. In this comprehensive blog post, we introduce you to the fundamentals of real estate investing, including property types, location selection, and financing options. Whether you're a complete beginner or looking to expand your investment portfolio, this guide will provide valuable insights to help you get started in the world of real estate investing.",
         "image": "https://i.ibb.co/jDskJVC/card4.jpg",
         "details_image": "https://i.ibb.co/f0DThWX/card4.jpg",
-        "date": "2023-11-15",
-        "time": "2:30 pm",
-        "category": "Money",
-        "owner_name": "William Foster",
-        "owner_image": "https://i.ibb.co/X5TVFQG/user3.png"
+        "category": "Money"
     },
     {
         "id": 5,
@@ -58,11 +42,7 @@
         "long_description": "Positive thinking is a powerful tool for personal growth and happiness. In this blog post, we explore the science behind positive thinking, practical tips for cultivating a positive mindset, and real-life success stories. Learn how changing your perspective can lead to improved well-being, increased resilience, and the ability to face life's challenges with optimism.",
         "image": "https://i.ibb.co/7RcxDFk/card5.jpg",
         "details_image": "https://i.ibb.co/j8nPJfL/card5.webp",
-        "date": "2023-11-10",
-        "time": "4:00 pm",
-        "category": "Self Development",
-        "owner_name": "Olivia Parker",
-        "owner_image": "https://i.ibb.co/ZzPmXjc/user4.jpg"
+        "category": "Self Development"
     },
     {
         "id": 6,
@@ -71,11 +51,7 @@
         "long_description": "Goal setting is a key driver of personal development. In this comprehensive blog post, we break down the process of effective goal setting, from defining your goals to creating action plans and tracking progress. Discover the strategies and techniques to turn your dreams into reality, and take control of your life by achieving your most significant aspirations.",
         "image": "https://i.ibb.co/dJtzTz8/card6.jpg",
         "details_image": "https://i.ibb.co/0msZtyk/card6.webp",
-        "date": "2023-11-15",
-        "time": "3:30 pm",
-        "category": "Self Development",
-        "owner_name": "Matthew Robinson",
-        "owner_image": "https://i.ibb.co/wrYQkM2/user5.jpg"
+        "category": "Self Development"
     },
     {
         "id": 7,
@@ -84,11 +60,7 @@
         "long_description": "Space exploration has always been a source of fascination and discovery. In this blog post, we dive into the remarkable achievements in space exploration, from landing on the Moon to exploring distant planets and celestial phenomena. Join us on a journey through the cosmos and learn about the groundbreaking missions that have expanded our knowledge of the universe.",
         "image": "https://i.ibb.co/9HY7Qw5/card7.jpg",
         "details_image": "https://i.ibb.co/711Tv7N/card7.webp",
-        "date": "2023-11-10",
-        "time": "4:30 pm",
-        "category": "Science",
-        "owner_name": "Emily Harrison",
-        "owner_image": " https://i.ibb.co/9854rKM/user10.jpg"
+        "category": "Science"
     },
     {
         "id": 8,
@@ -97,14 +69,7 @@
         "long_description": "Artificial intelligence is a rapidly evolving field with significant implications for society. In this blog post, we examine the latest developments in AI, including machine learning, deep learning, and their applications. Explore the potential and challenges of AI, and gain insights into the role it will play in shaping the future of technology and beyond.",
         "image": "https://i.ibb.co/DYQThvp/card8.png",
         "details_image": "https://i.ibb.co/QczwtCN/card8.webp",
-        "date": "2023-11-15",
-        "time": "3:00 pm",
-        "category": "Science",
-        "owner_name": "Jonathan Martinez",
-        "owner_image": "https://i.ibb.co/4Y4G1ss/user6.png"
-    },
-    {
-        "above 2(next) numbers file": "avilable to add by user"
+        "category": "Science"
     },
     {
         "id": 9,
@@ -113,11 +78,7 @@
         "long_description": "Time management is a crucial skill for achieving productivity and success. In this blog post, we explore proven time management techniques, including setting priorities, creating schedules, and eliminating time-wasting habits. Discover how better time management can help you accomplish more and find the balance you need in your personal and professional life.",
         "image": "https://i.ibb.co/K75pwv6/card9.jpg",
         "details_image": "https://i.ibb.co/Y0xMq6B/card9.webp",
-        "date": "2023-11-10",
-        "time": "5:00 pm",
-        "category": "Productivity",
-        "owner_name": "Natalie Mitchell",
-        "owner_image": "https://i.ibb.co/34HXnfC/user9.jpg"
+        "category": "Productivity"
     },
     {
         "id": 10,
@@ -126,11 +87,7 @@
         "long_description": "Goal setting is a cornerstone of productivity and personal development. In this blog post, we delve into the art of setting meaningful and actionable goals. You'll learn how to define your goals, break them down into manageable steps, and stay motivated to achieve them. Discover the power of setting goals to drive productivity and unleash your potential.",
         "image": "https://i.ibb.co/fGS14cB/card10.jpg",
         "details_image": "https://i.ibb.co/60wbmGT/card10.jpg",
-        "date": "2023-11-15",
-        "time": "4:30 pm",
-        "category": "Productivity",
-        "owner_name": "David Patel",
-        "owner_image": "https://i.ibb.co/ynd4yY2/user7.jpg"
+        "category": "Productivity"
     },
     {
         "id": 11,
@@ -139,11 +96,7 @@
         "long_description": "Content marketing is a powerful strategy for building brand awareness and engaging your audience. In this blog post, we explore the art of content marketing, from creating valuable content to distributing it effectively. Learn how to craft compelling stories, optimize for search engines, and measure the impact of your content marketing efforts. Elevate your marketing game and create content that resonates with your target audience.",
         "image": "https://i.ibb.co/PZvdpZh/card11.jpg",
         "details_image": "https://i.ibb.co/861B7fT/card11.webp",
-        "date": "2023-11-10",
-        "time": "6:00 pm",
-        "category": "Marketing",
-        "owner_name": "Sophie Turner",
-        "owner_image": "https://i.ibb.co/ZzwxvQt/user8.png"
+        "category": "Marketing"       
     },
     {
         "id": 12,
@@ -152,10 +105,24 @@
         "long_description": "Social media has become a vital tool for businesses seeking to connect with their audience. In this blog post, we delve into the strategies that can help your business thrive on social media platforms. From content planning and engagement tactics to analyzing social media metrics, you'll gain insights into leveraging the power of social media for business growth. Unlock the potential of social media marketing to expand your brand's reach and influence.",
         "image": "https://i.ibb.co/vXqjtDj/card12.jpg",
         "details_image": "https://i.ibb.co/pJzGJbc/card12.jpg",
-        "date": "2023-11-15",
-        "time": "5:30 pm",
-        "category": "Marketing",
-        "owner_name": "John Smith",
-        "owner_image": "https://i.ibb.co/1vDVfgX/user1.jpg"
+        "category": "Marketing"
+    },
+    {
+        "id": 13,
+        "title": "4 React Tips to Instantly Improve Your Code",
+        "short_description": "To help you in your journey, I’d like to share four tips that have been helpful to me in writing better React code. I hope you’ll find something new and useful. So let's get right into it!",
+        "long_description": "Separate responsibilities: Making a “God” component is a common mistake that developers make. It’s called “God” because it contains many lines of code that are hard to understand and maintain. I strongly recommend dividing components into sets of independent sub-modules.Use objects map instead of conditions If you need to display various elements depending on the variable, you can implement that tip. Using this easy strategy makes components more declarative and simplifies code understanding. Moreover, it makes it more painless to extend functionality further.",
+        "image": "https://i.ibb.co/Ctn5g2V/card13.webp",
+        "details_image": "https://i.ibb.co/Ctn5g2V/card13.webp",
+        "category": "Web Development"
+    },
+    {
+        "id": 14,
+        "title": "10 Open-Source Projects For Web Developers In 2023",
+        "short_description": "Open source and devs are an open love affair that closed source doesn’t like. For those of you who don’t like declarations like that, ↓ is a set of metrics from Boston Consulting Group that should start warming you up.",
+        "long_description": "Developing a notification layer is a common task when designing a new application. It typically starts with sending a simple email, but you may manage hundreds of notifications across multiple channels as the application grows. This can be a time-consuming and complex process. That’s where Novu comes in. Novu is an infrastructure development platform that helps developers build and deploy cloud-native applications. Its goal is to make it easier for developers to create meaningful, transactional communication between their product and its users.",
+        "image": "https://i.ibb.co/1Qtzss6/card14webp.webp",
+        "details_image": "https://i.ibb.co/1Qtzss6/card14webp.webp",
+        "category": "Web Development"
     }
 ]

@@ -14,6 +14,7 @@ import image5 from '../../../assets/image/Banner/banner5.jpg'
 
 
 const Banner = () => {
+    
     return (
         <>
             <motion.div className='container mx-auto mt-10 p-3 overflow-hidden'

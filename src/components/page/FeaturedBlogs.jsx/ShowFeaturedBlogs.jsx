@@ -25,10 +25,6 @@ const ShowFeaturedBlogs = ({ sortByWord }) => {
             }
         },
     }
-
-
-
-
     const columns = [
         {
             name: 'Serial Number',

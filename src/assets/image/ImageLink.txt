@@ -12,8 +12,8 @@ card image link
 10.https://i.ibb.co/fGS14cB/card10.jpg
 11.https://i.ibb.co/PZvdpZh/card11.jpg
 12.https://i.ibb.co/vXqjtDj/card12.jpg
-
-
+13.https://i.ibb.co/Ctn5g2V/card13.webp
+14.https://i.ibb.co/1Qtzss6/card14webp.webp
 
 -----------------------------------------------------------------------------------------------------
 
@@ -32,7 +32,8 @@ card details image link
 10.https://i.ibb.co/60wbmGT/card10.jpg
 11.https://i.ibb.co/861B7fT/card11.webp
 12.https://i.ibb.co/pJzGJbc/card12.jpg
-
+13.https://i.ibb.co/Ctn5g2V/card13.webp
+14.https://i.ibb.co/1Qtzss6/card14webp.webp
 
 
 ---------------------------------------------------------------------------------------------------------------

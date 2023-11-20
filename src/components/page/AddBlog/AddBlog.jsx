@@ -11,7 +11,7 @@ const AddBlog = () => {
     const [category, setCategory] = useState('')//this for set category value to send DB using post method
 
     useEffect(() => {
-        fetch('http://localhost:5000/category')
+        fetch('https://blog-server-side-ochre.vercel.app/category')
             .then(res => res.json())
             .then(data => setCategorys(data))
     }, [])
@@ -31,7 +31,7 @@ const AddBlog = () => {
         const newBlog = { title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
         // console.log(newBlog)
 
-        fetch('http://localhost:5000/blogs', {
+        fetch('https://blog-server-side-ochre.vercel.app/blogs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

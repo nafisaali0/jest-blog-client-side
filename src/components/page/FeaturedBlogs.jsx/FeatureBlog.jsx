@@ -10,9 +10,9 @@ const FeatureBlog = () => {
 
     useEffect(() => {
         const sortload = blog.sort((a, b) =>
-            //in below sorting based on assending order 
-            a.long_description.length - b.long_description.length
             // in below sorting based on decending order
+            b.long_description.length - a.long_description.length
+            //in below sorting based on assending order 
             // a.long_description.length - b.long_description.length
         );
         setSortByWord(sortload)
