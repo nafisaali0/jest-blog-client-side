@@ -15,10 +15,13 @@ const BloggerUser = () => {
     }, [uniqueBloggerUser])
 
     // console.log(bloggerUser)
+
+    // get blogger user by filter all blogger's user
     useEffect(() => {
+        
         // Create an array of unique emails
         const uniqueEmails = [...new Set(bloggerUser.map(blogger => blogger.owner_Email))];
-        console.log(uniqueEmails)
+
         // Filter bloggerUser to get uniqueBloggerUsers based on unique emails
         const uniqueBloggerUsersArray = uniqueEmails.map(email => {
             return bloggerUser.find(blogger => blogger.owner_Email === email);

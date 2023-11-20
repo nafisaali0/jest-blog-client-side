@@ -2,18 +2,27 @@ import { useEffect, useState } from "react";
 import moment from 'moment';
 import ShowRecentBlog from "./ShowRecentBlog";
 import { motion } from 'framer-motion'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 
 const RecentBlog = () => {
     const [recentBlogs, setRecentBlogs] = useState([])//show category from backend
-    const [sortDateTimeBlogs, setSortDateTimeBlogs] = useState([])
+    const [sortDateTimeBlogs, setSortDateTimeBlogs] = useState([]) //load sorting blogs
+    const [isLoading, setIsLoading] = useState(true)//loading control for showing skeleton
 
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
-            .then(res => res.json())
-            .then(data => setRecentBlogs(data))
+        setIsLoading(true);
+        setTimeout(() => {
+            fetch('http://localhost:5000/blogs')
+                .then(res => res.json())
+                .then(data => setRecentBlogs(data))
+        }, 2000)
+        setIsLoading(false)
     }, [])
+
     // console.log(recentBlogs)
 
+    // sorting by data and time 
     useEffect(() => {
         const sortedDateTime = recentBlogs.sort((a, b) =>
             moment(b.date + ' ' + b.time, 'MMM Do YY LT').toDate() -
@@ -30,7 +39,7 @@ const RecentBlog = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 3 }}
+                transition={{ duration: 4 }}
             >
                 <div className="my-5">
                     <h1 className="text-3xl font-bold">Recent Blog</h1>
@@ -40,9 +49,13 @@ const RecentBlog = () => {
                         sortDateTimeBlogs.slice(0, 6).map(blog =>
                             <ShowRecentBlog
                                 key={blog._id}
+                                isLoading={isLoading}
+                                setIsLoading={setIsLoading}
                                 blog={blog}>
                             </ShowRecentBlog>
+
                         )
+
                     }
                 </div>
             </motion.div>

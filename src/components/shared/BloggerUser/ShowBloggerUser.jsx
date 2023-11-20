@@ -1,19 +1,15 @@
 import PropTypes from 'prop-types';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
-import Loader from '../Loader/Loader';
-// import { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import { motion } from 'framer-motion';
+
 
 const ShowBloggerUser = ({ blog }) => {
 
     const { owner_name, owner_image, owner_Email } = blog
     const { user, loading } = useContext(AuthContext)
     const [following, setFollowing] = useState(false)
-
-    // wait for user    
-    if (loading) {
-        return <Loader></Loader>
-    }
 
     // follow Btn conditon
     const handleFollowUser = () => {
@@ -25,29 +21,51 @@ const ShowBloggerUser = ({ blog }) => {
     }
     return (
         <>
-            <div className='flex gap-8 w-full bg-white border border-gray-200 rounded-lg shadow  p-10'>
-                <div className="avatar">
-                    <div className="w-24 rounded-full">
-                        <img src={owner_image} />
+            {
+                loading ?
+                    <div className='flex gap-8 w-full bg-white border border-gray-200 rounded-lg shadow  p-10'>
+                        <div className="avatar">
+                            <div className="w-24 rounded-full">
+                                <Skeleton circle={true} width={100} height={100} />
+                            </div>
+                        </div>
+                        <div>
+                            <h1 className='text-lg font-bold'><Skeleton width={100}></Skeleton></h1>
+                            <p className='text-sm font-bold'><Skeleton width={100} count={2}></Skeleton></p>
+                        </div>
+                        <div>
+                            <div className="badge  p-3 font-bold text-white bg-[#5b608b] cursor-pointer"><Skeleton></Skeleton></div>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <h1 className='text-lg font-bold'>{owner_name}</h1>
-                    <p className='text-sm font-bold'>CheckOut my blog</p>
-                </div>
-                <div>
-                    {
-                        user.email !== owner_Email ?
-                            following ? <div onClick={handleFollowUser} className="badge  p-3 font-bold text-white bg-[#5b608b] cursor-pointer">following</div>
-                                :
-                                <div onClick={handleFollowUser} className="badge badge-neutral p-3 font-bold text-white bg-black cursor-pointer">follow</div>
-                            :
-                            <div className="badge  p-3 font-bold text-white bg-[#5b608b] cursor-pointer">Editor</div>
-                    }
+                    :
+                    <motion.div className='flex gap-8 w-full bg-white border border-gray-200 rounded-lg shadow  p-10'
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 3 }}
+                    >
+                        <div className="avatar">
+                            <div className="w-24 rounded-full">
+                                <img src={owner_image} />
+                            </div>
+                        </div>
+                        <div>
+                            <h1 className='text-lg font-bold'>{owner_name}</h1>
+                            <p className='text-sm font-bold'>CheckOut my blog</p>
+                        </div>
+                        <div>
+                            {
+                                user.email !== owner_Email ?
+                                    following ? <div onClick={handleFollowUser} className="badge  p-3 font-bold text-white bg-[#5b608b] cursor-pointer">following</div>
+                                        :
+                                        <div onClick={handleFollowUser} className="badge badge-neutral p-3 font-bold text-white bg-black cursor-pointer">follow</div>
+                                    :
+                                    <div className="badge  p-3 font-bold text-white bg-[#5b608b] cursor-pointer">Editor</div>
+                            }
 
-                </div>
-            </div>
-
+                        </div>
+                    </motion.div>
+            }
         </>
     );
 };

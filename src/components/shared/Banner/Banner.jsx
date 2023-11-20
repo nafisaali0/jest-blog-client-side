@@ -1,19 +1,17 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import './styles.css';
+import { motion } from 'framer-motion'//smooth animation
 import { Link } from 'react-router-dom'
 import image1 from '../../../assets/image/Banner/banner1.jpg'
 import image2 from '../../../assets/image/Banner/banner2.jpg'
 import image3 from '../../../assets/image/Banner/banner3.jpg'
 import image4 from '../../../assets/image/Banner/banner4.jpg'
 import image5 from '../../../assets/image/Banner/banner5.jpg'
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import './styles.css';
-import { motion } from 'framer-motion'
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
 
 const Banner = () => {
     return (
@@ -127,6 +125,8 @@ const Banner = () => {
                     </SwiperSlide>
                 </Swiper>
             </motion.div>
+
+
         </>
 
     );

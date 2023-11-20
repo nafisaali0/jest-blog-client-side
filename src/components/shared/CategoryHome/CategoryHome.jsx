@@ -4,8 +4,9 @@ import { motion } from 'framer-motion'
 
 const CategoryHome = () => {
 
-    const [categorys, setCategorys] = useState([])//show category from backend
-
+    const [categorys, setCategorys] = useState([])//load category 
+    
+    // call category api 
     useEffect(() => {
         fetch('http://localhost:5000/category')
             .then(res => res.json())
