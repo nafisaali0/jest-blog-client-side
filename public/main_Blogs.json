@@ -124,5 +124,15 @@
         "image": "https://i.ibb.co/1Qtzss6/card14webp.webp",
         "details_image": "https://i.ibb.co/1Qtzss6/card14webp.webp",
         "category": "Web Development"
+    },
+
+    {
+        "id": 15,
+        "title": "Digital Marketing with AI — 5 Killer Examples To 10x Your Results!",
+        "short_description": "In this post, I’ll break down 5 awesome ways and examples on how to use AI in Marketing. sharing real practical use cases that helped me 10x my marketing results and save tons of hours!",
+        "long_description": "There are a lot of types of emails in email marketing including promotional emails (for sales and offers), transactional emails (order confirmations and receipts), informational emails (newsletters and updates), and relational emails (personalized messages and customer feedback requests).Too many types and a little hard to master all of them. Therefore it can be quite a drag to write emails without having professional copywriting skills, but Not Anymore! Thanks to AI again!",
+        "image": "https://i.ibb.co/k3CjCKj/card15.webp",
+        "details_image": "https://i.ibb.co/k3CjCKj/card15.webp",
+        "category": "Marketing"
     }
 ]

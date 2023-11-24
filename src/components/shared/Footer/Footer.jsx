@@ -95,7 +95,6 @@ const Footer = () => {
                     </footer>
                 </div>
             </footer>
-
         </motion.div>
     );
 };
