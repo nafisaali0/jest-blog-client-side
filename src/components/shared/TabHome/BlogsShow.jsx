@@ -1,29 +1,27 @@
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { PropTypes } from 'prop-types';
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import useComment from "../../../hooks/useComment";
+import Swal from "sweetalert2";
 import iconD from '../../../assets/image/icons/details1.svg'
 import iconW from '../../../assets/image/icons/wishlist1.svg'
-import Swal from 'sweetalert2';
-import { useContext } from 'react';
-import { AuthContext } from '../../../Providers/AuthProvider';
-import useComment from '../../../hooks/useComment';
+import { PhotoProvider, PhotoView } from "react-photo-view";
 
-const ShowAllBlogs = ({ blog }) => {
+
+const BlogsShow = ({ blog }) => {
 
     const { user } = useContext(AuthContext)//send currentUser to wishlist 
-    const [comments] = useComment()
-    console.log(comments)
+    const [comments] = useComment();
 
     const comment = comments.filter(item => item.blog_id === blog._id)
-    // console.log(comment)
-
-    //blog come from allblogs comp and distructure blogs data
     const { _id, title, details_image, short_description, category, long_description, date, time, owner_name, owner_image, owner_Email } = blog
 
     const handleWishList = () => {
 
         const email = user.email
         const blogWishListInfo = { email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
-     
+
         //send wishlist data to the server and below link to backend's created API and load in mongo as DB
         fetch('https://blog-server-side-ochre.vercel.app/wishlist', {
             method: 'POST',
@@ -42,18 +40,25 @@ const ShowAllBlogs = ({ blog }) => {
                 }
             })
     }
-
     return (
-        <div>
-            <div className="flex flex-col md:gap-6 bg-[#e4e6eb] border border-gray-200 rounded-lg shadow md:flex-row md:w-full hover:bg-gray-100">
-                <img className="object-cover w-full rounded-t-lg h-96 lg:w-[500px] lg:h-[340px] md:w-[400px] md:rounded-l-lg" src={details_image} alt="" />
-                <div className="flex flex-col p-4">
-                    <h5 className="mb-2 text-2xl font-bold  text-black">{title}</h5>
-                    <p className="mb-3 font-normal text-gray-700 text-xl ">{short_description}</p>
-                    <p className="mb-3 font-normal text-gray-700 text-xl ">{comment.length}</p>
-
+        <>
+            <div href="#" className="flex flex-col-reverse items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row-reverse md:max-w-4xl hover:bg-gray-100">
+                <div className="flex flex-col justify-between p-4 leading-normal">
+                    <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 ">{title}</h5>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">{short_description}</p>
                     <div className='my-3'>
-                        <span className='px-3 py-2 bg-[#5b608b] text-lg text-white font-semibold rounded-full'>{category}</span>
+                        <span className='px-5 py-2 bg-[#5b608b] text-xs text-white font-semibold rounded-full'>{category}</span>
+                    </div>
+                    <div>
+                        <p>commets: {comment.length}</p>
+                    </div>
+                    <div className='flex gap-3 items-center my-3 text-[#5b608b] font-bold'>
+                        <div>
+                            <span>{date}</span>
+                        </div>
+                        <div>
+                            <span>{time}</span>
+                        </div>
                     </div>
                     <div className='flex gap-5 mt-3'>
                         <Link to={`/blogdetails/${_id}`}>
@@ -62,14 +67,19 @@ const ShowAllBlogs = ({ blog }) => {
                         <img title="Wishlist" onClick={handleWishList} className='w-[30px] h-[30px] cursor-pointer' src={iconW} alt="detailsbutton" />
                     </div>
                 </div>
+                {/* click image and show image popup */}
+                <PhotoProvider>
+                    <PhotoView src={details_image}>
+                        <img className="object-cover w-full rounded-t-lg h-96 md:h-full md:w-80 md:rounded-none md:rounded-s-lg" src={details_image} alt="" />
+                    </PhotoView>
+                </PhotoProvider>
             </div>
-
-        </div>
+        </>
     );
 };
 
-ShowAllBlogs.propTypes = {
+BlogsShow.propTypes = {
     blog: PropTypes.obj
 };
 
-export default ShowAllBlogs;
+export default BlogsShow;

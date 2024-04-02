@@ -18,7 +18,7 @@ const WishList = () => {
             })
     }, [user.email])
     return (
-        <div className="container mx-auto my-5">
+        <div className="container mx-auto my-36">
             <div className='text-3xl font-bold my-5'>
                 <h2>Your WishList</h2>
             </div>
