@@ -12,8 +12,8 @@ import WishList from './../components/page/WishList/WishList';
 import FeatureBlog from './../components/page/FeaturedBlogs.jsx/FeatureBlog';
 import CategoryBlogs from './../components/page/CategoryBlogs/CategoryBlogs';
 import PrivateRoutes from './PrivateRoutes';
-
-
+import Dashboard from "../LayOut/Dashboard";
+import HomeDashboard from "../components/page/Dashboard/HomeDashboard/HomeDashboard";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element:<Home></Home>,
+                element: <Home></Home>,
             },
             {
                 path: '/signin',
@@ -68,6 +68,17 @@ const router = createBrowserRouter([
             },
         ],
     },
+    {
+        path: '/dashboard',
+        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+        children: [
+            {
+                path: '/dashboard',
+                element:<PrivateRoutes><HomeDashboard></HomeDashboard></PrivateRoutes>,
+            },
+
+        ]
+    }
 ]);
 
 

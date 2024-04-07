@@ -9,7 +9,7 @@ const ShowCategoryHome = ({ showCategory }) => {
     return (
         <>
             <Link to={`/blogs/category/${category}`}>
-                <motion.div className='bg-[#dbdbde] px-7 py-4 text-sm md:text-lg font-bold text-black rounded-full'
+                <motion.div className='bg-light_gray px-7 py-4 text-sm md:text-lg font-bold text-black rounded-full'
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}

@@ -1,7 +1,7 @@
 import BloggerUser from '../../shared/BloggerUser/BloggerUser';
 import CategoryHome from '../../shared/CategoryHome/CategoryHome';
 import Network from '../../shared/Network/Network';
-import NewsLetter from '../../shared/NewsLetter/NewsLetter';
+// import NewsLetter from '../../shared/NewsLetter/NewsLetter';
 import { AnimatePresence } from 'framer-motion';
 import TabHome from '../../shared/TabHome/TabHome';
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
           </div>
         </div>
         <Network></Network>
-        <NewsLetter></NewsLetter>
+        {/* <NewsLetter></NewsLetter> */}
       </div>
     </AnimatePresence>
   );

@@ -16,7 +16,7 @@ const Network = () => {
                         <h1 className="mb-5 text-4xl font-bold">Join millions of others</h1>
                         <p className="mb-5">Whether sharing your expertise, breaking news, or whatever’s on your mind, you’re in good company on Blogger. Sign up to discover why millions of people have published their passions here.</p>
                         <Link to={'/addblog'}>
-                            <button className="btn border-none bg-[#5b608b] text-white hover:bg-none">CREATE YOUR BLOG</button>
+                            <button className="btn border-none bg-light_purple text-white hover:bg-hover_btn">CREATE YOUR BLOG</button>
                         </Link>
                     </div>
                 </div>
