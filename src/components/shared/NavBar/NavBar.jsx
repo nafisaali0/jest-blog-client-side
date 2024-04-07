@@ -25,11 +25,11 @@ const NavBar = () => {
                 <div className="navbar container mx-auto">
                     <div className="navbar-start flex">
                         <div className="dropdown">
-                            <label tabIndex={0} className="btn btn-ghost text-[#5b608b] lg:hidden">
+                            <label tabIndex={0} className="btn btn-ghost lg:hidden">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </label>
                             <nav className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>
-                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#e7e7e9] rounded-box w-52">
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52">
                                     <NavLink to="/">Home</NavLink>
                                     <NavLink to="/addblog">Add Blog</NavLink>
                                     <NavLink to="/allblogs">All Blogs</NavLink>
@@ -119,10 +119,10 @@ const NavBar = () => {
                                     <div className="hidden lg:flex gap-2 md:gap-5 items-center">
                                         <Link to={'/signin'}>
                                             {/* border-r-2 */}
-                                            <button className="md:text-2xl md:px-10 md:py-1 lg:py-2 font-semibold border-2 rounded border-light_purple  text-light_purple hover:bg-hover_btn hover:text-white">Sign in</button>
+                                            <button className="py-2 px-4 font-semibold border-2 rounded border-light_purple  text-light_purple hover:bg-hover_btn hover:text-white">Sign in</button>
                                         </Link>
                                         <Link to={'/signup'}>
-                                            <button className="md:text-2xl md:px-10 md:py-1 lg:py-2 font-semibold rounded border-light_purple bg-light_purple text-white hover:bg-hover_btn">Sign up</button>
+                                            <button className="py-2 px-4 font-semibold rounded border-light_purple bg-light_purple text-white hover:bg-hover_btn">Sign up</button>
                                         </Link>
                                     </div>
                                 </>

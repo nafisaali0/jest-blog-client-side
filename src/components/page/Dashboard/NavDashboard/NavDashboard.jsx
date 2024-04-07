@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import logo from '../../../../assets/image/logo/logof3-removebg.png'
-import './navdashboard.css'
 const NavDashboard = () => {
     return (
         <>

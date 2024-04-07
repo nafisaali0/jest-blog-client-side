@@ -23,7 +23,7 @@ const ShowBloggerUser = ({ blog }) => {
         <>
             {
                 loading ?
-                    <div className='flex gap-8 w-full bg-white border border-gray-200 rounded-lg shadow  p-10'>
+                    <div className='flex gap-8 w-full bg-card_white border border-gray-200 rounded-lg shadow  p-10'>
                         <div className="avatar">
                             <div className="w-24 rounded-full">
                                 <Skeleton circle={true} width={100} height={100} />
@@ -34,11 +34,11 @@ const ShowBloggerUser = ({ blog }) => {
                             <p className='text-sm font-bold'><Skeleton width={100} count={2}></Skeleton></p>
                         </div>
                         <div>
-                            <div className="badge  p-3 font-bold text-white bg-[#5b608b] cursor-pointer"><Skeleton></Skeleton></div>
+                            <div className="badge  p-3 font-bold text-white bg-light_purple cursor-pointer"><Skeleton></Skeleton></div>
                         </div>
                     </div>
                     :
-                    <motion.div className='flex gap-8 w-full bg-white rounded-lg shadow hover:bg-light_gray p-10'
+                    <motion.div className='flex gap-8 w-full bg-card_white rounded-lg shadow hover:bg-hover_gray p-10'
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -60,7 +60,7 @@ const ShowBloggerUser = ({ blog }) => {
                                         :
                                         <div onClick={handleFollowUser} className="badge badge-neutral p-3 font-bold text-white bg-black cursor-pointer">follow</div>
                                     :
-                                    <div className="badge  p-3 font-bold text-white bg-[#5b608b] cursor-pointer">Editor</div>
+                                    <div className="badge  p-3 font-bold text-white bg-hover_btn cursor-pointer">Editor</div>
                             }
 
                         </div>

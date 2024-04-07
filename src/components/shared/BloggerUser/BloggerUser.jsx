@@ -35,7 +35,7 @@ const BloggerUser = () => {
         <>
             <div className="my-5 p-3">
                 <div className="my-5">
-                    <h1 className="text-3xl font-bold">Blogger</h1>
+                    <h1 className="text-3xl font-semibold">Blogger</h1>
                 </div>
                 <div className="grid grid-cols-1 gap-5 my-5">
                     {

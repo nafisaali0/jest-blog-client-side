@@ -37,8 +37,8 @@ const TabHome = () => {
         <>
             <div>
                 <Tabs>
-                    <TabList className={"cursor-pointer flex gap-5 items-center my-10"}>
-                        <Tab className="">All</Tab>
+                    <TabList className={"cursor-pointer flex gap-5 items-center text-3xl font-semibold mt-5 mb-10 text-black"}>
+                        <Tab>All</Tab>
                         <Tab>Recent Blogs</Tab>
                         <Tab>Top Blogs</Tab>
                     </TabList>

@@ -22,7 +22,7 @@ const CategoryHome = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 3 }}
             >
-                <div className="text-3xl font-bold my-5">
+                <div className="text-3xl font-semibold my-5">
                     <h1>Category</h1>
                 </div>
                 <div className="flex flex-wrap gap-5">
