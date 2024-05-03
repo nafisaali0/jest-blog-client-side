@@ -6,6 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import TabHome from '../../shared/TabHome/TabHome';
 import HomeWishList from '../../shared/HomeWishList/HomeWishList';
 import HomeFeaturesBlog from '../../shared/HomeFeaturesBlog/HomeFeaturesBlog';
+import HomeShortBlogs from '../../shared/HomeShortBlogs/HomeShortBlogs';
 const Home = () => {
   return (
     <AnimatePresence>
@@ -18,10 +19,11 @@ const Home = () => {
             <CategoryHome></CategoryHome>
             <BloggerUser></BloggerUser>
             <HomeFeaturesBlog></HomeFeaturesBlog>
-            <HomeWishList></HomeWishList>           
+            <HomeWishList></HomeWishList>
           </div>
         </div>
         <Network></Network>
+        <HomeShortBlogs></HomeShortBlogs>
         {/* <NewsLetter></NewsLetter> */}
       </div>
     </AnimatePresence>

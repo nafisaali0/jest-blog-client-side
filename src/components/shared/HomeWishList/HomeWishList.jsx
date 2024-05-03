@@ -6,9 +6,8 @@ import { Link } from "react-router-dom";
 const HomeWishList = () => {
 
     const [wishList] = useWishLIst()
-
     const [sortRecentSaveBlogs, setSortRecentSaveBlogs] = useState([]) //load sorting blogs
-    console.log(sortRecentSaveBlogs)
+    // console.log(sortRecentSaveBlogs)
 
 
     // sorting by data and time 
@@ -41,7 +40,9 @@ const HomeWishList = () => {
                                             <span className="font-semibold">{saveBlogs.owner_name}</span>
                                         </div>
                                     </div>
-                                    <h1 className="text-2xl font-bold my-3">{saveBlogs.title}</h1>
+                                    <Link to={`/blogdetails/${saveBlogs._id}`} target="_blank">
+                                        <h1 className="text-2xl font-bold my-3">{saveBlogs.title}</h1>
+                                    </Link>
                                     <div className="flex gap-4 items-center my-5">
                                         <span>{saveBlogs.saveDate}</span>
                                         <span>{saveBlogs.saveTime}</span>
