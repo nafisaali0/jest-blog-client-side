@@ -17,7 +17,7 @@ const BloggerUser = () => {
 
     // get blogger user by filter all blogger's user
     useEffect(() => {
-        
+
         // Create an array of unique emails
         const uniqueEmails = [...new Set(bloggerUser.map(blogger => blogger.owner_Email))];
 
@@ -28,7 +28,7 @@ const BloggerUser = () => {
 
         setUniqueBloggerUser(uniqueBloggerUsersArray);
     }, [bloggerUser]);
- 
+
     // console.log(uniqueBloggerUser);
 
     return (
@@ -39,7 +39,7 @@ const BloggerUser = () => {
                 </div>
                 <div className="grid grid-cols-1 gap-5 my-5">
                     {
-                        uniqueBloggerUser.map(blog =>
+                        uniqueBloggerUser.slice(0, 4).map(blog =>
                             <ShowBloggerUser
                                 key={blog._id}
                                 blog={blog}>
