@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import DataTable from 'react-data-table-component';
+import { Link } from 'react-router-dom';
 
 const ShowFeaturedBlogs = ({ sortByWord }) => {
     // console.log(sortByWord)
@@ -32,7 +33,11 @@ const ShowFeaturedBlogs = ({ sortByWord }) => {
         },
         {
             name: 'Blog Title',
-            selector: row => row.title
+            selector: (row) => <Link target='_blank' to={`/blogdetails/${row._id}`}>{row.title}</Link>
+        },
+        {
+            name: 'Blog Category',
+            selector: row => row.category
         },
         {
             name: 'Blog Owner',
@@ -45,8 +50,10 @@ const ShowFeaturedBlogs = ({ sortByWord }) => {
     ]
     // Assuming sortBlogs is an array of blog objects
     const data = sortByWord.map((blog, index) => ({
+        _id: blog._id,
         id: index + 1,
         title: blog.title,
+        category: blog.category,
         owner_name: blog.owner_name,
         owner_image: blog.owner_image,
         long_description: blog.long_description,
@@ -58,11 +65,11 @@ const ShowFeaturedBlogs = ({ sortByWord }) => {
                 <DataTable
                     columns={columns}
                     data={data}
-                    customStyles={customStyles} 
+                    customStyles={customStyles}
                     responsive
                     pagination
                     paginationPerPage={10}
-                    paginationRowsPerPageOptions={[10, 15, 20]}/>
+                    paginationRowsPerPageOptions={[10, 15, 20]} />
             </div>
         </>
     );

@@ -63,7 +63,6 @@ const TabHome = () => {
                                         blog={blog}>
                                     </ShowRecentBlog>
                                 )
-
                             }
                         </div>
                     </TabPanel>

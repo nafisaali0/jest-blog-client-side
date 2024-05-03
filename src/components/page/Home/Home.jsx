@@ -4,6 +4,8 @@ import Network from '../../shared/Network/Network';
 // import NewsLetter from '../../shared/NewsLetter/NewsLetter';
 import { AnimatePresence } from 'framer-motion';
 import TabHome from '../../shared/TabHome/TabHome';
+import HomeWishList from '../../shared/HomeWishList/HomeWishList';
+import HomeFeaturesBlog from '../../shared/HomeFeaturesBlog/HomeFeaturesBlog';
 const Home = () => {
   return (
     <AnimatePresence>
@@ -15,6 +17,8 @@ const Home = () => {
           <div>
             <CategoryHome></CategoryHome>
             <BloggerUser></BloggerUser>
+            <HomeFeaturesBlog></HomeFeaturesBlog>
+            <HomeWishList></HomeWishList>           
           </div>
         </div>
         <Network></Network>

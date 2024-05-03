@@ -32,9 +32,10 @@ const NavBar = () => {
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52">
                                     <NavLink to="/">Home</NavLink>
                                     <NavLink to="/addblog">Add Blog</NavLink>
-                                    <NavLink to="/allblogs">All Blogs</NavLink>
-                                    <NavLink to="/featureblog">Featured Blogs</NavLink>
-                                    <NavLink to="/wishlist">Wishlist</NavLink>
+                                    <Link className="ml-3" to={'/dashboard'}><a>Dashboard</a></Link>
+                                    {/* <NavLink to="/allblogs">All Blogs</NavLink> */}
+                                    {/* <NavLink to="/featureblog">Featured Blogs</NavLink> */}
+                                    {/* <NavLink to="/wishlist">Wishlist</NavLink> */}
                                     <div className="flex items-center">
                                         <Link to={'/signin'}>
                                             <button className="text-sm px-3 py-2 border-2 font-semibold text-light_purple rounded border-light_purple hover:bg-hover_btn hover:text-white">Sign in</button>
@@ -95,7 +96,8 @@ const NavBar = () => {
                                         <nav className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>
                                             <NavLink to="/">Home</NavLink>
                                             <NavLink to="/addblog">Add Blog</NavLink>
-                                            <NavLink to="/wishlist">Wishlist</NavLink>
+                                            <Link className="ml-3" to={'/dashboard'}><a>Dashboard</a></Link>
+                                            {/* <NavLink to="/wishlist">Wishlist</NavLink> */}
                                             {/* <NavLink to="/allblogs">All Blogs</NavLink>
                                     <NavLink to="/featureblog">Featured Blogs</NavLink> */}
                                         </nav>
@@ -106,8 +108,7 @@ const NavBar = () => {
                                                 </div>
                                             </label>
                                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                                <li><a>{user.displayName}</a></li>
-                                                <Link className="ml-3" to={'/dashboard'}><a>Dashboard</a></Link>
+                                                <li><a>{user.displayName}</a></li>                                               
                                                 <Link className="ml-3" to={'/signup'}><a>Add Another Account</a></Link>
                                                 <li onClick={handleLogOut}><a>Logout</a></li>
                                             </ul>

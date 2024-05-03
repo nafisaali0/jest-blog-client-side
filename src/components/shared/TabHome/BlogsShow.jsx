@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import iconD from '../../../assets/image/icons/details1.svg'
 import iconW from '../../../assets/image/icons/wishlist1.svg'
 import { PhotoProvider, PhotoView } from "react-photo-view";
-
+import moment from 'moment';
 
 const BlogsShow = ({ blog }) => {
 
@@ -18,9 +18,11 @@ const BlogsShow = ({ blog }) => {
     const { _id, title, details_image, short_description, category, long_description, date, time, owner_name, owner_image, owner_Email } = blog
 
     const handleWishList = () => {
-
+        
+        const saveDate = moment().format("MMM Do YY");
+        const saveTime = moment().format('LT');
         const email = user.email
-        const blogWishListInfo = { email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
+        const blogWishListInfo = { saveDate, saveTime, email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
 
         //send wishlist data to the server and below link to backend's created API and load in mongo as DB
         fetch('https://blog-server-side-ochre.vercel.app/wishlist', {
