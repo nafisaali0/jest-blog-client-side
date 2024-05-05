@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
-import ShowCategoryHome from "./ShowCategoryHome";
 import { motion } from 'framer-motion'
+import { Link } from "react-router-dom";
 
 const CategoryHome = () => {
 
     const [categorys, setCategorys] = useState([])//load category 
-    
+    const [uniqueCategories, setUniqueCategories] = useState([]);
+
     // call category api 
     useEffect(() => {
-        fetch('https://blog-server-side-ochre.vercel.app/category')
+        fetch('https://blog-server-side-ochre.vercel.app/blogs')
             .then(res => res.json())
             .then(data => setCategorys(data))
     }, [])
     // console.log(categorys)
-
+    useEffect(() => {
+        const categories = [...new Set(categorys.map(blog => blog.category))];
+        setUniqueCategories(categories);
+    }, [categorys]);
+    // console.log(uniqueCategories)
     return (
         <>
             <motion.div className="container mx-auto my-10 p-3"
@@ -26,14 +31,20 @@ const CategoryHome = () => {
                     <h1>Category</h1>
                 </div>
                 <div className="flex flex-wrap gap-5">
-                    {
-                        categorys.map((showCategory,index) =>
-                            <ShowCategoryHome
-                                key={index}
-                                showCategory={showCategory}
-                                index={index}>
-                            </ShowCategoryHome>)
-                    }
+                    {uniqueCategories.map(category => (
+                        <>
+                            <Link to={`/blogs/category/${category}`}>
+                                <motion.div className='bg-light_gray px-7 py-4 text-sm md:text-lg font-bold text-black rounded-full'
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 3 }}
+                                >
+                                    <h1 key={category}>{category}</h1>
+                                </motion.div>
+                            </Link>
+                        </>
+                    ))}
                 </div>
             </motion.div>
         </>

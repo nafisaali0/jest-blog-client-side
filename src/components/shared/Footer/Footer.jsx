@@ -26,7 +26,11 @@ const Footer = () => {
                         <div className='text-white'>
                             <h6 className="text-light_blue">Pages</h6>
                             <a className="link link-hover">Home</a>
-                            <a className="link link-hover">All Blogs</a>
+                            <a className="link link-hover">Add Blogs</a>
+                            <a className="link link-hover">Details Blog</a>                           
+                        </div>
+                        <div className='text-white'>
+                            <h6 className="text-light_blue">Pages</h6>                           
                             <a className="link link-hover">Feature Blog</a>
                             <a className="link link-hover">WhishList</a>
                             <a className="link link-hover">Dashboard</a>

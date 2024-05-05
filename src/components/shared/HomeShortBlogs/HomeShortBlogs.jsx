@@ -24,7 +24,7 @@ const HomeShortBlogs = () => {
     return (
         <>
             <div className="container mx-auto overflow-hidden my-16 p-5">
-                <div>
+                <div className="mb-10">
                     <h1 className="font-bold text-3xl uppercase">Short Blogs</h1>
                     <p className="font-semibold text-xl text-light_purple capitalize my-3">Read quickly. Save time and gain knowledge.</p>
                 </div>
@@ -83,14 +83,14 @@ const HomeShortBlogs = () => {
                                 },
                             }}
                         >
-                            {shortBlogs.slice(5, -1).map((blog, index) => (
+                            {shortBlogs.slice(4, -1).map((blog, index) => (
                                 <SwiperSlide key={index}>
                                     <div className="card  h-[350px] bg-base-100 shadow-xl">
                                         <div className="relative">
                                             <figure><img className="w-full h-[209px]" src={blog.details_image} alt="Shoes" /></figure>
                                         </div>
                                         <div className="absolute bottom-36 left-0">
-                                            <span className="bg-light_purple text-white font-bold px-3 py-1">{blog.category}</span>
+                                            <span className="bg-card_white text-black font-bold px-3 py-1 border-2 border-light_gray rounded-r-md">{blog.category}</span>
                                         </div>
                                         <div className="card-body">
                                             <Link to={`/blogdetails/${blog._id}`} target="_blank">
