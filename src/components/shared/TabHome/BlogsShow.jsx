@@ -6,6 +6,8 @@ import useComment from "../../../hooks/useComment";
 import Swal from "sweetalert2";
 import iconD from '../../../assets/image/icons/details1.svg'
 import iconW from '../../../assets/image/icons/wishlist1.svg'
+import iconComment from '../../../assets/image/icons/comment.svg'
+import iconLike from '../../../assets/image/icons/like.svg'
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import moment from 'moment';
 
@@ -18,7 +20,7 @@ const BlogsShow = ({ blog }) => {
     const { _id, title, details_image, short_description, category, long_description, date, time, owner_name, owner_image, owner_Email } = blog
 
     const handleWishList = () => {
-        
+
         const saveDate = moment().format("MMM Do YY");
         const saveTime = moment().format('LT');
         const email = user.email
@@ -46,27 +48,26 @@ const BlogsShow = ({ blog }) => {
         <>
             <div href="#" className="flex flex-col-reverse items-center bg-card_white rounded-lg shadow md:flex-row-reverse md:max-w-4xl hover:bg-hover_gray">
                 <div className="flex flex-col justify-between p-4 leading-normal">
-                    <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 ">{title}</h5>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">{short_description}</p>
                     <div className='my-3'>
                         <span className='px-5 py-2 bg-light_gray text-xs text-black font-semibold rounded-full'>{category}</span>
                     </div>
-                    <div>
-                        <p>commets: {comment.length}</p>
-                    </div>
-                    {/* <div className='flex gap-3 items-center my-3 text-[#5b608b] font-bold'>
-                        <div>
-                            <span>{date}</span>
+                    <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 ">{title}</h5>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">{short_description}</p>
+                    <div className="flex justify-between items-center my-3">
+                        <div className="flex gap-2 items-center">
+                            <div className="flex gap-2 items-center">
+                                <img title="love" className="w-7 cursor-pointer" src={iconLike} alt="" /><span>{comment.length}</span>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <img title="comment" className="w-7 cursor-pointer" src={iconComment} alt="" /><span>{comment.length}</span>
+                            </div>
                         </div>
-                        <div>
-                            <span>{time}</span>
+                        <div className="flex gap-2 items-center">
+                            <Link to={`/blogdetails/${_id}`}>
+                                <img title="See Details" className='w-[30px] h-[30px] cursor-pointer' src={iconD} alt="detailsbutton" />
+                            </Link>
+                            <img title="Wishlist" onClick={handleWishList} className='w-[30px] h-[30px] cursor-pointer' src={iconW} alt="detailsbutton" />
                         </div>
-                    </div> */}
-                    <div className='flex gap-5 mt-3'>
-                        <Link to={`/blogdetails/${_id}`}>
-                            <img title="See Details" className='w-[30px] h-[30px] cursor-pointer' src={iconD} alt="detailsbutton" />
-                        </Link>
-                        <img title="Wishlist" onClick={handleWishList} className='w-[30px] h-[30px] cursor-pointer' src={iconW} alt="detailsbutton" />
                     </div>
                 </div>
                 {/* click image and show image popup */}
