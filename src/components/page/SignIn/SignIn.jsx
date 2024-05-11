@@ -80,7 +80,7 @@ const SignIn = () => {
                         <div className="my-10">
                             <button
                                 onClick={handleGoogle}
-                                className="w-full py-3 border-2 bg-[black] text-white"
+                                className="w-full py-3 border-2 bg-light_purple text-white hover:bg-hover_btn"
                                 type="submit"
                                 data-ripple-light="true"
                             >
@@ -100,11 +100,11 @@ const SignIn = () => {
                         </div>
                         <div className="flex gap-2 md:gap-5 lg:gap-10 items-center my-10">
                             <div className="relative z-0 group">
-                                <button type="submit" className="text-white md:w-full  bg-black  font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-cent">SIGN IN</button>
+                                <button type="submit" className="md:w-full  bg-light_purple text-white hover:bg-hover_btn  font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-cent">SIGN IN</button>
                             </div>
                             <div className="relative z-0 group">
                                 <Link to={'/signup'}>
-                                    <button className="text-white md:w-full  bg-black  font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center">SIGN UP</button>
+                                    <button className="md:w-full  bg-light_purple text-white hover:bg-hover_btn  font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center">SIGN UP</button>
                                 </Link>
                             </div>
                         </div>

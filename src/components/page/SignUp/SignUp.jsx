@@ -2,24 +2,20 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-import { updateProfile } from "firebase/auth";
+// import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
 
     const { signUpUser } = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState('')
     const passwordRequirement = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).{6,}$/;
-    
+
 
     const handleSignUp = e => {
         e.preventDefault();
 
-        const username = e.target.name.value;
-        const photo = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value
-        // console.log(username, photo, email, password)
-
 
         setSignUpError('')//clean error state
 
@@ -36,12 +32,6 @@ const SignUp = () => {
         // email/password signUp auth
         signUpUser(email, password)
             .then(result => {
-                const user = result.user;
-                updateProfile(user, {
-                    displayName: username,
-                    photoURL : photo
-
-                })
                 return (
                     console.log(result.user),
                     Swal.fire(
@@ -75,9 +65,9 @@ const SignUp = () => {
                         <div>
                             <input type="name" name="name" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="Name" />
                         </div>
-                        <div>
+                        {/* <div>
                             <input type="url" name="photo" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="Photo" />
-                        </div>
+                        </div> */}
                         <div className="relative z-0 w-full mb-6 group">
                             <input type="email" name="email" className="block py-2 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300   focus:outline-none focus:border-blue-600 peer" placeholder="Email" required />
                         </div>
@@ -86,11 +76,11 @@ const SignUp = () => {
                         </div>
                         <div className="flex gap-2 md:gap-5 lg:gap-10 items-center my-10">
                             <div className="relative z-0 group">
-                                <button type="submit" className="text-white md:w-full  bg-black  font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-cent">SIGN UP</button>
+                                <button type="submit" className="md:w-full bg-light_purple text-white hover:bg-hover_btn font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-cent">SIGN UP</button>
                             </div>
                             <div className="relative z-0 group">
                                 <Link to={'/signin'}>
-                                    <button className="text-white md:w-full  bg-black  font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center">SIGN IN</button>
+                                    <button className="md:w-full bg-light_purple text-white hover:bg-hover_btn font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center">SIGN IN</button>
                                 </Link>
                             </div>
                         </div>
