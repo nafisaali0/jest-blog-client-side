@@ -20,7 +20,7 @@ const HomeWishList = () => {
     }, [wishList])
     return (
         <>
-            <div className="my-5 p-3">
+            <div className="my-5 p-3 ">
                 <div className="my-5">
                     <h1 className="text-3xl font-bold my-7">Recently saved</h1>
                 </div>
@@ -29,7 +29,7 @@ const HomeWishList = () => {
                     {
                         sortRecentSaveBlogs.slice(0, 4).map(saveBlogs =>
                             <>
-                                <div className="my-7">
+                                <div className="my-7 bg-card_white p-5 rounded">
                                     <div className="flex items-center gap-4">
                                         <div className="avatar-group -space-x-6 rtl:space-x-reverse">
                                             <div className="avatar w-9">
@@ -41,7 +41,7 @@ const HomeWishList = () => {
                                         </div>
                                     </div>
                                     <Link to={`/blogdetails/${saveBlogs._id}`} target="_blank">
-                                        <h1 className="text-2xl font-bold my-3">{saveBlogs.title}</h1>
+                                        <h1 className="text-2xl font-bold my-3 hover:text-light_purple">{saveBlogs.title}</h1>
                                     </Link>
                                     <div className="flex gap-4 items-center my-5">
                                         <span>{saveBlogs.saveDate}</span>

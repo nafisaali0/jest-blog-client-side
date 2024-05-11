@@ -46,7 +46,7 @@ const HomeFeaturesBlog = () => {
                                         <div className="flex-1">
                                             <span className='px-5 py-2 bg-light_gray text-xs text-black border-1 border-light_gray font-semibold rounded-full'>{saveBlogs.category}</span>
                                             <Link to={`/blogdetails/${saveBlogs._id}`} target="_blank">
-                                                <h1 className="text-lg font-bold my-3">{saveBlogs.title}</h1>
+                                                <h1 className="text-lg font-bold my-3 hover:text-light_purple">{saveBlogs.title}</h1>
                                             </Link>
                                         </div>
                                     </div>

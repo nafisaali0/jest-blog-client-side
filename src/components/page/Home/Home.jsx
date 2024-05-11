@@ -24,7 +24,6 @@ const Home = () => {
         </div>
         <Network></Network>
         <HomeShortBlogs></HomeShortBlogs>
-        {/* <NewsLetter></NewsLetter> */}
       </div>
     </AnimatePresence>
   );
