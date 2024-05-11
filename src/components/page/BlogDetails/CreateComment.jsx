@@ -68,12 +68,12 @@ const CreateComment = ({ id, blog_Email }) => {
             <form onSubmit={handlePostComment} disabled={isButtonDisabled}>
                 <div className="form-control">
                     <label className="input-group">
-                        <span className="bg-transparent"><img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" /></span>
-                        <textarea rows={4} type="text" name="comment" placeholder="Write your thoughts here..." className="w-full rounded-xl p-2.5 border-b-2" />
+                        <span className="bg-transparent"><img className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src={user.photoURL} alt="" /></span>
+                        <textarea rows={4} type="text" name="comment" placeholder="Write your thoughts here..." className="w-full rounded-xl p-2.5 border-b-2 outline-none focus:none" />
                     </label>
                 </div>
                 <div className="flex justify-end my-3">
-                    <button className='px-3 py-2 bg-[#5b608b] text-lg text-white font-semibold rounded-xl'>POST</button>
+                    <button className="btn border-none bg-light_purple text-white hover:bg-hover_btn">POST</button>
                 </div>
             </form>
 

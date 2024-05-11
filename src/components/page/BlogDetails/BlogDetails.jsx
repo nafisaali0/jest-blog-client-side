@@ -2,6 +2,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import icon1 from '../../../assets/image/icons/wishlist1.svg'
 import icon2 from '../../../assets/image/icons/edit.svg'
+import icon3 from '../../../assets/image/icons/like.svg'
 import CreateComment from "./CreateComment";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
@@ -45,27 +46,29 @@ const BlogDetails = () => {
                 <div className="text-4xl font-bold">
                     <h1>{title}</h1>
                 </div>
-                <div className="flex gap-5 my-5 pb-5 border-b-2 border-[#e7e7e9] drop-shadow-sm">
+                <div className="flex gap-5  items-center my-5 pb-5 border-b-2 border-[#e7e7e9] drop-shadow-sm">
                     <div className="avatar">
-                        <div className="w-8 rounded">
-                            <img src={owner_image} alt="owner-Image" />
+                        <div className="w-12 rounded-full">
+                            <img src={owner_image} />
                         </div>
                     </div>
                     <div>
-                        <h2 className="text-lg font-semibold">{owner_name}</h2>
+                        <h2 className="text-lg font-semibold">{owner_name} . <span className="text-lg font-semibold hover:text-light_purple">Follow</span></h2>
                         <span className="text-black">{date}</span>
                     </div>
                 </div>
                 <div className="flex justify-between items-center border-b-2 border-[#e7e7e9] drop-shadow-sm">
                     <div>
-                        <span className='px-3 py-2 bg-[#5b608b] text-xs text-white font-semibold rounded-lg'>{category}</span>
+                        <span className='px-3 py-2 bg-card_white text-xs text-light_purple font-semibold rounded hover:bg-light_purple hover:text-white'>{category}</span>
                     </div>
                     <div className="flex gap-5 my-5">
-                        <img title="Wishlist" onClick={handleWishList} className="w-8 cursor-pointer" src={icon1} alt="" />
+                    <img title="love"  className="w-7 cursor-pointer" src={icon3} alt="" />
+                        {/* onClick={handleLike} */}
+                        <img title="Wishlist" onClick={handleWishList} className="w-8 cursor-pointer" src={icon1} alt="" />                      
                         {
                             user?.email === owner_Email ?
                                 <>
-                                    <Link to={`/update/${_id}`}><img title="Update" className="w-8 cursor-pointer" src={icon2} alt="" /></Link>
+                                    <Link to={`/update/${_id}`}><img title="Update" className="w-9 cursor-pointer" src={icon2} alt="" /></Link>
                                 </> : ''
                         }
                     </div>
