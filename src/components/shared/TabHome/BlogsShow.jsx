@@ -54,7 +54,7 @@ const BlogsShow = ({ blog }) => {
                     <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 ">{title}</h5>
                     <p className="font-normal text-gray-700 dark:text-gray-400">{short_description}</p>
                     <div className="flex justify-between items-center my-3">
-                        <div className="flex gap-2 items-center">
+                        <div className="flex gap-5 items-center">
                             <div className="flex gap-2 items-center">
                                 <img title="love" className="w-7 cursor-pointer" src={iconLike} alt="" /><span>{comment.length}</span>
                             </div>
