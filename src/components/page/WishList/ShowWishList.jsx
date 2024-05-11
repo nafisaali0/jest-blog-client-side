@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import icon1 from '../../../assets/image/icons/details1.svg'
-import icon2 from '../../../assets/image/icons/delete.svg'
+import iconDetails from '../../../assets/image/icons/details1.svg'
+import iconDelete from '../../../assets/image/icons/delete.svg'
+import iconLike from '../../../assets/image/icons/like.svg'
+import iconComment from '../../../assets/image/icons/comment.svg'
 import Swal from 'sweetalert2';
+import useComment from '../../../hooks/useComment';
 const ShowWishList = ({ wishBlog, wishList, setchangeWishListState }) => {
 
-    const { _id, title, details_image, short_description, category } = wishBlog
+    const [comments] = useComment();
+    const { _id, blogId, title, date, time, details_image, short_description, category } = wishBlog
+    const comment = comments.filter(item => item.blog_id === blogId)
+
 
     // execute delete form client site and execute through backend
     const handleDelete = () => {
@@ -45,22 +51,39 @@ const ShowWishList = ({ wishBlog, wishList, setchangeWishListState }) => {
 
     return (
         <>
-            <div className="flex flex-col md:gap-6 bg-card_white rounded-lg shadow md:flex-row md:w-full hover:bg-hover_gray">
-                <img className="object-cover w-full rounded-t-lg h-96 lg:w-[500px] lg:h-[340px] md:w-[400px] md:rounded-l-lg" src={details_image} alt="" />
-                <div className="flex flex-col p-4">
-                    <h5 className="mb-2 text-2xl font-bold  text-black">{title}</h5>
-                    <p className="mb-3 font-normal text-gray-700 text-xl ">{short_description}</p>
-
+            <div href="#" className="flex flex-col-reverse items-center bg-card_white rounded-lg shadow md:flex-row-reverse md:max-w-4xl hover:bg-hover_gray">
+                <div className="flex flex-col justify-between p-4 leading-normal">
                     <div className='my-3'>
-                        <span className='px-3 py-2 bg-[#5b608b] text-lg text-white font-semibold rounded-full'>{category}</span>
+                        <span className='px-5 py-2 bg-light_gray text-xs text-black font-semibold rounded-full'>{category}</span>
                     </div>
-                    <div className='flex gap-5 mt-3'>
-                        <Link to={`/blogdetails/${_id}`}>
-                            <img title="See Details" className='w-[30px] h-[30px]' src={icon1} alt="detailsbutton" />
-                        </Link>
-                        <img title="Delete" onClick={() => handleDelete(_id)} className='w-[30px] h-[30px] cursor-pointer' src={icon2} alt="detailsbutton" />
+                    <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 ">{title}</h5>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">{short_description}</p>
+                    <div className='flex gap-3 items-center my-3 font-bold'>
+                        <div>
+                            <span>{date}</span>
+                        </div>
+                        <div>
+                            <span>{time}</span>
+                        </div>
+                    </div>
+                    <div className="flex justify-between items-center my-3">
+                        <div className="flex gap-5 items-center">
+                            <div className="flex gap-2 items-center">
+                                <img title="love" className="w-7 cursor-pointer" src={iconLike} alt="" /><span>{comment.length}</span>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <img title="comment" className="w-7 cursor-pointer" src={iconComment} alt="" /><span>{comment.length}</span>
+                            </div>
+                        </div>
+                        <div className="flex gap-2 items-center">
+                            <Link to={`/blogdetails/${blogId}`}>
+                                <img title="See Details" className='w-[30px] h-[30px] cursor-pointer' src={iconDetails} alt="detailsbutton" />
+                            </Link>
+                            <img title="Wishlist" onClick={() => handleDelete(_id)} className='w-[30px] h-[30px] cursor-pointer' src={iconDelete} alt="detailsbutton" />
+                        </div>
                     </div>
                 </div>
+                <img className="object-cover w-full rounded-t-lg h-96 md:h-full md:w-80 md:rounded-none md:rounded-s-lg" src={details_image} alt="" />
             </div>
         </>
 

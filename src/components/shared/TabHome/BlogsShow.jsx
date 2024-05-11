@@ -24,7 +24,8 @@ const BlogsShow = ({ blog }) => {
         const saveDate = moment().format("MMM Do YY");
         const saveTime = moment().format('LT');
         const email = user.email
-        const blogWishListInfo = { saveDate, saveTime, email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
+        const blogId = _id;
+        const blogWishListInfo = { blogId, saveDate, saveTime, email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
 
         //send wishlist data to the server and below link to backend's created API and load in mongo as DB
         fetch('https://blog-server-side-ochre.vercel.app/wishlist', {

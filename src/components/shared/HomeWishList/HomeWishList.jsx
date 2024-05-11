@@ -25,7 +25,6 @@ const HomeWishList = () => {
                     <h1 className="text-3xl font-bold my-7">Recently saved</h1>
                 </div>
                 <div>
-
                     {
                         sortRecentSaveBlogs.slice(0, 4).map(saveBlogs =>
                             <>
@@ -40,7 +39,7 @@ const HomeWishList = () => {
                                             <span className="font-semibold">{saveBlogs.owner_name}</span>
                                         </div>
                                     </div>
-                                    <Link to={`/blogdetails/${saveBlogs._id}`} target="_blank">
+                                    <Link to={`/blogdetails/${saveBlogs.blogId}`} target="_blank">
                                         <h1 className="text-2xl font-bold my-3 hover:text-light_purple">{saveBlogs.title}</h1>
                                     </Link>
                                     <div className="flex gap-4 items-center my-5">
