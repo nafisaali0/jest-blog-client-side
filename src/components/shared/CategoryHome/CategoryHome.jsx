@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { motion } from 'framer-motion'
 import { Link } from "react-router-dom";
 
+
 const CategoryHome = () => {
 
     const [categorys, setCategorys] = useState([])//load category 
     const [uniqueCategories, setUniqueCategories] = useState([]);
 
-    // call category api 
     useEffect(() => {
         fetch('https://blog-server-side-ochre.vercel.app/blogs')
             .then(res => res.json())
