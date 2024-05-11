@@ -62,9 +62,9 @@ const BlogDetails = () => {
                         <span className='px-3 py-2 bg-card_white text-xs text-light_purple font-semibold rounded hover:bg-light_purple hover:text-white'>{category}</span>
                     </div>
                     <div className="flex gap-5 my-5">
-                    <img title="love"  className="w-7 cursor-pointer" src={icon3} alt="" />
+                        <img title="love" className="w-7 cursor-pointer" src={icon3} alt="" />
                         {/* onClick={handleLike} */}
-                        <img title="Wishlist" onClick={handleWishList} className="w-8 cursor-pointer" src={icon1} alt="" />                      
+                        <img title="Wishlist" onClick={handleWishList} className="w-8 cursor-pointer" src={icon1} alt="" />
                         {
                             user?.email === owner_Email ?
                                 <>
