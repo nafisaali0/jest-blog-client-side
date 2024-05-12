@@ -16,6 +16,8 @@ const TabHome = () => {
 
     const [recentBlogs, setRecentBlogs] = useState([])//show category from backend
     const [sortDateTimeBlogs, setSortDateTimeBlogs] = useState([]) //load sorting blogs
+    const [displayCount, setDisplayCount] = useState(12);
+    const [displayCountSix, setDisplayCountSix] = useState(6);
 
     useEffect(() => {
         fetch('https://blog-server-side-ochre.vercel.app/blogs')
@@ -33,6 +35,13 @@ const TabHome = () => {
         setSortDateTimeBlogs(sortedDateTime)
     }, [recentBlogs])
 
+    const handleSeeAll = () => {
+        setDisplayCount(displayCount + 6);
+    }
+    const handleSeeAllRecent = () => {
+        setDisplayCountSix(displayCountSix + 6);
+    }
+
     return (
         <>
             <div>
@@ -45,7 +54,7 @@ const TabHome = () => {
                     <TabPanel>
                         <div className="grid grid-cols-1 gap-5 my-5">
                             {
-                                blogs.map(blog =>
+                                blogs.slice(0, displayCount).map(blog =>
                                     <BlogsShow
                                         key={blog._id}
                                         blog={blog}>
@@ -53,11 +62,16 @@ const TabHome = () => {
                                 )
                             }
                         </div>
+                        {displayCount <=  blogs.length &&
+                            <div className="text-left">
+                                <button className="my-5 px-8 py-3 border-2 border-light_gray bg-hover_gray rounded-full text-light_purple text-lg font-semibold hover:text-hover_btn hover:border-light_purple" onClick={handleSeeAll}>View All Blogs</button>
+                            </div>
+                        }
                     </TabPanel>
                     <TabPanel>
                         <div className="grid grid-cols-1 gap-3 my-5">
                             {
-                                sortDateTimeBlogs.slice(0, 6).map(blog =>
+                                sortDateTimeBlogs.slice(0, displayCount).map(blog =>
                                     <ShowRecentBlog
                                         key={blog._id}
                                         blog={blog}>
@@ -65,6 +79,11 @@ const TabHome = () => {
                                 )
                             }
                         </div>
+                        {displayCount <= sortDateTimeBlogs.length &&
+                            <div className="text-left">
+                                <button className="my-5 px-8 py-3 border-2 border-light_gray bg-hover_gray rounded-full text-light_purple text-lg font-semibold hover:text-hover_btn hover:border-light_purple" onClick={handleSeeAllRecent}>View All Recent Blogs</button>
+                            </div>
+                        }
                     </TabPanel>
                     <TabPanel>
                         <h2>Any content 3</h2>
