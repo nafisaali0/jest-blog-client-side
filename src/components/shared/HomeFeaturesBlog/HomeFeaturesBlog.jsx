@@ -27,9 +27,9 @@ const HomeFeaturesBlog = () => {
     return (
         <>
             <div className="p-3">
-                <div>
+                <div className="my-6">
                     <h1 className="text-3xl font-bold">Featured Blogs</h1>
-                    <p className="text-lg font-semibold my-3">Long Blogs</p>
+                    <p className="text-xl font-semibold my-3">Long Blogs</p>
                 </div>
                 <div>
 
@@ -56,7 +56,7 @@ const HomeFeaturesBlog = () => {
                     }
                 </div>
                 <div>
-                    <Link to={"/featureblog"}><h1 className="text-xl font-semibold my-5">See All In A Table</h1></Link>
+                    <Link to={"/featureblog"}><h1 className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn">View All In A Table</h1></Link>
                 </div>
             </div >
         </>

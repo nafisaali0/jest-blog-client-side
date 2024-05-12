@@ -27,20 +27,20 @@ const CategoryHome = () => {
 
     return (
         <>
-            <motion.div className="container mx-auto my-10 p-3"
+            <motion.div className="container mx-auto mt-5 p-3"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 3 }}
             >
-                <div className="text-3xl font-semibold my-5">
+                <div className="text-3xl my-6 font-semibold">
                     <h1>Category</h1>
                 </div>
                 <div className="flex flex-wrap gap-5 my-5">
                     {uniqueCategories.slice(0, displayCount).map(category => (
                         <>
                             <Link to={`/blogs/category/${category}`}>
-                                <motion.div className='bg-light_gray px-7 py-4 text-sm md:text-lg font-bold text-black rounded-full'
+                                <motion.div className='bg-light_gray px-7 py-3 text-sm md:text-lg font-bold text-black rounded-full'
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
@@ -54,7 +54,7 @@ const CategoryHome = () => {
                 </div>
                 {displayCount <= uniqueCategories.length &&
                     <div className="text-left">
-                        <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>See All Categories</button>
+                        <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View All Categories</button>
                     </div>
                 }
             </motion.div>

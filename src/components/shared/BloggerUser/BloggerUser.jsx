@@ -35,9 +35,9 @@ const BloggerUser = () => {
 
     return (
         <>
-            <div className="my-5 p-3">
-                <div className="my-5">
-                    <h1 className="text-3xl font-semibold">Blogger</h1>
+            <div className="p-3">
+                <div>
+                    <h1 className="text-3xl my-6 font-semibold">Blogger</h1>
                 </div>
                 <div className="grid grid-cols-1 gap-5 my-5">
                     {
@@ -51,7 +51,7 @@ const BloggerUser = () => {
                 </div>
                 {displayCount <= uniqueBloggerUser.length &&
                     <div className="text-left">
-                        <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>See All Blogger</button>
+                        <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View All Blogger</button>
                     </div>
                 }
             </div>

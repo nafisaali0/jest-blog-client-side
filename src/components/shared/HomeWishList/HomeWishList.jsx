@@ -20,9 +20,9 @@ const HomeWishList = () => {
     }, [wishList])
     return (
         <>
-            <div className="my-5 p-3 ">
-                <div className="my-5">
-                    <h1 className="text-3xl font-bold my-7">Recently saved</h1>
+            <div className="p-3">
+                <div>
+                    <h1 className="text-3xl font-bold my-6">Reading List</h1>
                 </div>
                 <div>
                     {
@@ -52,7 +52,7 @@ const HomeWishList = () => {
                     }
                 </div>
                 <div>
-                    <Link to={"/wishlist"}><h1 className="text-xl font-semibold">See All ({sortRecentSaveBlogs.length})</h1></Link>
+                    <Link to={"/wishlist"}><h1 className="my-3 text-light_purple text-lg font-semibold hover:text-hover_btn">View All ({sortRecentSaveBlogs.length})</h1></Link>
                 </div>
             </div>
         </>
