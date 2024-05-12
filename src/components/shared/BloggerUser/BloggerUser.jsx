@@ -4,6 +4,7 @@ const BloggerUser = () => {
 
     const [bloggerUser, setBloggerUser] = useState([])
     const [uniqueBloggerUser, setUniqueBloggerUser] = useState([])
+    const [displayCount, setDisplayCount] = useState(3);
 
     useEffect(() => {
         fetch('https://blog-server-side-ochre.vercel.app/blogs')
@@ -12,8 +13,6 @@ const BloggerUser = () => {
                 setBloggerUser(data)
             })
     }, [uniqueBloggerUser])
-
-    // console.log(bloggerUser)
 
     // get blogger user by filter all blogger's user
     useEffect(() => {
@@ -29,7 +28,10 @@ const BloggerUser = () => {
         setUniqueBloggerUser(uniqueBloggerUsersArray);
     }, [bloggerUser]);
 
-    // console.log(uniqueBloggerUser);
+    const handleSeeAll = () => {
+        setDisplayCount(displayCount + 3);
+    }
+
 
     return (
         <>
@@ -39,7 +41,7 @@ const BloggerUser = () => {
                 </div>
                 <div className="grid grid-cols-1 gap-5 my-5">
                     {
-                        uniqueBloggerUser.slice(0, 4).map(blog =>
+                        uniqueBloggerUser.slice(0, displayCount).map(blog =>
                             <ShowBloggerUser
                                 key={blog._id}
                                 blog={blog}>
@@ -47,6 +49,11 @@ const BloggerUser = () => {
                         )
                     }
                 </div>
+                {displayCount <= uniqueBloggerUser.length &&
+                    <div className="text-left">
+                        <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>See All Blogger</button>
+                    </div>
+                }
             </div>
         </>
     );
