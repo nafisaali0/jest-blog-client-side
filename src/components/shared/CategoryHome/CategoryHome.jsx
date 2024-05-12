@@ -7,6 +7,7 @@ const CategoryHome = () => {
 
     const [categorys, setCategorys] = useState([])//load category 
     const [uniqueCategories, setUniqueCategories] = useState([]);
+    const [displayCount, setDisplayCount] = useState(6);
 
     useEffect(() => {
         fetch('https://blog-server-side-ochre.vercel.app/blogs')
@@ -19,6 +20,11 @@ const CategoryHome = () => {
         setUniqueCategories(categories);
     }, [categorys]);
     // console.log(uniqueCategories)
+
+    const handleSeeAll = () => {
+        setDisplayCount(displayCount + 6);
+    }
+
     return (
         <>
             <motion.div className="container mx-auto my-10 p-3"
@@ -30,8 +36,8 @@ const CategoryHome = () => {
                 <div className="text-3xl font-semibold my-5">
                     <h1>Category</h1>
                 </div>
-                <div className="flex flex-wrap gap-5">
-                    {uniqueCategories.map(category => (
+                <div className="flex flex-wrap gap-5 my-5">
+                    {uniqueCategories.slice(0, displayCount).map(category => (
                         <>
                             <Link to={`/blogs/category/${category}`}>
                                 <motion.div className='bg-light_gray px-7 py-4 text-sm md:text-lg font-bold text-black rounded-full'
@@ -46,6 +52,11 @@ const CategoryHome = () => {
                         </>
                     ))}
                 </div>
+                {displayCount < uniqueCategories.length &&
+                    <div className="text-left">
+                        <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>See All Categories</button>
+                    </div>
+                }
             </motion.div>
         </>
     );
