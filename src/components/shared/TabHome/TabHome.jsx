@@ -1,13 +1,9 @@
 import useBlogs from "../../../hooks/useBlogs";
-// import useComment from './../../../hooks/useComment';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import BlogsShow from "./BlogsShow";
-// import 'react-tabs/style/react-tabs.css';
 import { useEffect, useState } from "react";
 import moment from "moment";
 import ShowRecentBlog from "./ShowRecentBlog";
-
-
 
 const TabHome = () => {
 
