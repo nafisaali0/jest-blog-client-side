@@ -54,7 +54,7 @@ const CategoryHome = () => {
                 </div>
                 {displayCount <= uniqueCategories.length &&
                     <div className="text-left">
-                        <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View All Categories</button>
+                        <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More Categories</button>
                     </div>
                 }
             </motion.div>
