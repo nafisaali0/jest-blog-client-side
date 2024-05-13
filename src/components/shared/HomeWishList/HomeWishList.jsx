@@ -7,9 +7,7 @@ const HomeWishList = () => {
 
     const [wishList] = useWishLIst()
     const [sortRecentSaveBlogs, setSortRecentSaveBlogs] = useState([]) //load sorting blogs
-    // console.log(sortRecentSaveBlogs)
-
-
+    
     // sorting by data and time 
     useEffect(() => {
         const sortedDateTime = wishList.sort((a, b) =>
@@ -18,6 +16,7 @@ const HomeWishList = () => {
         );
         setSortRecentSaveBlogs(sortedDateTime)
     }, [wishList])
+
     return (
         <>
             <div className="p-3">

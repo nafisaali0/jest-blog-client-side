@@ -7,6 +7,7 @@ import CreateComment from "./CreateComment";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import useWishLIst from "../../../hooks/useWishList";
 
 
 
@@ -14,30 +15,41 @@ const BlogDetails = () => {
 
     const { user } = useContext(AuthContext)//currrent user for update condition and wishlist
     const blog = useLoaderData();
+    const [wishList] = useWishLIst();
 
     const { _id, title, details_image, short_description, long_description, category, date, time, owner_name, owner_image, owner_Email } = blog
 
     const handleWishList = () => {
 
         const email = user.email
+        const blogId = _id
         const blogWishListInfo = { email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
+        const checkSameBlog = wishList.some(readBlog => readBlog.blogId === blogId)
 
-        //send wishlist data to the server and below link from backend's created API and load in mongo as DB
-        fetch('https://blog-server-side-ochre.vercel.app/wishlist', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(blogWishListInfo)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
-                    Swal.fire(
-                        'Added Blog to WishList'
-                    )
-                }
+        if (checkSameBlog === true) {
+            Swal.fire(
+                'Already Added in Reading List'
+            )
+        } else {
+            //send wishlist data to the server and below link to backend's created API and load in mongo as DB
+            fetch('https://blog-server-side-ochre.vercel.app/wishlist', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(blogWishListInfo)
             })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.insertedId) {
+                        Swal.fire(
+                            'Added Blog to Reading List'
+                        )
+                    }
+                })
+        }
+
     }
 
     return (

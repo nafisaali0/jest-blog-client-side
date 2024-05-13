@@ -12,40 +12,50 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 // import { motion } from 'framer-motion';
 import useComment from '../../../hooks/useComment';
+import useWishLIst from '../../../hooks/useWishList';
 
 
 
 const ShowRecentBlog = ({ blog }) => {
 
-    const { _id, title, details_image, short_description, category, long_description, date, time, owner_name, owner_image, owner_Email } = blog
     const { user, } = useContext(AuthContext)
-    // loading
     const [comments] = useComment()
-    // console.log(comments)
+    const [wishList] = useWishLIst()
+
+    const { _id, title, details_image, short_description, category, long_description, date, time, owner_name, owner_image, owner_Email } = blog
     const comment = comments.filter(item => item.blog_id === blog._id)
 
     const handleWishList = () => {
 
         const email = user.email
-        const blogWishListInfo = { email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
+        const blogId = _id
 
-        //send data to the server and below link from backend's created API and load in mongo as DB
-        fetch('https://blog-server-side-ochre.vercel.app/wishlist', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(blogWishListInfo)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.insertedId) {
-                    Swal.fire(
-                        'Added Blog to WishList'
-                    )
-                }
+        const blogWishListInfo = { blogId, email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
+        const checkSameBlog = wishList.some(readBlog => readBlog.blogId === blogId)
+
+        if (checkSameBlog === true) {
+            Swal.fire(
+                'Already Added in Reading List'
+            )
+        } else {
+            //send wishlist data to the server and below link to backend's created API and load in mongo as DB
+            fetch('https://blog-server-side-ochre.vercel.app/wishlist', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(blogWishListInfo)
             })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.insertedId) {
+                        Swal.fire(
+                            'Added Blog to Reading List'
+                        )
+                    }
+                })
+        }
     }
 
     return (

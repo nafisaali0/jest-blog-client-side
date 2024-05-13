@@ -44,10 +44,10 @@ const TabHome = () => {
         <>
             <div>
                 <Tabs onSelect={(index) => handleTabSelect(index)}>
-                    <TabList className={"cursor-pointer flex gap-5 items-center text-2xl font-semibold my-5 text-black outline-none"}>
-                        <Tab className={`${selectedTab === 0 ? 'p-2 border-b-4 border-light_purple rounded-b-sm' : ''}`}>All</Tab>
-                        <Tab className={`${selectedTab === 1 ? 'p-3 border-b-4 border-light_purple rounded-b-sm' : ''}`}>Recent Blogs</Tab>
-                        <Tab className={`${selectedTab === 2 ? 'p-3 border-b-4 border-light_purple rounded-b-sm' : ''}`}>Top Blogs</Tab>
+                    <TabList className={"cursor-pointer flex gap-5 items-center text-2xl font-semibold my-5 text-black"}>
+                        <Tab className={`${selectedTab === 0 ? 'p-2 border-b-4 border-light_purple outline-none rounded-b-sm' : ''}`}>All</Tab>
+                        <Tab className={`${selectedTab === 1 ? 'p-3 border-b-4 border-light_purple outline-none rounded-b-sm' : ''}`}>Recent Blogs</Tab>
+                        <Tab className={`${selectedTab === 2 ? 'p-3 border-b-4 border-light_purple outline-none rounded-b-sm' : ''}`}>Top Blogs</Tab>
                     </TabList>
                     <TabPanel>
                         <div className="grid grid-cols-1 gap-5 my-5">
@@ -62,7 +62,7 @@ const TabHome = () => {
                         </div>
                         {displayCount <= blogs.length &&
                             <div className="text-left">
-                                <button className="my-5 px-8 py-3 border-2 border-light_gray bg-hover_gray rounded-full text-light_purple text-sm font-bold hover:text-hover_btn hover:border-light_purple" onClick={handleSeeAll}>View All Blogs</button>
+                                <button className="my-5 px-8 py-3 border-2 border-light_gray bg-hover_gray rounded-full text-light_purple text-sm font-bold hover:text-hover_btn hover:border-light_purple" onClick={handleSeeAll}>View More Blogs</button>
                             </div>
                         }
                     </TabPanel>
@@ -79,7 +79,7 @@ const TabHome = () => {
                         </div>
                         {displayCount <= sortDateTimeBlogs.length &&
                             <div className="text-left">
-                                <button className="my-5 px-8 py-3 border-2 border-light_gray bg-hover_gray rounded-full text-light_purple text-sm font-bold hover:text-hover_btn hover:border-light_purple" onClick={handleSeeAllRecent}>View All Recent Blogs</button>
+                                <button className="my-5 px-8 py-3 border-2 border-light_gray bg-hover_gray rounded-full text-light_purple text-sm font-bold hover:text-hover_btn hover:border-light_purple" onClick={handleSeeAllRecent}>View More Recent Blogs</button>
                             </div>
                         }
                     </TabPanel>
