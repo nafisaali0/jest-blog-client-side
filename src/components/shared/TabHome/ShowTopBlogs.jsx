@@ -1,18 +1,18 @@
-import { Link } from "react-router-dom";
-import { PropTypes } from 'prop-types';
 import { useContext } from "react";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import useComment from "../../../hooks/useComment";
-import Swal from "sweetalert2";
+import useWishLIst from "../../../hooks/useWishList";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import { Link } from "react-router-dom";
 import iconD from '../../../assets/image/icons/details1.svg'
 import iconW from '../../../assets/image/icons/wishlist1.svg'
 import iconComment from '../../../assets/image/icons/comment.svg'
 import iconLike from '../../../assets/image/icons/like.svg'
-import { PhotoProvider, PhotoView } from "react-photo-view";
-import moment from 'moment';
-import useWishLIst from './../../../hooks/useWishList';
+import { PropTypes } from 'prop-types';
+import moment from "moment";
 
-const BlogsShow = ({ blog }) => {
+const ShowTopBlogs = ({ blog }) => {
 
     const { user } = useContext(AuthContext)//send currentUser to wishlist 
     const [comments] = useComment();
@@ -55,6 +55,7 @@ const BlogsShow = ({ blog }) => {
         }
 
     }
+
     return (
         <>
             <div href="#" className="flex flex-col-reverse items-center bg-card_white rounded-lg shadow md:flex-row-reverse md:max-w-4xl hover:bg-hover_gray">
@@ -92,8 +93,8 @@ const BlogsShow = ({ blog }) => {
     );
 };
 
-BlogsShow.propTypes = {
+ShowTopBlogs.propTypes = {
     blog: PropTypes.obj
 };
 
-export default BlogsShow;
+export default ShowTopBlogs;

@@ -21,11 +21,11 @@ const HomeWishList = () => {
         <>
             <div className="p-3">
                 <div>
-                    <h1 className="text-3xl font-bold my-6">Reading List</h1>
+                    <h1 className="text-3xl font-semibold my-6">Reading List</h1>
                 </div>
                 <div>
                     {
-                        sortRecentSaveBlogs.slice(0, 4).map(saveBlogs =>
+                        sortRecentSaveBlogs.slice(0, 2).map(saveBlogs =>
                             <>
                                 <div className="my-7 bg-card_white p-5 rounded">
                                     <div className="flex items-center gap-4">

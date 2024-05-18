@@ -9,7 +9,7 @@ const NavBar = () => {
 
     const { user, logOut } = useContext(AuthContext)
     const location = useLocation();
-    console.log(location.pathname)
+
     const handleLogOut = () => {
         logOut(user)
             .then(result => {

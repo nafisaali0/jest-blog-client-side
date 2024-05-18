@@ -26,7 +26,7 @@ const HomeFeaturesBlog = () => {
         <>
             <div className="p-3">
                 <div className="my-6">
-                    <h1 className="text-3xl font-bold">Featured Blogs</h1>
+                    <h1 className="text-3xl font-semibold">Featured Blogs</h1>
                     <p className="text-xl font-semibold my-3">Long Blogs</p>
                 </div>
                 <div>
