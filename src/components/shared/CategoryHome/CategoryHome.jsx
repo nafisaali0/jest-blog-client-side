@@ -27,7 +27,7 @@ const CategoryHome = () => {
 
     return (
         <>
-            <motion.div className="container mx-auto mt-5 p-3"
+            <motion.div className="container mx-auto mt-5 p-3 text-black"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}

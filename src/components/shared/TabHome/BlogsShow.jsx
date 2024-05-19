@@ -62,7 +62,7 @@ const BlogsShow = ({ blog }) => {
                     <div className='my-3'>
                         <span className='px-5 py-2 bg-light_gray text-xs text-black font-semibold rounded-full'>{category}</span>
                     </div>
-                    <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 ">{title}</h5>
+                    <h5 className="mb-2 text-lg font-bold tracking-tight text-black">{title}</h5>
                     <p className="font-normal text-gray-700 dark:text-gray-400">{short_description}</p>
                     <div className="flex justify-between items-center my-3">
                         <div className="flex gap-5 items-center">

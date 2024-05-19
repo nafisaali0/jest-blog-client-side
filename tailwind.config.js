@@ -11,6 +11,7 @@ export default {
       hover_btn:"#302ba7",
       body_color:"#e7e7e9",     
       hover_gray: "#eeeeee",
+      dash_nav: "#f5f1fe"
     },
     extend: {},
   },

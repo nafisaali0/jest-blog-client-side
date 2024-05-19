@@ -1,10 +1,10 @@
-
-
 const HomeDashboard = () => {
     return (
-        <div>
-            hello
-        </div>
+        <>
+            <div className="bg-dash_nav w-full h-96">
+
+            </div>
+        </>
     );
 };
 
