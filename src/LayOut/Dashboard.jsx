@@ -8,7 +8,6 @@ const Dashboard = () => {
                 <div className="bg-dash_nav">
                     <NavDashboard></NavDashboard>
                 </div>
-
                 <Outlet></Outlet>
             </div>
         </>
