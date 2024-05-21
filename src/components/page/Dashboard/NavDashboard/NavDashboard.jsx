@@ -106,7 +106,7 @@ const NavDashboard = () => {
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 z-[1] p-5 shadow menu menu-sm dropdown-content bg-dash_nav rounded-box w-52">
-                                <Link>{user.displayName}</Link>
+                                {/* <Link>{user.displayName}</Link> */}
                                 <Link to={'/signup'}>Add Another Account</Link>
                                 <li className="cursor-pointer" onClick={handleLogOut}>Logout</li>
                             </ul>

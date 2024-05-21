@@ -1,26 +1,35 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../../Providers/AuthProvider";
-import useBlogs from './../../../../hooks/useBlogs';
+import moment from "moment";
 
 const DashHomeBanner = () => {
 
-    const { user } = useContext(AuthContext)
-    const [userBlogs, setUserBlogs] = useState([])
-    const [blogs] = useBlogs();
 
-    useEffect(() => {
-        const bloggerBlogs = blogs.filter(blogger => blogger.owner_Email === user.email);
-        setUserBlogs(bloggerBlogs)
-    }, [blogs, user]);
-    
+    const { user } = useContext(AuthContext)
+    const [userStatus, setUserStatus] = useState("no")
+
+    const handleSubscribe = () => {
+        setUserStatus("yes")
+    }
+
+    console.log(user)
     return (
         <>
-            <div className="flex items-center justify-between">
-                <div>
-                    <h1>Your Blogs </h1>
-                    <h1>{userBlogs.length}</h1>
+            <div className="max-w-screen-2xl mx-auto px-3 py-28">
+                <div className="flex items-center justify-between h-10">
+                    <div className="mb-10">
+                        <p className="text-lg font-semibold">{moment().format("MMM DD YYYY")}</p>
+                        <h1 className="text-4xl font-bold my-4">Hello,{user.displayName}!</h1>
+                    </div>
+                    <div className="h-10">
+                        {
+                            userStatus === "no" ?
+                                <><button className="px-3 lg:px-10 h-full bg-light_purple text-white hover:bg-hover_btn" onClick={handleSubscribe}>Subscribe</button></>
+                                :
+                                <><button className="px-3 lg:px-10 h-full border-none roundedv text-xl font-bold bg-light_purple text-white hover:bg-hover_btn">Premium</button></>
+                        }
+                    </div>
                 </div>
-                <div></div>
             </div>
         </>
     );
