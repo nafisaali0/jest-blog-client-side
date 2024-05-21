@@ -32,7 +32,6 @@ const BloggerUser = () => {
         setDisplayCount(displayCount + 3);
     }
 
-
     return (
         <>
             <div className="p-3">

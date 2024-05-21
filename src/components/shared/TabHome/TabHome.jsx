@@ -57,7 +57,6 @@ const TabHome = () => {
             setSortedBlogs(blogsWithCommentCount);
         }
     }, [comments, blogs]);
-    // console.log(sortedBlogs)
 
     const handleSeeAll = () => {
         setDisplayCount(displayCount + 6);
