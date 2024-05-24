@@ -38,6 +38,7 @@ const TabHome = () => {
     //top Blogs
     useEffect(() => {
         if (comments.length > 0 && blogs.length > 0) {
+
             // Step 2: Count the comments for each blog
             const commentCountByBlog = comments.reduce((acc, comment) => {
                 acc[comment.blog_id] = (acc[comment.blog_id] || 0) + 1;
@@ -49,7 +50,7 @@ const TabHome = () => {
                 ...blog,
                 count: commentCountByBlog[blog._id] || 0
             }));
-
+           
             // Step 4: Sort the array by comment count in descending order
             blogsWithCommentCount.sort((a, b) => b.count - a.count);
 
