@@ -12,7 +12,8 @@ export default {
       body_color:"#e7e7e9",     
       hover_gray: "#eeeeee",
       dash_nav: "#f5f1fe",
-      purple: "#c3bef0"
+      purple: "#c3bef0",
+      icon_gray:"#9ba6a5"
       
     },
     extend: {},

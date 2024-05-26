@@ -41,7 +41,7 @@ const DashHomeBannerCard = () => {
                 <div className="bg-white p-5 drop-shadow-xl">
                     <div className="flex items-center gap-5 py-2 md:flex-col md:items-start">
                         <div>
-                            <FaBloggerB className="mb-4 w-24 h-24 md:w-16 md:h-16 bg-[#9ba6a5] text-white rounded p-2" />
+                            <FaBloggerB className="mb-4 w-24 h-24 md:w-16 md:h-16 bg-icon_gray text-white rounded p-2" />
                         </div>
                         <div className="flex-1 md:flex-auto">
                             <h1 className="mb-2 text-xl font-semibold">Total Blogs</h1>
@@ -52,7 +52,7 @@ const DashHomeBannerCard = () => {
                 <div className="bg-white p-5 drop-shadow-xl">
                     <div className="flex items-center gap-5 py-2 md:flex-col md:items-start">
                         <div>
-                            <BiSolidCommentDetail className="mb-4 w-24 h-24 md:w-16 md:h-16 bg-[#9ba6a5] text-white rounded p-2" />
+                            <BiSolidCommentDetail className="mb-4 w-24 h-24 md:w-16 md:h-16 bg-icon_gray text-white rounded p-2" />
                         </div>
                         <div className="flex-1 md:flex-auto">
                             <h1 className="mb-2 text-xl font-semibold">Total Comments</h1>
@@ -63,7 +63,7 @@ const DashHomeBannerCard = () => {
                 <div className="bg-white p-5 drop-shadow-xl">
                     <div className="flex items-center gap-5 py-2 md:flex-col md:items-start">
                         <div>
-                            <BiSolidLike className="mb-4 w-24 h-24 md:w-16 md:h-16 bg-[#9ba6a5] text-white rounded p-2" />
+                            <BiSolidLike className="mb-4 w-24 h-24 md:w-16 md:h-16 bg-icon_gray text-white rounded p-2" />
                         </div>
                         <div className="flex-1 md:flex-auto">
                             <h1 className="mb-2 text-xl font-semibold">Total Likes</h1>
@@ -74,7 +74,7 @@ const DashHomeBannerCard = () => {
                 <div className="bg-white p-5 drop-shadow-xl">
                     <div className="flex items-center gap-5 py-2 md:flex-col md:items-start">
                         <div>
-                            <RiUserFollowFill className="mb-4 w-24 h-24 md:w-16 md:h-16 bg-[#9ba6a5] text-white rounded p-2" />
+                            <RiUserFollowFill className="mb-4 w-24 h-24 md:w-16 md:h-16 bg-icon_gray text-white rounded p-2" />
                         </div>
                         <div className="flex-1 md:flex-auto">
                             <h1 className="mb-2 text-xl font-semibold">Followers</h1>
