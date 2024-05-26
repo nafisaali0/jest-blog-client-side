@@ -58,7 +58,7 @@ const NavDashboard = () => {
                                     </Link>
                                     <Link activeClassName="navbar__link--active_mobile"
                                         className={ifActive('/settings') ? "navbar__link--active_mobile" : "navbar__link_mobile"}
-                                        to="/">
+                                        to="/dashboard/profile-setting">
                                         <div>
                                             <RiListSettingsLine />
                                         </div>
@@ -93,7 +93,7 @@ const NavDashboard = () => {
                                         to="/">Profile</Link>
                                     <Link activeClassName="navbar__link--active"
                                         className={ifActive('/setting') ? "navbar__link--active" : "navbar__link"}
-                                        to="/">Settings</Link>
+                                        to="/dashboard/profile-setting">Settings</Link>
                                 </nav>
                             </div>
                         </ul>

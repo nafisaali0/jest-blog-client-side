@@ -1,12 +1,12 @@
-import DashHomeBanner from "./DashHomeBanner";
 import DashHomeBannerCard from "./DashHomeBannerCard";
+import DashHomeOwnerBlogs from "./DashHomeOwnerBlogs";
 
 const HomeDashboard = () => {
     return (
         <>
-            <div className="bg-dash_nav w-full h-96">
-                <DashHomeBanner></DashHomeBanner>
+            <div className="max-w-screen-2xl mx-auto px-3 overflow-hidden">
                 <DashHomeBannerCard></DashHomeBannerCard>
+                <DashHomeOwnerBlogs></DashHomeOwnerBlogs>
             </div>
         </>
     );

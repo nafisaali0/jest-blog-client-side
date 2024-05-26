@@ -14,6 +14,7 @@ import CategoryBlogs from './../components/page/CategoryBlogs/CategoryBlogs';
 import PrivateRoutes from './PrivateRoutes';
 import Dashboard from "../LayOut/Dashboard";
 import HomeDashboard from "../components/page/Dashboard/HomeDashboard/HomeDashboard";
+import ProfileSettings from "../components/page/Dashboard/ProfileSettings/ProfileSettings";
 
 const router = createBrowserRouter([
     {
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element:<PrivateRoutes><HomeDashboard></HomeDashboard></PrivateRoutes>,
+            },
+            {
+                path: '/dashboard/profile-setting',
+                element:<PrivateRoutes><ProfileSettings></ProfileSettings></PrivateRoutes>,
             },
 
         ]
