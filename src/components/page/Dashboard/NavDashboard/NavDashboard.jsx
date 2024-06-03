@@ -1,8 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import logo from '../../../../assets/image/logo/upLogoedit11.png'
 import navIcon from '../../../../assets/image/icons/nav-icon.svg'
-// import { CgUserlane } from "react-icons/cg";
-// import { LuSettings2 } from "react-icons/lu";
 import { AiOutlineUserSwitch } from "react-icons/ai";
 import { RiListSettingsLine } from "react-icons/ri";
 import { MdOutlineDashboard } from "react-icons/md";
@@ -49,7 +47,7 @@ const NavDashboard = () => {
                                     </Link>
                                     <Link
                                         activeClassName="navbar__link--active_mobile"
-                                        className={ifActive('/profile') ? "navbar__link--active_mobile" : "navbar__link_mobile"}
+                                        className={ifActive('/dashboard/profile') ? "navbar__link--active_mobile" : "navbar__link_mobile"}
                                         to="/">
                                         <div>
                                             <AiOutlineUserSwitch />
@@ -89,8 +87,8 @@ const NavDashboard = () => {
                                         to="/dashboard">Dashboard</Link>
                                     <Link
                                         activeClassName="navbar__link--active"
-                                        className={ifActive('/profile') ? "navbar__link--active" : "navbar__link"}
-                                        to="/">Profile</Link>
+                                        className={ifActive('/dashboard/profile') ? "navbar__link--active" : "navbar__link"}
+                                        to="/dashboard/profile">Profile</Link>
                                     <Link activeClassName="navbar__link--active"
                                         className={ifActive('/dashboard/profile-setting') ? "navbar__link--active" : "navbar__link"}
                                         to="/dashboard/profile-setting">Settings</Link>

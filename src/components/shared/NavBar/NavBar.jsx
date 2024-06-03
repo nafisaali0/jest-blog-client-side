@@ -34,10 +34,6 @@ const NavBar = () => {
                                     <NavLink to="/">Home</NavLink>
                                     <NavLink to="/addblog">Add Blog</NavLink>
                                     <NavLink to="/dashboard">Dashboard</NavLink>
-                                    {/* <Link className="ml-3" to={'/dashboard'}>Dashboard</Link> */}
-                                    {/* <NavLink to="/allblogs">All Blogs</NavLink> */}
-                                    {/* <NavLink to="/featureblog">Featured Blogs</NavLink> */}
-                                    {/* <NavLink to="/wishlist">Wishlist</NavLink> */}
                                     <div className="flex items-center my-5">
                                         <Link to={'/signin'}>
                                             <button className="text-sm px-3 py-2 border-2 font-semibold text-light_purple rounded border-light_purple hover:bg-hover_btn hover:text-white">Sign in</button>
