@@ -8,7 +8,7 @@ const ShowProfile = () => {
                     <div className="flex justify-center">
                         <div className="relative">
                             <img
-                                className="w-24 h-24 rounded-full mx-auto shadow-md"
+                                className="w-28 h-28 rounded-full mx-auto shadow-md"
                                 src="https://via.placeholder.com/150"
                                 alt="Samantha Jones"
                             />
