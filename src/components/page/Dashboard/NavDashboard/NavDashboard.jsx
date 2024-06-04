@@ -4,6 +4,7 @@ import navIcon from '../../../../assets/image/icons/nav-icon.svg'
 import { AiOutlineUserSwitch } from "react-icons/ai";
 import { RiListSettingsLine } from "react-icons/ri";
 import { MdOutlineDashboard } from "react-icons/md";
+import { GiPriceTag } from "react-icons/gi";
 import { useContext } from "react";
 import { AuthContext } from "../../../../Providers/AuthProvider";
 import './navdasboard.css'
@@ -48,7 +49,7 @@ const NavDashboard = () => {
                                     <Link
                                         activeClassName="navbar__link--active_mobile"
                                         className={ifActive('/dashboard/profile') ? "navbar__link--active_mobile" : "navbar__link_mobile"}
-                                        to="/">
+                                        to="/dashboard/profile">
                                         <div>
                                             <AiOutlineUserSwitch />
                                         </div>
@@ -61,6 +62,14 @@ const NavDashboard = () => {
                                             <RiListSettingsLine />
                                         </div>
                                         Settings
+                                    </Link>
+                                    <Link activeClassName="navbar__link--active_mobile"
+                                        className={ifActive('/dashboard/membership') ? "navbar__link--active_mobile" : "navbar__link_mobile"}
+                                        to="/dashboard/membership">
+                                        <div>
+                                            <GiPriceTag />
+                                        </div>
+                                        Membership
                                     </Link>
                                 </nav>
                                 <div className="flex items-center gap-3 my-5">
@@ -92,6 +101,9 @@ const NavDashboard = () => {
                                     <Link activeClassName="navbar__link--active"
                                         className={ifActive('/dashboard/profile-setting') ? "navbar__link--active" : "navbar__link"}
                                         to="/dashboard/profile-setting">Settings</Link>
+                                    <Link activeClassName="navbar__link--active"
+                                        className={ifActive('/dashboard/membership') ? "navbar__link--active" : "navbar__link"}
+                                        to="/dashboard/membership">Membership</Link>
                                 </nav>
                             </div>
                         </ul>

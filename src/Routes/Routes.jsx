@@ -16,6 +16,7 @@ import Dashboard from "../LayOut/Dashboard";
 import HomeDashboard from "../components/page/Dashboard/HomeDashboard/HomeDashboard";
 import ProfileSettings from "../components/page/Dashboard/ProfileSettings/ProfileSettings";
 import ShowProfile from "../components/page/Dashboard/ProfileSettings/ShowProfile";
+import Membership from "../components/page/Dashboard/Membership/Membership";
 
 const router = createBrowserRouter([
     {
@@ -76,15 +77,19 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element:<PrivateRoutes><HomeDashboard></HomeDashboard></PrivateRoutes>,
+                element: <PrivateRoutes><HomeDashboard></HomeDashboard></PrivateRoutes>,
             },
             {
                 path: '/dashboard/profile-setting',
-                element:<PrivateRoutes><ProfileSettings></ProfileSettings></PrivateRoutes>,
+                element: <PrivateRoutes><ProfileSettings></ProfileSettings></PrivateRoutes>,
             },
             {
                 path: '/dashboard/profile',
-                element:<PrivateRoutes><ShowProfile></ShowProfile></PrivateRoutes>,
+                element: <PrivateRoutes><ShowProfile></ShowProfile></PrivateRoutes>,
+            },
+            {
+                path: '/dashboard/membership',
+                element: <PrivateRoutes><Membership></Membership></PrivateRoutes>,
             },
 
         ]
