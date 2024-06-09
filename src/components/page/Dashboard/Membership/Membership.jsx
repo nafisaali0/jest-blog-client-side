@@ -18,7 +18,7 @@ const Membership = () => {
                         >
                         </Player>
                     </div>
-                    <p className="text-2xl font-semibold mb-4">0 TK / month</p>
+                    <p className="text-2xl font-semibold mb-4">0 TK</p>
                     <ul className="text-left mb-6">
                         <li className="flex items-center mb-2">
                             <svg className="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +57,7 @@ const Membership = () => {
                         >
                         </Player>
                     </div>
-                    <p className="text-2xl font-semibold mb-4">100 TK / month</p>
+                    <p className="text-2xl font-semibold mb-4">500 TK</p>
                     <ul className="text-left mb-6">
                         <li className="flex items-center mb-2">
                             <svg className="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -78,9 +78,19 @@ const Membership = () => {
                             Users have access to view the full content of blogs.
                         </li>
                     </ul>
-                    <button className="bg-light_purple text-white font-bold py-2 px-4 rounded-full hover:bg-red-600 transition duration-200">
+                    <button onClick={() => document.getElementById('my_modal_3').showModal()} className="bg-light_purple text-white font-bold py-2 px-4 rounded-full hover:bg-red-600 transition duration-200">
                         Get Started
                     </button>
+                    <dialog id="my_modal_3" className="modal">
+                        <div className="modal-box">
+                            <form method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                            </form>
+                            <h3 className="font-bold text-lg">Hello!</h3>
+                            <p className="py-4">Press ESC key or click on ✕ button to close</p>
+                        </div>
+                    </dialog>
                 </div>
             </div>
         </>
