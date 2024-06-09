@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const ShowProfile = () => {
     return (
@@ -38,9 +39,11 @@ const ShowProfile = () => {
                                 <span className="text-gray-600">Protfolio</span>
                             </div>
                         </div>
-                        <button className="my-6 w-36 py-2 bg-light_purple text-white rounded-full hover:bg-pink-700 transition duration-200">
-                            Edit Profile
-                        </button>
+                        <Link to={'/dashboard/profile-setting'}>
+                            <button className="my-6 w-36 py-2 bg-light_purple text-white rounded-full hover:bg-pink-700 transition duration-200">
+                                Edit Profile
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import { Player } from '@lottiefiles/react-lottie-player';
 import BasicMember from '../../../../assets/image/animation/basicmember.json'
 import StandardMember from '../../../../assets/image/animation/StandardMember.json'
+import { Link } from 'react-router-dom';
 
 const Membership = () => {
     return (
@@ -38,9 +39,11 @@ const Membership = () => {
                             Premium blogs will not be displayed.
                         </li>
                     </ul>
-                    <button className="bg-light_purple text-white font-bold py-2 px-4 rounded-full hover:bg-red-600 transition duration-200">
-                        Available
-                    </button>
+                    <Link to={'/'}>
+                        <button className="bg-light_purple text-white font-bold py-2 px-4 rounded-full hover:bg-red-600 transition duration-200">
+                            Available
+                        </button>
+                    </Link>
                 </div>
                 <div className="bg-white rounded-lg shadow-md p-6 text-center w-full max-w-lg">
                     <h2 className="text-xl font-bold mb-2">Standard</h2>
