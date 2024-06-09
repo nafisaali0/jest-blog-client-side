@@ -2,10 +2,11 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from 'sweetalert2'
+import GoogleSignIn from "../../shared/GoogleSignIn/GoogleSignIn";
 
 const SignIn = () => {
 
-    const { signInUser, googleLogIn } = useContext(AuthContext)
+    const { signInUser } = useContext(AuthContext)
     const [signInError, setSignInError] = useState()
     const navigate = useNavigate()
 
@@ -45,29 +46,6 @@ const SignIn = () => {
 
             })
     }
-    const handleGoogle = () => {
-        googleLogIn()
-            .then(result => {
-                return (
-                    console.log(result.user),
-                    Swal.fire(
-                        'Login Successfully!'
-                    ),
-                    navigate('/')
-                )
-            })
-            .catch(error => {
-                console.log(error)
-                return (
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Try Again',
-                        text: 'Can Not LogIn With Google',
-                        footer: { error }
-                    })
-                )
-            })
-    }
 
     return (
         <div className="bg-[#f3f3f4] w-[100%] lg:h-[100vh] md:h-[100%]" >
@@ -78,14 +56,7 @@ const SignIn = () => {
                     </div>
                     <form onSubmit={handleSignIn}>
                         <div className="my-10">
-                            <button
-                                onClick={handleGoogle}
-                                className="w-full py-3 border-2 bg-light_purple text-white hover:bg-hover_btn"
-                                type="submit"
-                                data-ripple-light="true"
-                            >
-                                Sign In With Google
-                            </button>
+                            <GoogleSignIn></GoogleSignIn>
                         </div>
                         <div className="my-10 text-center text-xl font-bold">
                             <p>OR</p>
