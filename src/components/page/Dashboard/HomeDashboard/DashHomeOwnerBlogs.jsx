@@ -2,18 +2,44 @@ import { useContext, useEffect, useState } from "react";
 import useBlogs from "../../../../hooks/useBlogs";
 import { AuthContext } from "../../../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
-import icon2 from '../../../../assets/image/icons/edit.svg'
+import icondelete from '../../../../assets/image/icons/delete.svg'
+import edit from '../../../../assets/image/icons/edit.svg'
+
+import Swal from "sweetalert2";
 
 const DashHomeOwnerBlogs = () => {
 
     const [blogs] = useBlogs();
     const { user } = useContext(AuthContext)
     const [userBlogs, setUserBlogs] = useState([])
+    // const [changeBlogState, setChangeBlogsState] = useState([])
 
     useEffect(() => {
         const bloggerBlogs = blogs.filter(blogger => blogger.owner_Email === user.email);
         setUserBlogs(bloggerBlogs)
     }, [blogs, user]);
+
+    console.log(userBlogs)
+    const handleDelete = (_id) => {
+
+        fetch(`https://blog-server-side-ochre.vercel.app/blogs/${_id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your blog has been deleted.',
+                        'success'
+                    )
+                }
+                // clear state after delete blogs
+                const loadBlogsAfterDelete = userBlogs.filter(comment => comment._id !== _id)
+                setUserBlogs(loadBlogsAfterDelete)
+            })
+    }
 
     return (
         <>
@@ -46,9 +72,10 @@ const DashHomeOwnerBlogs = () => {
                                                         <span>{ownerBlogs.date}</span>
                                                         <span>{ownerBlogs.time}</span>
                                                     </div>
-                                                    <div>
+                                                    <div className="flex gap-2 items-center">
+                                                        <img onClick={() => handleDelete(ownerBlogs._id)} title="Delete" className="w-7 cursor-pointer" src={icondelete} alt="" />
                                                         <Link to={`/update/${ownerBlogs._id}`}>
-                                                            <img title="Update" className="w-9 cursor-pointer" src={icon2} alt="" />
+                                                            <img title="Update" className="w-9 cursor-pointer" src={edit} alt="" />
                                                         </Link>
                                                     </div>
                                                 </div>
@@ -86,7 +113,7 @@ const DashHomeOwnerBlogs = () => {
                                                     </div>
                                                     <div>
                                                         <Link to={`/update/${ownerBlogs._id}`}>
-                                                            <img title="Update" className="w-9 cursor-pointer" src={icon2} alt="" />
+                                                            <img title="Update" className="w-9 cursor-pointer" src={edit} alt="" />
                                                         </Link>
                                                     </div>
                                                 </div>
