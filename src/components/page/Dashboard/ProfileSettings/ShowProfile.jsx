@@ -2,12 +2,11 @@
 const ShowProfile = () => {
     return (
         <>
-            <div className="h-96 bg-dash_nav from-pink-500 to-red-500">
-            </div>
-                <div className="bg-white rounded-2xl w-full max-w-screen-2xl mx-auto shadow-lg p-6 -mt-28 md:p-8 lg:p-10">
+            <div className="max-w-screen-2xl mx-auto mt-44 p-5 mb-16">
+                <div className="bg-white rounded-2xl drop-shadow-2xl p-5">
                     <div className="flex justify-between items-center">
                         <div>
-                            Join Date 
+                            Join Date
                         </div>
                         <div className="-mt-20">
                             <img
@@ -39,11 +38,12 @@ const ShowProfile = () => {
                                 <span className="text-gray-600">Protfolio</span>
                             </div>
                         </div>
-                        <button className="mt-6 w-36 py-2 bg-light_purple text-white rounded-full hover:bg-pink-700 transition duration-200">
-                            Edit Profile 
+                        <button className="my-6 w-36 py-2 bg-light_purple text-white rounded-full hover:bg-pink-700 transition duration-200">
+                            Edit Profile
                         </button>
                     </div>
                 </div>
+            </div>
         </>
     );
 };

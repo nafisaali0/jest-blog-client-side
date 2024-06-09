@@ -5,7 +5,7 @@ import StandardMember from '../../../../assets/image/animation/StandardMember.js
 const Membership = () => {
     return (
         <>
-            <div className="flex flex-col md:flex-row justify-center items-center min-h-screen gap-7 bg-pink-100 p-5">
+            <div className="flex flex-col md:flex-row justify-center items-center mt-44 gap-7 p-5">
                 <div className="bg-white rounded-lg shadow-md p-6 text-center w-full max-w-lg">
                     <h2 className="text-xl font-bold mb-2">Basic</h2>
                     <div className='my-5'>
