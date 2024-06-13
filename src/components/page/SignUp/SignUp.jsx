@@ -1,23 +1,26 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import GoogleSignIn from "../../shared/GoogleSignIn/GoogleSignIn";
-// import { updateProfile } from "firebase/auth";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+
 
 const SignUp = () => {
 
     const { signUpUser } = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState('')
     const passwordRequirement = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).{6,}$/;
-
+    const axiosPublic = useAxiosPublic()
+    const navigate = useNavigate();
 
     const handleSignUp = e => {
         e.preventDefault();
 
+        const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value
-
+        const userInfo = { name, email }
         setSignUpError('')//clean error state
 
         // grap error before data going to server
@@ -35,10 +38,20 @@ const SignUp = () => {
             .then(result => {
                 return (
                     console.log(result.user),
-                    Swal.fire(
-                        'Sign Up Successfully!'
-                    ),
-                    e.target.reset()
+                    axiosPublic.post('/users', userInfo)
+                        .then(res => {
+                            if (res.data.insertedId) {
+                                console.log('user add')
+                                Swal.fire({
+                                    position: "top-end",
+                                    icon: "success",
+                                    title: "Successful Sign Up",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                navigate('/')
+                            }
+                        })
                 )
             })
             .catch(error => {

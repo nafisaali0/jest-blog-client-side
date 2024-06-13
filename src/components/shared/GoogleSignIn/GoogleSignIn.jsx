@@ -2,22 +2,32 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const GoogleSignIn = () => {
-    
+
     const { googleLogIn } = useContext(AuthContext)
     const navigate = useNavigate()
+    const axiosPublic = useAxiosPublic()
 
     const handleGoogle = () => {
         googleLogIn()
             .then(result => {
-                return (
-                    console.log(result.user),
-                    Swal.fire(
-                        'Login Successfully!'
-                    ),
-                    navigate('/')
-                )
+                console.log(result.user);
+                const userInfo = {
+                    name: result.user?.displayName,
+                    email: result.user?.email,
+                    photo: result.user?.photoURL
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        Swal.fire(
+                            'Successfull'
+                        ),
+                            navigate('/')
+                    })
+
             })
             .catch(error => {
                 console.log(error)
