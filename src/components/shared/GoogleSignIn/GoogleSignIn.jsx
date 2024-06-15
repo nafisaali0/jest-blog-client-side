@@ -3,6 +3,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import moment from "moment";
 
 const GoogleSignIn = () => {
 
@@ -15,6 +16,7 @@ const GoogleSignIn = () => {
             .then(result => {
                 console.log(result.user);
                 const userInfo = {
+                    date: moment().format("MMM Do YY"),
                     name: result.user?.displayName,
                     email: result.user?.email,
                     photo: result.user?.photoURL

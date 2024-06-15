@@ -38,7 +38,7 @@ const ProfileSettings = () => {
 
     const handleUpdateProfile = (e, user_id) => {
         e.preventDefault();
-    
+
         const fname = e.target.fname.value;
         const lname = e.target.lname.value;
         const bio = e.target.bio.value;
@@ -64,11 +64,7 @@ const ProfileSettings = () => {
             .then(data => {
                 console.log(data)
                 if (data.modifiedCount > 0) {
-                    Swal.fire(
-                        'Updated!',
-                        'Your user has been Updated.',
-                        'success'
-                    )
+                    console.log(data.modifiedCount > 0)
                 }
 
             })
@@ -83,13 +79,11 @@ const ProfileSettings = () => {
                     {
                         users.map(currentUser =>
                             <>
-                                <form onSubmit={(e) => handleUpdateProfile(e, currentUser._id)}>
+                                <form onSubmit={(e) => handleUpdateProfile(e, currentUser?._id)}>
                                     <div className="flex items-center space-x-8 mb-5">
                                         <img
-                                            className="w-28 h-28 rounded-full"
-                                            // src={imagePreview ? currentUser.photo : "https://via.placeholder.com/150"}
+                                            className="w-28 h-28 border-2 border-black rounded-full"
                                             src={imagePreview ? imagePreview : currentUser?.photo}
-                                        // src={imagePreview}
                                         />
                                         <div>
                                             <h2 className="text-xl font-medium">Carly Hester</h2>
