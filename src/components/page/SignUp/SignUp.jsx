@@ -4,6 +4,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import GoogleSignIn from "../../shared/GoogleSignIn/GoogleSignIn";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import moment from "moment";
 
 
 const SignUp = () => {
@@ -17,10 +18,12 @@ const SignUp = () => {
     const handleSignUp = e => {
         e.preventDefault();
 
-        const name = e.target.name.value;
+        const fname = e.target.fname.value;
+        const lname = e.target.lname.value;
         const email = e.target.email.value;
+        const joinDate = moment().format("MMM Do YY");
         const password = e.target.password.value
-        const userInfo = { name, email }
+        const userInfo = { fname,lname, email,joinDate }
         setSignUpError('')//clean error state
 
         // grap error before data going to server
@@ -82,7 +85,10 @@ const SignUp = () => {
                             <p>OR</p>
                         </div>
                         <div>
-                            <input type="name" name="name" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="Name" />
+                            <input type="fname" name="fname" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="Name" />
+                        </div>
+                        <div>
+                            <input type="lname" name="lname" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="Name" />
                         </div>
                         <div className="relative z-0 w-full mb-6 group">
                             <input type="email" name="email" className="block py-2 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300   focus:outline-none focus:border-blue-600 peer" placeholder="Email" required />
