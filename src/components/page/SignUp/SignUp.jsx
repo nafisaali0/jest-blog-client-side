@@ -21,9 +21,9 @@ const SignUp = () => {
         const fname = e.target.fname.value;
         const lname = e.target.lname.value;
         const email = e.target.email.value;
-        const joinDate = moment().format("MMM Do YY");
+        const date = moment().format("MMM Do YY");
         const password = e.target.password.value
-        const userInfo = { fname,lname, email,joinDate }
+        const userInfo = { fname,lname, email,date }
         setSignUpError('')//clean error state
 
         // grap error before data going to server
@@ -64,7 +64,7 @@ const SignUp = () => {
                     Swal.fire({
                         icon: 'error',
                         title: (signUpError),
-                        text: 'Can Not  Sing Up',
+                        text: 'Can Not Sing Up',
                     })
                 )
             })
@@ -107,7 +107,6 @@ const SignUp = () => {
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

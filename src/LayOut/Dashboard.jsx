@@ -5,10 +5,11 @@ const Dashboard = () => {
     return (
         <>
             <div className="mb-10 bg-dash_nav w-full h-96 p-5">
-                <div className="bg-dash_nav">
+                <div className="">
                     <NavDashboard></NavDashboard>
                 </div>
-                <div className="max-h-screen">
+                {/*  className="max-h-screen" */}
+                <div>
                     <Outlet></Outlet>
                 </div>
             </div>

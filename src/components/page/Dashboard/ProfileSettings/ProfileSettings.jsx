@@ -12,7 +12,6 @@ const ProfileSettings = () => {
     const [imagePreview, setImagePreview] = useState()
     const axiosPublic = useAxiosPublic();
     const [users] = useUsers();
-    console.log(users)
 
     //image upload in imgBB web hosting
     const handleImageChange = async (e) => {
@@ -28,11 +27,6 @@ const ProfileSettings = () => {
         if (res.data.success) {
             const photo = res.data.data.display_url;
             setImagePreview(photo);
-            Swal.fire(
-                'Updated!',
-                'Your image has been uploaded.',
-                'success'
-            )
         }
     };
 
@@ -41,6 +35,7 @@ const ProfileSettings = () => {
 
         const fname = e.target.fname.value;
         const lname = e.target.lname.value;
+        const name = `${fname} ${lname}`;
         const bio = e.target.bio.value;
         const email = e.target.email.value;
         const work = e.target.work.value;
@@ -49,7 +44,7 @@ const ProfileSettings = () => {
         const github = e.target.github.value;
         const linkedin = e.target.linkedin.value;
 
-        const updateProfile = { fname, lname, bio, email, work, education, protfolio, github, linkedin, photo: imagePreview }
+        const updateProfile = { name, fname, lname, bio, email, work, education, protfolio, github, linkedin, photo: imagePreview }
         // console.log(updateProfile)
 
         // sent update productinfo to server
@@ -64,7 +59,11 @@ const ProfileSettings = () => {
             .then(data => {
                 console.log(data)
                 if (data.modifiedCount > 0) {
-                    console.log(data.modifiedCount > 0)
+                    Swal.fire(
+                        'Updated!',
+                        'Your user has been uploaded.',
+                        'success'
+                    )
                 }
 
             })
