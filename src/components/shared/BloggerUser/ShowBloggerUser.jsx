@@ -1,24 +1,16 @@
 import PropTypes from 'prop-types';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import Skeleton from 'react-loading-skeleton';
 import { motion } from 'framer-motion';
+import FollowFunctionality from '../FollowFunctionality/FollowFunctionality';
 
 
 const ShowBloggerUser = ({ blog }) => {
 
     const { owner_name, owner_image, owner_Email } = blog
     const { user, loading } = useContext(AuthContext)
-    const [following, setFollowing] = useState(false)
 
-    // follow Btn conditon
-    const handleFollowUser = () => {
-        if (following === false) {
-            setFollowing(true)
-        } else {
-            setFollowing(false)
-        }
-    }
     return (
         <>
             {
@@ -56,9 +48,7 @@ const ShowBloggerUser = ({ blog }) => {
                         <div>
                             {
                                 user?.email !== owner_Email ?
-                                    following ? <div onClick={handleFollowUser} className="badge  p-3 font-bold text-white bg-light_purple hover:bg-hover_btn cursor-pointer">following</div>
-                                        :
-                                        <div onClick={handleFollowUser} className="badge badge-neutral p-3 font-bold text-white bg-black cursor-pointer">follow</div>
+                                    <div className="badge  p-3 font-bold text-white bg-light_purple hover:bg-hover_btn cursor-pointer"><FollowFunctionality blog={blog}></FollowFunctionality></div>
                                     :
                                     <div className="badge  p-3 font-bold text-white bg-hover_btn cursor-pointer">Editor</div>
                             }
@@ -66,6 +56,12 @@ const ShowBloggerUser = ({ blog }) => {
                         </div>
                     </motion.div>
             }
+            {/* user?.email !== owner_Email ?
+            following ? <div onClick={handleFollowUser} className="badge  p-3 font-bold text-white bg-light_purple hover:bg-hover_btn cursor-pointer">following</div>
+            :
+            <div onClick={handleFollowUser} className="badge badge-neutral p-3 font-bold text-white bg-black cursor-pointer">follow</div>
+            :
+            <div className="badge  p-3 font-bold text-white bg-hover_btn cursor-pointer">Editor</div> */}
         </>
     );
 };
