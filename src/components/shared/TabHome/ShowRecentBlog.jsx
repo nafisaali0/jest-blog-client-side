@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import iconW from '../../../assets/image/icons/wishlist1.svg'
 import iconD from '../../../assets/image/icons/details1.svg'
-import iconLike from '../../../assets/image/icons/like.svg'
 import iconComment from '../../../assets/image/icons/comment.svg'
 import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
@@ -11,19 +10,19 @@ import Swal from 'sweetalert2';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 // import { motion } from 'framer-motion';
-import useComment from '../../../hooks/useComment';
 import useWishLIst from '../../../hooks/useWishList';
+import LikeFunctionality from '../LikeFunctionality/LikeFunctionality';
+import TotalLikes from '../LikeFunctionality/TotalLikes';
+import BlogTotalComments from '../BlogTotalComments/BlogTotalComments';
 
 
 
 const ShowRecentBlog = ({ blog }) => {
 
     const { user, } = useContext(AuthContext)
-    const [comments] = useComment()
     const [wishList] = useWishLIst()
 
     const { _id, title, details_image, short_description, category, long_description, date, time, owner_name, owner_image, owner_Email } = blog
-    const comment = comments.filter(item => item.blog_id === blog._id)
 
     const handleWishList = () => {
 
@@ -173,10 +172,12 @@ const ShowRecentBlog = ({ blog }) => {
                     <div className="flex justify-between items-center my-3">
                         <div className="flex gap-5 items-center">
                             <div className="flex gap-2 items-center">
-                                <img title="love" className="w-7 cursor-pointer" src={iconLike} alt="" /><span>{comment.length}</span>
+                                <LikeFunctionality id={_id}></LikeFunctionality>
+                                <TotalLikes id={_id}></TotalLikes>
                             </div>
                             <div className="flex gap-2 items-center">
-                                <img title="comment" className="w-7 cursor-pointer" src={iconComment} alt="" /><span>{comment.length}</span>
+                                <img title="comment" className="w-7 cursor-pointer" src={iconComment} alt="" />
+                                <BlogTotalComments id={_id}></BlogTotalComments>
                             </div>
                         </div>
                         <div className="flex gap-2 items-center">

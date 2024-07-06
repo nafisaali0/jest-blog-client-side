@@ -19,7 +19,6 @@ const DashHomeOwnerBlogs = () => {
         setUserBlogs(bloggerBlogs)
     }, [blogs, user]);
 
-    console.log(userBlogs)
     const handleDelete = (_id) => {
 
         fetch(`https://blog-server-side-ochre.vercel.app/blogs/${_id}`, {
