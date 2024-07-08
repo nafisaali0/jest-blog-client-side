@@ -1,16 +1,17 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../../../Providers/AuthProvider";
+import { useState } from "react";
 import moment from 'moment';
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useUsers from "../../../hooks/useUsers";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hostion_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 const AddBlog = () => {
 
-    const { user } = useContext(AuthContext)
     const axiosPublic = useAxiosPublic();
+    const [users] = useUsers();
+    const currentUser = users.length > 0 ? users[0] : {};
 
     //for intent output 
     const [imagePreview, setImagePreview] = useState(null)
@@ -52,9 +53,9 @@ const AddBlog = () => {
         const category = e.target.category.value;
         const date = moment().format("MMM Do YY");
         const time = moment().format('LT');
-        const owner_name = user.displayName;
-        const owner_image = user.photoURL;
-        const owner_Email = user.email;
+        const owner_name = currentUser.name;
+        const owner_image = currentUser.photo;
+        const owner_Email = currentUser.email;
 
         const newBlog = { title, short_description, long_description, details_image: imagePreview, date, time, category, owner_name, owner_image, owner_Email }
         fetch('https://blog-server-side-ochre.vercel.app/blogs', {

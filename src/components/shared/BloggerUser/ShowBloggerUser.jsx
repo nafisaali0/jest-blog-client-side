@@ -4,12 +4,15 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 import Skeleton from 'react-loading-skeleton';
 import { motion } from 'framer-motion';
 import FollowFunctionality from '../FollowFunctionality/FollowFunctionality';
+import useUsers from '../../../hooks/useUsers';
 
 
 const ShowBloggerUser = ({ blog }) => {
 
     const { owner_name, owner_image, owner_Email } = blog
-    const { user, loading } = useContext(AuthContext)
+    const { loading } = useContext(AuthContext)
+    const [users] = useUsers();
+    const currentUser = users.length > 0 ? users[0] : {};
 
     return (
         <>
@@ -47,7 +50,7 @@ const ShowBloggerUser = ({ blog }) => {
                         </div>
                         <div>
                             {
-                                user?.email !== owner_Email ?
+                                currentUser?.email !== owner_Email ?
                                     <div className="badge  p-3 font-bold text-white bg-light_purple hover:bg-hover_btn cursor-pointer"><FollowFunctionality blog={blog}></FollowFunctionality></div>
                                     :
                                     <div className="badge  p-3 font-bold text-white bg-hover_btn cursor-pointer">Editor</div>

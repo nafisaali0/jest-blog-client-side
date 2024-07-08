@@ -8,6 +8,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import useWishLIst from "../../../hooks/useWishList";
 import LikeFunctionality from './../../shared/LikeFunctionality/LikeFunctionality';
+import FollowFunctionality from "../../shared/FollowFunctionality/FollowFunctionality";
 
 
 
@@ -65,7 +66,7 @@ const BlogDetails = () => {
                         </div>
                     </div>
                     <div>
-                        <h2 className="text-lg font-semibold">{owner_name} . <span className="text-lg font-semibold hover:text-light_purple">Follow</span></h2>
+                        <h2 className="text-lg font-semibold">{owner_name} . <span className="text-lg font-semibold hover:text-light_purple cursor-pointer"><FollowFunctionality blog={blog}></FollowFunctionality></span></h2>
                         <span className="text-black">{date}</span>
                     </div>
                 </div>

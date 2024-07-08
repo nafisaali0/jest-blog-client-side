@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../../Providers/AuthProvider";
+import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
 import ShowComments from './ShowComments';
+import useUsers from '../../../hooks/useUsers';
 
 const CreateComment = ({ id, blog_Email }) => {
 
-    const { user } = useContext(AuthContext)//uses: currentUser cannot comment own blog
+    const [users] = useUsers();
+    const currentUser = users.length > 0 ? users[0] : {};
     const [isButtonDisabled, setisButtonDisabled] = useState(false)//uses: comment post btn disabled for currentUser 
     const [comments, setComments] = useState([]);//load all comments
     const [changeCommentsState, setChangeCommentsState] = useState([]);//change comment state after delete comment
@@ -18,13 +19,13 @@ const CreateComment = ({ id, blog_Email }) => {
 
         const blog_id = id
         const comment = e.target.comment.value;
-        const owner_name = user.displayName;
-        const owner_image = user.photoURL;
-        const owner_Email = user.email;
+        const owner_name = currentUser.name;
+        const owner_image = currentUser.photo;
+        const owner_Email = currentUser.email;
         const newBlog = { blog_id, comment, owner_name, owner_image, owner_Email }
 
         // currentUser cannot comment own blog
-        if (user.email === blog_Email) {
+        if (currentUser?.email === blog_Email) {
             setisButtonDisabled(true)
             return (
                 Swal.fire({
@@ -66,15 +67,41 @@ const CreateComment = ({ id, blog_Email }) => {
     return (
         <>
             <form onSubmit={handlePostComment} disabled={isButtonDisabled}>
-                <div className="form-control">
+                {/* <div className="form-control">
                     <label className="input-group">
-                        <span className="bg-transparent"><img className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src={user.photoURL} alt="" /></span>
+                        <span className="bg-transparent"><img className="w-12 h-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src={currentUser.photo} alt="" /></span>
                         <textarea rows={4} type="text" name="comment" placeholder="Write your thoughts here..." className="w-full rounded-xl p-2.5 border-b-2 outline-none focus:none" />
                     </label>
                 </div>
                 <div className="flex justify-end my-3">
                     <button className="btn border-none bg-light_purple text-white hover:bg-hover_btn">POST</button>
+                </div> */}
+                {/* new */}
+                <div className="form-control space-y-4">
+                    <label className="flex items-start space-x-3">
+                        <span className="flex-shrink-0">
+                            <img
+                                className="w-12 h-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 object-cover"
+                                src={currentUser.photo}
+                                alt="User avatar"
+                            />
+                        </span>
+                        <textarea
+                            rows={4}
+                            type="text"
+                            name="comment"
+                            placeholder="Write your thoughts here..."
+                            className="w-full rounded-xl p-3 outline-none"
+                        />
+                    </label>
+                    <div className="flex justify-end">
+                        <button className="btn bg-light_purple text-white hover:bg-hover_btn border-none px-6 py-2 rounded-full">
+                            POST
+                        </button>
+                    </div>
                 </div>
+
+
             </form>
 
             <div className="flex flex-col gap-3 my-5">

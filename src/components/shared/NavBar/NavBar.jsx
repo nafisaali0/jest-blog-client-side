@@ -4,11 +4,14 @@ import logo from '../../../assets/image/logo/upLogoedit11.png'
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { PropTypes } from 'prop-types';
+import useUsers from "../../../hooks/useUsers";
 
 const NavBar = () => {
 
     const { user, logOut } = useContext(AuthContext)
     const location = useLocation();
+    const [users] = useUsers();
+    const currentUser = users.length > 0 ? users[0] : {};
 
     const handleLogOut = () => {
         logOut(user)
@@ -113,11 +116,11 @@ const NavBar = () => {
                                         <div className="dropdown dropdown-end text-[#474f85] font-bold font-roboto">
                                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                                 <div className="w-10 border-black border-2 rounded-full">
-                                                    <img src={user.photoURL ? user.photoURL : ``} />
+                                                    <img src={currentUser?.photo ? currentUser?.photo : ``} />
                                                 </div>
                                             </label>
                                             <ul tabIndex={0} className="mt-3 z-[1] p-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                                <Link>{user.displayName}</Link>
+                                                <Link>{currentUser.name}</Link>
                                                 <Link to={'/signup'}>Add Another Account</Link>
                                                 <li className="cursor-pointer" onClick={handleLogOut}>Logout</li>
                                             </ul>
