@@ -9,6 +9,7 @@ import { BiSolidLike } from "react-icons/bi";
 import { RiUserFollowFill } from "react-icons/ri";
 import useLikes from './../../../../hooks/useLikes';
 import useUsers from "../../../../hooks/useUsers";
+import useTotalFollower from "../../../../hooks/useTotalFollower";
 
 const DashHomeBannerCard = () => {
 
@@ -20,10 +21,10 @@ const DashHomeBannerCard = () => {
     const [countCmtBlogs, setCountCmtBlogs] = useState([])
     const [countLikeBlogs, setCountLikeBlogs] = useState([])
     const [totalfollowers, setTotalfollowers] = useState(0)
-    const [followers, setFollowers] = useState([])
+    const [totalFollower] = useTotalFollower()
     const [users] = useUsers();
-    const userInfo = users.length > 0 ? users[0] : null;
 
+    const userInfo = users.length > 0 ? users[0] : null;
 
     useEffect(() => {
         const bloggerBlogs = blogs.filter(blogger => blogger.owner_Email === user.email);
@@ -43,6 +44,7 @@ const DashHomeBannerCard = () => {
         };
         countTotalComments();
     }, [userBlogs, comments]);
+    
     useEffect(() => {
         // Count total likes for the user's blogs
         let totalLikes = 0;
@@ -57,25 +59,16 @@ const DashHomeBannerCard = () => {
         countTotalLike();
     }, [userBlogs, likes]);
 
-    // continue checking 
     useEffect(() => {
-        fetch('https://blog-server-side-ochre.vercel.app/followers')
-            .then(response => response.json())
-            .then(data => {
-                setFollowers(data);
-            });
-    }, []);
-
-    useEffect(() => {
-        const totalFollower = followers.reduce((acc, flw) => {
+        const totalFollowers = totalFollower.reduce((acc, flw) => {
             if (flw.followersEmail === userInfo.email) {
                 return acc + 1;
             }
             return acc;
         }, 0);
 
-        setTotalfollowers(totalFollower);
-    }, [followers,userInfo]);
+        setTotalfollowers(totalFollowers);
+    }, [totalFollower, userInfo]);
 
 
     return (
