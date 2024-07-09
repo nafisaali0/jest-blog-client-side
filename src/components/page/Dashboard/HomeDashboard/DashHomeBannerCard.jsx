@@ -7,14 +7,23 @@ import { FaBloggerB } from "react-icons/fa6";
 import { BiSolidCommentDetail } from "react-icons/bi";
 import { BiSolidLike } from "react-icons/bi";
 import { RiUserFollowFill } from "react-icons/ri";
+import useLikes from './../../../../hooks/useLikes';
+import useUsers from "../../../../hooks/useUsers";
 
 const DashHomeBannerCard = () => {
 
     const [blogs] = useBlogs();
     const [comments] = useComment();
+    const [likes] = useLikes();
     const { user } = useContext(AuthContext)
     const [userBlogs, setUserBlogs] = useState([])
     const [countCmtBlogs, setCountCmtBlogs] = useState([])
+    const [countLikeBlogs, setCountLikeBlogs] = useState([])
+    const [totalfollowers, setTotalfollowers] = useState(0)
+    const [followers, setFollowers] = useState([])
+    const [users] = useUsers();
+    const userInfo = users.length > 0 ? users[0] : null;
+
 
     useEffect(() => {
         const bloggerBlogs = blogs.filter(blogger => blogger.owner_Email === user.email);
@@ -34,6 +43,40 @@ const DashHomeBannerCard = () => {
         };
         countTotalComments();
     }, [userBlogs, comments]);
+    useEffect(() => {
+        // Count total likes for the user's blogs
+        let totalLikes = 0;
+        let blogLikes = 0;
+        const countTotalLike = () => {
+            userBlogs.forEach(blog => {
+                blogLikes = likes.filter(like => like.blog_id === blog._id)
+                totalLikes += blogLikes.length;
+            });
+            setCountLikeBlogs(totalLikes);
+        };
+        countTotalLike();
+    }, [userBlogs, likes]);
+
+    // continue checking 
+    useEffect(() => {
+        fetch('https://blog-server-side-ochre.vercel.app/followers')
+            .then(response => response.json())
+            .then(data => {
+                setFollowers(data);
+            });
+    }, []);
+
+    useEffect(() => {
+        const totalFollower = followers.reduce((acc, flw) => {
+            if (flw.followersEmail === userInfo.email) {
+                return acc + 1;
+            }
+            return acc;
+        }, 0);
+
+        setTotalfollowers(totalFollower);
+    }, [followers,userInfo]);
+
 
     return (
         <>
@@ -67,7 +110,7 @@ const DashHomeBannerCard = () => {
                         </div>
                         <div className="flex-1 md:flex-auto">
                             <h1 className="mb-2 text-xl font-semibold">Total Likes</h1>
-                            <h1 className="text-4xl md:text-6xl font-bold">{countCmtBlogs}</h1>
+                            <h1 className="text-4xl md:text-6xl font-bold">{countLikeBlogs}</h1>
                         </div>
                     </div>
                 </div>
@@ -78,7 +121,7 @@ const DashHomeBannerCard = () => {
                         </div>
                         <div className="flex-1 md:flex-auto">
                             <h1 className="mb-2 text-xl font-semibold">Followers</h1>
-                            <h1 className="text-4xl md:text-6xl font-bold">{countCmtBlogs}</h1>
+                            <h1 className="text-4xl md:text-6xl font-bold">{totalfollowers}</h1>
                         </div>
                     </div>
                 </div>

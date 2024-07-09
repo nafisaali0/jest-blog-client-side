@@ -18,7 +18,6 @@ const TotalLikes = ({ id }) => {
     useEffect(() => {
         const totalLikes = likes.reduce((acc, like) => {
             if (like.blog_id === id) {
-                // acc[like.blog_id] = (acc[like.blog_id] || 0) + 1;
                 return acc + 1;
             }
             return acc;
