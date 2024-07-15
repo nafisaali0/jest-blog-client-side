@@ -51,7 +51,8 @@ const ShowBloggerUser = ({ blog }) => {
                         <div>
                             {
                                 currentUser?.email !== owner_Email ?
-                                    <div className="badge  p-3 font-bold text-white bg-light_purple hover:bg-hover_btn cursor-pointer"><FollowFunctionality blog={blog}></FollowFunctionality></div>
+                                    <div className="badge  p-3 font-bold text-white bg-light_purple hover:bg-hover_btn cursor-pointer"><FollowFunctionality 
+                                    email={owner_Email}></FollowFunctionality></div>
                                     :
                                     <div className="badge  p-3 font-bold text-white bg-hover_btn cursor-pointer">Editor</div>
                             }

@@ -66,7 +66,7 @@ const BlogDetails = () => {
                         </div>
                     </div>
                     <div>
-                        <h2 className="text-lg font-semibold">{owner_name} . <span className="text-lg font-semibold hover:text-light_purple cursor-pointer"><FollowFunctionality blog={blog}></FollowFunctionality></span></h2>
+                        <h2 className="text-lg font-semibold">{owner_name} . <span className="text-lg font-semibold hover:text-light_purple cursor-pointer"><FollowFunctionality email={owner_Email}></FollowFunctionality></span></h2>
                         <span className="text-black">{date}</span>
                     </div>
                 </div>

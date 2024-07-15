@@ -24,10 +24,10 @@ const DashHomeBannerCard = () => {
     const [totalFollower] = useTotalFollower()
     const [users] = useUsers();
 
-    const userInfo = users.length > 0 ? users[0] : null;
+    const userInfo = users?.length > 0 ? users[0] : null;
 
     useEffect(() => {
-        const bloggerBlogs = blogs.filter(blogger => blogger.owner_Email === user.email);
+        const bloggerBlogs = blogs?.filter(blogger => blogger?.owner_Email === user?.email);
         setUserBlogs(bloggerBlogs)
     }, [blogs, user]);
 
@@ -37,8 +37,8 @@ const DashHomeBannerCard = () => {
         let blogComments = 0;
         const countTotalComments = () => {
             userBlogs.forEach(blog => {
-                blogComments = comments.filter(comment => comment.blog_id === blog._id)
-                totalComments += blogComments.length;
+                blogComments = comments?.filter(comment => comment?.blog_id === blog?._id)
+                totalComments += blogComments?.length;
             });
             setCountCmtBlogs(totalComments);
         };
@@ -61,7 +61,7 @@ const DashHomeBannerCard = () => {
 
     useEffect(() => {
         const totalFollowers = totalFollower.reduce((acc, flw) => {
-            if (flw.followersEmail === userInfo.email) {
+            if (flw?.followersEmail === userInfo?.email) {
                 return acc + 1;
             }
             return acc;

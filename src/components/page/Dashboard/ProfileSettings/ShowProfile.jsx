@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import useUsers from "../../../../hooks/useUsers";
-import iconW from '../../../../assets/image/icons/wishlist1.svg'
 import { PiGithubLogoBold } from "react-icons/pi";
 import { PiLinkedinLogo } from "react-icons/pi";
 import { SiWebauthn } from "react-icons/si";
+import useFollowers from "../../../../hooks/useFollowers";
+import FollowFunctionality from "../../../shared/FollowFunctionality/FollowFunctionality";
 
 
 const ShowProfile = () => {
 
     const [users] = useUsers();
+    const [followers] = useFollowers();
 
     return (
         <>
@@ -57,30 +59,26 @@ const ShowProfile = () => {
                         )}
                 </div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-7 mb-20">
-                    <div className="bg-white shadow-lg rounded-xl overflow-hidden p-6">
-                        <div className="flex flex-col items-center">
-                            <div className="bg-gray-300 rounded-full h-24 w-24 flex items-center justify-center mb-4">
-                                <img src={iconW} alt="Profile" className="rounded-full h-24 w-24 object-cover" />
-                            </div>
-                            <div className="text-center">
-                                <p className="text-gray-700 text-lg font-bold">Frances S. Cody</p>
-                                <p className="text-gray-500 text-sm">Building apps on emerging tech podcast @Company</p>
-                            </div>
-                        </div>
-                        <div className="mt-6 flex gap-5 items-center justify-center">
-                            <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-light_purple hover:bg-hover_btn rounded-lg focus:outline-none">Unfollow</a>
-                            <a href={'/dashboard/profile-setting'} className="py-2 px-4 ms-2 text-sm font-medium text-light_purple focus:outline-none bg-white rounded-lg border border-light_purple hover:text-white hover:border-hover_btn hover:bg-hover_btn focus:z-10">View Profile</a>
-                        </div>
-                        {/* <div className="mt-6 flex justify-around">
-                            <button className="bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50">
-                                follow
-                            </button>
-                            <button className="bg-gray-200 text-gray-700 py-2 px-4 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50">
-                                💬 Send message
-                            </button>
-                        </div> */}
-                    </div>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-7">
+                    {
+                        followers?.map((follower) => (
+                            <>
+                                <div className="bg-white shadow-lg rounded-xl overflow-hidden p-6">
+                                    <div className="flex flex-col items-center">
+                                        <div className="bg-gray-300 rounded-full h-24 w-24 flex items-center justify-center mb-4">
+                                            <img src={follower.followersImage} alt="Profile" className="rounded-full h-24 w-24 object-cover" />
+                                        </div>
+                                        <div className="text-center">
+                                            <p className="text-gray-700 text-lg font-bold">{follower.followersName}</p>
+                                        </div>
+                                    </div>
+                                    <div className="mt-6 flex gap-5 items-center justify-center">
+                                        <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-light_purple hover:bg-hover_btn rounded-lg focus:outline-none"><FollowFunctionality email={follower.followersEmail}></FollowFunctionality></a>
+                                        <a href={'/dashboard/profile-setting'} className="py-2 px-4 ms-2 text-sm font-medium text-light_purple focus:outline-none bg-white rounded-lg border border-light_purple hover:text-white hover:border-hover_btn hover:bg-hover_btn focus:z-10">View Profile</a>
+                                    </div>
+                                </div>
+                            </>
+                        ))}
                 </div>
             </div>
 
