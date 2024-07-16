@@ -20,7 +20,7 @@ const HomeShortBlogs = () => {
         );
         setShortBlogs(sortload)
     }, [blogs])
-    // console.log(shortBlogs)
+
     return (
         <>
             <div className="container mx-auto overflow-hidden my-16 p-5">

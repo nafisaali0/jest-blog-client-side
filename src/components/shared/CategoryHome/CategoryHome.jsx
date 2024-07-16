@@ -27,12 +27,7 @@ const CategoryHome = () => {
 
     return (
         <>
-            <motion.div className="container mx-auto mt-5 p-3 text-black"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 3 }}
-            >
+            <div className="container mx-auto mt-5 p-3 text-black">
                 <div className="text-3xl my-6 font-semibold">
                     <h1>Category</h1>
                 </div>
@@ -52,12 +47,12 @@ const CategoryHome = () => {
                         </>
                     ))}
                 </div>
-                {displayCount <= uniqueCategories.length &&
+                {uniqueCategories.length > 3 && displayCount < uniqueCategories.length &&
                     <div className="text-left">
                         <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More Categories</button>
                     </div>
                 }
-            </motion.div>
+            </div>
         </>
     );
 };
