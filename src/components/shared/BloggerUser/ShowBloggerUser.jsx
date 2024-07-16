@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import FollowFunctionality from '../FollowFunctionality/FollowFunctionality';
 import useUsers from '../../../hooks/useUsers';
+import { Link } from 'react-router-dom';
 
 
 const ShowBloggerUser = ({ blog }) => {
@@ -20,7 +21,9 @@ const ShowBloggerUser = ({ blog }) => {
                 </div>
                 <div>
                     <h1 className='text-lg font-bold'>{owner_name}</h1>
-                    <p className='text-sm font-bold'>CheckOut my blog</p>
+                    <Link className='text-sm font-bold' to={`/blogs/bloggeremail/${owner_Email}`}>
+                        <p>CheckOut my Profile</p>
+                    </Link>
                 </div>
                 <div>
                     {

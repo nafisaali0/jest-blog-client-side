@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { motion } from 'framer-motion'
 import { Link } from "react-router-dom";
 
 
@@ -35,14 +34,9 @@ const CategoryHome = () => {
                     {uniqueCategories.slice(0, displayCount).map(category => (
                         <>
                             <Link to={`/blogs/category/${category}`}>
-                                <motion.div className='bg-light_gray px-7 py-3 text-sm md:text-lg font-bold text-black rounded-full'
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 3 }}
-                                >
+                                <div className='bg-light_gray px-7 py-3 text-sm md:text-lg font-bold text-black rounded-full'>
                                     <h1 key={category}>{category}</h1>
-                                </motion.div>
+                                </div>
                             </Link>
                         </>
                     ))}

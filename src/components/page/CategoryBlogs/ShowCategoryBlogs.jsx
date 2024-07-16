@@ -21,7 +21,7 @@ const ShowCategoryBlogs = ({ blog }) => {
 };
 
 ShowCategoryBlogs.propTypes = {
-    blog: PropTypes.obj
+    blog: PropTypes.func
 };
 
 export default ShowCategoryBlogs;
