@@ -17,8 +17,8 @@ const BlogDetails = () => {
     const { user } = useContext(AuthContext)//currrent user for update condition and wishlist
     const blog = useLoaderData();
     const [wishList] = useWishLIst();
-
     const { _id, title, details_image, short_description, long_description, category, date, time, owner_name, owner_image, owner_Email } = blog
+
 
     const handleWishList = () => {
 

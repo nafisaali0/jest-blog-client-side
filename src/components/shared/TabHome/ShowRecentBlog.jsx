@@ -200,7 +200,7 @@ const ShowRecentBlog = ({ blog }) => {
 };
 
 ShowRecentBlog.propTypes = {
-    blog: PropTypes.obj,
+    blog: PropTypes.func,
     isLoading: PropTypes.bool
 };
 

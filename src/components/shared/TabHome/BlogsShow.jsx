@@ -94,7 +94,7 @@ const BlogsShow = ({ blog }) => {
 };
 
 BlogsShow.propTypes = {
-    blog: PropTypes.obj
+    blog: PropTypes.func
 };
 
 export default BlogsShow;

@@ -5,12 +5,21 @@ import { PiLinkedinLogo } from "react-icons/pi";
 import { SiWebauthn } from "react-icons/si";
 import useFollowers from "../../../../hooks/useFollowers";
 import FollowFunctionality from "../../../shared/FollowFunctionality/FollowFunctionality";
+import { useEffect, useState } from "react";
 
 
 const ShowProfile = () => {
 
     const [users] = useUsers();
     const [followers] = useFollowers();
+    const [isfollowers, setIsFollowers] = useState([]);
+    useEffect(() => {
+        setIsFollowers(followers);
+    }, [followers]);
+
+    const handleUnfollow = (email) => {
+        setIsFollowers((prevFollowers) => prevFollowers.filter(follow => follow.followersEmail !== email));
+    };
 
     return (
         <>
@@ -61,7 +70,7 @@ const ShowProfile = () => {
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-7">
                     {
-                        followers?.map((follower) => (
+                        isfollowers?.map((follower) => (
                             <>
                                 <div className="bg-white shadow-lg rounded-xl overflow-hidden p-6">
                                     <div className="flex flex-col items-center">
@@ -73,7 +82,12 @@ const ShowProfile = () => {
                                         </div>
                                     </div>
                                     <div className="mt-6 flex gap-5 items-center justify-center">
-                                        <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-light_purple hover:bg-hover_btn rounded-lg focus:outline-none"><FollowFunctionality email={follower.followersEmail}></FollowFunctionality></a>
+                                        <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-light_purple hover:bg-hover_btn rounded-lg focus:outline-none">
+                                            <FollowFunctionality
+                                                email={follower.followersEmail}>
+                                                onUnfollow={handleUnfollow}
+                                            </FollowFunctionality>
+                                        </a>
                                         <a href={'/dashboard/profile-setting'} className="py-2 px-4 ms-2 text-sm font-medium text-light_purple focus:outline-none bg-white rounded-lg border border-light_purple hover:text-white hover:border-hover_btn hover:bg-hover_btn focus:z-10">View Profile</a>
                                     </div>
                                 </div>

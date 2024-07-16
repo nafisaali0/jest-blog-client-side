@@ -25,7 +25,7 @@ const BlogTotalComments = ({ id }) => {
 };
 
 BlogTotalComments.propTypes = {
-    id: PropTypes.number
+    id: PropTypes.string
 };
 
 
