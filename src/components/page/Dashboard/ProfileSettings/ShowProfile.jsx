@@ -95,11 +95,6 @@ const ShowProfile = () => {
                         ))}
                 </div>
             </div>
-
-
-
-
-
         </>
     );
 };

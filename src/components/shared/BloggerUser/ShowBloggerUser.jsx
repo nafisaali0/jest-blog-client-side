@@ -12,7 +12,6 @@ const ShowBloggerUser = ({ blog }) => {
 
     return (
         <>
-
             <div className='flex gap-8 w-full bg-card_white rounded-lg shadow hover:bg-hover_gray p-10'>
                 <div className="avatar">
                     <div className="w-24 rounded-full">
@@ -20,10 +19,20 @@ const ShowBloggerUser = ({ blog }) => {
                     </div>
                 </div>
                 <div>
-                    <h1 className='text-lg font-bold'>{owner_name}</h1>
-                    <Link className='text-sm font-bold' to={`/blogs/bloggeremail/${owner_Email}`}>
+                    <h1 className='text-lg font-bold pt-5'>{owner_name}</h1>
+                    {
+                        currentUser?.email !== owner_Email ?
+                            <Link className='text-sm font-bold' to={`/blogs/bloggeremail/${owner_Email}`}>
+                                <p>CheckOut Profile</p>
+                            </Link>
+                            :
+                            <Link className='text-sm font-bold' to={`/dashboard/profile`}>
+                                <p>CheckOut Profile</p>
+                            </Link>
+                    }
+                    {/* <Link className='text-sm font-bold' to={`/blogs/bloggeremail/${owner_Email}`}>
                         <p>CheckOut my Profile</p>
-                    </Link>
+                    </Link> */}
                 </div>
                 <div>
                     {
