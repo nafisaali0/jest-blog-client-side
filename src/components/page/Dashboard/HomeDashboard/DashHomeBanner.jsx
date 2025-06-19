@@ -27,7 +27,6 @@ const DashHomeBanner = () => {
                     }
                 </div>
             </div>
-
         </>
     );
 };
