@@ -10,15 +10,11 @@ const Root = () => {
     // console.log(noFooter)
 
     return (
-        // <AnimatePresence>
-            <div>
-                {nosubHeader || <NavBar></NavBar>}
-                {/* <NavBar></NavBar> */}
-                <Outlet></Outlet>
-                {/* {nosubHeader || <Footer></Footer>} */}
-                {(noFooter) || <Footer />}
-            </div>
-        // </AnimatePresence>
+        <>
+            {nosubHeader || <NavBar></NavBar>}
+            <Outlet></Outlet>
+            {(noFooter) || <Footer />}
+        </>
     );
 };
 

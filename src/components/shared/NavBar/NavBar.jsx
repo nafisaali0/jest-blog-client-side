@@ -26,7 +26,7 @@ const NavBar = () => {
     return (
         <>
             <div className="bg-body_color fixed top-0 w-full z-50 shadow-md">
-                <div className="navbar container mx-auto">
+                <div className="navbar">
                     <div className="navbar-start flex">
                         <div className="dropdown lg:hidden">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
