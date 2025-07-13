@@ -25,7 +25,7 @@ const NavBar = () => {
 
     return (
         <>
-            <div className="bg-body_color fixed top-0 w-full z-50 shadow-md">
+            {/* <div className="bg-body_color fixed top-0 w-full z-50 shadow-md">
                 <div className="navbar">
                     <div className="navbar-start flex">
                         <div className="dropdown lg:hidden">
@@ -54,7 +54,6 @@ const NavBar = () => {
                                 <img className="w-16 lg:flex hidden cursor-pointer" src={logo} alt="" />
                             </Link>
                         </div>
-                        {/* search for laptop */}
                         {
                             location.pathname == '/' ?
                                 <>
@@ -77,7 +76,6 @@ const NavBar = () => {
                                 " "
                         }
                     </div>
-                    {/* serch for mobile */}
                     {
                         location.pathname == '/' ?
                             <>
@@ -131,7 +129,6 @@ const NavBar = () => {
                                 <>
                                     <div className="hidden lg:flex gap-2 md:gap-5 items-center">
                                         <Link to={'/signin'}>
-                                            {/* border-r-2 */}
                                             <button className="py-2 px-4 font-semibold border-2 rounded border-light_purple  text-light_purple hover:bg-hover_btn hover:text-white">Sign in</button>
                                         </Link>
                                         <Link to={'/signup'}>
@@ -140,6 +137,32 @@ const NavBar = () => {
                                     </div>
                                 </>
                         }
+                    </div>
+                </div>
+            </div> */}
+
+            <div className="navbar bg-white shadow-sm backdrop-blur-sm">
+                <div className="navbar-start">
+                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    {/* <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-2/4" /> */}
+                    <input type="text" placeholder="Search..." className="border text-lg p-1 px-3 w-[30rem] border-[#dbdbde] outline-[#dbdbde] rounded-lg text-black"></input>
+                </div>
+                <div className="navbar-end space-x-5">
+                    <button className="hidden lg:flex">Create Blog</button>
+                    <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img
+                                    alt="Tailwind CSS Navbar component"
+                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                            </div>
+                        </div>
+                        <ul
+                            tabIndex={0}
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            <li><a>Settings</a></li>
+                            <li><a>Logout</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

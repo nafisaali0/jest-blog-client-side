@@ -71,7 +71,7 @@ const UpdateBlog = () => {
     }
     return (
         <>
-            <div className="max-w-5xl mx-auto overflow-hidden my-20 p-5">
+            <div className="max-w-5xl mx-auto overflow-hidden p-5">
                 <form onSubmit={handleUpdateBlog}>
                     <div className="flex justify-end items-end">
                         <button className="btn border-none bg-light_purple text-white hover:bg-hover_btn">Update Blog</button>

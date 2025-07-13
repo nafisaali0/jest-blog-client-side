@@ -26,8 +26,8 @@ const CategoryHome = () => {
 
     return (
         <>
-            <div className="container mx-auto mt-5 p-3 text-black">
-                <div className="text-3xl my-6 font-semibold">
+            <div className="container mx-auto p-3 text-black">
+                <div className="text-3xl mb-6 font-semibold">
                     <h1>Category</h1>
                 </div>
                 <div className="flex flex-wrap gap-5 my-5">

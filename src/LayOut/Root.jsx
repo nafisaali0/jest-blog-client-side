@@ -11,9 +11,12 @@ const Root = () => {
 
     return (
         <>
-            {nosubHeader || <NavBar></NavBar>}
-            <Outlet></Outlet>
-            {(noFooter) || <Footer />}
+            <div className="bg-[#f3f3f3]">
+                {nosubHeader || <NavBar></NavBar>}
+                <Outlet></Outlet>
+                {(noFooter) || <Footer />}
+            </div>
+
         </>
     );
 };

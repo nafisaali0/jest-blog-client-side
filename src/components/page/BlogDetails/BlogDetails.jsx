@@ -54,7 +54,7 @@ const BlogDetails = () => {
     }
 
     return (
-        <div className="max-w-5xl mx-auto overflow-hidden mt-36 mb-10 p-3">
+        <div className="max-w-5xl mx-auto overflow-hidden p-3">
             <div className="">
                 <div className="text-4xl font-bold">
                     <h1>{title}</h1>

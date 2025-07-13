@@ -7,8 +7,8 @@ import HomeFeaturesBlog from '../../shared/HomeFeaturesBlog/HomeFeaturesBlog';
 import HomeShortBlogs from '../../shared/HomeShortBlogs/HomeShortBlogs';
 const Home = () => {
   return (
-    <div className="overflow-hidden bg-body_color">
-      <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-3 mt-32'>
+    <div className="max-w-[1300px] mx-auto overflow-hidden">
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 p-3'>
         <div className='lg:col-span-2'>
           <TabHome></TabHome>
         </div>
