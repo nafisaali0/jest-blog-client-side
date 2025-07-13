@@ -141,14 +141,24 @@ const NavBar = () => {
                 </div>
             </div> */}
 
-            <div className="navbar bg-white shadow-sm backdrop-blur-sm">
-                <div className="navbar-start">
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
-                    {/* <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-2/4" /> */}
-                    <input type="text" placeholder="Search..." className="border text-lg p-1 px-3 w-[30rem] border-[#dbdbde] outline-[#dbdbde] rounded-lg text-black"></input>
+            <div className="navbar bg-white shadow-md px-5 backdrop-blur-sm">
+                <div className="navbar-start lg:space-x-5">
+                    <div tabIndex={0} role="button">
+                        <div className="w-16">
+                            <img
+                                alt="Tailwind CSS Navbar component"
+                                src={logo} />
+                        </div>
+                    </div>
+                    <input type="text" placeholder="Search..." className="hidden lg:flex border text-lg p-1 px-3 lg:w-[30rem] border-[#dbdbde] outline-[#dbdbde] rounded-lg text-black"></input>
                 </div>
-                <div className="navbar-end space-x-5">
-                    <button className="hidden lg:flex">Create Blog</button>
+
+                {/* new */}
+                <div className="navbar-center flex lg:hidden">
+                    <input type="text" placeholder="Search..." className="border text-lg p-1 px-3 w-44 border-[#dbdbde] outline-[#dbdbde] rounded-lg text-black"></input>
+                </div>
+                <div className="navbar-end lg:space-x-5">
+                    <button className="button-48" role="button"><span className="hidden lg:flex hover:text-white">Create Blog</span></button>
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
@@ -160,7 +170,8 @@ const NavBar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a>Settings</a></li>
+                            <li><a>Dashboard</a></li>
+                            <li><a>Setting</a></li>
                             <li><a>Logout</a></li>
                         </ul>
                     </div>
