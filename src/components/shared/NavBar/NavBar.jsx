@@ -1,10 +1,11 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import './navbar.css'
 import logo from '../../../assets/image/logo/upLogoedit11.png'
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { PropTypes } from 'prop-types';
 import useUsers from "../../../hooks/useUsers";
+import { FaBars } from "react-icons/fa";
 
 const NavBar = () => {
 
@@ -141,39 +142,82 @@ const NavBar = () => {
                 </div>
             </div> */}
 
-            <div className="navbar bg-white shadow-md px-5 backdrop-blur-sm">
-                <div className="navbar-start lg:space-x-5">
-                    <div tabIndex={0} role="button">
-                        <div className="w-16">
-                            <img
-                                alt="Tailwind CSS Navbar component"
-                                src={logo} />
-                        </div>
-                    </div>
-                    <input type="text" placeholder="Search..." className="hidden lg:flex border text-lg p-1 px-3 lg:w-[30rem] border-[#dbdbde] outline-[#dbdbde] rounded-lg text-black"></input>
-                </div>
-
-                {/* new */}
-                <div className="navbar-center flex lg:hidden">
-                    <input type="text" placeholder="Search..." className="border text-lg p-1 px-3 w-44 border-[#dbdbde] outline-[#dbdbde] rounded-lg text-black"></input>
-                </div>
-                <div className="navbar-end lg:space-x-5">
-                    <button className="button-48" role="button"><span className="hidden lg:flex hover:text-white">Create Blog</span></button>
-                    <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img
-                                    alt="Tailwind CSS Navbar component"
-                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+            <div className="fixed top-0 w-full z-50 px-5bg-white/90 backdrop-blur-sm shadow-md">
+                <div className="navbar">
+                    <div className="navbar-start md:space-x-5">
+                        <div tabIndex={0} role="button">
+                            <div className="w-16">
+                                <Link to={'/'}>
+                                    <img
+                                        alt="logo"
+                                        src={logo} />
+                                </Link>
                             </div>
                         </div>
-                        <ul
-                            tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a>Dashboard</a></li>
-                            <li><a>Setting</a></li>
-                            <li><a>Logout</a></li>
-                        </ul>
+                        {
+                            location.pathname == '/' ?
+                                <input type="text" placeholder="Search by title..." className="hidden md:flex border text-lg p-1 px-3 lg:w-[30rem] border-[#dbdbde] outline-[#dbdbde] rounded-lg text-black"></input>
+                                :
+                                ""
+                        }
+
+                    </div>
+                    {/* for mobile screen: search*/}
+                    {
+                        location.pathname == '/' ?
+                            <div className="navbar-center flex md:hidden">
+                                <input type="text" placeholder="Search by title..." className="border text-lg p-1 px-3 w-44 border-[#dbdbde] outline-[#dbdbde] rounded-lg text-black"></input>
+                            </div>
+                            :
+                            ""
+                    }
+                    <div className="navbar-end lg:space-x-6">
+                        {
+                            user ?
+                                <>
+                                    <div className="hidden md:flex">
+                                        <button className="button-48" role="button"><span className="font-semibold text-[#6a61d1] hover:text-white"><Link to={"/addblog"}>Create Blog</Link></span></button>
+                                    </div>
+                                    <div className="dropdown dropdown-end">
+                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                            <div className="w-10 rounded-full">
+                                                <img
+                                                    src={currentUser?.photo ? currentUser?.photo : ``} />
+                                            </div>
+                                        </div>
+                                        <ul
+                                            tabIndex={0}
+                                            className="menu menu-sm dropdown-content w-52 mt-3 p-2 rounded-md shadow font-semibold text-center border-2 border-[#dbdbde] bg-white/90 text-black backdrop-blur-sm">
+                                            <div className="py-2 px-4 font-semibold border-b hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-[#dbdbde]"><Link to={"/dashboard"}>Dashboard</Link></div>
+                                            <div className="py-2 px-4 font-semibold border-b hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-[#dbdbde]"><Link to={"/dashboard"}>Setting</Link></div>
+                                            <div className="py-2 px-4 font-semibold border-b hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-[#dbdbde] last:border-b-0" onClick={handleLogOut}>Logout</div>
+                                        </ul>
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <div className="hidden md:flex space-x-3">
+                                        <Link to={'/signin'}>
+                                            <button className="button-48" role="button"><span className="font-semibold text-[#6a61d1] hover:text-white !normal-case">Sign in</span></button>
+                                        </Link>
+                                        <Link to={'/signup'}>
+                                            <button className="py-2 px-4 font-semibold rounded border-light_purple bg-[#6a61d1] text-white hover:bg-[#302ba7]">Create Account</button>
+                                        </Link>
+                                    </div>
+                                    {/* mobile screen: sign in/ sign up*/}
+                                    <div className="md:hidden flex">
+                                        <div className="dropdown dropdown-end">
+                                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                                <FaBars style={{ width: '20px', height: '20px' }} />
+                                            </div>
+                                            <ul className="menu menu-sm dropdown-content w-52 mt-3 p-2 rounded-md shadow font-semibold border border-[#dbdbde] bg-white/90 text-black backdrop-blur-sm">
+                                                <Link to={'/signin'} className="px-4 py-2 hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-b border-[#dbdbde]">Sign in</Link>
+                                                <Link to={'/signup'} className="px-4 py-2 hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-b border-[#dbdbde] last:border-b-0">Create Account</Link>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </>
+                        }
                     </div>
                 </div>
             </div>
@@ -187,6 +231,5 @@ export default NavBar;
 
 
 NavBar.propTypes = {
-    // blog: PropTypes.obj,
     handleSearchFilter: PropTypes.func
 };
