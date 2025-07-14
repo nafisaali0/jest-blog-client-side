@@ -188,8 +188,8 @@ const NavBar = () => {
                                         <ul
                                             tabIndex={0}
                                             className="menu menu-sm dropdown-content w-52 mt-3 p-2 rounded-md shadow font-semibold text-center border-2 border-[#dbdbde] bg-white/90 text-black backdrop-blur-sm">
-                                            <div className="py-2 px-4 font-semibold border-b hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-[#dbdbde]"><Link to={"/dashboard"}>Dashboard</Link></div>
-                                            <div className="py-2 px-4 font-semibold border-b hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-[#dbdbde]"><Link to={"/dashboard"}>Setting</Link></div>
+                                            <div className="py-2 px-4 font-semibold border-b hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-[#dbdbde]"><a href={"/dashboard"}>Dashboard</a></div>
+                                            <div className="py-2 px-4 font-semibold border-b hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-[#dbdbde]"><a href={"dashboard/profile-setting"}>Setting</a></div>
                                             <div className="py-2 px-4 font-semibold border-b hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-[#dbdbde] last:border-b-0" onClick={handleLogOut}>Logout</div>
                                         </ul>
                                     </div>

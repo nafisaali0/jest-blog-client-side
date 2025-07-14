@@ -1,13 +1,12 @@
-nav a.active {
+/* nav a.active {
   color: #6a61d1;
   font-size: 1.2rem;
   font-weight: 700;
-  /* text-decoration: underline; */
-}
-a.active:hover {
+} */
+/* a.active:hover {
   color: #302ba7;
-}
-nav a {
+} */
+/* nav a {
   color: black;
   font-size: 1.2rem;
   font-weight: 700;
@@ -16,7 +15,7 @@ nav a {
 }
 nav a:hover {
   color: #6a61d1;
-}
+} */
 
 /* button:create blog */
 
