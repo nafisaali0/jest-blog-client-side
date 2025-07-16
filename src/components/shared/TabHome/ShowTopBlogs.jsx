@@ -112,7 +112,7 @@ const ShowTopBlogs = ({ blog }) => {
                             <p className="md:text-sm text-[#6B6B6B] text-base font-medium">{short_description}</p>
                         </Link>
                         <div className="flex items-center">
-                            <BiSolidCategory className="text-[#6B6B6B]" style={{ width: '20px', height: '20px' }} />
+                            <BiSolidCategory title="category" className="text-[#6B6B6B]" style={{ width: '20px', height: '20px' }} />
                             <span href="#" className="mx-2 md:text-sm text-[#6B6B6B] text-base font-medium">{category}</span>
                         </div>
                         <div className="flex md:flex-row justify-between">

@@ -12,11 +12,11 @@ const BloggerUser = () => {
 
     return (
         <>
-            <div className="p-3">
+            <div>
                 <div>
                     <h1 className="text-3xl my-6 font-semibold">Blogger</h1>
                 </div>
-                <div className="grid grid-cols-1 gap-5 my-5">
+                <div className="grid gap-5 my-5">
                     {
                         uniqueBloggerUser.slice(0, displayCount).map(blog =>
                             <ShowBloggerUser

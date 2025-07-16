@@ -26,8 +26,8 @@ const CategoryHome = () => {
 
     return (
         <>
-            <div className="container mx-auto p-3 text-black">
-                <div className="text-3xl mb-6 font-semibold">
+            {/* <div className="container mx-auto p-3"> */}
+                <div className="text-xl mb-6 text-black font-semibold">
                     <h1>Category</h1>
                 </div>
                 <div className="flex flex-wrap gap-5 my-5">
@@ -46,7 +46,7 @@ const CategoryHome = () => {
                         <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More Categories</button>
                     </div>
                 }
-            </div>
+            {/* </div> */}
         </>
     );
 };

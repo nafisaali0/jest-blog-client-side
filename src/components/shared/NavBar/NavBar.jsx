@@ -142,7 +142,7 @@ const NavBar = () => {
                 </div>
             </div> */}
 
-            <div className="fixed top-0 w-full z-50 px-5bg-white/90 backdrop-blur-sm shadow-md">
+            <div className="fixed top-0 w-full z-50 px-5 bg-white/90 backdrop-blur-sm shadow-md">
                 <div className="navbar px-5">
                     <div className="navbar-start md:space-x-5">
                         <div tabIndex={0} role="button">

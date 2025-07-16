@@ -82,7 +82,7 @@ const TabHome = () => {
                         <Tab className={`${selectedTab === 2 ? 'p-3 border-b-4 border-light_purple outline-none rounded-b-sm' : ''}`}>Top Blogs</Tab>
                     </TabList>
                     <TabPanel>
-                        <div className="grid grid-cols-1 gap-5 my-5">
+                        <div className="grid gap-4">
                             {
                                 blogs.slice(0, displayCount).map(blog =>
                                     <BlogsShow
@@ -99,7 +99,7 @@ const TabHome = () => {
                         }
                     </TabPanel>
                     <TabPanel>
-                        <div className="grid grid-cols-1 gap-3 my-5">
+                        <div className="grid gap-4">
                             {
                                 sortDateTimeBlogs.slice(0, displayCountSix).map(blog =>
                                     <ShowRecentBlog
@@ -116,7 +116,7 @@ const TabHome = () => {
                         }
                     </TabPanel>
                     <TabPanel>
-                        <div className="grid grid-cols-1 gap-3 my-5">
+                        <div className="grid gap-4">
                             {
                                 sortedBlogs.slice(0, displayCountTopBg).map(blog =>
                                     <ShowTopBlogs
