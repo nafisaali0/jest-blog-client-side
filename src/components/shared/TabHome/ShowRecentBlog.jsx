@@ -1,20 +1,17 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import iconW from '../../../assets/image/icons/wishlist1.svg'
-import iconD from '../../../assets/image/icons/details1.svg'
-import iconComment from '../../../assets/image/icons/comment.svg'
 import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
-// import Skeleton from 'react-loading-skeleton'
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
-// import { motion } from 'framer-motion';
 import useWishLIst from '../../../hooks/useWishList';
 import LikeFunctionality from '../LikeFunctionality/LikeFunctionality';
 import TotalLikes from '../LikeFunctionality/TotalLikes';
 import BlogTotalComments from '../BlogTotalComments/BlogTotalComments';
-
+import { BsBookmarkCheck } from 'react-icons/bs';
+import { AiOutlineComment } from 'react-icons/ai';
+import { BiSolidCategory } from 'react-icons/bi';
 
 
 const ShowRecentBlog = ({ blog }) => {
@@ -59,102 +56,7 @@ const ShowRecentBlog = ({ blog }) => {
 
     return (
         <>
-            {/* {
-                loading ?
-                    <div href="#" className="flex flex-col-reverse items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row-reverse md:max-w-4xl hover:bg-gray-100">
-                        <div className="flex flex-col justify-between p-4 leading-normal">
-                            <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 "><Skeleton width={400} /></h5>
-                            <p className="font-normal text-gray-700 dark:text-gray-400"><Skeleton width={400} count={4} /></p>
-                            <div className='flex gap-3 items-center my-3 text-[#5b608b] font-bold'>
-                                <div>
-                                    <span><Skeleton width={50} /></span>
-                                </div>
-                                <div>
-                                    <span><Skeleton width={50} /></span>
-                                </div>
-                            </div>
-                            <div className='flex gap-5 mt-3'>
-                                <Link to={`/blogdetails/${_id}`}>
-                                    <Skeleton width={30} height={30} className='cursor-pointer' />
-                                </Link>
-                                <Skeleton width={30} height={30} className='cursor-pointer' />
-                            </div>
-                        </div>
-                        <Skeleton width={461} height={300} />
-                    </div>
-                    :
-                    <motion.a href="#" className="flex flex-col-reverse items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row-reverse md:max-w-4xl hover:bg-gray-100"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 2 }}
-                    >
-                        <div className="flex flex-col justify-between p-4 leading-normal">
-                            <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 ">{title}</h5>
-                            <p className="font-normal text-gray-700 dark:text-gray-400">{short_description}</p>
-                            <div className='my-3'>
-                                <span className='px-5 py-2 bg-[#5b608b] text-xs text-white font-semibold rounded-full'>{category}</span>
-                            </div>
-                            <div>
-                                <p>commets: {comment.length}</p>
-                            </div>
-                            <div className='flex gap-3 items-center my-3 text-[#5b608b] font-bold'>
-                                <div>
-                                    <span>{date}</span>
-                                </div>
-                                <div>
-                                    <span>{time}</span>
-                                </div>
-                            </div>
-                            <div className='flex gap-5 mt-3'>
-                                <Link to={`/blogdetails/${_id}`}>
-                                    <img title="See Details" className='w-[30px] h-[30px] cursor-pointer' src={detailbtn} alt="detailsbutton" />
-                                </Link>
-                                <img title="Wishlist" onClick={handleWishList} className='w-[30px] h-[30px] cursor-pointer' src={iconW} alt="detailsbutton" />
-                            </div>
-                        </div>
-                        <PhotoProvider>
-                            <PhotoView src={details_image}>
-                                <img className="object-cover w-full rounded-t-lg h-96 md:h-full md:w-80 md:rounded-none md:rounded-s-lg" src={details_image} alt="" />
-                            </PhotoView>
-                        </PhotoProvider>
-                    </motion.a>
-
-            } */}
-
-            {/* <div href="#" className="flex flex-col-reverse items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row-reverse md:max-w-4xl hover:bg-gray-100">
-                <div className="flex flex-col justify-between p-4 leading-normal">
-                    <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 ">{title}</h5>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">{short_description}</p>
-                    <div className='my-3'>
-                        <span className='px-5 py-2 bg-[#5b608b] text-xs text-white font-semibold rounded-full'>{category}</span>
-                    </div>
-                    <div>
-                        <p>commets: {comment.length}</p>
-                    </div>
-                    <div className='flex gap-3 items-center my-3 text-[#5b608b] font-bold'>
-                        <div>
-                            <span>{date}</span>
-                        </div>
-                        <div>
-                            <span>{time}</span>
-                        </div>
-                    </div>
-                    <div className='flex gap-5 mt-3'>
-                        <Link to={`/blogdetails/${_id}`}>
-                            <img title="See Details" className='w-[30px] h-[30px] cursor-pointer' src={detailbtn} alt="detailsbutton" />
-                        </Link>
-                        <img title="Wishlist" onClick={handleWishList} className='w-[30px] h-[30px] cursor-pointer' src={iconW} alt="detailsbutton" />
-                    </div>
-                </div>
-                <PhotoProvider>
-                    <PhotoView src={details_image}>
-                        <img className="object-cover w-full rounded-t-lg h-96 md:h-full md:w-80 md:rounded-none md:rounded-s-lg" src={details_image} alt="" />
-                    </PhotoView>
-                </PhotoProvider>
-            </div> */}
-
-            <div href="#" className="flex flex-col-reverse items-center bg-card_white rounded-lg shadow md:flex-row-reverse md:max-w-4xl hover:bg-hover_gray text-black">
+            {/* <div href="#" className="flex flex-col-reverse items-center bg-card_white rounded-lg shadow md:flex-row-reverse md:max-w-4xl hover:bg-hover_gray text-black">
                 <div className="flex flex-col justify-between p-4 leading-normal">
                     <div className='my-3'>
                         <span className='px-5 py-2 bg-light_gray text-xs text-black font-semibold rounded-full'>{category}</span>
@@ -188,12 +90,61 @@ const ShowRecentBlog = ({ blog }) => {
                         </div>
                     </div>
                 </div>
-                {/* click image and show image popup */}
                 <PhotoProvider>
                     <PhotoView src={details_image}>
                         <img className="object-cover w-full rounded-t-lg h-96 md:h-full md:w-80 md:rounded-none md:rounded-s-lg" src={details_image} alt="" />
                     </PhotoView>
                 </PhotoProvider>
+            </div> */}
+
+            <div className="flex flex-col justify-start">
+                <div
+                    className="relative flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 md:max-w-3xl border border-[#ffff] bg-[#ffff]">
+                    <div className="p-2 sm:w-1/2">
+                        <PhotoProvider>
+                            <PhotoView src={details_image}>
+                                <img className="rounded object-cover w-full h-60" src={details_image} alt="blogImage" />
+                            </PhotoView>
+                        </PhotoProvider>
+                    </div>
+                    <div className="w-full md:w-2/3 bg-[#ffff] flex flex-col space-y-2 p-3">
+                        <div className="flex items-center">
+                            <img className="object-cover h-5 w-5 rounded-full" src={owner_image} alt="Avatar" />
+                            <Link to={`/blogs/bloggeremail/${owner_Email}`}>
+                                <span href="#" className="mx-2 md:text-sm text-[#6B6B6B] text-base font-medium">{owner_name}</span>
+                            </Link>
+                        </div>
+                        <Link to={`/blogdetails/${_id}`}>
+                            <h3 className="font-black text-[#000000] md:text-2xl text-xl">{title}</h3>
+                            <p className="md:text-sm text-[#6B6B6B] text-base font-medium">{short_description}</p>
+                        </Link>
+                        <div className="flex items-center">
+                            <BiSolidCategory className="text-[#6B6B6B]" style={{ width: '20px', height: '20px' }} />
+                            <span href="#" className="mx-2 md:text-sm text-[#6B6B6B] text-base font-medium">{category}</span>
+                        </div>
+                        <div className="flex md:flex-row justify-between">
+                            <div className="flex flex-1 flex-row space-x-3 item-center">
+                                <p className="md:text-sm text-[#6B6B6B] text-base font-medium md:block">{date}</p>
+                                <div className="flex justify-center space-x-1">
+                                    <LikeFunctionality id={_id}></LikeFunctionality>
+                                    <span className="md:text-sm text-[#6B6B6B] text-base font-medium ml-1">
+                                        <TotalLikes id={_id}></TotalLikes>
+                                    </span>
+                                </div>
+                                <div className="flex justify-center space-x-1">
+                                    <AiOutlineComment title="comments" className="text-[#6B6B6B]" style={{ width: '20px', height: '20px' }} />
+                                    <span className="md:text-sm text-[#6B6B6B] text-base font-medium ml-1">
+                                        <BlogTotalComments id={_id}></BlogTotalComments>
+                                    </span>
+                                </div>
+                            </div>
+                            {/* Wishlist */}
+                            <div>
+                                <BsBookmarkCheck title="save" onClick={handleWishList} className="text-[#6B6B6B] cursor-pointer" style={{ width: '20px', height: '20px' }} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );

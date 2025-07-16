@@ -2,3 +2,6 @@ border: #dbdbde
 bodyColor: #f3f3f3
 primaryHover: #302ba7 
 primaryColor: #6a61d1
+text-black: #000000
+text-white: #ffff
+text-small-gray: #6B6B6B

@@ -1,10 +1,10 @@
 import Swal from "sweetalert2";
-import icon3 from "../../../assets/image/icons/like.svg"
-import redIcon from "../../../assets/image/icons/redLike.svg"
 import useUsers from './../../../hooks/useUsers';
 import { PropTypes } from 'prop-types';
 import useLikes from "../../../hooks/useLikes";
 import { useState } from "react";
+import { AiFillHeart } from "react-icons/ai";
+import { FcLike } from "react-icons/fc";
 
 const LikeFunctionality = ({ id }) => {
 
@@ -58,42 +58,11 @@ const LikeFunctionality = ({ id }) => {
     return (
         <>
             {checkBlog?.like === 1 && (
-                <img
-                    title="like"
-                    onClick={handleLike}
-                    className="w-7 cursor-pointer"
-                    src={redIcon}
-                    alt="like"
-                />
+                <FcLike title="like" onClick={handleLike} className="cursor-pointer" style={{ width: '20px', height: '20px' }} />
             )}
             {checkBlog?.like !== 1 && (
-                <img
-                    title="like"
-                    onClick={handleLike}
-                    className="w-7 cursor-pointer"
-                    src={icon3}
-                    alt="like"
-                />
+                <AiFillHeart title="like" onClick={handleLike} className="text-[#6B6B6B] cursor-pointer" style={{ width: '20px', height: '20px' }} />
             )}
-
-            {/* {
-                checkBlog?.like === 1 ?
-                    (<img
-                        title="like"
-                        onClick={handleLike}
-                        className="w-7 cursor-pointer"
-                        src={redIcon}
-                        alt="like"
-                    />)
-                    :
-                    (<img
-                        title="like"
-                        onClick={handleLike}
-                        className="w-7 cursor-pointer"
-                        src={icon3}
-                        alt="like"
-                    />)
-            } */}
         </>
     );
 };

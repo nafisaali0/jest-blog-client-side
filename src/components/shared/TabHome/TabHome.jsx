@@ -76,7 +76,7 @@ const TabHome = () => {
         <>
             <div>
                 <Tabs onSelect={(index) => handleTabSelect(index)}>
-                    <TabList className={"cursor-pointer flex gap-5 items-center text-2xl font-semibold my-5 text-black"}>
+                    <TabList className={"cursor-pointer flex gap-5 items-center text-xl font-semibold my-5 text-black"}>
                         <Tab className={`${selectedTab === 0 ? 'p-2 border-b-4 border-light_purple outline-none rounded-b-sm' : ''}`}>All</Tab>
                         <Tab className={`${selectedTab === 1 ? 'p-3 border-b-4 border-light_purple outline-none rounded-b-sm' : ''}`}>Recent Blogs</Tab>
                         <Tab className={`${selectedTab === 2 ? 'p-3 border-b-4 border-light_purple outline-none rounded-b-sm' : ''}`}>Top Blogs</Tab>
