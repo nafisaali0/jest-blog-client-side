@@ -7,21 +7,23 @@ import HomeFeaturesBlog from '../../shared/HomeFeaturesBlog/HomeFeaturesBlog';
 import HomeShortBlogs from '../../shared/HomeShortBlogs/HomeShortBlogs';
 const Home = () => {
   return (
-    <div className="max-w-[1300px] mx-auto overflow-hidden">
-      <div className='grid grid-cols-1 lg:grid-cols-3 my-16'>
-        <div className='lg:col-span-2'>
-          <TabHome></TabHome>
+    <>
+      <div className="max-w-[1300px] mx-auto">
+        <div className='grid grid-cols-1 lg:grid-cols-3'>
+          <div className='lg:col-span-2 w-full flex items-start flex-col my-16'>
+            <TabHome></TabHome>
+          </div>
+          <div className='lg:col-span-1 flex items-start flex-col my-20'>
+            <CategoryHome></CategoryHome>
+            <BloggerUser></BloggerUser>
+            <HomeFeaturesBlog></HomeFeaturesBlog>
+            <HomeWishList></HomeWishList>
+          </div>
         </div>
-        <div className='lg:col-span-1'>
-          <CategoryHome></CategoryHome>
-          <BloggerUser></BloggerUser>
-          <HomeFeaturesBlog></HomeFeaturesBlog>
-          <HomeWishList></HomeWishList>
-        </div>
+        <Network></Network>
+        <HomeShortBlogs></HomeShortBlogs>
       </div>
-      <Network></Network>
-      <HomeShortBlogs></HomeShortBlogs>
-    </div>
+    </>
   );
 };
 

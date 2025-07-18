@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import './catStyle.css'
 
 const CategoryHome = () => {
 
@@ -26,27 +26,49 @@ const CategoryHome = () => {
 
     return (
         <>
-            {/* <div className="container mx-auto p-3"> */}
-                <div className="text-xl mb-6 text-black font-semibold">
-                    <h1>Category</h1>
+            {/* <div className="container mx-auto p-3">
+            <div className="text-xl text-black font-bold">
+                <h1>Category</h1>
+            </div>
+            <div className="flex flex-wrap gap-5">
+                {uniqueCategories.slice(0, displayCount).map(category => (
+                    <>
+                        <Link to={`/blogs/category/${category}`}>
+                            <button key={category} className="button">
+                                {category}
+                            </button>
+                        </Link>
+                    </>
+                ))}
+            </div>
+            {uniqueCategories.length > 3 && displayCount < uniqueCategories.length &&
+                <div className="text-left">
+                    <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More</button>
                 </div>
-                <div className="flex flex-wrap gap-5 my-5">
+            }
+            </div> */}
+
+            <div>
+                <h1 className="text-xl font-bold text-black my-5">Category</h1>
+                <div className="flex flex-wrap gap-3 ">
                     {uniqueCategories.slice(0, displayCount).map(category => (
                         <>
                             <Link to={`/blogs/category/${category}`}>
-                                <div className='bg-light_gray px-7 py-3 text-sm md:text-lg font-bold text-black rounded-full'>
-                                    <h1 key={category}>{category}</h1>
-                                </div>
+                                <button key={category} className="button">
+                                    {category}
+                                </button>
                             </Link>
                         </>
                     ))}
                 </div>
+
+
                 {uniqueCategories.length > 3 && displayCount < uniqueCategories.length &&
-                    <div className="text-left">
-                        <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More Categories</button>
+                    <div className="text-left my-2">
+                        <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More</button>
                     </div>
                 }
-            {/* </div> */}
+            </div>
         </>
     );
 };

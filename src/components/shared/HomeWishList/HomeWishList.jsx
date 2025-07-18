@@ -19,15 +19,15 @@ const HomeWishList = () => {
 
     return (
         <>
-            <div className="p-3">
+            <div>
                 <div>
-                    <h1 className="text-3xl font-semibold my-6">Reading List</h1>
+                    <h1 className="text-xl font-semibold">Reading List</h1>
                 </div>
                 <div>
                     {
                         sortRecentSaveBlogs.slice(0, 2).map(saveBlogs =>
                             <>
-                                <div className="my-7 bg-card_white p-5 rounded">
+                                <div className=" bg-card_white p-5 rounded">
                                     <div className="flex items-center gap-4">
                                         <div className="avatar-group -space-x-6 rtl:space-x-reverse">
                                             <div className="avatar w-9">

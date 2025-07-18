@@ -14,9 +14,9 @@ const BloggerUser = () => {
         <>
             <div>
                 <div>
-                    <h1 className="text-3xl my-6 font-semibold">Blogger</h1>
+                    <h1 className="text-xl font-semibold">Blogger</h1>
                 </div>
-                <div className="grid gap-5 my-5">
+                <div className="grid gap-5">
                     {
                         uniqueBloggerUser.slice(0, displayCount).map(blog =>
                             <ShowBloggerUser
