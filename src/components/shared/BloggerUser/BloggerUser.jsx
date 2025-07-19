@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ShowBloggerUser from "./ShowBloggerUser";
 import useUniqueBlogger from "../../../hooks/useUniqueBlogger";
+
 const BloggerUser = () => {
 
     const [uniqueBloggerUser] = useUniqueBlogger();
@@ -13,9 +14,7 @@ const BloggerUser = () => {
     return (
         <>
             <div>
-                <div>
-                    <h1 className="text-xl font-semibold">Blogger</h1>
-                </div>
+                <h1 className="text-xl font-bold text-[#000000] my-5">Blogger</h1>
                 <div className="grid gap-5">
                     {
                         uniqueBloggerUser.slice(0, displayCount).map(blog =>
@@ -27,8 +26,8 @@ const BloggerUser = () => {
                     }
                 </div>
                 {uniqueBloggerUser.length > 3 && displayCount < uniqueBloggerUser.length &&
-                    <div className="text-left">
-                        <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More Blogger</button>
+                    <div className="text-left my-5">
+                        <button className="text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More Blogger</button>
                     </div>
                 }
             </div>

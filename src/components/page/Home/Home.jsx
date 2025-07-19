@@ -13,7 +13,7 @@ const Home = () => {
           <div className='lg:col-span-2 w-full flex items-start flex-col my-16'>
             <TabHome></TabHome>
           </div>
-          <div className='lg:col-span-1 flex items-start flex-col my-20'>
+          <div className="lg:col-span-1 flex items-stretch flex-col my-20">
             <CategoryHome></CategoryHome>
             <BloggerUser></BloggerUser>
             <HomeFeaturesBlog></HomeFeaturesBlog>

@@ -37,7 +37,6 @@ const FollowFunctionality = ({ email, onUnfollow }) => {
     }, [recentFollower, user, followers]);
 
     // new check - 
-
     const handleFollow = async (e) => {
         e.preventDefault();
 
@@ -170,7 +169,11 @@ const FollowFunctionality = ({ email, onUnfollow }) => {
     // };
     return (
         <>
-            <span onClick={handleFollow}>{isFollowing ? 'Unfollow' : 'Follow'}</span>
+            <button
+                className="bg-gradient-to-r from-[#6a61d1] to-[#302ba7] hover:from-[#6a61d1] hover:to-[#302ba7] text-white font-medium py-2 px-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out"
+            >
+                <span onClick={handleFollow}>{isFollowing ? 'Unfollow' : 'Follow'}</span>
+            </button>
         </>
     );
 };

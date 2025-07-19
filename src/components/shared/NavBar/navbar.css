@@ -60,6 +60,9 @@ nav a:hover {
   animation: opacityFallbackIn 0s step-start forwards;
   clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
 }
+.button-48:hover {
+  color:#ffffff
+}
 
 .button-48:after {
   background-color: #ffffff;

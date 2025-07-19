@@ -49,7 +49,7 @@ const CategoryHome = () => {
             </div> */}
 
             <div>
-                <h1 className="text-xl font-bold text-black my-5">Category</h1>
+                <h1 className="text-xl font-bold text-[#000000] my-5">Category</h1>
                 <div className="flex flex-wrap gap-3 ">
                     {uniqueCategories.slice(0, displayCount).map(category => (
                         <>
@@ -64,8 +64,8 @@ const CategoryHome = () => {
 
 
                 {uniqueCategories.length > 3 && displayCount < uniqueCategories.length &&
-                    <div className="text-left my-2">
-                        <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More</button>
+                    <div className="text-left my-5">
+                        <button className="text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More</button>
                     </div>
                 }
             </div>
