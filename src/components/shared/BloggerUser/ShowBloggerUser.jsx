@@ -50,21 +50,21 @@ const ShowBloggerUser = ({ blog }) => {
                 className="w-full bg-[#ffffffE6] relative shadow-lg overflow-hidden hover:shadow-xl group rounded-xl p-5 transition-all duration-500 transform">
                 <div className="flex items-center gap-4">
                     <img src={owner_image}
-                        className="w-24 group-hover:w-32 group-hover:h-32 h-24 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
+                        className="w-24 group-hover:w-28 group-hover:h-28 h-24 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
                     />
                     <div className="w-fit transition-all transform duration-500 space-y-2">
 
                         {/* edit */}
                         {
                             currentUser?.email !== owner_Email ?
-                                <Link className='text-sm font-bold' to={`/blogs/bloggeremail/${owner_Email}`}>
+                                <Link className='text-xm font-bold' to={`/blogs/bloggeremail/${owner_Email}`}>
                                     <h1 className="text-black font-bold">
                                         {owner_name}
                                     </h1>
                                 </Link>
                                 :
-                                <Link className='text-sm font-bold' to={`/dashboard/profile`}>
-                                    <h1 className="text-black font-bold">
+                                <Link className='text-base text-[#6B6B6B] font-bold' to={`/dashboard/profile`}>
+                                    <h1 className="">
                                         {owner_Email}
                                     </h1>
                                 </Link>

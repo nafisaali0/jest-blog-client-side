@@ -13,7 +13,7 @@ const Root = () => {
         <>
             <div className="bg-[#f3f3f3]">
                 {nosubHeader || <NavBar></NavBar>}
-                <div className="p-7 lg:p-0">
+                <div className="p-3 lg:p-0">
                     <Outlet></Outlet>
                 </div>
                 {(noFooter) || <Footer />}

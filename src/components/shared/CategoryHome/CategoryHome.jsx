@@ -48,9 +48,9 @@ const CategoryHome = () => {
             }
             </div> */}
 
-            <div>
+            <div className="w-full">
                 <h1 className="text-xl font-bold text-[#000000] my-5">Category</h1>
-                <div className="flex flex-wrap gap-3 ">
+                <div className="flex flex-wrap gap-3">
                     {uniqueCategories.slice(0, displayCount).map(category => (
                         <>
                             <Link to={`/blogs/category/${category}`}>
