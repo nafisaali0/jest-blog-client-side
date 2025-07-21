@@ -7,4 +7,4 @@ white: " #ffff",
 textSmallGray: "#6B6B6B",
 mainTheme: "#ffffffE6",//navColour
 
-common style: rounded-xl shadow-lg text-sm/text-base-mobile/
+common style: rounded-xl shadow-lg text-sm/text-base-mobile/ font-medium text-xl font-bold

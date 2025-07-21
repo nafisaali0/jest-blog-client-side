@@ -43,7 +43,7 @@ const HomeWishList = () => {
                                                 <h3 className="font-bold text-black text-xl">{saveBlogs.title}</h3>
                                             </Link>
                                             <div className="flex items-center">
-                                                <BiSolidCategory title="category" className="text-[#6B6B6B]" style={{ width: '20px', height: '20px' }} />
+                                                <BiSolidCategory title="category" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                                                 <span className="mx-2 text-sm text-textSmallGray font-medium">{saveBlogs.category}</span>
                                             </div>
                                             <div className="flex justify-between items-center">
@@ -51,7 +51,7 @@ const HomeWishList = () => {
                                                 <div className="flex space-x-2 item-center">
                                                     <div className="flex items-center">
                                                         <LikeFunctionality id={saveBlogs._id}></LikeFunctionality>
-                                                        <span className="text-sm text-[#6B6B6B] font-medium ml-1">
+                                                        <span className="text-sm text-textSmallGray font-medium ml-1">
                                                             <TotalLikes id={saveBlogs.blogId}></TotalLikes>
                                                         </span>
                                                     </div>
