@@ -47,7 +47,7 @@ const ShowBloggerUser = ({ blog }) => {
 
             {/* new test */}
             <div
-                className="w-full bg-[#ffffffE6] relative shadow-lg overflow-hidden hover:shadow-xl group rounded-xl p-5 transition-all duration-500 transform">
+                className="w-full bg-white relative shadow-lg overflow-hidden hover:shadow-xl group rounded-xl p-5 transition-all duration-500 transform">
                 <div className="flex items-center gap-4">
                     <img src={owner_image}
                         className="w-24 group-hover:w-28 group-hover:h-28 h-24 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
@@ -65,13 +65,13 @@ const ShowBloggerUser = ({ blog }) => {
                                 :
                                 <Link className='text-base text-[#6B6B6B] font-bold' to={`/dashboard/profile`}>
                                     <h1 className="">
-                                        {owner_Email}
+                                        {owner_name}
                                     </h1>
                                 </Link>
                         }
                         <a
                             className="text-base font-medium text-[#6B6B6B]">
-                            mary@gmail.com
+                            {owner_Email}
                         </a>
                         <div className="flex gap-2 justify-stretch items-center group-hover:opacity-100 opacity-0 transform transition-all delay-300 duration-500">
                             <CiCalendarDate className='text-[#6B6B6B] font-medium' style={{ width: '20px', height: '20px' }} />
@@ -80,7 +80,6 @@ const ShowBloggerUser = ({ blog }) => {
                     </div>
                 </div>
                 <div className="absolute group-hover:bottom-1 delay-300 -bottom-16 transition-all duration-500 right-1 rounded-lg">
-                    {/* edit */}
                     {
                         currentUser?.email !== owner_Email ?
                             <FollowFunctionality email={owner_Email}></FollowFunctionality>

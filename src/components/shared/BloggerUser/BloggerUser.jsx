@@ -14,7 +14,7 @@ const BloggerUser = () => {
     return (
         <>
             <div>
-                <h1 className="text-xl font-bold text-[#000000] my-5">Blogger</h1>
+                <h1 className="text-xl font-bold text-black my-5">Blogger</h1>
                 <div className="grid gap-5">
                     {
                         uniqueBloggerUser.slice(0, displayCount).map(blog =>
