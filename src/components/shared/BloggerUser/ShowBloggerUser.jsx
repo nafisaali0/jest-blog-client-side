@@ -47,7 +47,7 @@ const ShowBloggerUser = ({ blog }) => {
 
             {/* new test */}
             <div
-                className="w-full bg-white relative shadow-lg overflow-hidden hover:shadow-xl group rounded-xl p-5 transition-all duration-500 transform">
+                className="w-full bg-mainTheme relative shadow-lg overflow-hidden hover:shadow-xl group rounded-xl p-5 transition-all duration-500 transform">
                 <div className="flex items-center gap-4">
                     <img src={owner_image}
                         className="w-24 group-hover:w-28 group-hover:h-28 h-24 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
@@ -63,19 +63,19 @@ const ShowBloggerUser = ({ blog }) => {
                                     </h1>
                                 </Link>
                                 :
-                                <Link className='text-base text-[#6B6B6B] font-bold' to={`/dashboard/profile`}>
+                                <Link className='text-xm text-textSmallGray font-bold' to={`/dashboard/profile`}>
                                     <h1 className="">
                                         {owner_name}
                                     </h1>
                                 </Link>
                         }
                         <a
-                            className="text-base font-medium text-[#6B6B6B]">
+                            className="text-sm font-medium text-textSmallGray">
                             {owner_Email}
                         </a>
                         <div className="flex gap-2 justify-stretch items-center group-hover:opacity-100 opacity-0 transform transition-all delay-300 duration-500">
-                            <CiCalendarDate className='text-[#6B6B6B] font-medium' style={{ width: '20px', height: '20px' }} />
-                            <span className='text-base font-medium text-[#6B6B6B]'>{date}</span>
+                            <CiCalendarDate className='text-textSmallGray' style={{ width: '20px', height: '20px' }} />
+                            <span className='text-sm font-medium text-textSmallGray'>{date}</span>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@ const ShowBloggerUser = ({ blog }) => {
                             :
                             <>
                                 <button
-                                    className="bg-gradient-to-r from-[#6a61d1] to-[#302ba7] hover:from-[#6a61d1] hover:to-[#302ba7] text-white font-medium py-1 px-3 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out"
+                                    className="bg-gradient-to-r from-primaryColor to-primaryHover hover:from-primaryColor hover:to-primaryHover text-white font-medium py-1 px-3 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out"
                                 >
                                     Editor
                                 </button>

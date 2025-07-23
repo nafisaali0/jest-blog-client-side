@@ -27,7 +27,7 @@ const BloggerUser = () => {
                 </div>
                 {uniqueBloggerUser.length > 3 && displayCount < uniqueBloggerUser.length &&
                     <div className="text-left my-5">
-                        <button className="text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More Blogger</button>
+                        <button className="text-primaryColor text-lg font-medium hover:text-primaryHover" onClick={handleSeeAll}>View More</button>
                     </div>
                 }
             </div>
