@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BiSolidCategory } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import '../../style/btnView.css'
 
 const HomeFeaturesBlog = () => {
 
@@ -53,7 +54,7 @@ const HomeFeaturesBlog = () => {
                     }
                 </div>
                 <div>
-                    <Link to={"/featureblog"}><h1 className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn">View All In A Table</h1></Link>
+                    <Link to={"/featureblog"}><button className="button_Tab my-5 font-bold">View All In A Table</button></Link>
                 </div>
             </div >
         </>

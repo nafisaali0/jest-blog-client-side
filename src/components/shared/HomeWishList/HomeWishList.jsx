@@ -7,6 +7,7 @@ import LikeFunctionality from "../LikeFunctionality/LikeFunctionality";
 import TotalLikes from "../LikeFunctionality/TotalLikes";
 import { AiOutlineComment } from "react-icons/ai";
 import BlogTotalComments from "../BlogTotalComments/BlogTotalComments";
+import '../../style/btnView.css'
 
 const HomeWishList = () => {
 
@@ -71,7 +72,7 @@ const HomeWishList = () => {
                     }
                 </div>
                 <div>
-                    <Link to={"/wishlist"}><h1 className="my-3 text-light_purple text-lg font-semibold hover:text-hover_btn">View All ({sortRecentSaveBlogs.length})</h1></Link>
+                    <Link to={"/wishlist"}><button className="button_Tab my-5 font-bold">View All ({sortRecentSaveBlogs.length})</button></Link>
                 </div>
             </div>
         </>

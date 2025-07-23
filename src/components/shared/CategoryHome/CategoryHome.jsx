@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './catStyle.css'
+import '../../style/btnView.css'
 
 const CategoryHome = () => {
 
@@ -63,9 +64,7 @@ const CategoryHome = () => {
                 </div>
                 {
                     uniqueCategories.length > 3 && displayCount < uniqueCategories.length &&
-                    <div className="text-left my-5">
-                        <button className="text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More</button>
-                    </div>
+                    <button className="button_Tab my-5 font-bold" onClick={handleSeeAll}>View More</button>
                 }
             </div>
         </>

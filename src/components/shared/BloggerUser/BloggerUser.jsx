@@ -1,11 +1,12 @@
 import { useState } from "react";
 import ShowBloggerUser from "./ShowBloggerUser";
 import useUniqueBlogger from "../../../hooks/useUniqueBlogger";
+import '../../style/btnView.css'
 
 const BloggerUser = () => {
 
     const [uniqueBloggerUser] = useUniqueBlogger();
-    const [displayCount, setDisplayCount] = useState(3);
+    const [displayCount, setDisplayCount] = useState(2);
 
     const handleSeeAll = () => {
         setDisplayCount(displayCount + 3);
@@ -25,10 +26,8 @@ const BloggerUser = () => {
                         )
                     }
                 </div>
-                {uniqueBloggerUser.length > 3 && displayCount < uniqueBloggerUser.length &&
-                    <div className="text-left my-5">
-                        <button className="text-primaryColor text-lg font-medium hover:text-primaryHover" onClick={handleSeeAll}>View More</button>
-                    </div>
+                {uniqueBloggerUser.length > 2 && displayCount < uniqueBloggerUser.length &&
+                    <button className="button_Tab my-5 font-bold" onClick={handleSeeAll}>View More</button>
                 }
             </div>
         </>

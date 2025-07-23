@@ -6,6 +6,8 @@ import moment from "moment";
 import ShowRecentBlog from "./ShowRecentBlog";
 import useComment from "../../../hooks/useComment";
 import ShowTopBlogs from "./ShowTopBlogs";
+import '../../style/btnView.css'
+
 
 const TabHome = () => {
 
@@ -77,9 +79,9 @@ const TabHome = () => {
             <div>
                 <Tabs onSelect={(index) => handleTabSelect(index)}>
                     <TabList className={"cursor-pointer flex gap-5 items-center text-xl font-bold my-5 text-black"}>
-                        <Tab className={`${selectedTab === 0 ? 'p-2 border-b-4 border-light_purple outline-none rounded-b-sm' : ''}`}>All</Tab>
-                        <Tab className={`${selectedTab === 1 ? 'p-3 border-b-4 border-light_purple outline-none rounded-b-sm' : ''}`}>Recent Blogs</Tab>
-                        <Tab className={`${selectedTab === 2 ? 'p-3 border-b-4 border-light_purple outline-none rounded-b-sm' : ''}`}>Top Blogs</Tab>
+                        <Tab className={`${selectedTab === 0 ? 'outline-none text-primaryColor' : ''}`}>All</Tab>
+                        <Tab className={`${selectedTab === 1 ? 'outline-none text-primaryColor' : ''}`}>Recent Blogs</Tab>
+                        <Tab className={`${selectedTab === 2 ? 'outline-none text-primaryColor' : ''}`}>Top Blogs</Tab>
                     </TabList>
                     <TabPanel>
                         <div className="grid gap-4">
@@ -92,10 +94,14 @@ const TabHome = () => {
                                 )
                             }
                         </div>
-                        {displayCount <= blogs.length &&
+                        {/* {displayCount <= blogs.length &&
                             <div className="text-left">
-                                <button className="my-5 px-8 py-3 border-2 border-light_gray bg-hover_gray rounded-full text-light_purple text-sm font-bold hover:text-hover_btn hover:border-light_purple" onClick={handleSeeAll}>View More Blogs</button>
+                                <button className="my-5 px-8 py-3 border-2 border-light_gray bg-hover_gray rounded-full text-light_purple text-sm font-bold hover:text-hover_btn hover:border-light_purple" onClick={handleSeeAll}>View More</button>
                             </div>
+                            <button className="btn-shine" onClick={handleSeeAll}>View More</button>
+                        } */}
+                        {displayCount <= blogs.length &&
+                            <button className="button_Tab my-5 font-bold" onClick={handleSeeAll}>View More</button>
                         }
                     </TabPanel>
                     <TabPanel>
@@ -110,9 +116,7 @@ const TabHome = () => {
                             }
                         </div>
                         {displayCountSix <= sortDateTimeBlogs.length &&
-                            <div className="text-left">
-                                <button className="my-5 px-8 py-3 border-2 border-light_gray bg-hover_gray rounded-full text-light_purple text-sm font-bold hover:text-hover_btn hover:border-light_purple" onClick={handleSeeAllRecent}>View More Recent Blogs</button>
-                            </div>
+                            <button className="button_Tab my-5 font-bold" onClick={handleSeeAllRecent}>View More</button>
                         }
                     </TabPanel>
                     <TabPanel>
@@ -127,9 +131,7 @@ const TabHome = () => {
                             }
                         </div>
                         {displayCountTopBg <= sortedBlogs.length &&
-                            <div className="text-left">
-                                <button className="my-5 px-8 py-3 border-2 border-light_gray bg-hover_gray rounded-full text-light_purple text-sm font-bold hover:text-hover_btn hover:border-light_purple" onClick={handleSeeAllTopBlog}>View More</button>
-                            </div>
+                            <button className="button_Tab my-5 font-bold" onClick={handleSeeAllTopBlog}>View More</button>
                         }
                     </TabPanel>
                 </Tabs>
