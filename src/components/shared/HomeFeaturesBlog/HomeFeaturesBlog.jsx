@@ -35,7 +35,7 @@ const HomeFeaturesBlog = () => {
                                 <div className="w-full border border-borderColour bg-mainTheme rounded-xl shadow-lg">
                                     <div className="md:flex">
                                         <div className="md:shrink-0">
-                                            <img src={saveBlogs.details_image} className="h-full w-full object-cover md:w-48" />
+                                            <img src={saveBlogs.details_image} className="h-full w-full object-cover md:w-48"/>
                                         </div>
                                         <div className="p-2 space-y-2">
                                             <div className="flex items-center">

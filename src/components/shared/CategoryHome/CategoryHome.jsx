@@ -49,21 +49,20 @@ const CategoryHome = () => {
             </div> */}
 
             <div className="w-full">
-                <h1 className="text-xl font-bold text-[#000000] my-5">Category</h1>
+                <h1 className="text-xl font-bold text-black my-5">Category</h1>
                 <div className="flex flex-wrap gap-3">
                     {uniqueCategories.slice(0, displayCount).map(category => (
                         <>
                             <Link to={`/blogs/category/${category}`}>
-                                <button key={category} className="button">
+                                <button key={category} className="buttonCategory">
                                     {category}
                                 </button>
                             </Link>
                         </>
                     ))}
                 </div>
-
-
-                {uniqueCategories.length > 3 && displayCount < uniqueCategories.length &&
+                {
+                    uniqueCategories.length > 3 && displayCount < uniqueCategories.length &&
                     <div className="text-left my-5">
                         <button className="text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More</button>
                     </div>
