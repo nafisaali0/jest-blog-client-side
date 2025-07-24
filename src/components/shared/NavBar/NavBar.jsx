@@ -142,7 +142,7 @@ const NavBar = () => {
                 </div>
             </div> */}
 
-            <div className="fixed top-0 w-full z-50 px-5 bg-white/90 backdrop-blur-sm shadow-md">
+            <div className="fixed top-0 w-full z-50 px-2 lg:px-5 bg-mainTheme backdrop-blur-sm shadow-md">
                 <div className="navbar px-5">
                     <div className="navbar-start md:space-x-5">
                         <div tabIndex={0} role="button">
@@ -156,7 +156,7 @@ const NavBar = () => {
                         </div>
                         {
                             location.pathname == '/' ?
-                                <input type="text" placeholder="Search by title..." className="hidden md:flex border text-lg p-1 px-3 lg:w-[30rem] border-[#dbdbde] outline-[#dbdbde] rounded-lg text-black"></input>
+                                <input type="text" placeholder="Search by title..." className="hidden md:flex border text-lg p-1 px-3 lg:w-[30rem] border-borderColour outline-borderColour rounded-lg text-black"></input>
                                 :
                                 ""
                         }
@@ -166,7 +166,7 @@ const NavBar = () => {
                     {
                         location.pathname == '/' ?
                             <div className="navbar-center flex md:hidden">
-                                <input type="text" placeholder="Search by title..." className="border text-lg p-1 px-3 w-44 border-[#dbdbde] outline-[#dbdbde] rounded-lg text-black"></input>
+                                <input type="text" placeholder="Search by title..." className="border text-lg p-1 px-3 w-[13rem] border-borderColour outline-borderColour rounded-lg text-black"></input>
                             </div>
                             :
                             ""
@@ -176,7 +176,9 @@ const NavBar = () => {
                             user ?
                                 <>
                                     <div className="hidden md:flex">
-                                        <button className="button-48" role="button"><span className="font-semibold text-[#6a61d1] hover:text-white"><Link to={"/addblog"}>Create Blog</Link></span></button>
+                                        <button className="buttonPrimary">
+                                            <span><Link to={"/addblog"}>Create Blog</Link></span>
+                                        </button>
                                     </div>
                                     <div className="dropdown dropdown-end">
                                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -187,10 +189,10 @@ const NavBar = () => {
                                         </div>
                                         <ul
                                             tabIndex={0}
-                                            className="menu menu-sm dropdown-content w-52 mt-3 p-2 rounded-md shadow font-semibold text-center border-2 border-[#dbdbde] bg-white/90 text-black backdrop-blur-sm">
-                                            <div className="py-2 px-4 font-semibold border-b hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-[#dbdbde]"><a href={"/dashboard"}>Dashboard</a></div>
-                                            <div className="py-2 px-4 font-semibold border-b hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-[#dbdbde]"><a href={"dashboard/profile-setting"}>Setting</a></div>
-                                            <div className="py-2 px-4 font-semibold border-b hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-[#dbdbde] last:border-b-0" onClick={handleLogOut}>Logout</div>
+                                            className="menu menu-sm dropdown-content w-52 mt-3 p-2 rounded-md shadow font-semibold text-center border-2 border-borderColour bg-mainTheme text-black backdrop-blur-sm">
+                                            <div className="py-2 px-4 font-semibold border-b hover:text-primaryHover hover:bg-borderColour cursor-pointer border-borderColour"><a href={"/dashboard"}>Dashboard</a></div>
+                                            <div className="py-2 px-4 font-semibold border-b hover:text-primaryHover hover:border-borderColour cursor-pointer border-borderColour"><a href={"dashboard/profile-setting"}>Setting</a></div>
+                                            <div className="py-2 px-4 font-semibold border-b hover:text-primaryHover hover:border-borderColour cursor-pointer border-borderColour last:border-b-0" onClick={handleLogOut}>Logout</div>
                                         </ul>
                                     </div>
                                 </>
@@ -198,10 +200,10 @@ const NavBar = () => {
                                 <>
                                     <div className="hidden md:flex space-x-3">
                                         <Link to={'/signin'}>
-                                            <button className="button-48" role="button"><span className="font-semibold text-[#6a61d1] hover:text-white !normal-case">Sign in</span></button>
+                                            <button className="buttonPrimary" role="button"><span className="font-semibold text-primaryColor hover:text-white !normal-case">Sign in</span></button>
                                         </Link>
                                         <Link to={'/signup'}>
-                                            <button className="py-2 px-4 font-semibold rounded border-light_purple bg-[#6a61d1] text-white hover:bg-[#302ba7]">Create Account</button>
+                                            <button className="py-2 px-4 font-semibold rounded border-light_purple bg-primaryColor text-white hover:bg-primaryHover">Create Account</button>
                                         </Link>
                                     </div>
                                     {/* mobile screen: sign in/ sign up*/}
@@ -210,9 +212,9 @@ const NavBar = () => {
                                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                                 <FaBars style={{ width: '20px', height: '20px' }} />
                                             </div>
-                                            <ul className="menu menu-sm dropdown-content w-52 mt-3 p-2 rounded-md shadow font-semibold border border-[#dbdbde] bg-white/90 text-black backdrop-blur-sm">
-                                                <Link to={'/signin'} className="px-4 py-2 hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-b border-[#dbdbde]">Sign in</Link>
-                                                <Link to={'/signup'} className="px-4 py-2 hover:text-[#302ba7] hover:bg-[#dbdbde] cursor-pointer border-b border-[#dbdbde] last:border-b-0">Create Account</Link>
+                                            <ul className="menu menu-sm dropdown-content w-52 mt-3 p-2 rounded-md shadow font-semibold border border-borderColour bg-mainTheme text-black backdrop-blur-sm">
+                                                <Link to={'/signin'} className="px-4 py-2 hover:text-primaryHover hover:bg-borderColour cursor-pointer border-b border-borderColour">Sign in</Link>
+                                                <Link to={'/signup'} className="px-4 py-2 hover:text-primaryHover hover:bg-borderColour cursor-pointer border-b border-borderColour last:border-b-0">Create Account</Link>
                                             </ul>
                                         </div>
                                     </div>

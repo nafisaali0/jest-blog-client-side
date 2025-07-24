@@ -16,7 +16,7 @@ const TabHome = () => {
     const [sortedBlogs, setSortedBlogs] = useState([]);//for top blogs
     const [recentBlogs, setRecentBlogs] = useState([])//show category from backend
     const [sortDateTimeBlogs, setSortDateTimeBlogs] = useState([]) //load sorting blogs
-    const [displayCount, setDisplayCount] = useState(7);//for all blogs btn
+    const [displayCount, setDisplayCount] = useState(6);//for all blogs btn
     const [displayCountSix, setDisplayCountSix] = useState(6);//for recent blogs btn
     const [displayCountTopBg, setDisplayCountTopBg] = useState(6);//for recent blogs btn
     const [selectedTab, setSelectedTab] = useState(0);//for Tab list
@@ -84,7 +84,7 @@ const TabHome = () => {
                         <Tab className={`${selectedTab === 2 ? 'outline-none text-primaryColor' : ''}`}>Top Blogs</Tab>
                     </TabList>
                     <TabPanel>
-                        <div className="grid gap-4">
+                        <div className="grid gap-5">
                             {
                                 blogs.slice(0, displayCount).map(blog =>
                                     <BlogsShow
@@ -94,18 +94,12 @@ const TabHome = () => {
                                 )
                             }
                         </div>
-                        {/* {displayCount <= blogs.length &&
-                            <div className="text-left">
-                                <button className="my-5 px-8 py-3 border-2 border-light_gray bg-hover_gray rounded-full text-light_purple text-sm font-bold hover:text-hover_btn hover:border-light_purple" onClick={handleSeeAll}>View More</button>
-                            </div>
-                            <button className="btn-shine" onClick={handleSeeAll}>View More</button>
-                        } */}
                         {displayCount <= blogs.length &&
-                            <button className="button_Tab my-5 font-bold" onClick={handleSeeAll}>View More</button>
+                            <button className="button_Tab mt-4 font-semibold" onClick={handleSeeAll}>View More</button>
                         }
                     </TabPanel>
                     <TabPanel>
-                        <div className="grid gap-4">
+                        <div className="grid gap-5">
                             {
                                 sortDateTimeBlogs.slice(0, displayCountSix).map(blog =>
                                     <ShowRecentBlog
@@ -116,11 +110,11 @@ const TabHome = () => {
                             }
                         </div>
                         {displayCountSix <= sortDateTimeBlogs.length &&
-                            <button className="button_Tab my-5 font-bold" onClick={handleSeeAllRecent}>View More</button>
+                            <button className="button_Tab mt-5 font-semibold" onClick={handleSeeAllRecent}>View More</button>
                         }
                     </TabPanel>
                     <TabPanel>
-                        <div className="grid gap-4">
+                        <div className="grid gap-5">
                             {
                                 sortedBlogs.slice(0, displayCountTopBg).map(blog =>
                                     <ShowTopBlogs
@@ -131,7 +125,7 @@ const TabHome = () => {
                             }
                         </div>
                         {displayCountTopBg <= sortedBlogs.length &&
-                            <button className="button_Tab my-5 font-bold" onClick={handleSeeAllTopBlog}>View More</button>
+                            <button className="button_Tab mt-5 font-semibold" onClick={handleSeeAllTopBlog}>View More</button>
                         }
                     </TabPanel>
                 </Tabs>

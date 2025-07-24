@@ -26,8 +26,8 @@ const HomeFeaturesBlog = () => {
 
     return (
         <>
-            <div className="hidden lg:flex flex-col my-5">
-                <h1 className="text-xl font-bold text-black">Featured Blogs</h1>
+            <div className="hidden lg:flex flex-col">
+                <h1 className="text-xl font-bold text-black mt-5">Featured Blogs</h1>
                 <p className='text-sm text-textSmallGray font-bold'>Long Blogs</p>
                 <div className="flex flex-col gap-5 my-5">
                     {
@@ -36,14 +36,14 @@ const HomeFeaturesBlog = () => {
                                 <div className="w-full border border-borderColour bg-mainTheme rounded-xl shadow-lg">
                                     <div className="md:flex">
                                         <div className="md:shrink-0">
-                                            <img src={saveBlogs.details_image} className="h-full w-full object-cover md:w-48"/>
+                                            <img src={saveBlogs.details_image} className="h-full w-full object-cover lg:w-40"/>
                                         </div>
                                         <div className="p-2 space-y-2">
-                                            <div className="flex items-center">
-                                                <BiSolidCategory title="category" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
-                                                <span className="mx-2 text-sm text-textSmallGray font-medium">{saveBlogs.category}</span>
+                                            <div className="flex items-center gap-1">
+                                                <BiSolidCategory title="category" className="text-textSmallGray" style={{ width: '15px', height: '15px' }} />
+                                                <span className="text-sm text-textSmallGray font-medium">{saveBlogs.category}</span>
                                             </div>
-                                            <Link to={`/blogdetails/${saveBlogs._id}`} className="block text-xl font-bold text-black hover:underline">
+                                            <Link to={`/blogdetails/${saveBlogs._id}`} className="block lg:text-md font-bold text-black hover:underline">
                                                 {saveBlogs.title}
                                             </Link>
                                         </div>
@@ -54,9 +54,9 @@ const HomeFeaturesBlog = () => {
                     }
                 </div>
                 <div>
-                    <Link to={"/featureblog"}><button className="button_Tab my-5 font-bold">View All In A Table</button></Link>
+                    <Link to={"/featureblog"}><button className="button_Tab mt-3 font-semibold">View All In A Table</button></Link>
                 </div>
-            </div >
+            </div>
         </>
     );
 };

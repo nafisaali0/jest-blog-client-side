@@ -27,31 +27,9 @@ const CategoryHome = () => {
 
     return (
         <>
-            {/* <div className="container mx-auto p-3">
-            <div className="text-xl text-black font-bold">
-                <h1>Category</h1>
-            </div>
-            <div className="flex flex-wrap gap-5">
-                {uniqueCategories.slice(0, displayCount).map(category => (
-                    <>
-                        <Link to={`/blogs/category/${category}`}>
-                            <button key={category} className="button">
-                                {category}
-                            </button>
-                        </Link>
-                    </>
-                ))}
-            </div>
-            {uniqueCategories.length > 3 && displayCount < uniqueCategories.length &&
-                <div className="text-left">
-                    <button className="my-5 text-light_purple text-lg font-semibold hover:text-hover_btn" onClick={handleSeeAll}>View More</button>
-                </div>
-            }
-            </div> */}
-
             <div className="w-full">
                 <h1 className="text-xl font-bold text-black my-5">Category</h1>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-4 lg:gap-2">
                     {uniqueCategories.slice(0, displayCount).map(category => (
                         <>
                             <Link to={`/blogs/category/${category}`}>
@@ -62,10 +40,12 @@ const CategoryHome = () => {
                         </>
                     ))}
                 </div>
-                {
-                    uniqueCategories.length > 3 && displayCount < uniqueCategories.length &&
-                    <button className="button_Tab my-5 font-bold" onClick={handleSeeAll}>View More</button>
-                }
+                <div>
+                    {
+                        uniqueCategories.length > 3 && displayCount < uniqueCategories.length &&
+                        <button className="button_Tab mt-4 font-semibold" onClick={handleSeeAll}>View More</button>
+                    }
+                </div>
             </div>
         </>
     );

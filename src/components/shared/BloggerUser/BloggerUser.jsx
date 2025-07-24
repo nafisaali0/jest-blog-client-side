@@ -14,7 +14,7 @@ const BloggerUser = () => {
 
     return (
         <>
-            <div>
+            <div className="hidden lg:flex flex-col">
                 <h1 className="text-xl font-bold text-black my-5">Blogger</h1>
                 <div className="grid gap-5">
                     {
@@ -26,9 +26,11 @@ const BloggerUser = () => {
                         )
                     }
                 </div>
-                {uniqueBloggerUser.length > 2 && displayCount < uniqueBloggerUser.length &&
-                    <button className="button_Tab my-5 font-bold" onClick={handleSeeAll}>View More</button>
-                }
+                <div>
+                    {uniqueBloggerUser.length > 2 && displayCount < uniqueBloggerUser.length &&
+                        <button className="button_Tab mt-4 font-semibold" onClick={handleSeeAll}>View More</button>
+                    }
+                </div>
             </div>
         </>
     );
