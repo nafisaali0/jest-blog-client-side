@@ -8,7 +8,7 @@ import HomeShortBlogs from '../../shared/HomeShortBlogs/HomeShortBlogs';
 const Home = () => {
   return (
     <>
-      <div className="max-w-[1300px] mx-auto">
+      <div className="max-w-[1300px] mx-auto px-2 lg:px-5">
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 p-2'>
           <div className='lg:col-span-2 w-full flex items-start flex-col mt-24'>
             <TabHome></TabHome>

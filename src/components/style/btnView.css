@@ -1,9 +1,7 @@
-/* From Uiverse.io by WhiteNervosa */ 
 .button_Tab {
   font-size: 18px;
   color: #6B6B6B;
   font-family: inherit;
-  /* font-weight: 700; */
   cursor: pointer;
   position: relative;
   border: none;
