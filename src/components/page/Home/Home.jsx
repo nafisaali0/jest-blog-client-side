@@ -5,6 +5,8 @@ import TabHome from '../../shared/TabHome/TabHome';
 import HomeWishList from '../../shared/HomeWishList/HomeWishList';
 import HomeFeaturesBlog from '../../shared/HomeFeaturesBlog/HomeFeaturesBlog';
 import HomeShortBlogs from '../../shared/HomeShortBlogs/HomeShortBlogs';
+
+
 const Home = () => {
   return (
     <>

@@ -54,7 +54,7 @@ const HomeFeaturesBlog = () => {
                     }
                 </div>
                 <div>
-                    <Link to={"/featureblog"}><button className="button_Tab mt-3 font-semibold">View All In A Table</button></Link>
+                    <Link to={"/featureblog"}><button className="buttonView mt-3 font-semibold">View All In A Table</button></Link>
                 </div>
             </div>
         </>

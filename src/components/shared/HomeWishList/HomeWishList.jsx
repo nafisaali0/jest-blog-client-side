@@ -77,7 +77,7 @@ const HomeWishList = () => {
                                 }
                             </div>
                             <div>
-                                <Link to={"/wishlist"}><button className="button_Tab mt-4 font-semibold">View All ({sortRecentSaveBlogs.length})</button></Link>
+                                <Link to={"/wishlist"}><button className="buttonView mt-4 font-semibold">View All ({sortRecentSaveBlogs.length})</button></Link>
                             </div>
                         </div>
 

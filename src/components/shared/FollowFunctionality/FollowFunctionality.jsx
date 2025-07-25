@@ -169,10 +169,8 @@ const FollowFunctionality = ({ email, onUnfollow }) => {
     // };
     return (
         <>
-            <button
-                className="bg-gradient-to-r from-[#6a61d1] to-[#302ba7] hover:from-[#6a61d1] hover:to-[#302ba7] text-white font-medium py-2 px-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out"
-            >
-                <span onClick={handleFollow}>{isFollowing ? 'Unfollow' : 'Follow'}</span>
+            <button className="buttonPrimary" onClick={handleFollow}>
+                <span>{isFollowing ? 'Unfollow' : 'Follow'}</span>
             </button>
         </>
     );

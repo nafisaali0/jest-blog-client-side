@@ -6,8 +6,6 @@ import moment from "moment";
 import ShowRecentBlog from "./ShowRecentBlog";
 import useComment from "../../../hooks/useComment";
 import ShowTopBlogs from "./ShowTopBlogs";
-import '../../style/btnView.css'
-
 
 const TabHome = () => {
 
@@ -95,7 +93,7 @@ const TabHome = () => {
                             }
                         </div>
                         {displayCount <= blogs.length &&
-                            <button className="button_Tab mt-4 font-semibold" onClick={handleSeeAll}>View More</button>
+                            <button className="buttonView mt-4 font-semibold" onClick={handleSeeAll}>View More</button>
                         }
                     </TabPanel>
                     <TabPanel>
@@ -110,7 +108,7 @@ const TabHome = () => {
                             }
                         </div>
                         {displayCountSix <= sortDateTimeBlogs.length &&
-                            <button className="button_Tab mt-5 font-semibold" onClick={handleSeeAllRecent}>View More</button>
+                            <button className="buttonView mt-5 font-semibold" onClick={handleSeeAllRecent}>View More</button>
                         }
                     </TabPanel>
                     <TabPanel>
@@ -125,7 +123,7 @@ const TabHome = () => {
                             }
                         </div>
                         {displayCountTopBg <= sortedBlogs.length &&
-                            <button className="button_Tab mt-5 font-semibold" onClick={handleSeeAllTopBlog}>View More</button>
+                            <button className="buttonView mt-5 font-semibold" onClick={handleSeeAllTopBlog}>View More</button>
                         }
                     </TabPanel>
                 </Tabs>

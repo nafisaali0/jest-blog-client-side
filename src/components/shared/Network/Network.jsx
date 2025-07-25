@@ -1,6 +1,5 @@
 import image1 from '../../../assets/image/network/image2.jpg'
 import { Link } from 'react-router-dom';
-import '../../style/primaryBtn.css'
 
 const Network = () => {
     return (

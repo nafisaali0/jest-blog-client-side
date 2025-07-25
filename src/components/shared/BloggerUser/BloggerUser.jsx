@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ShowBloggerUser from "./ShowBloggerUser";
 import useUniqueBlogger from "../../../hooks/useUniqueBlogger";
-import '../../style/btnView.css'
 
 const BloggerUser = () => {
 
@@ -28,7 +27,7 @@ const BloggerUser = () => {
                 </div>
                 <div>
                     {uniqueBloggerUser.length > 2 && displayCount < uniqueBloggerUser.length &&
-                        <button className="button_Tab mt-4 font-semibold" onClick={handleSeeAll}>View More</button>
+                        <button className="buttonView mt-4 font-semibold" onClick={handleSeeAll}>View More</button>
                     }
                 </div>
             </div>

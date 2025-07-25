@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import FollowFunctionality from '../FollowFunctionality/FollowFunctionality';
 import useUsers from '../../../hooks/useUsers';
 import { Link } from 'react-router-dom';
-// import './bloggerStyle.css'
 import { CiCalendarDate } from "react-icons/ci";
 
 
@@ -14,38 +13,6 @@ const ShowBloggerUser = ({ blog }) => {
 
     return (
         <>
-            {/* <div className='flex gap-8 w-full bg-[#ffffffE6] rounded-lg shadow hover:bg-hover_gray p-10'>
-                <div className="avatar">
-                    <div className="w-24 rounded-full">
-                        <img src={owner_image} />
-                    </div>
-                </div>
-                <div>
-                    <h1 className='text-lg font-bold pt-5'>{owner_name}</h1>
-                    {
-                        currentUser?.email !== owner_Email ?
-                            <Link className='text-sm font-bold' to={`/blogs/bloggeremail/${owner_Email}`}>
-                                <p>CheckOut Profile</p>
-                            </Link>
-                            :
-                            <Link className='text-sm font-bold' to={`/dashboard/profile`}>
-                                <p>CheckOut Profile</p>
-                            </Link>
-                    }
-                </div>
-                <div>
-                    {
-                        currentUser?.email !== owner_Email ?
-                            <div className="badge  p-3 font-bold text-white bg-light_purple hover:bg-hover_btn cursor-pointer"><FollowFunctionality
-                                email={owner_Email}></FollowFunctionality></div>
-                            :
-                            <div className="badge  p-3 font-bold text-white bg-hover_btn cursor-pointer">Editor</div>
-                    }
-
-                </div>
-            </div> */}
-
-            {/* new test */}
             <div
                 className="w-full bg-mainTheme relative shadow-lg overflow-hidden hover:shadow-xl group rounded-xl p-5 transition-all duration-500 transform">
                 <div className="flex items-center gap-4">
@@ -85,9 +52,7 @@ const ShowBloggerUser = ({ blog }) => {
                             <FollowFunctionality email={owner_Email}></FollowFunctionality>
                             :
                             <>
-                                <button
-                                    className="bg-gradient-to-r from-primaryColor to-primaryHover hover:from-primaryColor hover:to-primaryHover text-white font-medium py-1 px-3 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out"
-                                >
+                                <button className="py-2 px-4 font-semibold rounded border-light_purple bg-primaryColor text-white hover:bg-primaryHover">
                                     Editor
                                 </button>
                             </>
