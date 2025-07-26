@@ -6,16 +6,19 @@ const ErrorPage = () => {
     console.error(error);
     return (
         <>
-            <div className="container mx-auto flex flex-col justify-center items-center  mt-64 text-2xl font-bold">
-                <h2>Error!</h2>
-                <div className="text-center mt-6">
-                    <p>{error.status}</p>
-                    <p>{error.statusText}</p>
+            <div className="min-h-screen flex items-center justify-center bg-bodyColor px-4">
+                <div className="bg-white max-w-md w-full p-8 rounded-xl shadow-md text-center space-y-3">
+                    <h1 className="text-xl font-bold text-black uppercase">JestBlog</h1>
+                    <h2 className="text-xl font-semibold text-textSmallGray">{error.status} Error!</h2>
+                    <p className="text-textSmallGray font-medium">Sorry, this page doesn't exist.</p>
+                    <div className="flex justify-center items-center">
+                        <Link to={'/'}>
+                            <button className="py-2 px-4 font-semibold rounded bg-primaryColor text-white hover:bg-primaryHover">BACK TO HOME</button>
+                        </Link>
+                    </div>
                 </div>
-                <Link to="/">
-                    <button className="bg-card_white px-6 py-3 rounded-md mt-6">Go Back To Home</button>
-                </Link>
             </div>
+
         </>
     );
 };

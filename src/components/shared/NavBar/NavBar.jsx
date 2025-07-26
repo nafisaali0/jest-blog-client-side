@@ -202,7 +202,7 @@ const NavBar = () => {
                                             <button className="buttonPrimary" role="button"><span className="font-semibold text-primaryColor hover:text-white !normal-case">Sign in</span></button>
                                         </Link>
                                         <Link to={'/signup'}>
-                                            <button className="py-2 px-4 font-semibold rounded border-light_purple bg-primaryColor text-white hover:bg-primaryHover">Create Account</button>
+                                            <button className="py-2 px-4 font-semibold rounded bg-primaryColor text-white hover:bg-primaryHover">Create Account</button>
                                         </Link>
                                     </div>
                                     {/* mobile screen: sign in/ sign up*/}
