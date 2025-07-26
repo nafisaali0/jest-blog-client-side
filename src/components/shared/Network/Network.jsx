@@ -5,7 +5,7 @@ const Network = () => {
     return (
         <>
             <div
-                className="hero h-[500px] my-5 rounded-xl"
+                className="hero h-[500px] my-16 rounded-xl"
                 style={{ backgroundImage: `url(${image1})`}}
             >
                 <div className="hero-overlay bg-black/50 bg-opacity-50 rounded-xl"></div>

@@ -7,7 +7,6 @@ import LikeFunctionality from "../LikeFunctionality/LikeFunctionality";
 import TotalLikes from "../LikeFunctionality/TotalLikes";
 import { AiOutlineComment } from "react-icons/ai";
 import BlogTotalComments from "../BlogTotalComments/BlogTotalComments";
-import '../../style/btnView.css'
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const HomeWishList = () => {

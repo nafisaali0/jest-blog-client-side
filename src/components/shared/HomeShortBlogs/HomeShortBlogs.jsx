@@ -23,10 +23,10 @@ const HomeShortBlogs = () => {
 
     return (
         <>
-            <div className="container mx-auto overflow-hidden my-16 p-5">
+            <div className="my-16">
                 <div className="mb-10">
-                    <h1 className="font-bold text-3xl uppercase">Short Blogs</h1>
-                    <p className="font-semibold text-xl text-light_purple capitalize my-3">Read quickly. Save time and gain knowledge.</p>
+                    <h1 className="font-bold text-xl uppercase">Short Blogs</h1>
+                    <p className="font-semibold text-lg text-textSmallGray capitalize my-3">Read quickly. Save time and gain knowledge.</p>
                 </div>
                 <div className="grid grid-cols-3 gap-4">
                     <div className="col-span-3 ">
@@ -46,14 +46,28 @@ const HomeShortBlogs = () => {
                         >
                             {shortBlogs.slice(0, 4).map((blog, index) => (
                                 <SwiperSlide key={index}>
-                                    <div className="relative hero h-[500px] bg-no-repeat" style={{ backgroundImage: `url(${blog.details_image})` }}>
-                                        <div className="hero-overlay bg-black bg-opacity-50 rounded-lg"></div>
+                                    <div className="relative hero h-[500px] bg-no-repeat rounded-xl" style={{ backgroundImage: `url(${blog.details_image})` }}>
+                                        <div className="hero-overlay bg-black bg-opacity-50 rounded-xl"></div>
                                         <div className="card-body absolute w-full bottom-8 left-0 md:bottom-12 md:left-12 text-white">
-                                            <h2 className="card-title">{blog.category}</h2>
-                                            <p className="text-2xl font-semibold">{blog.title}</p>
-                                            <div className="card-actions justify-start">
+                                            <h2 className="font-bold text-xl">{blog.category}</h2>
+                                            <p className="text-xl font-semibold">{blog.title}</p>
+                                            <div className="flex justify-start items-start">
                                                 <Link to={`/blogdetails/${blog._id}`} target="_blank">
-                                                    <button className="px-8 py-2 font-bold rounded-md bg-light_purple hover:bg-hover_btn">Details</button>
+                                                    <button className="py-2 px-4 font-semibold rounded border-primaryColor bg-primaryColor text-white hover:bg-primaryHover flex justify-center items-center gap-1">
+                                                        <span>Details</span>
+                                                        <svg
+                                                            height="20"
+                                                            width="20"
+                                                            // viewBox="0 0 24 24"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                            <path d="M0 0h24v24H0z" fill="none"></path>
+                                                            <path
+                                                                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                                                                fill="currentColor"
+                                                            ></path>
+                                                        </svg>
+                                                    </button>
                                                 </Link>
                                             </div>
                                         </div>
@@ -85,18 +99,18 @@ const HomeShortBlogs = () => {
                         >
                             {shortBlogs.slice(4, -1).map((blog, index) => (
                                 <SwiperSlide key={index}>
-                                    <div className="card  h-[350px] bg-base-100 shadow-xl">
+                                    <div className="card  h-[350px] bg-mainTheme rounded-xl">
                                         <div className="relative">
-                                            <figure><img className="w-full h-[209px]" src={blog.details_image} alt="Shoes" /></figure>
+                                            <figure><img className="w-full h-[208px] rounded-t-xl" src={blog.details_image} alt="Shoes" /></figure>
                                         </div>
                                         <div className="absolute bottom-36 left-0">
-                                            <span className="bg-card_white text-black font-bold px-3 py-1 border-2 border-light_gray rounded-r-md">{blog.category}</span>
+                                            <span className="bg-textSmallGray text-white text-sm font-medium px-3 py-1 border-1 border-textSmallGray rounded-sm">{blog.category}</span>
                                         </div>
-                                        <div className="card-body">
+                                        <div className="p-5 mb-3">
                                             <Link to={`/blogdetails/${blog._id}`} target="_blank">
-                                                <h1 className="card-title">{blog.title}</h1>
+                                                <h1 className="text-lg font-bold text-black">{blog.title}</h1>
                                             </Link>
-                                            <p>{blog.date}</p>
+                                            <p className="text-sm font-semibold text-textSmallGray">{blog.date}</p>
                                         </div>
                                     </div>
                                 </SwiperSlide>

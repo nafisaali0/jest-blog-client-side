@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { BiSolidCategory } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import '../../style/btnView.css'
 
 const HomeFeaturesBlog = () => {
 
