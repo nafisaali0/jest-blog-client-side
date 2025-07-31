@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <>
             <div className='bg-black'>
-                <div className='max-w-[1300px] mx-auto bg-black px-2 lg:px-5 py-5'>
+                <div className='px-7 lg:px-10 mx-auto bg-black py-5'>
                     <div className='flex flex-col justify-start items-start py-5'>
                         <img className='w-24' src={logo} alt="" />
                     </div>

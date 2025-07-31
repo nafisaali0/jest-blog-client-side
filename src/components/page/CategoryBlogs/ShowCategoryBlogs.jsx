@@ -6,7 +6,7 @@ const ShowCategoryBlogs = ({ blog }) => {
     const { _id, title, details_image, short_description } = blog
     return (
         <>
-            <a href="#" className="flex flex-col-reverse items-center bg-card_white rounded-lg shadow lg:flex-row lg:max-w-xl hover:bg-hover_gray">
+            {/* <a href="#" className="flex flex-col-reverse items-center bg-card_white rounded-lg shadow lg:flex-row lg:max-w-xl hover:bg-hover_gray">
                 <div className="flex flex-col justify-between p-4 leading-normal">
                     <h5 className="mb-2 text-lg lg:tex-2xl font-bold tracking-tight text-gray-900">{title}</h5>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{short_description}</p>
@@ -15,7 +15,10 @@ const ShowCategoryBlogs = ({ blog }) => {
                     </Link>
                 </div>
                 <img className="object-cover w-full rounded-t-lg h-96 md:w-[300px] md:h-[300px] lg:h-auto lg:w-48 lg:rounded-none lg:rounded-s-lg" src={details_image} alt="" />
-            </a>
+            </a> */}
+
+            {/* new */}
+            
         </>
     );
 };
