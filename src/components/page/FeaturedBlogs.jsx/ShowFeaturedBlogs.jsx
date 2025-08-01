@@ -3,7 +3,6 @@ import DataTable from 'react-data-table-component';
 import { Link } from 'react-router-dom';
 
 const ShowFeaturedBlogs = ({ sortByWord }) => {
-    // console.log(sortByWord)
 
     const customStyles = {
         headRow: {
@@ -14,15 +13,15 @@ const ShowFeaturedBlogs = ({ sortByWord }) => {
         },
         headCells: {
             style: {
-                fontSize: '16px',
+                fontSize: '16px;',
                 fontWeight: '600',
             }
         },
         cells: {
             style: {
-                fontSize: '16px',
-                fontWeight: '500',
-                padding: '1rem',
+                fontSize: '14px',
+                fontWeight: '400',
+                padding: '10px',
             }
         },
     }
@@ -45,10 +44,9 @@ const ShowFeaturedBlogs = ({ sortByWord }) => {
         },
         {
             name: 'Blog Owner Image',
-            cell: (row) => <img src={row.owner_image} alt={row.owner_name} style={{ width: '50px', height: '50px', borderRadius: '50px', margin: '3px' }} />,
+            cell: (row) => <img src={row.owner_image} alt={row.owner_name} style={{ width: '30px', height: '30px', borderRadius: '50px', margin: '3px' }} />,
         }
     ]
-    // Assuming sortBlogs is an array of blog objects
     const data = sortByWord.map((blog, index) => ({
         _id: blog._id,
         id: index + 1,

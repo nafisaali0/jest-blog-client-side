@@ -17,13 +17,12 @@ const FeatureBlog = () => {
         );
         setSortByWord(sortload)
     }, [blog])
-    // console.log(sortByWord)
 
     return (
-        <div className="container mx-auto my-24 p-3">
-            <div className="font-bold my-5">
-                <h1 className="text-5xl ">Featured Blogs</h1>
-                <p className="text-lg my-3 capitalize">This table content sort by blogs long description. Which are shown in decending order</p>
+        <div className="my-10">
+            <div className="flex justify-center items-center flex-col space-y-2 mb-10">
+                <h1 className="text-5xl font-bold text-black">Featured Blogs</h1>
+                <p className="text-sm font-bold text-textSmallGray capitalize">This table content sort by blogs long description. Which are shown in decending order</p>
             </div>
             <div className="my-5">
                 {
