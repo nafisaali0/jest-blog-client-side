@@ -1,4 +1,3 @@
-// import ShowWishList from './ShowWishList';
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import LikeFunctionality from '../../shared/LikeFunctionality/LikeFunctionality';
@@ -6,7 +5,6 @@ import TotalLikes from '../../shared/LikeFunctionality/TotalLikes';
 import { Link } from 'react-router-dom';
 import { AiOutlineComment } from 'react-icons/ai';
 import BlogTotalComments from '../../shared/BlogTotalComments/BlogTotalComments';
-// import { BsBookmarkCheck } from 'react-icons/bs';
 import DeleteFunctionality from './../../shared/DeleteFunctionality/DeleteFunctionality';
 
 
@@ -25,9 +23,9 @@ const WishList = () => {
             })
     }, [user.email])
     return (
-        <div className="my-10">
+        <div className="mb-10">
             <div className="flex justify-center items-center flex-col">
-                <h1 className="text-5xl font-bold text-black mb-10 ">Your Reading List</h1>
+                <h1 className="text-5xl font-bold text-black mb-10">Your Reading List</h1>
                 {
                     changeWishListState.length == 0 ?
                         <>
