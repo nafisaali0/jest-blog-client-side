@@ -31,12 +31,9 @@ const WishList = () => {
                 {
                     changeWishListState.length == 0 ?
                         <>
-
                             <h1 className="text-xl font-bold text-textSmallGray mt-36">No Blogs In Your Reading List</h1>
-
                         </>
                         :
-
                         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 lg:gap-4 gap-2">
                             <>
                                 {

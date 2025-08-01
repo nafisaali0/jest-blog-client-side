@@ -40,7 +40,6 @@ const BloggerProfile = () => {
                 setBlogs(data);
             } catch (error) {
                 console.error('Error fetching blogs:', error);
-                // Handle error, e.g., show a message to the user
             }
         };
 
