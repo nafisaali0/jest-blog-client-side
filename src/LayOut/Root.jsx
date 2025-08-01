@@ -11,7 +11,7 @@ const Root = () => {
 
     return (
         <>
-            <div className="bg-[#f3f3f3]">
+            <div className="bg-bodyColor">
                 {nosubHeader || <NavBar></NavBar>}
                 <div className="min-h-screen max-w-[1300px] mx-auto pt-20 lg:pt-24 bg-bodyColor px-2 lg:px-5">
                     <Outlet></Outlet>

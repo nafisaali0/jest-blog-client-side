@@ -18,7 +18,7 @@ import ProfileSettings from "../components/page/Dashboard/ProfileSettings/Profil
 import ShowProfile from "../components/page/Dashboard/ProfileSettings/ShowProfile";
 import Membership from "../components/page/Dashboard/Membership/Membership";
 import BloggerProfile from './../components/page/BloggerProfile/BloggerProfile';
-// import Loader from "../components/shared/Loader/Loader";
+import Loader from "../components/shared/Loader/Loader";
 
 const router = createBrowserRouter([
     {
@@ -76,10 +76,10 @@ const router = createBrowserRouter([
                 element: <BloggerProfile></BloggerProfile>,
                 loader: ({ params }) => fetch(`https://blog-server-side-ochre.vercel.app/blogs/bloggeremail/${params.email}`)
             },
-            // {
-            //     path: '/loader',
-            //     element:<Loader></Loader>
-            // },
+            {
+                path: '/loader',
+                element:<Loader></Loader>
+            },
         ],
     },
     {
