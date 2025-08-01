@@ -36,7 +36,6 @@ const RecentBlog = () => {
                             setIsLoading={setIsLoading}
                             blog={blog}>
                         </ShowRecentBlog>
-
                     )
 
                 }

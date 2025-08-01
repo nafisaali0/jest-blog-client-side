@@ -3,19 +3,15 @@ import LikeFunctionality from "../../shared/LikeFunctionality/LikeFunctionality"
 import TotalLikes from "../../shared/LikeFunctionality/TotalLikes";
 import { AiOutlineComment } from "react-icons/ai";
 import BlogTotalComments from "../../shared/BlogTotalComments/BlogTotalComments";
-import { BsBookmarkCheck } from "react-icons/bs";
+import SaveBlogsFunctionality from "../../shared/SaveBlogsFunctionality/SaveBlogsFunctionality";
 
 
 const CategoryBlogs = () => {
 
-    //get all products by specific brand name from backend
     const blogs = useLoaderData();
-    console.log(blogs)
     const location = useLocation();
     const parts = location.pathname.split('/');
     const path = decodeURIComponent(parts[3]);
-    // console.log(path)
-
 
     return (
         <>
@@ -69,7 +65,9 @@ const CategoryBlogs = () => {
                                             </div>
 
                                             <div>
-                                                <BsBookmarkCheck title="save" className="text-textSmallGray cursor-pointer" style={{ width: '20px', height: '20px' }} />
+                                                <SaveBlogsFunctionality
+                                                    key={blog._id}
+                                                    blog={blog} />
                                             </div>
                                             {/*  onClick={handleWishList}  */}
                                         </div>

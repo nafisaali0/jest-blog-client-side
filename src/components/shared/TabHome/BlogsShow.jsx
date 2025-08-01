@@ -1,59 +1,17 @@
 import { Link } from "react-router-dom";
 import { PropTypes } from 'prop-types';
-import { useContext } from "react";
-import { AuthContext } from "../../../Providers/AuthProvider";
-import Swal from "sweetalert2";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import moment from 'moment';
-import useWishLIst from './../../../hooks/useWishList';
 import LikeFunctionality from "../LikeFunctionality/LikeFunctionality";
 import TotalLikes from "../LikeFunctionality/TotalLikes";
 import BlogTotalComments from "../BlogTotalComments/BlogTotalComments";
 import { BiSolidCategory } from "react-icons/bi";
-import { BsBookmarkCheck } from "react-icons/bs";
 import { AiOutlineComment } from "react-icons/ai";
+import SaveBlogsFunctionality from "../SaveBlogsFunctionality/SaveBlogsFunctionality";
 
 const BlogsShow = ({ blog }) => {
 
-    const { user } = useContext(AuthContext)//send currentUser to wishlist 
-    const [wishList] = useWishLIst();
+    const { _id, title, details_image, short_description, category, date, owner_name, owner_image, owner_Email } = blog
 
-    const { _id, title, details_image, short_description, category, long_description, date, time, owner_name, owner_image, owner_Email } = blog
-
-    const handleWishList = (e) => {
-        e.stopPropagation();
-        const saveDate = moment().format("MMM Do YY");
-        const saveTime = moment().format('LT');
-        const email = user.email
-        const blogId = _id;
-        const blogWishListInfo = { blogId, saveDate, saveTime, email, title, short_description, long_description, details_image, date, time, category, owner_name, owner_image, owner_Email }
-        const checkSameBlog = wishList.some(readBlog => readBlog.blogId === _id)
-
-        if (checkSameBlog === true) {
-            Swal.fire(
-                'Already Added in Reading List'
-            )
-        } else {
-            //send wishlist data to the server and below link to backend's created API and load in mongo as DB
-            fetch('https://blog-server-side-ochre.vercel.app/wishlist', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(blogWishListInfo)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    if (data.insertedId) {
-                        Swal.fire(
-                            'Added Blog to Reading List'
-                        )
-                    }
-                })
-        }
-
-    }
     return (
         <>
             <div className="flex flex-col justify-start">
@@ -99,7 +57,9 @@ const BlogsShow = ({ blog }) => {
                             </div>
                             {/* Wishlist */}
                             <div>
-                                <BsBookmarkCheck title="save" onClick={handleWishList} className="text-textSmallGray cursor-pointer" style={{ width: '20px', height: '20px' }} />
+                                <SaveBlogsFunctionality
+                                    key={_id}
+                                    blog={blog} />
                             </div>
                         </div>
                     </div>
