@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { useLoaderData } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useUsers from "../../../hooks/useUsers";
+import { FiEdit } from "react-icons/fi";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hostion_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -71,38 +72,44 @@ const UpdateBlog = () => {
     }
     return (
         <>
-            <div className="max-w-5xl mx-auto overflow-hidden p-5">
-                <form onSubmit={handleUpdateBlog}>
-                    <div className="flex justify-end items-end">
-                        <button className="btn border-none bg-light_purple text-white hover:bg-hover_btn">Update Blog</button>
-                    </div>
-                    <div className="my-5 h-3/5 overflow-hidden relative">
-                        <img className="w-full h-full object-cover" src={imagePreview} alt="" />
-                        <div>
-                            <label className="absolute bottom-0 text-center left-0 w-full text-sm hover:text-white hover:bg-light_purple font-semibold px-5 py-3 bg-card_white" htmlFor="fileUpload">
-                                <input type="file" onChange={handleImageChange} name="imageFile" className="hidden" id="fileUpload" />
-                                Change Cover Image
-                            </label>
+            <form onSubmit={handleUpdateBlog}>
+                <div className="flex justify-end items-end mb-6">
+                    <button className="btn border-none py-2 px-4 font-semibold rounded bg-primaryColor text-white hover:bg-primaryHover">Update Blog</button>
+                </div>
+                <div className="bg-white space-y-5 p-5 rounded-xl shadow-md overflow-hidden">
+                    <div className="relative">
+                        <figure >
+                            <img
+                                src={imagePreview}
+                                alt="image"
+                                className="w-full h-80 object-cover rounded-xl"
+                            />
+                        </figure>
+                        <div className="flex absolute top-0 right-0">
+                            <span className="bg-black/40 text-white text-sm px-3 py-3 border-1 border-textSmallGray rounded">
+                                <label htmlFor="fileUpload">
+                                    <input type="file" onChange={handleImageChange} name="imageFile" className="hidden" id="fileUpload" />
+                                    <FiEdit style={{ width: '20px', height: '20px' }} />
+                                </label>
+                            </span>
                         </div>
                     </div>
-                    <div className="mt-10">
-                        <label htmlFor="Title" className="text-2xl font-bold">Title</label>
-                        <textarea type="text" name="title" defaultValue={title} className="resize-none bg-transparent font-semibold py-5 w-full text-lg outline-none placeholder:text-4xl" />
-                    </div>
                     <div>
-                        <label htmlFor="Title" className="text-2xl font-bold">Category</label>
-                        <input type="text" name="category" defaultValue={category} className="bg-transparent font-semibold py-5 w-full text-lg border-none outline-none placeholder:text-4xl" />
+                        <div>
+                            <textarea type="text" name="title" defaultValue={title} placeholder="Title..." className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-xl text-black font-bold" />
+                        </div>
+                        <div>
+                            <textarea type="text" name="category" defaultValue={category} placeholder="Category" className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-md text-textSmallGray font-medium"/>
+                        </div>
+                        <div>
+                            <textarea type="text" name="shortDes" defaultValue={short_description} placeholder="Write Your Short Description here.." className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-md text-textSmallGray font-medium" />
+                        </div>
+                        <div>
+                            <textarea type="text" name="longDes" defaultValue={long_description} placeholder="Write Your Long Description here.." className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-md text-textSmallGray font-medium"/>
+                        </div>
                     </div>
-                    <div className="my-3">
-                        <label htmlFor="Title" className="text-2xl font-bold">Short Description</label>
-                        <textarea type="text" name="shortDes" defaultValue={short_description} placeholder="Write Your Short Description here.." className="resize-none bg-transparent my-5 py-5 w-full text-lg  outline-none font-semibold placeholder:text-xl" />
-                    </div>
-                    <div>
-                        <label htmlFor="Title" className="text-2xl font-bold">Long Description</label>
-                        <textarea type="text" name="longDes" defaultValue={long_description} placeholder="Write Your Long Description here.." className="resize-none bg-transparent my-5 py-5 w-full text-lg  outline-none font-semibold placeholder:text-xl" />
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </>
     );
 };
