@@ -23,7 +23,7 @@ const WishList = () => {
             })
     }, [user.email])
     return (
-        <div className="mb-10">
+        <div>
             <div className="flex justify-center items-center flex-col">
                 <h1 className="text-5xl font-bold text-black mb-10">Your Reading List</h1>
                 {

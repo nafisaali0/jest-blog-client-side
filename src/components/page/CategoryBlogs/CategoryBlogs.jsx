@@ -15,7 +15,7 @@ const CategoryBlogs = () => {
 
     return (
         <>
-            <div className="mb-10">
+            <div>
                 <div className="flex justify-center items-center mb-10">
                     <h1 className="text-5xl font-bold text-black">{path}</h1>
                 </div>
