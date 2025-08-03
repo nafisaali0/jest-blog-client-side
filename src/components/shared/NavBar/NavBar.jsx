@@ -175,9 +175,14 @@ const NavBar = () => {
                             user ?
                                 <>
                                     <div className="hidden md:flex">
-                                        <button className="buttonPrimary">
-                                            <span><Link to={"/addblog"}>Create Blog</Link></span>
-                                        </button>
+                                        {
+                                            location.pathname !== '/addblog' ?
+                                                <button className="buttonPrimary">
+                                                    <span><Link to={"/addblog"}>Create Blog</Link></span>
+                                                </button>
+                                                :
+                                                ""
+                                        }
                                     </div>
                                     <div className="dropdown dropdown-end">
                                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

@@ -4,7 +4,7 @@ import moment from 'moment';
 const Footer = () => {
     return (
         <>
-            <div className='bg-black'>
+            <div className='bg-black mt-20'>
                 <div className='px-7 lg:px-10 mx-auto bg-black py-5'>
                     <div className='flex flex-col justify-start items-start py-5'>
                         <img className='w-24' src={logo} alt="" />
