@@ -15,6 +15,7 @@ const FollowFunctionality = ({ email, onUnfollow }) => {
     const [id, setId] = useState()
 
     const user = users.length > 0 ? users[0] : null;
+    // const currentUser = users.length > 0 ? users[0] : {};
 
     useEffect(() => {
         const selectBlogger = uniqueBloggerUser.find(findSelectedBlogger => findSelectedBlogger.owner_Email === email);
@@ -169,9 +170,18 @@ const FollowFunctionality = ({ email, onUnfollow }) => {
     // };
     return (
         <>
-            <button className="buttonPrimary" onClick={handleFollow}>
-                <span>{isFollowing ? 'Unfollow' : 'Follow'}</span>
-            </button>
+            {
+                user?.email !== email ?
+                    <button className="buttonPrimary" onClick={handleFollow}>
+                        <span>{isFollowing ? 'Unfollow' : 'Follow'}</span>
+                    </button>
+                    :
+                    <>
+                        <button className="py-2 px-4 font-semibold rounded border-light_purple bg-primaryColor text-white hover:bg-primaryHover">
+                            Editor
+                        </button>
+                    </>
+            }
         </>
     );
 };

@@ -76,7 +76,7 @@ const UpdateBlog = () => {
                 <div className="flex justify-end items-end mb-6">
                     <button className="btn border-none py-2 px-4 font-semibold rounded bg-primaryColor text-white hover:bg-primaryHover">Update Blog</button>
                 </div>
-                <div className="bg-white space-y-5 p-5 rounded-xl shadow-md overflow-hidden">
+                <div className="bg-mainTheme space-y-5 p-5 rounded-xl shadow-md overflow-hidden">
                     <div className="relative">
                         <figure >
                             <img
@@ -86,7 +86,7 @@ const UpdateBlog = () => {
                             />
                         </figure>
                         <div className="flex absolute top-0 right-0">
-                            <span className="bg-black/40 text-white text-sm px-3 py-3 border-1 border-textSmallGray rounded">
+                            <span className="bg-black/40 text-white text-sm px-3 py-3 border-1 border-textSmallGray rounded cursor-pointer">
                                 <label htmlFor="fileUpload">
                                     <input type="file" onChange={handleImageChange} name="imageFile" className="hidden" id="fileUpload" />
                                     <FiEdit style={{ width: '20px', height: '20px' }} />

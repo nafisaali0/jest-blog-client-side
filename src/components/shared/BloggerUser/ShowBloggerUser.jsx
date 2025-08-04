@@ -16,8 +16,7 @@ const ShowBloggerUser = ({ blog }) => {
             <div
                 className="w-full bg-mainTheme relative shadow-lg overflow-hidden hover:shadow-xl group rounded-xl p-5 transition-all duration-500 transform">
                 <div className="flex items-center gap-4">
-                    <img src={owner_image}
-                        className="w-24 group-hover:w-28 group-hover:h-28 h-24 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
+                    <img src={owner_image} className="w-24 group-hover:w-28 group-hover:h-28 h-24 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
                     />
                     <div className="w-fit transition-all transform duration-500 space-y-2">
 
@@ -47,17 +46,7 @@ const ShowBloggerUser = ({ blog }) => {
                     </div>
                 </div>
                 <div className="absolute group-hover:bottom-1 delay-300 -bottom-16 transition-all duration-500 right-1 rounded-lg">
-                    {
-                        currentUser?.email !== owner_Email ?
-                            <FollowFunctionality email={owner_Email}></FollowFunctionality>
-                            :
-                            <>
-                                <button className="py-2 px-4 font-semibold rounded border-light_purple bg-primaryColor text-white hover:bg-primaryHover">
-                                    Editor
-                                </button>
-                            </>
-
-                    }
+                    <FollowFunctionality email={owner_Email}></FollowFunctionality>
                 </div>
             </div >
         </>
