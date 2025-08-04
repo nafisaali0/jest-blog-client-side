@@ -4,15 +4,15 @@ import Footer from './../components/shared/Footer/Footer';
 // import { AnimatePresence } from "framer-motion";
 
 const Root = () => {
+    
     const location = useLocation();
-    const nosubHeader = location.pathname.includes('dashboard')
     const noFooter = location.pathname.includes('signin') || location.pathname.includes('signup');
-    // console.log(noFooter)
+    const noNavbar = location.pathname.includes('signin') || location.pathname.includes('signup');
 
     return (
         <>
             <div className="bg-bodyColor">
-                {nosubHeader || <NavBar></NavBar>}
+                {noNavbar || <NavBar></NavBar>}
                 <div className="min-h-screen max-w-[1300px] mx-auto pt-20 lg:pt-24 bg-bodyColor px-2 lg:px-5">
                     <Outlet></Outlet>
                 </div>

@@ -7,7 +7,9 @@ const Footer = () => {
             <div className='bg-black mt-20'>
                 <div className='px-7 lg:px-10 mx-auto bg-black py-5'>
                     <div className='flex flex-col justify-start items-start py-5'>
-                        <img className='w-24' src={logo} alt="" />
+                        <figure>
+                            <img className='w-24' src={logo} alt="" />
+                        </figure>
                     </div>
                     <footer className="footer py-5 bg-black text-white">
                         <div className='text-sm font-medium text-mainTheme'>
