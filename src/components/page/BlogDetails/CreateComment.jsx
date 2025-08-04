@@ -116,7 +116,7 @@ const CreateComment = ({ id, blog_Email }) => {
                 </div>
             </form>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col items-start space-y-4">
                 {
                     changeCommentsState.map(comment =>
                         <ShowComments

@@ -3,7 +3,7 @@ import Swal from "sweetalert2"
 import { PropTypes } from 'prop-types';
 
 
-const DeleteFunctionality = ({ baseLink, _id, wishList, setchangeWishListState }) => {
+const DeleteFunctionality = ({ baseLink, _id, wishList, setchangeWishListState, comments,setChangeCommentsState }) => {
 
     const handleDelete = () => {
 
@@ -32,6 +32,10 @@ const DeleteFunctionality = ({ baseLink, _id, wishList, setchangeWishListState }
                             // clear state after delete wishlist's blog
                             const loadBlogAfterDelete = wishList.filter(blog => blog._id !== _id)
                             setchangeWishListState(loadBlogAfterDelete)
+
+                            // comment 
+                            const loadCommentsAfterDelete = comments.filter(comment => comment._id !== _id)
+                            setChangeCommentsState(loadCommentsAfterDelete)
                         }
 
                     })
@@ -52,5 +56,7 @@ DeleteFunctionality.propTypes = {
     baseLink: PropTypes.string,
     _id: PropTypes.string,
     wishList: PropTypes.array,
-    setchangeWishListState: PropTypes.func
+    comments: PropTypes.array,
+    setchangeWishListState: PropTypes.func,
+    setChangeCommentsState: PropTypes.func
 };
