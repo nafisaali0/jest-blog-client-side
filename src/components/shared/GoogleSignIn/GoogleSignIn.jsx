@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import moment from "moment";
+import { FcGoogle } from "react-icons/fc";
 
 const GoogleSignIn = () => {
 
@@ -45,13 +46,22 @@ const GoogleSignIn = () => {
     }
     return (
         <>
-            <button
+            {/* <button
                 onClick={handleGoogle}
                 className="w-full py-3 border-2 bg-light_purple text-white hover:bg-hover_btn"
                 type="submit"
                 data-ripple-light="true"
             >
                 Sign In With Google
+            </button> */}
+
+            <button
+                onClick={handleGoogle}
+                className="flex flex-row justify-center items-center gap-2 w-full border border-borderColour rounded-lg py-2 px-3 ">
+                <a>
+                    <FcGoogle style={{ width: '20px', height: '20px' }} />
+                </a>
+                <span className='text-sm font-medium text-black'>Sign up with google</span>
             </button>
         </>
     );
