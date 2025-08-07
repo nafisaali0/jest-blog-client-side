@@ -7,7 +7,7 @@ export default {
     colors: {
       borderColour: "#dbdbde",
       bodyColor: "#f3f3f3",
-      primaryHover: " #302ba7",
+      primaryHover: "#302ba7",
       primaryColor: "#6a61d1",
       black: "#000000",
       white: " #ffff",

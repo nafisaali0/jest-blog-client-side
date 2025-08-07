@@ -13,7 +13,7 @@ const Home = () => {
   const [wishList] = useWishLIst();
   return (
     <>
-      <div className="max-w-[1300px] mx-auto">
+      <div className="max-w-[1300px] mx-auto overflow-hidden">
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 p-2'>
           <div className='lg:col-span-2 w-full flex items-start flex-col'>
             <TabHome />

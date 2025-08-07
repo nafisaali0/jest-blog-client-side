@@ -2,9 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import useBlogs from "../../../../hooks/useBlogs";
 import { AuthContext } from "../../../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
-import icondelete from '../../../../assets/image/icons/delete.svg'
-import edit from '../../../../assets/image/icons/edit.svg'
-
 import Swal from "sweetalert2";
 
 const DashHomeOwnerBlogs = () => {
@@ -19,26 +16,26 @@ const DashHomeOwnerBlogs = () => {
         setUserBlogs(bloggerBlogs)
     }, [blogs, user]);
 
-    const handleDelete = (_id) => {
+    // const handleDelete = (_id) => {
 
-        fetch(`https://blog-server-side-ochre.vercel.app/blogs/${_id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.deletedCount > 0) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Your blog has been deleted.',
-                        'success'
-                    )
-                }
-                // clear state after delete blogs
-                const loadBlogsAfterDelete = userBlogs.filter(comment => comment._id !== _id)
-                setUserBlogs(loadBlogsAfterDelete)
-            })
-    }
+    //     fetch(`https://blog-server-side-ochre.vercel.app/blogs/${_id}`, {
+    //         method: 'DELETE'
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data)
+    //             if (data.deletedCount > 0) {
+    //                 Swal.fire(
+    //                     'Deleted!',
+    //                     'Your blog has been deleted.',
+    //                     'success'
+    //                 )
+    //             }
+    //             // clear state after delete blogs
+    //             const loadBlogsAfterDelete = userBlogs.filter(comment => comment._id !== _id)
+    //             setUserBlogs(loadBlogsAfterDelete)
+    //         })
+    // }
 
     return (
         <>
@@ -72,10 +69,10 @@ const DashHomeOwnerBlogs = () => {
                                                         <span>{ownerBlogs.time}</span>
                                                     </div>
                                                     <div className="flex gap-2 items-center">
-                                                        <img onClick={() => handleDelete(ownerBlogs._id)} title="Delete" className="w-7 cursor-pointer" src={icondelete} alt="" />
+                                                        {/* <img onClick={() => handleDelete(ownerBlogs._id)} title="Delete" className="w-7 cursor-pointer" src={icondelete} alt="" />
                                                         <Link to={`/update/${ownerBlogs._id}`}>
                                                             <img title="Update" className="w-9 cursor-pointer" src={edit} alt="" />
-                                                        </Link>
+                                                        </Link> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -110,11 +107,11 @@ const DashHomeOwnerBlogs = () => {
                                                         <span>{ownerBlogs.date}</span>
                                                         <span>{ownerBlogs.time}</span>
                                                     </div>
-                                                    <div>
+                                                    {/* <div>
                                                         <Link to={`/update/${ownerBlogs._id}`}>
                                                             <img title="Update" className="w-9 cursor-pointer" src={edit} alt="" />
                                                         </Link>
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                             </div>
                                         </div>

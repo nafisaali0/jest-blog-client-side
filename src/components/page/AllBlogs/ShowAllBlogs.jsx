@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import iconD from '../../../assets/image/icons/details1.svg'
-import iconW from '../../../assets/image/icons/wishlist1.svg'
+// import iconD from '../../../assets/image/icons/details1.svg'
+// import iconW from '../../../assets/image/icons/wishlist1.svg'
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
@@ -11,7 +11,7 @@ const ShowAllBlogs = ({ blog }) => {
 
     const { user } = useContext(AuthContext)//send currentUser to wishlist 
     const [comments] = useComment()
-    console.log(comments)
+    // console.log(comments)
 
     const comment = comments.filter(item => item.blog_id === blog._id)
     // console.log(comment)

@@ -145,13 +145,13 @@ const NavBar = () => {
                 <div className="navbar px-5">
                     <div className="navbar-start md:space-x-5">
                         <div tabIndex={0} role="button">
-                            <div className="w-16">
-                                <Link to={'/'}>
+                            <Link to={'/'}>
+                                <figure className="w-16">
                                     <img
                                         alt="logo"
                                         src={logo} />
-                                </Link>
-                            </div>
+                                </figure>
+                            </Link>
                         </div>
                         {
                             location.pathname == '/' ?
@@ -170,11 +170,11 @@ const NavBar = () => {
                             :
                             ""
                     }
-                    <div className="navbar-end lg:space-x-6">
+                    <div className="navbar-end">
                         {
                             user ?
                                 <>
-                                    <div className="hidden md:flex">
+                                    <div className="hidden md:flex mx-3">
                                         {
                                             location.pathname !== '/addblog' ?
                                                 <button className="buttonPrimary">
@@ -194,8 +194,10 @@ const NavBar = () => {
                                         <ul
                                             tabIndex={0}
                                             className="menu menu-sm dropdown-content w-52 mt-3 p-2 rounded-md shadow font-semibold text-center border-2 border-borderColour bg-mainTheme text-black backdrop-blur-sm">
-                                            <div className="py-2 px-4 font-semibold border-b hover:text-primaryHover hover:bg-borderColour cursor-pointer border-borderColour"><a href={"/dashboard"}>Dashboard</a></div>
-                                            <div className="py-2 px-4 font-semibold border-b hover:text-primaryHover hover:border-borderColour cursor-pointer border-borderColour"><a href={"dashboard/profile-setting"}>Setting</a></div>
+                                            <a href={"/dashboard"}><div className="py-2 px-4 font-semibold border-b hover:text-primaryHover hover:bg-borderColour cursor-pointer border-borderColour">Dashboard</div></a>
+                                            <a href={"dashboard/profile-setting"}><div className="hidden lg:flex justify-center py-2 px-4 font-semibold border-b hover:text-primaryHover hover:border-borderColour cursor-pointer border-borderColour">Setting</div></a>
+                                            <a href={"/wishlist"}><div className="lg:hidden flex justify-center py-2 px-4 font-semibold border-b hover:text-primaryHover hover:border-borderColour cursor-pointer border-borderColour">Reading List</div></a>
+                                            <a href={"/featureblog"}><div className="lg:hidden flex justify-center py-2 px-4 font-semibold border-b hover:text-primaryHover hover:border-borderColour cursor-pointer border-borderColour">Feature Blog</div></a>
                                             <div className="py-2 px-4 font-semibold border-b hover:text-primaryHover hover:border-borderColour cursor-pointer border-borderColour last:border-b-0" onClick={handleLogOut}>Logout</div>
                                         </ul>
                                     </div>

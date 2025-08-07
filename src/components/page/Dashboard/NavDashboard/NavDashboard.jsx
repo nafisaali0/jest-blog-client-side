@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import logo from '../../../../assets/image/logo/upLogoedit11.png'
-import navIcon from '../../../../assets/image/icons/nav-icon.svg'
 import { AiOutlineUserSwitch } from "react-icons/ai";
 import { RiListSettingsLine } from "react-icons/ri";
 import { MdOutlineDashboard } from "react-icons/md";
@@ -32,7 +31,8 @@ const NavDashboard = () => {
                     <div className="navbar-start">
                         <div className="dropdown">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle lg:hidden">
-                                <img src={navIcon} className="h-5 w-4 text-light_purple" alt="Navigation Icon" />
+                                {/* hambarger: dropdown */}
+                                {/* <img src={navIcon} className="h-5 w-4 text-light_purple" alt="Navigation Icon" /> */}
                             </div>
                             {/* mobile menu */}
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-5 shadow bg-light_purple rounded-box w-52">
