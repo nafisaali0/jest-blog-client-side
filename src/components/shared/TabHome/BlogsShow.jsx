@@ -16,15 +16,15 @@ const BlogsShow = ({ blog }) => {
         <>
             <div className="flex flex-col justify-start">
                 <div
-                    className="relative flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 md:max-w-3xl border border-[#ffff] bg-[#ffff]">
+                    className="relative flex flex-col md:flex-row md:space-x-3 space-y-3 p-3 md:max-w-3xl rounded-xl shadow-lg border border-borderColour bg-mainTheme">
                     <div className="p-2 sm:w-1/2">
                         <PhotoProvider>
                             <PhotoView src={details_image}>
-                                <img className="rounded-xl object-cover w-full h-60" src={details_image} alt="blogImage" />
+                                <img className="rounded-xl object-cover w-full h-full" src={details_image} alt="blogImage" />
                             </PhotoView>
                         </PhotoProvider>
                     </div>
-                    <div className="w-full md:w-2/3 bg-mainTheme flex flex-col space-y-2 p-3">
+                    <div className="w-full md:w-2/3 h-full bg-mainTheme flex flex-col p-3 space-y-2">
                         <div className="flex items-center">
                             <img className="object-cover h-5 w-5 rounded-full" src={owner_image} alt="Avatar" />
                             <Link to={`/blogs/bloggeremail/${owner_Email}`}>
@@ -39,8 +39,8 @@ const BlogsShow = ({ blog }) => {
                             <BiSolidCategory title="category" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                             <span href="#" className="mx-2 text-sm text-textSmallGray font-medium">{category}</span>
                         </div>
-                        <div className="flex md:flex-row justify-between">
-                            <div className="flex flex-1 flex-row space-x-3 item-center">
+                        <div className="mt-auto flex flex-row justify-between items-end">
+                            <div className="flex flex-1 flex-row space-x-3 item-center mt-5 self-end">
                                 <p className="text-sm text-textSmallGray font-medium md:block">{date}</p>
                                 <div className="flex justify-center space-x-1">
                                     <LikeFunctionality id={_id}></LikeFunctionality>
@@ -56,7 +56,7 @@ const BlogsShow = ({ blog }) => {
                                 </div>
                             </div>
                             {/* Wishlist */}
-                            <div>
+                            <div className="self-end">
                                 <SaveBlogsFunctionality
                                     key={_id}
                                     blog={blog} />
