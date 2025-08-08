@@ -6,9 +6,9 @@ const Dashboard = () => {
     const [isOpen, setIsOpen] = useState(false)
     return (
         <>
-            <div className="flex bg-bodyColor">
+            <div className="flex bg-mainTheme">
                 <div className={`w-16 md:w-60 fixed left-0 top-0 h-screen border-r border-borderColour
-                    ${isOpen ? "w-60 border-r border-borderColour bg-bodyColor z-50" : "w-16"} `}>
+                    ${isOpen ? "w-60 border-r border-borderColour bg-mainTheme z-50" : "w-16"} `}>
                     <NavDashboard
                         isOpen={isOpen}
                         setIsOpen={setIsOpen}
