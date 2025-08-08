@@ -29,12 +29,18 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
         <>
             <div className="flex flex-col h-screen">
                 {/* Logo */}
-                <div className="flex gap-2 justify-start items-center cursor-pointer p-3">
-                    <figure onClick={() => setIsOpen(!isOpen)}>
+                <div className="flex gap-2 justify-start items-center cursor-pointer p-3 border-b border-borderColour">
+                    <figure
+                        onClick={() => {
+                            if (window.innerWidth <= 768) { // 768px or less = mobile
+                                setIsOpen(!isOpen);
+                            }
+                        }}
+                    >
                         <img className="w-[37px]" src={bar} alt="" />
                     </figure>
                     <Link to={'/'}>
-                        <h1 className={`text-[26px] font-semibold text-black ${isOpen ? "flex" : "hidden"}`}>JEST BLOG</h1>
+                        <h1 className={`md:flex  text-[26px] font-semibold text-black ${isOpen ? "flex" : "hidden"}`}>JEST BLOG</h1>
                     </Link>
                 </div>
 
@@ -53,7 +59,7 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
                                 className={`${ifActive('/dashboard') ? 'text-white' : 'text-textSmallGray'}`}
                             />
                             <span
-                                className={`text-md font-semibold
+                                className={`md:flex text-md font-semibold
                                  ${ifActive('/dashboard') ? 'text-white' : 'text-textSmallGray'}  
                                  ${isOpen ? "flex" : "hidden"}`}
                             >
@@ -74,7 +80,7 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
                                 className={`${ifActive('/dashboard/profile') ? 'text-white ' : 'text-textSmallGray'}`}
                             />
                             <span
-                                className={`text-md font-semibold 
+                                className={`md:flex text-md font-semibold 
                                     ${ifActive('/dashboard/profile') ? 'text-white' : 'text-textSmallGray'}
                                     ${isOpen ? "flex" : "hidden"}`}
                             >
@@ -93,7 +99,7 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
                                 className={`${ifActive('/dashboard/profile-setting') ? 'text-white' : 'text-textSmallGray'}`}
                             />
                             <span
-                                className={`text-md font-semibold 
+                                className={`md:flex text-md font-semibold 
                                 ${ifActive('/dashboard/profile-setting') ? 'text-white' : 'text-textSmallGray'}
                                  ${isOpen ? "flex" : "hidden"}`}
                             >
@@ -111,7 +117,7 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
                                 <img src={user.photoURL ? user.photoURL : ``} />
                             </div>
                         </div>
-                        <div className={`flex-col max-w-[150px] ${isOpen ? "flex" : "hidden"}`}>
+                        <div className={`md:flex flex-col max-w-[150px] ${isOpen ? "flex" : "hidden"}`}>
                             <h1 className="text-[14px] font-medium text-black truncate whitespace-nowrap overflow-hidden">{user.displayName}</h1>
                             <span
                                 className="text-[12px] font-normal text-textSmallGray truncate whitespace-nowrap overflow-hidden"
@@ -122,7 +128,7 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
                         </div>
 
                     </div>
-                    <div className={`${isOpen ? "flex" : "hidden"}`}>
+                    <div className={`md:flex ${isOpen ? "flex" : "hidden"}`}>
                         {/*  */}
                         <div className="dropdown dropdown-top dropdown-end">
                             <HiOutlineEllipsisVertical
@@ -144,7 +150,7 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
 
 export default NavDashboard;
 
-NavDashboard.propTypes = {         
-    isOpen: PropTypes.bool,      
-    setIsOpen: PropTypes.func,   
+NavDashboard.propTypes = {
+    isOpen: PropTypes.bool,
+    setIsOpen: PropTypes.func,
 };
