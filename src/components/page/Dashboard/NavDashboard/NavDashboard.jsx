@@ -1,21 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
-import logo from '../../../../assets/image/logo/upLogoedit11.png'
 import bar from '../../../../assets/image/logo/upLogo7-removebg.png'
-import { AiOutlineUserSwitch } from "react-icons/ai";
-import { RiListSettingsLine } from "react-icons/ri";
-import { MdOutlineDashboard } from "react-icons/md";
-import { GiPriceTag } from "react-icons/gi";
 import { useContext } from "react";
 import { AuthContext } from "../../../../Providers/AuthProvider";
-import './navdasboard.css'
-import { FaBars } from "react-icons/fa6";
-import { HiMiniBars3 } from "react-icons/hi2";
 import { RxDashboard } from "react-icons/rx";
+import { HiOutlineEllipsisVertical } from "react-icons/hi2";
 import { PiUserSquareThin } from "react-icons/pi";
-import { IoSettingsOutline } from "react-icons/io5";
+import { SlSettings } from "react-icons/sl";
+import { PropTypes } from 'prop-types';
 
 
-const NavDashboard = () => {
+const NavDashboard = ({ isOpen, setIsOpen }) => {
 
     const { user, logOut } = useContext(AuthContext)
     const location = useLocation()
@@ -33,161 +27,115 @@ const NavDashboard = () => {
 
     return (
         <>
-            {/* <div className="max-w-screen-2xl mx-auto">
-                <div className="navbar">
-                    <div className="navbar-start">
-                        <div className="dropdown">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle lg:hidden">
-                            </div>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-5 shadow bg-light_purple rounded-box w-52">
-                                <nav className=" flex flex-col">
-                                    <Link
-                                        activeClassName="navbar__link--active_mobile"
-                                        className={ifActive('/dashboard') ? "navbar__link--active_mobile" : "navbar__link_mobile"}
-                                        to="/dashboard">
-                                        <div>
-                                            < MdOutlineDashboard />
-                                        </div>
-                                        Dashboard
-                                    </Link>
-                                    <Link
-                                        activeClassName="navbar__link--active_mobile"
-                                        className={ifActive('/dashboard/profile') ? "navbar__link--active_mobile" : "navbar__link_mobile"}
-                                        to="/dashboard/profile">
-                                        <div>
-                                            <AiOutlineUserSwitch />
-                                        </div>
-                                        Profile
-                                    </Link>
-                                    <Link activeClassName="navbar__link--active_mobile"
-                                        className={ifActive('/dashboard/profile-setting') ? "navbar__link--active_mobile" : "navbar__link_mobile"}
-                                        to="/dashboard/profile-setting">
-                                        <div>
-                                            <RiListSettingsLine />
-                                        </div>
-                                        Settings
-                                    </Link>
-                                    <Link activeClassName="navbar__link--active_mobile"
-                                        className={ifActive('/dashboard/membership') ? "navbar__link--active_mobile" : "navbar__link_mobile"}
-                                        to="/dashboard/membership">
-                                        <div>
-                                            <GiPriceTag />
-                                        </div>
-                                        Membership
-                                    </Link>
-                                </nav>
-                                <div className="flex items-center gap-3 my-5">
-                                    <Link to={'/signin'}>
-                                        <button className="text-sm px-3 py-2 border-2 font-semibold text-white rounded border-white hover:bg-white hover:text-light_purple">Sign in</button>
-                                    </Link>
-                                    <Link to={'/signup'}>
-                                        <button className="text-sm px-3 py-2 font-semibold text-light_purple rounded border-white bg-white  hover:bg-transparent hover:border-2 hover:border-white hover:text-white">Sign up</button>
-                                    </Link>
-                                </div>
-                            </ul>
-                        </div>
-                        <Link to={'/'}>
-                            <img className="w-12 lg:w-16 cursor-pointer" src={logo} alt="" />
-                        </Link>
-                    </div>
-                    <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal items-center hidden lg:flex">
-                            <div className="flex justify-center items-center">
-                                <nav>
-                                    <Link
-                                        activeClassName="navbar__link--active"
-                                        className={ifActive('/dashboard') ? "navbar__link--active" : "navbar__link"}
-                                        to="/dashboard">Dashboard</Link>
-                                    <Link
-                                        activeClassName="navbar__link--active"
-                                        className={ifActive('/dashboard/profile') ? "navbar__link--active" : "navbar__link"}
-                                        to="/dashboard/profile">Profile</Link>
-                                    <Link activeClassName="navbar__link--active"
-                                        className={ifActive('/dashboard/profile-setting') ? "navbar__link--active" : "navbar__link"}
-                                        to="/dashboard/profile-setting">Settings</Link>
-                                    <Link activeClassName="navbar__link--active"
-                                        className={ifActive('/dashboard/membership') ? "navbar__link--active" : "navbar__link"}
-                                        to="/dashboard/membership">Membership</Link>
-                                </nav>
-                            </div>
-                        </ul>
-                    </div>
-                    <div className="navbar-end text-white">
-                        <div className="dropdown dropdown-end text-[#474f85] font-bold">
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
-                                <div className="w-10 border-black border-2 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                    <img src={user.photoURL ? user.photoURL : ``} />
-                                </div>
-                            </label>
-                            <ul tabIndex={0} className="mt-3 z-[1] p-5 shadow menu menu-sm dropdown-content bg-dash_nav rounded-box w-52">
-                                <Link to={'/signup'}>Add Another Account</Link>
-                                <li className="cursor-pointer" onClick={handleLogOut}>Logout</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-
-            {/* new */}
-
-            <div className="flex flex-col p-3">
-                <div className="flex gap-2 justify-start items-center cursor-pointer">
-                    {/* <HiMiniBars3
-                            style={{
-                                width: 24,
-                                height: 24,
-                                // transform: "scale(1.08)",                     
-                                // filter: "drop-shadow(0 0 0.6px currentColor)"  
-                            }}
-                            strokeWidth={1.08}
-                        /> */}
-                    <figure>
-                        <img className='w-10' src={bar} alt="" />
+            <div className="flex flex-col h-screen">
+                {/* Logo */}
+                <div className="flex gap-2 justify-start items-center cursor-pointer p-3">
+                    <figure onClick={() => setIsOpen(!isOpen)}>
+                        <img className="w-[37px]" src={bar} alt="" />
                     </figure>
                     <Link to={'/'}>
-                        <h1 className="text-2xl font-bold text-black">JEST BLOG</h1>
+                        <h1 className={`text-[26px] font-semibold text-black ${isOpen ? "flex" : "hidden"}`}>JEST BLOG</h1>
                     </Link>
                 </div>
-                {/* NavItems */}
-                <nav className="mt-20">
+
+                {/* Middle navigation */}
+                <nav className="mt-20 flex-1 p-3">
                     <ul className="space-y-3">
-                        <li className="flex justify-start items-center gap-2 border p-[11px] rounded">
+                        <Link
+                            to="/dashboard"
+                            className={`flex justify-start items-center gap-2 rounded p-[11px] transition-colors
+                                   ${ifActive('/dashboard')
+                                    ? 'bg-primaryColor text-white'
+                                    : 'text-textSmallGray'
+                                }`}
+                        >
                             <RxDashboard
-                                className="text-textSmallGray"
-                                style={{
-                                    transform: "scale(1)"
-                                }} />
-                            <Link to={'/dashboard'}>
-                                <span className="text-textSmallGray text-xl font-semibold">Dashboard</span>
-                            </Link>
-                        </li>
-                        <li className="flex justify-start items-center gap-2 border p-[11px] rounded">
+                                className={`${ifActive('/dashboard') ? 'text-white' : 'text-textSmallGray'}`}
+                            />
+                            <span
+                                className={`text-md font-semibold
+                                 ${ifActive('/dashboard') ? 'text-white' : 'text-textSmallGray'}  
+                                 ${isOpen ? "flex" : "hidden"}`}
+                            >
+                                Dashboard
+                            </span>
+                        </Link>
+                        <Link
+                            to='/dashboard/profile'
+                            className={`flex justify-start items-center gap-2 rounded p-[11px] transition-colors
+                                   ${ifActive('/dashboard/profile') ? 'bg-primaryColor text-white' : 'text-textSmallGray'}`}
+                        >
                             <PiUserSquareThin
-                                className="text-textSmallGray"
                                 style={{
-                                    transform: "scale(1.08)"
-                                }} />
-                            <Link to={'/dashboard'}>
-                                <span className="text-textSmallGray text-xl font-semibold">Profile</span>
-                            </Link>
-                        </li>
-                        <li className="flex justify-start items-center gap-2 border p-[11px] rounded">
-                            <IoSettingsOutline
-                                className="text-textSmallGray"
-                                style={{
-                                    transform: "scale(1)"
-                                }} />
-                            <Link to={'/dashboard'}>
-                                <span className="text-textSmallGray text-xl font-semibold">Setting</span>
-                            </Link>
-                        </li>
+                                    width: 20,
+                                    height: 20,
+                                    transform: "scale(1.08)",
+                                }}
+                                className={`${ifActive('/dashboard/profile') ? 'text-white ' : 'text-textSmallGray'}`}
+                            />
+                            <span
+                                className={`text-md font-semibold 
+                                    ${ifActive('/dashboard/profile') ? 'text-white' : 'text-textSmallGray'}
+                                    ${isOpen ? "flex" : "hidden"}`}
+                            >
+                                Profile
+                            </span>
+                        </Link>
+                        <Link
+                            to='/dashboard/profile-setting'
+                            className={`flex justify-start items-center gap-2 rounded p-[11px] transition-colors
+                                   ${ifActive('/dashboard/profile-setting')
+                                    ? 'bg-primaryColor text-white'
+                                    : 'text-textSmallGray'
+                                }`}
+                        >
+                            <SlSettings
+                                className={`${ifActive('/dashboard/profile-setting') ? 'text-white' : 'text-textSmallGray'}`}
+                            />
+                            <span
+                                className={`text-md font-semibold 
+                                ${ifActive('/dashboard/profile-setting') ? 'text-white' : 'text-textSmallGray'}
+                                 ${isOpen ? "flex" : "hidden"}`}
+                            >
+                                Setting
+                            </span>
+                        </Link>
                     </ul>
                 </nav>
-                <div>
-                    <div>
-                        
+
+                {/* Bottom user section */}
+                <div className="flex md:justify-between items-center leading-4 border-t border-borderColour p-2 py-5">
+                    <div className="flex gap-2 items-center">
+                        <div className="avatar flex">
+                            <div className="w-9 rounded-full">
+                                <img src={user.photoURL ? user.photoURL : ``} />
+                            </div>
+                        </div>
+                        <div className={`flex-col max-w-[150px] ${isOpen ? "flex" : "hidden"}`}>
+                            <h1 className="text-[14px] font-medium text-black truncate whitespace-nowrap overflow-hidden">{user.displayName}</h1>
+                            <span
+                                className="text-[12px] font-normal text-textSmallGray truncate whitespace-nowrap overflow-hidden"
+                                title={user.email}
+                            >
+                                {user.email}
+                            </span>
+                        </div>
+
                     </div>
-                    <div></div>
+                    <div className={`${isOpen ? "flex" : "hidden"}`}>
+                        {/*  */}
+                        <div className="dropdown dropdown-top dropdown-end">
+                            <HiOutlineEllipsisVertical
+                                tabIndex={0}
+                                role="button"
+                                style={{ width: '20px', height: '20px' }} />
+                            <ul
+                                tabIndex={0}
+                                className="menu dropdown-content mb-5 z-1 w-52 p-2 rounded-md shadow font-semibold text-center border-2 border-borderColour bg-mainTheme text-black backdrop-blur-sm">
+                                <div className="py-2 px-4 text-md font-semibold border-b hover:text-primaryHover hover:border-borderColour cursor-pointer border-borderColour last:border-b-0" onClick={handleLogOut}>Logout</div>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
@@ -195,3 +143,8 @@ const NavDashboard = () => {
 };
 
 export default NavDashboard;
+
+NavDashboard.propTypes = {         
+    isOpen: PropTypes.bool,      
+    setIsOpen: PropTypes.func,   
+};

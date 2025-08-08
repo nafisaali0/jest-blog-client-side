@@ -1,24 +1,20 @@
 import { Outlet } from "react-router-dom";
 import NavDashboard from "../components/page/Dashboard/NavDashboard/NavDashboard";
-import { FaBars } from "react-icons/fa6";
+import { useState } from "react";
 
 const Dashboard = () => {
+    const [isOpen, setIsOpen] = useState(false)
     return (
         <>
-            {/* <div className="mb-10 w-full h-96 p-5">
-                <div className="">
-                    
+            <div className="flex bg-bodyColor">
+                <div className={`w-16 md:w-60 fixed left-0 top-0 h-screen border-r border-borderColour
+                    ${isOpen ? "w-60 border-r border-borderColour bg-bodyColor z-50" : "w-16"} `}>
+                    <NavDashboard
+                        isOpen={isOpen}
+                        setIsOpen={setIsOpen}
+                    ></NavDashboard>
                 </div>
-                <div>
-                    <Outlet></Outlet>
-                </div>
-            </div> */}
-
-            <div className="flex justify-start bg-bodyColor">
-                <div className="w-20 md:w-60 border-r border-borderColour">
-                    <NavDashboard></NavDashboard>
-                </div>
-                <div className="p-3">
+                <div className="flex-1 ml-16 md:ml-60 min-h-screen max-w-[1300px] mx-auto pt-20 lg:pt-24 bg-bodyColor px-2 lg:px-5  overflow-y-auto bg-white">
                     <Outlet></Outlet>
                 </div>
             </div>
