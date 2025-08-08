@@ -172,12 +172,12 @@ const FollowFunctionality = ({ email, onUnfollow }) => {
         <>
             {
                 user?.email !== email ?
-                    <button className="buttonPrimary" onClick={handleFollow}>
+                    <button className="buttonPrimary !rounded-full !px-4 !py-1" onClick={handleFollow}>
                         <span>{isFollowing ? 'Unfollow' : 'Follow'}</span>
                     </button>
                     :
                     <>
-                        <button className="py-2 px-4 font-semibold rounded border-light_purple bg-primaryColor text-white hover:bg-primaryHover">
+                        <button className="rounded-full px-4 py-1 font-semibold border-light_purple bg-primaryColor text-white hover:bg-primaryHover">
                             Editor
                         </button>
                     </>
