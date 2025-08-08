@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import logo from '../../../../assets/image/logo/upLogoedit11.png'
+import bar from '../../../../assets/image/logo/upLogo7-removebg.png'
 import { AiOutlineUserSwitch } from "react-icons/ai";
 import { RiListSettingsLine } from "react-icons/ri";
 import { MdOutlineDashboard } from "react-icons/md";
@@ -7,6 +8,12 @@ import { GiPriceTag } from "react-icons/gi";
 import { useContext } from "react";
 import { AuthContext } from "../../../../Providers/AuthProvider";
 import './navdasboard.css'
+import { FaBars } from "react-icons/fa6";
+import { HiMiniBars3 } from "react-icons/hi2";
+import { RxDashboard } from "react-icons/rx";
+import { PiUserSquareThin } from "react-icons/pi";
+import { IoSettingsOutline } from "react-icons/io5";
+
 
 const NavDashboard = () => {
 
@@ -26,15 +33,12 @@ const NavDashboard = () => {
 
     return (
         <>
-            <div className="max-w-screen-2xl mx-auto">
+            {/* <div className="max-w-screen-2xl mx-auto">
                 <div className="navbar">
                     <div className="navbar-start">
                         <div className="dropdown">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle lg:hidden">
-                                {/* hambarger: dropdown */}
-                                {/* <img src={navIcon} className="h-5 w-4 text-light_purple" alt="Navigation Icon" /> */}
                             </div>
-                            {/* mobile menu */}
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-5 shadow bg-light_purple rounded-box w-52">
                                 <nav className=" flex flex-col">
                                     <Link
@@ -116,14 +120,76 @@ const NavDashboard = () => {
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 z-[1] p-5 shadow menu menu-sm dropdown-content bg-dash_nav rounded-box w-52">
-                                {/* <Link>{user.displayName}</Link> */}
                                 <Link to={'/signup'}>Add Another Account</Link>
                                 <li className="cursor-pointer" onClick={handleLogOut}>Logout</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div >
+            </div> */}
+
+            {/* new */}
+
+            <div className="flex flex-col p-3">
+                <div className="flex gap-2 justify-start items-center cursor-pointer">
+                    {/* <HiMiniBars3
+                            style={{
+                                width: 24,
+                                height: 24,
+                                // transform: "scale(1.08)",                     
+                                // filter: "drop-shadow(0 0 0.6px currentColor)"  
+                            }}
+                            strokeWidth={1.08}
+                        /> */}
+                    <figure>
+                        <img className='w-10' src={bar} alt="" />
+                    </figure>
+                    <Link to={'/'}>
+                        <h1 className="text-2xl font-bold text-black">JEST BLOG</h1>
+                    </Link>
+                </div>
+                {/* NavItems */}
+                <nav className="mt-20">
+                    <ul className="space-y-3">
+                        <li className="flex justify-start items-center gap-2 border p-[11px] rounded">
+                            <RxDashboard
+                                className="text-textSmallGray"
+                                style={{
+                                    transform: "scale(1)"
+                                }} />
+                            <Link to={'/dashboard'}>
+                                <span className="text-textSmallGray text-xl font-semibold">Dashboard</span>
+                            </Link>
+                        </li>
+                        <li className="flex justify-start items-center gap-2 border p-[11px] rounded">
+                            <PiUserSquareThin
+                                className="text-textSmallGray"
+                                style={{
+                                    transform: "scale(1.08)"
+                                }} />
+                            <Link to={'/dashboard'}>
+                                <span className="text-textSmallGray text-xl font-semibold">Profile</span>
+                            </Link>
+                        </li>
+                        <li className="flex justify-start items-center gap-2 border p-[11px] rounded">
+                            <IoSettingsOutline
+                                className="text-textSmallGray"
+                                style={{
+                                    transform: "scale(1)"
+                                }} />
+                            <Link to={'/dashboard'}>
+                                <span className="text-textSmallGray text-xl font-semibold">Setting</span>
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+                <div>
+                    <div>
+                        
+                    </div>
+                    <div></div>
+                </div>
+            </div>
         </>
     );
 };
