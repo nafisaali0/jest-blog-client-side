@@ -5,7 +5,7 @@ import DashHomeOwnerBlogs from "./DashHomeOwnerBlogs";
 const HomeDashboard = () => {
     return (
         <>
-            <div>
+            <div className="space-y-8">
                 <DashHomeBanner></DashHomeBanner>
                 <DashHomeBannerCard></DashHomeBannerCard>
                 <DashHomeOwnerBlogs></DashHomeOwnerBlogs>

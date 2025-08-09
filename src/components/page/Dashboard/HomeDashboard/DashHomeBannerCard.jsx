@@ -1,15 +1,13 @@
-// import React from 'react';
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../Providers/AuthProvider";
 import useBlogs from './../../../../hooks/useBlogs';
 import useComment from './../../../../hooks/useComment';
-import { FaBloggerB } from "react-icons/fa6";
-import { BiSolidCommentDetail } from "react-icons/bi";
-import { BiSolidLike } from "react-icons/bi";
-import { RiUserFollowFill } from "react-icons/ri";
+import { RiBloggerLine, RiUserFollowLine } from "react-icons/ri";
 import useLikes from './../../../../hooks/useLikes';
 import useUsers from "../../../../hooks/useUsers";
 import useTotalFollower from "../../../../hooks/useTotalFollower";
+import { PiHeartBold } from "react-icons/pi";
+import { FaRegComment } from "react-icons/fa";
 
 const DashHomeBannerCard = () => {
 
@@ -44,7 +42,7 @@ const DashHomeBannerCard = () => {
         };
         countTotalComments();
     }, [userBlogs, comments]);
-    
+
     useEffect(() => {
         // Count total likes for the user's blogs
         let totalLikes = 0;
@@ -73,48 +71,101 @@ const DashHomeBannerCard = () => {
 
     return (
         <>
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="bg-white p-5 drop-shadow-xl">
-                    <div className="flex items-center gap-5 py-2 md:flex-col md:items-start">
+                    <div className="flex items-center gap-5 py-2 lg:flex-col lg:items-start">
                         <div>
-                            <FaBloggerB className="mb-4 w-24 h-24 md:w-16 md:h-16 bg-icon_gray text-white rounded p-2" />
+                            <FaBloggerB className="mb-4 w-24 h-24 lg:w-16 lg:h-16 bg-icon_gray text-white rounded p-2" />
                         </div>
-                        <div className="flex-1 md:flex-auto">
+                        <div className="flex-1 lg:flex-auto">
                             <h1 className="mb-2 text-xl font-semibold">Total Blogs</h1>
-                            <h1 className="text-4xl md:text-6xl font-bold">{userBlogs.length}</h1>
+                            <h1 className="text-4xl lg:text-6xl font-bold">{userBlogs.length}</h1>
                         </div>
                     </div>
                 </div>
                 <div className="bg-white p-5 drop-shadow-xl">
-                    <div className="flex items-center gap-5 py-2 md:flex-col md:items-start">
+                    <div className="flex items-center gap-5 py-2 lg:flex-col lg:items-start">
                         <div>
-                            <BiSolidCommentDetail className="mb-4 w-24 h-24 md:w-16 md:h-16 bg-icon_gray text-white rounded p-2" />
+                            <BiSolidCommentDetail className="mb-4 w-24 h-24 lg:w-16 lg:h-16 bg-icon_gray text-white rounded p-2" />
                         </div>
-                        <div className="flex-1 md:flex-auto">
+                        <div className="flex-1 lg:flex-auto">
                             <h1 className="mb-2 text-xl font-semibold">Total Comments</h1>
-                            <h1 className="text-4xl md:text-6xl font-bold">{countCmtBlogs}</h1>
+                            <h1 className="text-4xl lg:text-6xl font-bold">{countCmtBlogs}</h1>
                         </div>
                     </div>
                 </div>
                 <div className="bg-white p-5 drop-shadow-xl">
-                    <div className="flex items-center gap-5 py-2 md:flex-col md:items-start">
+                    <div className="flex items-center gap-5 py-2 lg:flex-col lg:items-start">
                         <div>
-                            <BiSolidLike className="mb-4 w-24 h-24 md:w-16 md:h-16 bg-icon_gray text-white rounded p-2" />
+                            <BiSolidLike className="mb-4 w-24 h-24 lg:w-16 lg:h-16 bg-icon_gray text-white rounded p-2" />
                         </div>
-                        <div className="flex-1 md:flex-auto">
+                        <div className="flex-1 lg:flex-auto">
                             <h1 className="mb-2 text-xl font-semibold">Total Likes</h1>
-                            <h1 className="text-4xl md:text-6xl font-bold">{countLikeBlogs}</h1>
+                            <h1 className="text-4xl lg:text-6xl font-bold">{countLikeBlogs}</h1>
                         </div>
                     </div>
                 </div>
                 <div className="bg-white p-5 drop-shadow-xl">
-                    <div className="flex items-center gap-5 py-2 md:flex-col md:items-start">
+                    <div className="flex items-center gap-5 py-2 lg:flex-col lg:items-start">
                         <div>
-                            <RiUserFollowFill className="mb-4 w-24 h-24 md:w-16 md:h-16 bg-icon_gray text-white rounded p-2" />
+                            <RiUserFollowFill className="mb-4 w-24 h-24 lg:w-16 lg:h-16 bg-icon_gray text-white rounded p-2" />
                         </div>
-                        <div className="flex-1 md:flex-auto">
+                        <div className="flex-1 lg:flex-auto">
                             <h1 className="mb-2 text-xl font-semibold">Followers</h1>
-                            <h1 className="text-4xl md:text-6xl font-bold">{totalfollowers}</h1>
+                            <h1 className="text-4xl lg:text-6xl font-bold">{totalfollowers}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div> */}
+
+            <div className="flex justify-start items-start">
+                <div className="grid lg:grid-cols-4 grid-cols-2 gap-3">
+                    {/* total blog */}
+                    <div className="bg-mainTheme rounded-xl border border-borderColour p-3 lg:w-72 md:w-60 ">
+                        <h1 className="text-lg md:text-xl font-medium text-textSmallgray mb-3">Total Blogs</h1>
+                        <div className="flex items-center justify-start gap-3">
+                            <div className="text-black rounded-full w-10 p-3 bg-primaryLightColor border border-primaryLightColor">
+                                <RiBloggerLine />
+                            </div>
+                            <div className="text-black text-4xl font-bold">
+                                {userBlogs.length}
+                            </div>
+                        </div>
+                    </div>
+                    {/* total likes */}
+                    <div className="bg-mainTheme rounded-xl border border-borderColour p-3 lg:w-72 md:w-60 ">
+                        <h1 className="text-lg md:text-xl font-medium text-textSmallgray mb-3">Total Likes</h1>
+                        <div className="flex items-center justify-start gap-2">
+                            <div className=" text-black rounded-full w-10 p-3 bg-primaryLightColor border border-primaryLightColor">
+                                <PiHeartBold />
+                            </div>
+                            <div className="text-black text-4xl font-bold">
+                                {countLikeBlogs}
+                            </div>
+                        </div>
+                    </div>
+                    {/* total comment */}
+                    <div className="bg-mainTheme rounded-xl border border-borderColour p-3 lg:w-72 md:w-60 ">
+                        <h1 className="text-lg md:text-xl font-medium text-textSmallgray mb-3">Total Comments</h1>
+                        <div className="flex items-center justify-start gap-2">
+                            <div className=" text-black rounded-full w-10 p-3 bg-primaryLightColor border border-primaryLightColor">
+                                <FaRegComment />
+                            </div>
+                            <div className="text-black text-4xl font-bold">
+                                {countCmtBlogs}
+                            </div>
+                        </div>
+                    </div>
+                    {/* total followers */}
+                    <div className="bg-mainTheme rounded-xl border border-borderColour p-3 lg:w-72 md:w-60 ">
+                        <h1 className="text-lg md:text-xl font-medium text-textSmallgray mb-3">Total Followers</h1>
+                        <div className="flex items-center justify-start gap-2">
+                            <div className="text-black rounded-full w-10 p-3 bg-primaryLightColor border border-primaryLightColor">
+                                <RiUserFollowLine />
+                            </div>
+                            <div className="text-black text-4xl font-bold">
+                                {totalfollowers}
+                            </div>
                         </div>
                     </div>
                 </div>
