@@ -14,7 +14,7 @@ const Dashboard = () => {
                         setIsOpen={setIsOpen}
                     ></NavDashboard>
                 </div>
-                <div className="flex-1 ml-16 md:ml-60 min-h-screen max-w-[1300px] mx-auto pt-20 lg:pt-24 bg-bodyColor px-2 lg:px-5  overflow-y-auto bg-white">
+                <div className="flex-1 ml-16 md:ml-60 p-3 bg-bodyColor overflow-hidden border border-borderColour">
                     <Outlet></Outlet>
                 </div>
             </div>
