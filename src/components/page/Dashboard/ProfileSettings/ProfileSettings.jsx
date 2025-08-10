@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import useUsers from "../../../../hooks/useUsers";
 import { useState } from "react";
+import demoUser from '../../../../assets/image/logo/demoUserProfile.png'
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -78,10 +79,27 @@ const ProfileSettings = () => {
                             <>
                                 <form onSubmit={(e) => handleUpdateProfile(e, currentUser?._id)}>
                                     <div className="flex items-center space-x-8 mb-5">
-                                        <img
+                                        {
+                                            currentUser?.photo ?
+                                                <>
+                                                    <img
+                                                        className="w-28 h-28 border-2 border-borderColour rounded-full"
+                                                        src={imagePreview ? imagePreview : currentUser?.photo}
+                                                    />
+                                                </>
+                                                :
+                                                <>
+                                                    <img
+                                                        className="w-28 h-28 rounded-full"
+                                                        title="Add Image"
+                                                       src={demoUser}
+                                                    />
+                                                </>
+                                        }
+                                        {/* <img
                                             className="w-28 h-28 border-2 border-borderColour rounded-full"
                                             src={imagePreview ? imagePreview : currentUser?.photo}
-                                        />
+                                        /> */}
                                         <div>
                                             <h2 className="text-xl font-semibold">{currentUser?.name}</h2>
                                             <div>
