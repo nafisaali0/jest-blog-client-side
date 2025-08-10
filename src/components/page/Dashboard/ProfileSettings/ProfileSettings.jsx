@@ -33,9 +33,9 @@ const ProfileSettings = () => {
     const handleUpdateProfile = (e, user_id) => {
         e.preventDefault();
 
-        const fname = e.target.fname.value;
-        const lname = e.target.lname.value;
-        const name = `${fname} ${lname}`;
+        // const fname = e.target.fname.value;
+        // const lname = e.target.lname.value;
+        const name = e.target.name.value;
         const bio = e.target.bio.value;
         const email = e.target.email.value;
         const work = e.target.work.value;
@@ -44,8 +44,7 @@ const ProfileSettings = () => {
         const github = e.target.github.value;
         const linkedin = e.target.linkedin.value;
 
-        const updateProfile = { name, fname, lname, bio, email, work, education, protfolio, github, linkedin, photo: imagePreview }
-        // console.log(updateProfile)
+        const updateProfile = { name, bio, email, work, education, protfolio, github, linkedin, photo: imagePreview }
 
         // sent update productinfo to server
         fetch(`https://blog-server-side-ochre.vercel.app/users/${user_id}`, {
@@ -72,20 +71,19 @@ const ProfileSettings = () => {
 
     return (
         <>
-            <div className="max-w-screen-2xl mx-auto bg-white rounded-lg p-5 mt-44 mb-9 drop-shadow-2xl">
-                <div className="p-6">
-
+            <div className="bg-mainTheme rounded-xl p-6">
+                <div className="my-5">
                     {
                         users.map(currentUser =>
                             <>
                                 <form onSubmit={(e) => handleUpdateProfile(e, currentUser?._id)}>
                                     <div className="flex items-center space-x-8 mb-5">
                                         <img
-                                            className="w-28 h-28 border-2 border-black rounded-full"
+                                            className="w-28 h-28 border-2 border-borderColour rounded-full"
                                             src={imagePreview ? imagePreview : currentUser?.photo}
                                         />
                                         <div>
-                                            <h2 className="text-xl font-medium">Carly Hester</h2>
+                                            <h2 className="text-xl font-semibold">{currentUser?.name}</h2>
                                             <div>
                                                 <label className="w-28 text-sm font-semibold" htmlFor="fileUpload">
                                                     <input type="file" onChange={handleImageChange} name="imageFile" className="hidden" id="fileUpload" />
@@ -96,121 +94,115 @@ const ProfileSettings = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 shawdow-md shadow-sm mb-4">
-                                        <div className="border-2 border-card_white px-5 py-4 rounded-lg">
-                                            <label className="block text-sm font-medium text-gray-700">
-                                                First Name
+                                    <div className="grid grid-cols-1">
+                                        <div className="border-2 border-borderColour px-5 py-4 rounded-xl">
+                                            <label className="block text-sm font-medium text-black">
+                                                Name
                                             </label>
                                             <input
                                                 type="text"
-                                                name="fname"
-                                                placeholder="fname"
-                                                className="mt-1 block w-full rounded-md border-gray-300 sm:text-sm focus:outline-none"
-                                                defaultValue={currentUser?.fname}
-                                            />
-                                        </div>
-                                        <div className="border-2 border-card_white px-5 py-4 rounded-lg shadow-sm">
-                                            <label className="block text-sm font-medium text-gray-700">
-                                                Last Name
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="lname"
-                                                placeholder="fname"
-                                                className="mt-1 block w-full rounded-md border-gray-300 focus:outline-none sm:text-sm"
-                                                defaultValue={currentUser?.lname}
+                                                name="name"
+                                                placeholder="name"
+                                                className="mt-1 block w-full border-borderColour text-textSmallGray text-sm font-normal focus:outline-none"
+                                                defaultValue={currentUser?.name}
                                             />
                                         </div>
                                     </div>
-                                    <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 mb-4">
-                                        <div className="border-2 border-card_white px-5 py-4 rounded-lg shadow-sm ">
-                                            <label className="block text-sm font-medium text-gray-700">
+                                    <div className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
+                                        <div className="border-2 border-borderColour px-5 py-4 rounded-xl">
+                                            <label className="block text-sm font-medium text-black">
                                                 Bio
                                             </label>
                                             <textarea
                                                 type="text"
                                                 name="bio"
-                                                placeholder="bio"
-                                                className="mt-1 block w-full rounded-md border-gray-300 focus:outline-none sm:text-sm"
+                                                placeholder="Bio"
+                                                className="mt-1 block w-full rounded-xl border-borderColour focus:outline-none text-textSmallGray text-sm font-normal"
                                                 defaultValue={currentUser?.bio}
                                             />
                                         </div>
-                                        <div className="border-2 border-card_white px-5 py-4 rounded-lg shadow-sm">
-                                            <label className="block text-sm font-medium text-gray-700">
-                                                Email address
+                                        <div className="border-2 border-borderColour px-5 py-4 rounded-xl">
+                                            <label className="block text-sm font-medium text-black">
+                                                Email Address
                                             </label>
                                             <input
                                                 type="email"
                                                 name="email"
-                                                className="mt-1 block w-full rounded-md border-gray-300 focus:outline-none sm:text-sm"
+                                                placeholder="Email"
+                                                className="mt-1 block w-full rounded-xl border-borderColour focus:outline-none text-textSmallGray text-sm font-normal"
                                                 defaultValue={currentUser?.email}
                                                 readOnly
                                             />
                                         </div>
                                     </div>
-                                    <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 mb-4">
-                                        <div className="border-2 border-card_white px-5 py-4 rounded-lg shadow-sm">
-                                            <label className="block text-sm font-medium text-gray-700">
+                                    <div className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
+                                        <div className="border-2 border-borderColour px-5 py-4 rounded-xl">
+                                            <label className="block text-sm font-medium text-black">
                                                 WorK
                                             </label>
                                             <input
                                                 type="text"
                                                 name="work"
-                                                className="mt-1 block w-full rounded-md border-gray-300 focus:outline-none sm:text-sm"
+                                                placeholder="Work"
+                                                className="mt-1 block w-full border-borderColour text-textSmallGray text-sm    font-normal focus:outline-none"
                                                 defaultValue={currentUser?.work}
                                             />
                                         </div>
-                                        <div className="border-2 border-card_white px-5 py-4 rounded-lg">
-                                            <label className="block text-sm font-medium text-gray-700">
+                                        <div className="border-2 border-borderColour px-5 py-4 rounded-xl">
+                                            <label className="block text-sm font-medium text-black">
                                                 Education
                                             </label>
                                             <input
                                                 type="text"
                                                 name="education"
-                                                className="mt-1 block w-full rounded-md border-gray-300 focus:outline-none sm:text-sm"
+                                                placeholder="Education"
+                                                className="mt-1 block w-full border-borderColour text-textSmallGray text-sm    font-normal focus:outline-none"
                                                 defaultValue={currentUser?.education}
                                             />
                                         </div>
                                     </div>
-                                    <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-3 mb-4">
-                                        <div className="border-2 border-card_white rounded-lg px-5 py-4 shadow-sm">
-                                            <label className="block text-sm font-medium text-gray-700">
-                                                Website Url
+                                    <div className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-3">
+                                        <div className="border-2 border-borderColour px-5 py-4 rounded-xl">
+                                            <label className="block text-sm font-medium text-black">
+                                                Portfolio
                                             </label>
                                             <input
                                                 type="text"
                                                 name="protfolio"
-                                                className="mt-1 block w-full rounded-md border-gray-300 focus:outline-none sm:text-sm"
+                                                placeholder="Protfolio"
+                                                className="mt-1 block w-full border-borderColour text-textSmallGray text-sm font-normal focus:outline-none"
                                                 defaultValue={currentUser?.protfolio}
                                             />
                                         </div>
-                                        <div className="border-2 border-card_white rounded-lg px-5 py-4 shadow-sm">
-                                            <label className="block text-sm font-medium text-gray-700">
-                                                Github Username
+                                        <div className="border-2 border-borderColour px-5 py-4 rounded-xl">
+                                            <label className="block text-sm font-medium text-black">
+                                                Github
                                             </label>
                                             <input
                                                 type="text"
                                                 name="github"
-                                                className="mt-1 block w-full rounded-md border-gray-300 focus:outline-none sm:text-sm"
+                                                placeholder="Github"
+                                                className="mt-1 block w-full border-borderColour text-textSmallGray text-sm     font-normal focus:outline-none"
                                                 defaultValue={currentUser?.github}
                                             />
                                         </div>
-                                        <div className="border-2 border-card_white px-5 py-4 rounded-lg shadow-sm">
-                                            <label className="block text-sm font-medium text-gray-700">
-                                                LinkedIn Username
+                                        <div className="border-2 border-borderColour px-5 py-4 rounded-xl">
+                                            <label className="block text-sm font-medium text-black">
+                                                LinkedIn
                                             </label>
                                             <input
                                                 type="text"
                                                 name="linkedin"
-                                                className="mt-1 block w-full rounded-md border-gray-300 focus:outline-none sm:text-sm"
+                                                placeholder="Linkedin"
+                                                className="mt-1 block w-full border-borderColour text-textSmallGray text-sm    font-normal focus:outline-none"
                                                 defaultValue={currentUser?.linkedin}
                                             />
                                         </div>
                                     </div>
-                                    <div>
+                                    <div className="mt-10">
                                         <button
                                             type="submit"
-                                            className="w-52 justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-center text-white bg-light_purple hover:bg-hover_btn focus:outline-none"
+                                            className="py-2 px-4 text-md font-semibold rounded bg-primaryColor text-white hover:bg-primaryHover"
                                         >
                                             Save changes
                                         </button>
