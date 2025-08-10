@@ -2,7 +2,6 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import useUsers from "../../../../hooks/useUsers";
 import { useState } from "react";
-import demoUser from '../../../../assets/image/logo/demoUserProfile.png'
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -89,11 +88,11 @@ const ProfileSettings = () => {
                                                 </>
                                                 :
                                                 <>
-                                                    <img
-                                                        className="w-28 h-28 rounded-full"
-                                                        title="Add Image"
-                                                       src={demoUser}
-                                                    />
+                                                    <div className="w-28 h-28 rounded-full bg-bodyColor flex items-center justify-center">
+                                                        <span className="text-3xl font-semibold text-black">
+                                                            {currentUser?.name?.charAt(0).toUpperCase()}
+                                                        </span>
+                                                    </div>
                                                 </>
                                         }
                                         {/* <img
