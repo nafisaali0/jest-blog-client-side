@@ -7,6 +7,7 @@ import { HiOutlineEllipsisVertical } from "react-icons/hi2";
 import { PiUserSquareThin } from "react-icons/pi";
 import { SlSettings } from "react-icons/sl";
 import { PropTypes } from 'prop-types';
+import demoUser from '../../../../assets/image/logo/demoUserProfile.png'
 
 
 const NavDashboard = ({ isOpen, setIsOpen }) => {
@@ -112,24 +113,36 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
                 {/* Bottom user section */}
                 <div className="flex md:justify-between items-center leading-4 border-t border-borderColour p-2 py-5">
                     <div className="flex gap-2 items-center">
-                        <div className="avatar flex">
-                            <div className="w-9 rounded-full">
-                                <img src={user.photoURL ? user.photoURL : ``} />
-                            </div>
-                        </div>
+                        {
+                            user?.photoURL ?
+                                <>
+                                    <div className="avatar flex">
+                                        <div className="w-9 rounded-full">
+                                            <img src={user?.photoURL} />
+                                        </div>
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <div className="avatar flex">
+                                        <div className="w-9 rounded-full">
+                                            <img src={demoUser} />
+                                        </div>
+                                    </div>
+                                </>
+                        }
                         <div className={`md:flex flex-col max-w-[150px] ${isOpen ? "flex" : "hidden"}`}>
                             <h1 className="text-[14px] font-medium text-black truncate whitespace-nowrap overflow-hidden">{user.displayName}</h1>
                             <span
                                 className="text-[12px] font-normal text-textSmallGray truncate whitespace-nowrap overflow-hidden"
-                                title={user.email}
+                                title={user?.email}
                             >
-                                {user.email}
+                                {user?.email}
                             </span>
                         </div>
 
                     </div>
                     <div className={`md:flex ${isOpen ? "flex" : "hidden"}`}>
-                        {/*  */}
                         <div className="dropdown dropdown-top dropdown-end">
                             <HiOutlineEllipsisVertical
                                 tabIndex={0}

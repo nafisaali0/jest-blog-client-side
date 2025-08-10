@@ -69,7 +69,6 @@ const CategoryBlogs = () => {
                                                     key={blog._id}
                                                     blog={blog} />
                                             </div>
-                                            {/*  onClick={handleWishList}  */}
                                         </div>
                                     </div>
                                 </div>

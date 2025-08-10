@@ -2,7 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import useBlogs from "../../../../hooks/useBlogs";
 import { AuthContext } from "../../../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
+import { BiSolidCategory } from "react-icons/bi";
+import { HiOutlineEllipsisVertical } from "react-icons/hi2";
+import { FiEdit } from "react-icons/fi";
+import DeleteFunctionality from './../../../shared/DeleteFunctionality/DeleteFunctionality';
 
 const DashHomeOwnerBlogs = () => {
 
@@ -39,7 +42,7 @@ const DashHomeOwnerBlogs = () => {
 
     return (
         <>
-            <div className="my-16 text-4xl font-bold">
+            {/* <div className="my-16 text-4xl font-bold">
                 <h1>Your Blogs</h1>
             </div>
             <div className="flex items-start justify-start flex-col-reverse lg:flex-row gap-7">
@@ -69,10 +72,10 @@ const DashHomeOwnerBlogs = () => {
                                                         <span>{ownerBlogs.time}</span>
                                                     </div>
                                                     <div className="flex gap-2 items-center">
-                                                        {/* <img onClick={() => handleDelete(ownerBlogs._id)} title="Delete" className="w-7 cursor-pointer" src={icondelete} alt="" />
+                                                        <img onClick={() => handleDelete(ownerBlogs._id)} title="Delete" className="w-7 cursor-pointer" src={icondelete} alt="" />
                                                         <Link to={`/update/${ownerBlogs._id}`}>
                                                             <img title="Update" className="w-9 cursor-pointer" src={edit} alt="" />
-                                                        </Link> */}
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -107,11 +110,11 @@ const DashHomeOwnerBlogs = () => {
                                                         <span>{ownerBlogs.date}</span>
                                                         <span>{ownerBlogs.time}</span>
                                                     </div>
-                                                    {/* <div>
+                                                    <div>
                                                         <Link to={`/update/${ownerBlogs._id}`}>
                                                             <img title="Update" className="w-9 cursor-pointer" src={edit} alt="" />
                                                         </Link>
-                                                    </div> */}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -119,6 +122,99 @@ const DashHomeOwnerBlogs = () => {
                                 ))}
                         </div>
                     </div>
+                </div>
+            </div> */}
+
+            <div className="bg-mainTheme border border-borderColour rounded-xl px-5 py-10">
+                <h1 className="text-xl font-bold text-black mb-5">Your Blogs</h1>
+                {/*  className="overflow-y-scroll overflow-x-hidden pr-5" */}
+                <div>
+                    {
+                        userBlogs.length === 0 ?
+                            <>
+                                <div className="my-20 flex flex-col justify-center items-center">
+                                    <div>
+                                        <h1 className="text-xl font-bold text-black">No Blogs</h1>
+                                    </div>
+                                </div>
+                            </>
+                            :
+                            <>
+                                <div className="flex flex-col gap-5 flex-wrap">
+                                    {userBlogs.map((blog, index) => (
+                                        <div
+                                            key={blog._id}
+                                            className={`w-full ${index !== userBlogs.length - 1 ? "border-b border-borderColour" : ""}`}
+                                        >
+                                            <div className="flex items-center justify-between py-3">
+                                                <div className="w-auto">
+                                                    <div className="flex gap-2 items-center">
+                                                        <div className="w-auto">
+                                                            <div className="avatar">
+                                                                <div className="w-16 rounded-xl border border-borderColour">
+                                                                    <img src={blog.details_image} />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="w-auto p-2 space-y-1">
+                                                            <Link title="See Details" to={`/blogdetails/${blog._id}`}>
+                                                                <h2 className="text-sm font-semibold text-black">
+                                                                    {blog.title}
+                                                                </h2>
+                                                            </Link>
+                                                            <h3 className="flex items-center gap-1 text-xs font-medium text-textSmallGray">
+                                                                <BiSolidCategory
+                                                                    title="category"
+                                                                    className="text-textSmallGray"
+                                                                    style={{ width: "15px", height: "15px" }}
+                                                                />
+                                                                <span>{blog.category}</span>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="w-auto p-2">
+                                                    <div className="dropdown dropdown-top dropdown-end">
+                                                        <HiOutlineEllipsisVertical
+                                                            tabIndex={0}
+                                                            role="button"
+                                                            style={{ width: "20px", height: "20px" }}
+                                                        />
+                                                        <ul
+                                                            tabIndex={0}
+                                                            className="menu dropdown-content mb-5 z-1 w-52 p-2 rounded-md shadow font-semibold text-center border-2 border-borderColour bg-mainTheme text-black backdrop-blur-sm"
+                                                        >
+                                                            <Link to={`/update/${blog._id}`}>
+                                                                <div className="flex justify-center items-center gap-2 py-2 px-4 font-semibold border-b text-textSmallGray hover:text-primaryHover hover:bg-borderColour cursor-pointer border-borderColour">
+                                                                    <span>
+                                                                        <FiEdit
+                                                                            title="update"
+                                                                            className="text-textSmallGray"
+                                                                            style={{ width: "20px", height: "20px" }}
+                                                                        />
+                                                                    </span>
+                                                                    Update
+                                                                </div>
+                                                            </Link>
+                                                            <div className="flex justify-center items-center gap-2 py-2 px-4 text-md font-semibold text-textSmallGray border-b hover:text-primaryHover hover:border-borderColour cursor-pointer border-borderColour last:border-b-0">
+                                                                <span>
+                                                                    <DeleteFunctionality
+                                                                        _id={blog._id}
+                                                                        baseLink="https://blog-server-side-ochre.vercel.app/blogs"
+                                                                    />
+                                                                </span>
+                                                                Delete
+                                                            </div>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </>
+                    }
+
                 </div>
             </div>
         </>

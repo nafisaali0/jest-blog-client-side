@@ -83,9 +83,7 @@ const BlogDetails = () => {
                         </figure>
                     </div>
                     <div className="px-3 space-y-6">
-                        {/* <h1 className="text-3xl font-bold">Introduction</h1> */}
                         <p className="text-3xl font-bold text-black">{short_description}</p>
-                        {/* <h1 className="text-3xl font-bold">Details</h1> */}
                         <p className=" text-lg font-medium text-textSmallGray">{long_description}</p>
                     </div>
                 </div>

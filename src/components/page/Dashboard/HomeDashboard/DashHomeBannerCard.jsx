@@ -72,10 +72,10 @@ const DashHomeBannerCard = () => {
     return (
         <>
             <div className="flex justify-start items-start">
-                <div className="grid lg:grid-cols-4 grid-cols-2 gap-3">
+                <div className="grid lg:grid-cols-4 grid-cols-2 md:gap-3 gap-1">
                     {/* total blog */}
-                    <div className="bg-mainTheme rounded-xl border border-borderColour p-3 lg:w-72 md:w-60 ">
-                        <h1 className="text-lg md:text-xl font-medium text-textSmallgray mb-3">Total Blogs</h1>
+                    <div className="bg-mainTheme rounded-xl border border-borderColour px-5 py-3 lg:w-72 md:w-60 ">
+                        <h1 className="text-md md:text-xl font-medium text-textSmallgray mb-3">Total Blogs</h1>
                         <div className="flex items-center justify-start gap-3">
                             <div className="text-black rounded-full w-10 p-3 bg-primaryLightColor border border-primaryLightColor">
                                 <RiBloggerLine />
@@ -86,8 +86,8 @@ const DashHomeBannerCard = () => {
                         </div>
                     </div>
                     {/* total likes */}
-                    <div className="bg-mainTheme rounded-xl border border-borderColour p-3 lg:w-72 md:w-60 ">
-                        <h1 className="text-lg md:text-xl font-medium text-textSmallgray mb-3">Total Likes</h1>
+                    <div className="bg-mainTheme rounded-xl border border-borderColour px-5 py-3 lg:w-72 md:w-60 ">
+                        <h1 className="text-md md:text-xl font-medium text-textSmallgray mb-3">Total Likes</h1>
                         <div className="flex items-center justify-start gap-2">
                             <div className=" text-black rounded-full w-10 p-3 bg-primaryLightColor border border-primaryLightColor">
                                 <PiHeartBold />
@@ -98,8 +98,8 @@ const DashHomeBannerCard = () => {
                         </div>
                     </div>
                     {/* total comment */}
-                    <div className="bg-mainTheme rounded-xl border border-borderColour p-3 lg:w-72 md:w-60 ">
-                        <h1 className="text-lg md:text-xl font-medium text-textSmallgray mb-3">Total Comments</h1>
+                    <div className="bg-mainTheme rounded-xl border border-borderColour px-5 py-3 lg:w-72 md:w-60 ">
+                        <h1 className="text-md md:text-xl font-medium text-textSmallgray mb-3">Total Comments</h1>
                         <div className="flex items-center justify-start gap-2">
                             <div className=" text-black rounded-full w-10 p-3 bg-primaryLightColor border border-primaryLightColor">
                                 <FaRegComment />
@@ -110,8 +110,8 @@ const DashHomeBannerCard = () => {
                         </div>
                     </div>
                     {/* total followers */}
-                    <div className="bg-mainTheme rounded-xl border border-borderColour p-3 lg:w-72 md:w-60 ">
-                        <h1 className="text-lg md:text-xl font-medium text-textSmallgray mb-3">Total Followers</h1>
+                    <div className="bg-mainTheme rounded-xl border border-borderColour px-5 py-3 lg:w-72 md:w-60 ">
+                        <h1 className="text-md md:text-xl font-medium text-textSmallgray mb-3">Total Followers</h1>
                         <div className="flex items-center justify-start gap-2">
                             <div className="text-black rounded-full w-10 p-3 bg-primaryLightColor border border-primaryLightColor">
                                 <RiUserFollowLine />
