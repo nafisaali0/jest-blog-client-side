@@ -19,26 +19,6 @@ const DashHomeOwnerBlogs = () => {
         setUserBlogs(bloggerBlogs)
     }, [blogs, user]);
 
-    // const handleDelete = (_id) => {
-
-    //     fetch(`https://blog-server-side-ochre.vercel.app/blogs/${_id}`, {
-    //         method: 'DELETE'
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             if (data.deletedCount > 0) {
-    //                 Swal.fire(
-    //                     'Deleted!',
-    //                     'Your blog has been deleted.',
-    //                     'success'
-    //                 )
-    //             }
-    //             // clear state after delete blogs
-    //             const loadBlogsAfterDelete = userBlogs.filter(comment => comment._id !== _id)
-    //             setUserBlogs(loadBlogsAfterDelete)
-    //         })
-    // }
 
     return (
         <>
