@@ -8,6 +8,7 @@ import FollowFunctionality from "../../../shared/FollowFunctionality/FollowFunct
 import { useEffect, useState } from "react";
 import { CiCalendarDate } from "react-icons/ci";
 import { IoLogoGithub } from "react-icons/io";
+import demoUser from '../../../../assets/image/logo/userLine.png'
 
 
 const ShowProfile = () => {
@@ -120,28 +121,38 @@ const ShowProfile = () => {
             {
                 users.map(userProfile =>
                     <>
-
                         <section className="w-full overflow-hidden dark:bg-mainTheme rounded-xl">
                             <div className="w-full mx-auto">
-                                <div className="w-full xl:h-[15rem] lg:h-[15rem] md:h-[10rem] sm:h-[8rem] h-[9.5rem] bg-primaryLightColor"></div>
-
+                                <div className="w-full lg:h-[15rem] h-[12rem] bg-primaryLightColor"></div>
                                 <div className="w-full mx-auto flex justify-center">
-                                    <img src={userProfile.photo}
-                                        className="rounded-full object-cover xl:w-[16rem] xl:h-[16rem] lg:w-[16rem] lg:h-[16rem] md:w-[12rem] md:h-[12rem] sm:w-[10rem] sm:h-[10rem] w-[8rem] h-[8rem] outline outline-2 outline-offset-2 outline-borderColour shadow-xl relative xl:bottom-[7rem] lg:bottom-[8rem] md:bottom-[6rem] sm:bottom-[5rem] bottom-[4.3rem]" />
+                                    {
+                                        userProfile?.photo ?
+                                            <>
+                                                <img src={userProfile.photo}
+                                                    className="rounded-full object-cover xl:w-[10rem] xl:h-[10rem] lg:w-[16rem] lg:h-[16rem] md:w-[12rem] md:h-[12rem] w-[8rem] h-[8rem] outline outline-2 outline-offset-2 outline-borderColour shadow-xl relative lg:bottom-[8rem] md:bottom-[6rem] bottom-[4.3rem]" />
+                                            </>
+                                            :
+                                            <>
+                                                <div className="rounded-full flex items-center justify-center xl:w-[10rem] xl:h-[10rem] lg:w-[16rem] lg:h-[16rem] md:w-[12rem] md:h-[12rem] w-[8rem] h-[8rem] border-2 outline-offset-2 border-borderColour bg-bodyColor shadow-xl relative lg:bottom-[8rem] md:bottom-[6rem] bottom-[4.3rem]">
+                                                    <span className="text-4xl font-bold text-black">
+                                                        {userProfile?.name?.charAt(0).toUpperCase()}
+                                                    </span>
+                                                </div>
+                                            </>
+                                    }
                                 </div>
                                 <div
-                                    className="xl:w-[80%] lg:w-[90%] md:w-[94%] sm:w-[96%] w-[92%] mx-auto flex flex-col gap-4 justify-center items-center relative xl:-top-[6rem] lg:-top-[6rem] md:-top-[4rem] sm:-top-[3rem] -top-[2.2rem]">
+                                    className="lg:w-[40%] md:w-[94%] w-[92%] mx-auto flex flex-col gap-4 justify-center items-center relative lg:-top-[6rem] md:-top-[4rem] -top-[2.2rem]">
                                     <h1 className="text-center text-textSmallGray text-4xl">{userProfile.name}</h1>
 
-                                    <p className="w-full text-textSmallGray text-md text-pretty sm:text-center text-justify">{userProfile.email}</p>
-                                    <p className="w-full text-textSmallGray text-md text-pretty sm:text-center text-justify">Lorem, ipsum dolor sit amet
-                                        consectetur adipisicing elit. Quisquam debitis labore consectetur voluptatibus mollitia dolorem</p>
+                                    <p className="w-full text-textSmallGray text-md text-pretty text-center">{userProfile.email}</p>
+                                    <p className="w-full text-textSmallGray text-md text-pretty text-center">{userProfile.bio}</p>
 
                                     <div
                                         className="px-2 flex rounded-xl bg-textSmallGray text-white">
                                         <a href={userProfile.github}>
                                             <div data-title="LinkedIn" className="p-2">
-                                                <svg className="w-8 h-8 text-gray-800 dark:text-white" aria-hidden="true"
+                                                <svg className="w-8 h-8 text-gray-800 dark:text-white cursor-pointer" aria-hidden="true"
                                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                                     viewBox="0 0 24 24">
                                                     <path fillRule="evenodd"
@@ -154,7 +165,7 @@ const ShowProfile = () => {
                                         <a href={userProfile.github}>
                                             <div className="p-2">
                                                 <svg
-                                                    className="w-8 h-8 text-gray-800 dark:text-white"
+                                                    className="w-8 h-8 text-gray-800 dark:text-white cursor-pointer"
                                                     aria-hidden="true"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     width="24"
@@ -172,15 +183,14 @@ const ShowProfile = () => {
                                         <a href={userProfile.github}>
                                             <div className="p-2">
                                                 <svg
-                                                 className="w-8 h-8 text-gray-800 dark:text-white"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                                                    className="w-8 h-8 text-gray-800 dark:text-white cursor-pointer"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
                                                 </svg>
 
                                             </div>
                                         </a>
                                     </div>
-
                                     <div className="w-full mx-auto  flex justify-center text-textSmallGray text-md text-pretty sm:text-center text-justify gap-2 items-center">
                                         <span><CiCalendarDate /></span>
                                         <h1>{userProfile.date}</h1>

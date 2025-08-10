@@ -7,12 +7,15 @@ import { HiOutlineEllipsisVertical } from "react-icons/hi2";
 import { PiUserSquareThin } from "react-icons/pi";
 import { SlSettings } from "react-icons/sl";
 import { PropTypes } from 'prop-types';
-import demoUser from '../../../../assets/image/logo/demoUserProfile.png'
+import useUsers from './../../../../hooks/useUsers';
 
 
 const NavDashboard = ({ isOpen, setIsOpen }) => {
 
     const { user, logOut } = useContext(AuthContext)
+    const [users] = useUsers();
+    const currentUser = users.length > 0 ? users[0] : {};
+    console.log(currentUser)
     const location = useLocation()
     const ifActive = (path) => location.pathname === path;
 
@@ -114,33 +117,32 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
                 <div className="flex md:justify-between items-center leading-4 border-t border-borderColour p-2 py-5">
                     <div className="flex gap-2 items-center">
                         {
-                            user?.photoURL ?
+                            currentUser?.photo ?
                                 <>
                                     <div className="avatar flex">
                                         <div className="w-9 rounded-full">
-                                            <img src={user?.photoURL} />
+                                            <img src={currentUser?.photoURL} />
                                         </div>
                                     </div>
                                 </>
                                 :
                                 <>
-                                    <div className="avatar flex">
-                                        <div className="w-9 rounded-full">
-                                            <img src={demoUser} />
-                                        </div>
+                                    <div className="w-10 h-10 rounded-full bg-bodyColor flex items-center justify-center">
+                                        <span className="text-sm font-normal text-black">
+                                            {currentUser?.name?.charAt(0).toUpperCase()}
+                                        </span>
                                     </div>
                                 </>
                         }
                         <div className={`md:flex flex-col max-w-[150px] ${isOpen ? "flex" : "hidden"}`}>
-                            <h1 className="text-[14px] font-medium text-black truncate whitespace-nowrap overflow-hidden">{user.displayName}</h1>
+                            <h1 className="text-[14px] font-medium text-black truncate whitespace-nowrap overflow-hidden">{currentUser?.name}</h1>
                             <span
                                 className="text-[12px] font-normal text-textSmallGray truncate whitespace-nowrap overflow-hidden"
-                                title={user?.email}
+                                title={currentUser?.email}
                             >
-                                {user?.email}
+                                {currentUser?.email}
                             </span>
                         </div>
-
                     </div>
                     <div className={`md:flex ${isOpen ? "flex" : "hidden"}`}>
                         <div className="dropdown dropdown-top dropdown-end">

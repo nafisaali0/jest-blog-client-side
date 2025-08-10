@@ -185,11 +185,38 @@ const NavBar = () => {
                                         }
                                     </div>
                                     <div className="dropdown dropdown-end">
+                                        {/* <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                            {
+                                                currentUser?.photo ?
+                                                    <>
+                                                        <div className="w-10 h-10 rounded-full">
+                                                            <img
+                                                                src={currentUser?.photo ? currentUser?.photo : ``} />
+                                                        </div>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <div className="w-10 h-10 rounded-full bg-bodyColor flex justify-center items-center">
+                                                            <span className="text-sm font-normal text-center text-black">
+                                                                {currentUser?.name?.charAt(0).toUpperCase()}
+                                                            </span>
+                                                        </div>
+                                                    </>
+                                            }
+                                        </div> */}
+
                                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                            <div className="w-10 rounded-full">
-                                                <img
-                                                    src={currentUser?.photo ? currentUser?.photo : ``} />
-                                            </div>
+                                            {currentUser?.photo ? (
+                                                <div className="w-10 rounded-full">
+                                                    <img src={currentUser.photo} alt={currentUser?.name} />
+                                                </div>
+                                            ) : (
+                                                <div className="w-10 h-10 rounded-full bg-bodyColor pt-2">
+                                                    <span className="text-base font-medium text-black">
+                                                        {currentUser?.name?.charAt(0).toUpperCase()}
+                                                    </span>
+                                                </div>
+                                            )}
                                         </div>
                                         <ul
                                             tabIndex={0}
