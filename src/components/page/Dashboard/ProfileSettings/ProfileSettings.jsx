@@ -9,9 +9,11 @@ const image_hostion_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const ProfileSettings = () => {
 
-    const [imagePreview, setImagePreview] = useState()
+
     const axiosPublic = useAxiosPublic();
     const [users] = useUsers();
+    const currentUser = users.length > 0 ? users[0] : {};
+    const [imagePreview, setImagePreview] = useState(currentUser?.photo)
 
     //image upload in imgBB web hosting
     const handleImageChange = async (e) => {
@@ -33,8 +35,6 @@ const ProfileSettings = () => {
     const handleUpdateProfile = (e, user_id) => {
         e.preventDefault();
 
-        // const fname = e.target.fname.value;
-        // const lname = e.target.lname.value;
         const name = e.target.name.value;
         const bio = e.target.bio.value;
         const email = e.target.email.value;
@@ -44,7 +44,7 @@ const ProfileSettings = () => {
         const github = e.target.github.value;
         const linkedin = e.target.linkedin.value;
 
-        const updateProfile = { name, bio, email, work, education, protfolio, github, linkedin, photo: imagePreview }
+        const updateProfile = { name, bio, email, work, education, protfolio, github, linkedin, photo: imagePreview, }
 
         // sent update productinfo to server
         fetch(`https://blog-server-side-ochre.vercel.app/users/${user_id}`, {
@@ -81,10 +81,13 @@ const ProfileSettings = () => {
                                         {
                                             currentUser?.photo ?
                                                 <>
-                                                    <img
-                                                        className="w-28 h-28 border-2 border-borderColour rounded-full"
-                                                        src={imagePreview ? imagePreview : currentUser?.photo}
-                                                    />
+                                                    <figure>
+                                                        <img
+                                                            src={imagePreview}
+                                                            className="w-20 h-20 border-2 border-borderColour rounded-full"
+                                                        />
+                                                    </figure>
+
                                                 </>
                                                 :
                                                 <>
@@ -95,10 +98,6 @@ const ProfileSettings = () => {
                                                     </div>
                                                 </>
                                         }
-                                        {/* <img
-                                            className="w-28 h-28 border-2 border-borderColour rounded-full"
-                                            src={imagePreview ? imagePreview : currentUser?.photo}
-                                        /> */}
                                         <div>
                                             <h2 className="text-xl font-semibold">{currentUser?.name}</h2>
                                             <div>

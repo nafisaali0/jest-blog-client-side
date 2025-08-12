@@ -15,7 +15,6 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
     const { user, logOut } = useContext(AuthContext)
     const [users] = useUsers();
     const currentUser = users.length > 0 ? users[0] : {};
-    console.log(currentUser)
     const location = useLocation()
     const ifActive = (path) => location.pathname === path;
 
@@ -121,7 +120,7 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
                                 <>
                                     <div className="avatar flex">
                                         <div className="w-9 rounded-full">
-                                            <img src={currentUser?.photoURL} />
+                                            <img src={currentUser?.photo} />
                                         </div>
                                     </div>
                                 </>

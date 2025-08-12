@@ -78,7 +78,7 @@ const UpdateBlog = () => {
                 </div>
                 <div className="bg-mainTheme space-y-5 p-5 rounded-xl shadow-md overflow-hidden">
                     <div className="relative">
-                        <figure >
+                        <figure>
                             <img
                                 src={imagePreview}
                                 alt="image"
