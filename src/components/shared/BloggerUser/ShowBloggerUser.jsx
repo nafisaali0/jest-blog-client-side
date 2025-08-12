@@ -23,7 +23,7 @@ const ShowBloggerUser = ({ blog }) => {
                         {/* edit */}
                         {
                             currentUser?.email !== owner_Email ?
-                                <Link className='text-xm font-bold' to={`/blogs/bloggeremail/${owner_Email}`}>
+                                <Link className='text-xm font-bold' to={`/profile-blogger/${encodeURIComponent(owner_Email)}`}>
                                     <h1 className="text-black font-bold">
                                         {owner_name}
                                     </h1>

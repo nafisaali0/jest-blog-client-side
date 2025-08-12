@@ -3,6 +3,7 @@ import useFollowers from "../../../../hooks/useFollowers";
 import FollowFunctionality from "../../../shared/FollowFunctionality/FollowFunctionality";
 import { useEffect, useState } from "react";
 import { CiCalendarDate } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 
 const ShowProfile = () => {
@@ -167,13 +168,10 @@ const ShowProfile = () => {
                                                         email={follower.followersEmail}>
                                                         onUnfollow={handleUnfollow}
                                                     </FollowFunctionality>
-                                                    {/* /blogs/bloggeremail/${follower.followersEmail} */}
-                                                    {/* {`/blogdetails/${_id}`} */}
-                                                    {/* /bloggeremail/:email */}
                                                     <div className="text-textSmallGray text-sm">
-                                                        <a href={`/blogs/bloggeremail/${follower?.followersEmail}`}>
+                                                        <Link to={`/profile-blogger/${encodeURIComponent(follower?.followersEmail)}`}>
                                                             <span className="font-semibold">View Profile</span>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>

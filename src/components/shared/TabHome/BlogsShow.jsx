@@ -27,7 +27,7 @@ const BlogsShow = ({ blog }) => {
                     <div className="w-full md:w-2/3 h-full bg-mainTheme flex flex-col p-3 space-y-2">
                         <div className="flex items-center">
                             <img className="object-cover h-5 w-5 rounded-full" src={owner_image} alt="Avatar" />
-                            <Link to={`/blogs/bloggeremail/${owner_Email}`}>
+                            <Link to={`/profile-blogger/${encodeURIComponent(owner_Email)}`}>
                                 <span className="mx-2 text-textSmallGray text-sm font-medium">{owner_name}</span>
                             </Link>
                         </div>
