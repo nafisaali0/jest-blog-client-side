@@ -80,6 +80,7 @@ const router = createBrowserRouter([
             {
                 path: '/profile-blogger/:email',
                 element: <ProfileBlogger />,
+                // element: <PrivateRoutes><ProfileBlogger /></PrivateRoutes>,
                 loader: ({ params }) => {
                     const decodedEmail = decodeURIComponent(params?.email);
                     return fetch(`https://blog-server-side-ochre.vercel.app/users/${decodedEmail}`);
