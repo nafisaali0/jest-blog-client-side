@@ -17,7 +17,6 @@ import HomeDashboard from "../components/page/Dashboard/HomeDashboard/HomeDashbo
 import ProfileSettings from "../components/page/Dashboard/ProfileSettings/ProfileSettings";
 import ShowProfile from "../components/page/Dashboard/ProfileSettings/ShowProfile";
 import Membership from "../components/page/Dashboard/Membership/Membership";
-// import BloggerProfile from './../components/page/BloggerProfile/BloggerProfile';
 import Loader from "../components/shared/Loader/Loader";
 import ProfileBlogger from "../components/page/ProfileBlogger/ProfileBlogger";
 
@@ -72,11 +71,6 @@ const router = createBrowserRouter([
                 element: <CategoryBlogs></CategoryBlogs>,
                 loader: ({ params }) => fetch(`https://blog-server-side-ochre.vercel.app/blogs/category/${params.category}`)
             },
-            // {
-            //     path: '/blogs/bloggeremail/:email',
-            //     element: <BloggerProfile></BloggerProfile>,
-            //     loader: ({ params }) => fetch(`https://blog-server-side-ochre.vercel.app/blogs/bloggeremail/${params.email}`)
-            // },
             {
                 path: '/profile-blogger/:email',
                 element: <ProfileBlogger />,

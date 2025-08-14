@@ -1,7 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import NavBar from './../components/shared/NavBar/NavBar';
 import Footer from './../components/shared/Footer/Footer';
-// import { AnimatePresence } from "framer-motion";
 
 const Root = () => {
     
@@ -18,7 +17,6 @@ const Root = () => {
                 </div>
                 {(noFooter) || <Footer />}
             </div>
-
         </>
     );
 };

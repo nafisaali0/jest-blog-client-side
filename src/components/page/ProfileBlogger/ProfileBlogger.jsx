@@ -1,22 +1,12 @@
 import { useParams } from "react-router-dom";
 import useAllUsers from "../../../hooks/useAllUsers";
-// import { BiSolidCategory } from "react-icons/bi";
 import { CiCalendarDate } from "react-icons/ci";
-import { useMemo } from "react";
 
 const ProfileBlogger = () => {
     const { email } = useParams();
-    console.log(email)
     const [allUsers] = useAllUsers();
-    console.log(allUsers)
     const decodedEmail = decodeURIComponent(email);
     const profileBlogger = allUsers?.find(user => user?.email === decodedEmail);
-    // const profileBlogger = useMemo(
-    //     () => allUsers?.find(user => user?.email === email),
-    //     [allUsers, email]
-    // );
-    // const profileBlogger = allUsers?.find(user => user?.email?.trim() === decodedEmail.trim());
-    console.log(profileBlogger)
 
     if (!profileBlogger) {
         return <p>Loading user details...</p>;
