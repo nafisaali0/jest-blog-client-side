@@ -6,7 +6,7 @@ import TotalLikes from "../LikeFunctionality/TotalLikes";
 import BlogTotalComments from "../BlogTotalComments/BlogTotalComments";
 import { AiOutlineComment } from "react-icons/ai";
 import { BiSolidCategory } from "react-icons/bi";
-import SaveBlogsFunctionality from "../SaveBlogsFunctionality/SaveBlogsFunctionality";
+import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
 
 const ShowTopBlogs = ({ blog }) => {
 

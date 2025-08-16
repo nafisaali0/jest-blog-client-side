@@ -3,7 +3,7 @@ import LikeFunctionality from "../../shared/LikeFunctionality/LikeFunctionality"
 import TotalLikes from "../../shared/LikeFunctionality/TotalLikes";
 import { AiOutlineComment } from "react-icons/ai";
 import BlogTotalComments from "../../shared/BlogTotalComments/BlogTotalComments";
-import SaveBlogsFunctionality from "../../shared/SaveBlogsFunctionality/SaveBlogsFunctionality";
+import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
 
 
 const CategoryBlogs = () => {
