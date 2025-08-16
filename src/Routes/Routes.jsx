@@ -4,7 +4,6 @@ import Home from './../components/page/Home/Home';
 import SignUp from './../components/page/SignUp/SignUp';
 import SignIn from './../components/page/SignIn/SignIn';
 import ErrorPage from './../components/page/ErrorPage/ErrorPage';
-import AllBlogs from "../components/page/AllBlogs/AllBlogs";
 import AddBlog from "../components/page/AddBlog/AddBlog";
 import BlogDetails from './../components/page/BlogDetails/BlogDetails';
 import UpdateBlog from './../components/page/UpdateBlog/UpdateBlog';
@@ -37,11 +36,6 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
-            },
-            {
-                path: '/allblogs',
-                element: <AllBlogs></AllBlogs>,
-                loader: () => fetch('https://blog-server-side-ochre.vercel.app/blogs')
             },
             {
                 path: '/addblog',
