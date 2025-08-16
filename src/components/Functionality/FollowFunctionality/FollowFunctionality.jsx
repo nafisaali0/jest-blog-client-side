@@ -15,7 +15,6 @@ const FollowFunctionality = ({ email, onUnfollow }) => {
     const [id, setId] = useState()
 
     const user = users.length > 0 ? users[0] : null;
-    // const currentUser = users.length > 0 ? users[0] : {};
 
     useEffect(() => {
         const selectBlogger = uniqueBloggerUser.find(findSelectedBlogger => findSelectedBlogger.owner_Email === email);

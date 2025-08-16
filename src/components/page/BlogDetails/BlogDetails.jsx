@@ -2,7 +2,6 @@ import { Link, useLoaderData } from "react-router-dom";
 import CreateComment from "./CreateComment";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import FollowFunctionality from "../../shared/FollowFunctionality/FollowFunctionality";
 import { BiSolidCategory } from "react-icons/bi";
 import { AiOutlineComment } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
@@ -10,6 +9,7 @@ import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality
 import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
 import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
 import BlogTotalComments from './../../Functionality/BlogTotalComments/BlogTotalComments';
+import FollowFunctionality from './../../Functionality/FollowFunctionality/FollowFunctionality';
 
 const BlogDetails = () => {
 
