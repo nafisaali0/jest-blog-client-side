@@ -1,9 +1,9 @@
 import useUsers from "../../../../hooks/useUsers";
 import useFollowers from "../../../../hooks/useFollowers";
+// import FollowFunctionality from "../../../shared/FollowFunctionality/FollowFunctionality";
 import FollowFunctionality from "../../../shared/FollowFunctionality/FollowFunctionality";
 import { useEffect, useState } from "react";
 import { CiCalendarDate } from "react-icons/ci";
-// import { Link } from "react-router-dom";
 
 
 const ShowProfile = () => {

@@ -5,7 +5,7 @@ import TotalLikes from '../../shared/LikeFunctionality/TotalLikes';
 import { Link } from 'react-router-dom';
 import { AiOutlineComment } from 'react-icons/ai';
 import BlogTotalComments from '../../shared/BlogTotalComments/BlogTotalComments';
-import DeleteFunctionality from './../../shared/DeleteFunctionality/DeleteFunctionality';
+import DeleteFunctionality from "../../Functionality/DeleteFunctionality/DeleteFunctionality";
 
 
 const WishList = () => {

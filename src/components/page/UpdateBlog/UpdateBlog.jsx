@@ -11,7 +11,7 @@ const image_hostion_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const UpdateBlog = () => {
 
-    const blogs = useLoaderData()//load all blogs info
+    const blogs = useLoaderData()
     const { _id, title, short_description, long_description, details_image, category } = blogs
     const [users] = useUsers();
     const currentUser = users.length > 0 ? users[0] : {};

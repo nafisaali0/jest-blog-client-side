@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import FollowFunctionality from '../FollowFunctionality/FollowFunctionality';
 import useUsers from '../../../hooks/useUsers';
 import { Link } from 'react-router-dom';
 import { CiCalendarDate } from "react-icons/ci";
+import FollowFunctionality from '../FollowFunctionality/FollowFunctionality';
 
 
 const ShowBloggerUser = ({ blog }) => {
@@ -46,7 +46,8 @@ const ShowBloggerUser = ({ blog }) => {
                     </div>
                 </div>
                 <div className="absolute group-hover:bottom-1 delay-300 -bottom-16 transition-all duration-500 right-1 rounded-lg">
-                    <FollowFunctionality email={owner_Email}></FollowFunctionality>
+                    {/* <FollowFunctionality email={owner_Email}/> */}
+                    <FollowFunctionality email={owner_Email}/>
                 </div>
             </div >
         </>

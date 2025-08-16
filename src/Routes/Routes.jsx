@@ -22,53 +22,52 @@ import ProfileBlogger from "../components/page/ProfileBlogger/ProfileBlogger";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Root></Root>,
-        errorElement: <ErrorPage></ErrorPage>,
+        element: <Root/>,
+        errorElement: <ErrorPage/>,
         children: [
             {
                 path: "/",
-                element: <Home></Home>,
+                element: <Home/>,
             },
             {
                 path: '/signin',
-                element: <SignIn></SignIn>
+                element: <SignIn/>
             },
             {
                 path: '/signup',
-                element: <SignUp></SignUp>
+                element: <SignUp/>
             },
             {
                 path: '/addblog',
-                element: <PrivateRoutes><AddBlog></AddBlog></PrivateRoutes>
+                element: <PrivateRoutes><AddBlog/></PrivateRoutes>
             },
             {
                 path: '/blogdetails/:id',
-                element: <PrivateRoutes><BlogDetails></BlogDetails></PrivateRoutes>,
+                element: <PrivateRoutes><BlogDetails/></PrivateRoutes>,
                 loader: ({ params }) => fetch(`https://blog-server-side-ochre.vercel.app/blogs/${params.id}`)
             },
             {
                 path: '/update/:id',
-                element: <PrivateRoutes><UpdateBlog></UpdateBlog></PrivateRoutes>,
+                element: <PrivateRoutes><UpdateBlog/></PrivateRoutes>,
                 loader: ({ params }) => fetch(`https://blog-server-side-ochre.vercel.app/blogs/${params.id}`)
             },
             {
                 path: '/wishlist',
-                element: <PrivateRoutes><WishList></WishList></PrivateRoutes>,
+                element: <PrivateRoutes><WishList/></PrivateRoutes>,
             },
             {
                 path: '/featureblog',
-                element: <FeatureBlog></FeatureBlog>,
+                element: <FeatureBlog/>,
                 loader: () => fetch('https://blog-server-side-ochre.vercel.app/blogs')
             },
             {
                 path: '/blogs/category/:category',
-                element: <CategoryBlogs></CategoryBlogs>,
+                element: <CategoryBlogs/>,
                 loader: ({ params }) => fetch(`https://blog-server-side-ochre.vercel.app/blogs/category/${params.category}`)
             },
             {
                 path: '/profile-blogger/:email',
                 element: <ProfileBlogger />,
-                // element: <PrivateRoutes><ProfileBlogger /></PrivateRoutes>,
                 loader: ({ params }) => {
                     const decodedEmail = decodeURIComponent(params?.email);
                     return fetch(`https://blog-server-side-ochre.vercel.app/users/${decodedEmail}`);
@@ -76,29 +75,29 @@ const router = createBrowserRouter([
             },
             {
                 path: '/loader',
-                element: <Loader></Loader>
+                element: <Loader/>
             },
         ],
     },
     {
         path: '/dashboard',
-        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+        element: <PrivateRoutes><Dashboard/></PrivateRoutes>,
         children: [
             {
                 path: '/dashboard',
-                element: <PrivateRoutes><HomeDashboard></HomeDashboard></PrivateRoutes>,
+                element: <PrivateRoutes><HomeDashboard/></PrivateRoutes>,
             },
             {
                 path: '/dashboard/profile-setting',
-                element: <PrivateRoutes><ProfileSettings></ProfileSettings></PrivateRoutes>,
+                element: <PrivateRoutes><ProfileSettings/></PrivateRoutes>,
             },
             {
                 path: '/dashboard/profile',
-                element: <PrivateRoutes><ShowProfile></ShowProfile></PrivateRoutes>,
+                element: <PrivateRoutes><ShowProfile/></PrivateRoutes>,
             },
             {
                 path: '/dashboard/membership',
-                element: <PrivateRoutes><Membership></Membership></PrivateRoutes>,
+                element: <PrivateRoutes><Membership/></PrivateRoutes>,
             },
 
         ]

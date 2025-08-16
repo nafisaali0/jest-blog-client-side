@@ -3,7 +3,7 @@ import useComment from "../../../hooks/useComment";
 import { PropTypes } from 'prop-types';
 
 const BlogTotalComments = ({ id }) => {
-    // const [comments] = useComment();
+    
     const [comments] = useComment();
     const [totalComments, setTotalComments] = useState(0)
 
