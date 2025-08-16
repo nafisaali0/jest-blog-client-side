@@ -2,13 +2,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
-import LikeFunctionality from '../LikeFunctionality/LikeFunctionality';
-import TotalLikes from '../LikeFunctionality/TotalLikes';
 import BlogTotalComments from '../BlogTotalComments/BlogTotalComments';
 import { AiOutlineComment } from 'react-icons/ai';
 import { BiSolidCategory } from 'react-icons/bi';
 import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
-
+import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
+import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
 
 const ShowRecentBlog = ({ blog }) => {
 
@@ -45,15 +44,15 @@ const ShowRecentBlog = ({ blog }) => {
                             <div className="flex flex-1 flex-row space-x-3 item-center mt-5 self-end">
                                 <p className="text-sm text-textSmallGray font-medium md:block">{date}</p>
                                 <div className="flex justify-center space-x-1">
-                                    <LikeFunctionality id={_id}></LikeFunctionality>
+                                    <LikeFunctionality id={_id}/>
                                     <span className="text-sm text-textSmallGray font-medium ml-1">
-                                        <TotalLikes id={_id}></TotalLikes>
+                                        <TotalLikes id={_id}/>
                                     </span>
                                 </div>
                                 <div className="flex justify-center space-x-1">
                                     <AiOutlineComment title="comments" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                                     <span className="text-sm text-textSmallGray font-medium ml-1">
-                                        <BlogTotalComments id={_id}></BlogTotalComments>
+                                        <BlogTotalComments id={_id}/>
                                     </span>
                                 </div>
                             </div>

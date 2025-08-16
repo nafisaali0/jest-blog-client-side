@@ -2,15 +2,14 @@ import { Link, useLoaderData } from "react-router-dom";
 import CreateComment from "./CreateComment";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import LikeFunctionality from './../../shared/LikeFunctionality/LikeFunctionality';
 import FollowFunctionality from "../../shared/FollowFunctionality/FollowFunctionality";
 import { BiSolidCategory } from "react-icons/bi";
-import TotalLikes from "../../shared/LikeFunctionality/TotalLikes";
 import { AiOutlineComment } from "react-icons/ai";
 import BlogTotalComments from "../../shared/BlogTotalComments/BlogTotalComments";
-// import SaveBlogsFunctionality from './../../shared/SaveBlogsFunctionality/SaveBlogsFunctionality';
 import { FiEdit } from "react-icons/fi";
 import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
+import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
+import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
 
 const BlogDetails = () => {
 
@@ -44,9 +43,9 @@ const BlogDetails = () => {
                     <div className="flex flex-row justify-between items-center px-3 py-7 border-b-2 border-borderColour drop-shadow-sm">
                         <div className="flex flex-row gap-2 items-center">
                             <div className="flex justify-center space-x-1">
-                                <LikeFunctionality id={_id}></LikeFunctionality>
+                                <LikeFunctionality id={_id}/>
                                 <span className="text-sm text-textSmallGray font-medium ml-1">
-                                    <TotalLikes id={_id}></TotalLikes>
+                                    <TotalLikes id={_id}/>
                                 </span>
                             </div>
                             <div className="flex justify-center space-x-1">

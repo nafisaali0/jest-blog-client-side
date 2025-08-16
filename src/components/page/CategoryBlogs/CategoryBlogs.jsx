@@ -1,9 +1,9 @@
 import { Link, useLoaderData, useLocation } from "react-router-dom";
-import LikeFunctionality from "../../shared/LikeFunctionality/LikeFunctionality";
-import TotalLikes from "../../shared/LikeFunctionality/TotalLikes";
 import { AiOutlineComment } from "react-icons/ai";
 import BlogTotalComments from "../../shared/BlogTotalComments/BlogTotalComments";
 import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
+import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
+import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
 
 
 const CategoryBlogs = () => {
@@ -51,15 +51,15 @@ const CategoryBlogs = () => {
                                             <div className="flex flex-row space-x-2">
                                                 <p className="text-sm text-textSmallGray font-medium">{blog.date}</p>
                                                 <div className="flex space-x-1">
-                                                    <LikeFunctionality id={blog._id}></LikeFunctionality>
+                                                    <LikeFunctionality id={blog._id}/>
                                                     <span className="text-sm text-textSmallGray font-medium ml-1">
-                                                        <TotalLikes id={blog._id}></TotalLikes>
+                                                        <TotalLikes id={blog._id}/>
                                                     </span>
                                                 </div>
                                                 <div className="flex space-x-1">
                                                     <AiOutlineComment title="comments" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                                                     <span className="text-sm text-textSmallGray font-medium ml-1">
-                                                        <BlogTotalComments id={blog._id}></BlogTotalComments>
+                                                        <BlogTotalComments id={blog._id}/>
                                                     </span>
                                                 </div>
                                             </div>

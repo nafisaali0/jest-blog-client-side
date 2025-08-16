@@ -3,11 +3,11 @@ import useWishLIst from "../../../hooks/useWishList";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { BiSolidCategory } from "react-icons/bi";
-import LikeFunctionality from "../LikeFunctionality/LikeFunctionality";
-import TotalLikes from "../LikeFunctionality/TotalLikes";
 import { AiOutlineComment } from "react-icons/ai";
 import BlogTotalComments from "../BlogTotalComments/BlogTotalComments";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
+import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
 
 const HomeWishList = () => {
 
@@ -55,9 +55,9 @@ const HomeWishList = () => {
                                                             <p className="text-textSmallGray text-sm font-medium md:block">{saveBlogs.date}</p>
                                                             <div className="flex space-x-2 item-center">
                                                                 <div className="flex items-center">
-                                                                    <LikeFunctionality id={saveBlogs._id}></LikeFunctionality>
+                                                                    <LikeFunctionality id={saveBlogs._id}/>
                                                                     <span className="text-sm text-textSmallGray font-medium ml-1">
-                                                                        <TotalLikes id={saveBlogs.blogId}></TotalLikes>
+                                                                        <TotalLikes id={saveBlogs.blogId}/>
                                                                     </span>
                                                                 </div>
                                                                 <div className="flex items-center">
