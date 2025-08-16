@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
-import BlogTotalComments from '../BlogTotalComments/BlogTotalComments';
 import { AiOutlineComment } from 'react-icons/ai';
 import { BiSolidCategory } from 'react-icons/bi';
 import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
 import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
 import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
+import BlogTotalComments from '../../Functionality/BlogTotalComments/BlogTotalComments';
 
 const ShowRecentBlog = ({ blog }) => {
 

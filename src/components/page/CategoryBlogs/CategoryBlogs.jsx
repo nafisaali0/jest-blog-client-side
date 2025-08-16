@@ -1,9 +1,10 @@
 import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { AiOutlineComment } from "react-icons/ai";
-import BlogTotalComments from "../../shared/BlogTotalComments/BlogTotalComments";
+// import BlogTotalComments from "../../shared/BlogTotalComments/BlogTotalComments";
 import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
 import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
 import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
+import BlogTotalComments from "../../Functionality/BlogTotalComments/BlogTotalComments";
 
 
 const CategoryBlogs = () => {

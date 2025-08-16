@@ -5,11 +5,11 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import FollowFunctionality from "../../shared/FollowFunctionality/FollowFunctionality";
 import { BiSolidCategory } from "react-icons/bi";
 import { AiOutlineComment } from "react-icons/ai";
-import BlogTotalComments from "../../shared/BlogTotalComments/BlogTotalComments";
 import { FiEdit } from "react-icons/fi";
 import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
 import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
 import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
+import BlogTotalComments from './../../Functionality/BlogTotalComments/BlogTotalComments';
 
 const BlogDetails = () => {
 
@@ -51,7 +51,7 @@ const BlogDetails = () => {
                             <div className="flex justify-center space-x-1">
                                 <AiOutlineComment title="comments" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                                 <span className="text-sm text-textSmallGray font-medium ml-1">
-                                    <BlogTotalComments id={_id}></BlogTotalComments>
+                                    <BlogTotalComments id={_id}/>
                                 </span>
                             </div>
                         </div>

@@ -2,10 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { Link } from 'react-router-dom';
 import { AiOutlineComment } from 'react-icons/ai';
-import BlogTotalComments from '../../shared/BlogTotalComments/BlogTotalComments';
 import DeleteFunctionality from "../../Functionality/DeleteFunctionality/DeleteFunctionality";
 import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
 import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
+import BlogTotalComments from "../../Functionality/BlogTotalComments/BlogTotalComments";
 
 
 const WishList = () => {

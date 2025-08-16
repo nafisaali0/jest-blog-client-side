@@ -6,6 +6,8 @@ import iconLike from '../../../assets/image/icons/like.svg'
 import iconComment from '../../../assets/image/icons/comment.svg'
 import Swal from 'sweetalert2';
 import useComment from '../../../hooks/useComment';
+
+
 const ShowWishList = ({ wishBlog, wishList, setchangeWishListState }) => {
 
     const [comments] = useComment();

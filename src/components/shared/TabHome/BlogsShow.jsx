@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { PropTypes } from 'prop-types';
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import BlogTotalComments from "../BlogTotalComments/BlogTotalComments";
 import { BiSolidCategory } from "react-icons/bi";
 import { AiOutlineComment } from "react-icons/ai";
 import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
 import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
 import TotalLikes from "../../Functionality/LikeFunctionality/TotalLikes";
+import BlogTotalComments from './../../Functionality/BlogTotalComments/BlogTotalComments';
 
 const BlogsShow = ({ blog }) => {
 
