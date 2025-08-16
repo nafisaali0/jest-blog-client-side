@@ -3,10 +3,10 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-import GoogleSignIn from "../../shared/GoogleSignIn/GoogleSignIn";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import moment from "moment";
 import '../../../index.css'
+import GoogleSignIn from '../../Functionality/GoogleSignIn/GoogleSignIn';
 
 
 const SignUp = () => {
@@ -72,46 +72,6 @@ const SignUp = () => {
     }
 
     return (
-        // <div className="bg-[#f3f3f4] w-[100%] lg:h-[100vh] overflow-hidden" >
-        //     <div className='container mx-auto flex flex-col justify-center items-center drop-shadow-lg md:pt-12 lg:pt-20'>
-        //         <div className="bg-white m-10 p-7 md:w-[700px]">
-        //             <div className="text-black my-5 font-bold text-2xl">
-        //                 <h2>Please create your account</h2>
-        //             </div>
-        //             <form onSubmit={handleSignUp}>
-        //                 <div className="my-10">
-        //                     <GoogleSignIn></GoogleSignIn>
-        //                 </div>
-        //                 <div className="my-10 text-center text-xl font-bold">
-        //                     <p>OR</p>
-        //                 </div>
-        //                 <div>
-        //                     <input type="fname" name="fname" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="Name" />
-        //                 </div>
-        //                 <div>
-        //                     <input type="lname" name="lname" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="Name" />
-        //                 </div>
-        //                 <div className="relative z-0 w-full mb-6 group">
-        //                     <input type="email" name="email" className="block py-2 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300   focus:outline-none focus:border-blue-600 peer" placeholder="Email" required />
-        //                 </div>
-        //                 <div className="relative z-0 w-full mb-7 group">
-        //                     <input type="password" name="password" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="Password" required />
-        //                 </div>
-        //                 <div className="flex gap-2 md:gap-5 lg:gap-10 items-center my-10">
-        //                     <div className="relative z-0 group">
-        //                         <button type="submit" className="md:w-full bg-light_purple text-white hover:bg-hover_btn font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-cent">SIGN UP</button>
-        //                     </div>
-        //                     <div className="relative z-0 group">
-        //                         <Link to={'/signin'}>
-        //                             <button className="md:w-full bg-light_purple text-white hover:bg-hover_btn font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center">SIGN IN</button>
-        //                         </Link>
-        //                     </div>
-        //                 </div>
-        //             </form>
-        //         </div>
-        //     </div>
-        // </div>
-
         <>
             <div className="flex gap-5 md:flex-row lg:justify-around flex-col-reverse p-3">
                 <div className="md:flex-1 text-black space-y-7 w-full mt-6">
@@ -132,7 +92,7 @@ const SignUp = () => {
                         <h5>Create A Free Account</h5>
                     </div>
                     <div className="flex-auto">
-                        <GoogleSignIn></GoogleSignIn>
+                        <GoogleSignIn />
                     </div>
                     <div className="text-center">
                         <p className="inline font-semibold text-sm">or</p>

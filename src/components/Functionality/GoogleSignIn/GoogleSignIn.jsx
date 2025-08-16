@@ -46,15 +46,6 @@ const GoogleSignIn = () => {
     }
     return (
         <>
-            {/* <button
-                onClick={handleGoogle}
-                className="w-full py-3 border-2 bg-light_purple text-white hover:bg-hover_btn"
-                type="submit"
-                data-ripple-light="true"
-            >
-                Sign In With Google
-            </button> */}
-
             <button
                 onClick={handleGoogle}
                 className="flex flex-row justify-center items-center gap-2 w-full border border-borderColour rounded-lg py-2 px-3 ">
