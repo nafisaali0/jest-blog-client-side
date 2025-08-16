@@ -8,10 +8,9 @@ import { BiSolidCategory } from "react-icons/bi";
 import TotalLikes from "../../shared/LikeFunctionality/TotalLikes";
 import { AiOutlineComment } from "react-icons/ai";
 import BlogTotalComments from "../../shared/BlogTotalComments/BlogTotalComments";
-import SaveBlogsFunctionality from './../../shared/SaveBlogsFunctionality/SaveBlogsFunctionality';
+// import SaveBlogsFunctionality from './../../shared/SaveBlogsFunctionality/SaveBlogsFunctionality';
 import { FiEdit } from "react-icons/fi";
-
-
+import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
 
 const BlogDetails = () => {
 
