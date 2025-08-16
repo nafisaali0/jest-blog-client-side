@@ -5,7 +5,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import { PropTypes } from 'prop-types';
 import useUsers from "../../../hooks/useUsers";
 import { FaBars } from "react-icons/fa";
-import SearchFunctionality from "../SearchFunctionality/SearchFunctionality";
+import SearchFunctionality from "../../Functionality/SearchFunctionality/SearchFunctionality";
 
 const NavBar = () => {
 

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import useBlogs from './../../../hooks/useBlogs';
+import useBlogs from '../../../hooks/useBlogs';
 import { Link, useLocation } from 'react-router-dom';
 
 
