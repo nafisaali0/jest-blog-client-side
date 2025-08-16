@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { BiSolidCategory } from "react-icons/bi";
 import { HiOutlineEllipsisVertical } from "react-icons/hi2";
 import { FiEdit } from "react-icons/fi";
-import DeleteFunctionality from '../../../Functionality/DeleteFunctionality/DeleteFunctionality';
+import DeleteFunctionality from "../../../Functionality/DeleteFunctionality/DeleteFunctionality";
 
 const DashHomeOwnerBlogs = () => {
 

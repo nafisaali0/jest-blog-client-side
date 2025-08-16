@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
-import DeleteFunctionality from '../../componets/DeleteFunctionality/DeleteFunctionality';
+import DeleteFunctionality from '../../Functionality/DeleteFunctionality/DeleteFunctionality';
 
 const ShowComments = ({ comment, comments, setChangeCommentsState }) => {
     const { user } = useContext(AuthContext)
