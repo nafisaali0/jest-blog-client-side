@@ -1,4 +1,4 @@
-import logo from '../../../assets/image/logo/upLogo13edit.png'
+import logo from '../../../assets/image/logo/logoWhite_noBG.png'
 import moment from 'moment';
 
 const Footer = () => {

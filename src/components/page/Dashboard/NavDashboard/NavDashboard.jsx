@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import bar from '../../../../assets/image/logo/upLogo7-removebg.png'
+import bar from '../../../../assets/image/logo/webIcon.png'
 import { useContext } from "react";
 import { AuthContext } from "../../../../Providers/AuthProvider";
 import { RxDashboard } from "react-icons/rx";

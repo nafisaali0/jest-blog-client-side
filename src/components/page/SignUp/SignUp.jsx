@@ -1,11 +1,10 @@
-import logo from '../../../assets/image/logo/logoNoBackground.png'
+import logo from '../../../assets/image/logo/logoBlack_noBG.png'
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import moment from "moment";
-import '../../../index.css'
 import GoogleSignIn from '../../Functionality/GoogleSignIn/GoogleSignIn';
 
 

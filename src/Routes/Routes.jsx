@@ -15,7 +15,6 @@ import Dashboard from "../LayOut/Dashboard";
 import HomeDashboard from "../components/page/Dashboard/HomeDashboard/HomeDashboard";
 import ProfileSettings from "../components/page/Dashboard/ProfileSettings/ProfileSettings";
 import ShowProfile from "../components/page/Dashboard/ProfileSettings/ShowProfile";
-import Membership from "../components/page/Dashboard/Membership/Membership";
 import Loader from "../components/shared/Loader/Loader";
 import ProfileBlogger from "../components/page/ProfileBlogger/ProfileBlogger";
 
@@ -94,10 +93,6 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/profile',
                 element: <PrivateRoutes><ShowProfile/></PrivateRoutes>,
-            },
-            {
-                path: '/dashboard/membership',
-                element: <PrivateRoutes><Membership/></PrivateRoutes>,
             },
 
         ]
