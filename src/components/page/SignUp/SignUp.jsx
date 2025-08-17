@@ -75,7 +75,9 @@ const SignUp = () => {
             <div className="flex gap-5 md:flex-row lg:justify-around flex-col-reverse p-3">
                 <div className="md:flex-1 text-black space-y-7 w-full mt-6">
                     <figure className='flex flex-col justify-center items-center md:justify-start md:items-start'>
-                        <img className='w-52' src={logo} alt="" />
+                        <Link to={'/'}>
+                            <img className='w-52' src={logo} alt="" />
+                        </Link>
                     </figure>
                     <div className='md:text-left text-center space-y-7'>
                         <p className="text-xl font-bold">Start sharing your voice with the world on JestBlog</p>
