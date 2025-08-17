@@ -1,5 +1,3 @@
-// import { useQuery } from "@tanstack/react-query";
-// import useAxiosPublic from "./useAxiosPublic";
 import { useEffect, useState } from "react";
 
 const useUniqueBlogger = () => {
