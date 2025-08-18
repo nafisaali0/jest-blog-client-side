@@ -1,28 +1,16 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import { Link } from "react-router-dom";
 import useUsers from "../../../hooks/useUsers";
 import { CiCalendarDate } from "react-icons/ci";
 import FollowFunctionality from './../../Functionality/FollowFunctionality/FollowFunctionality';
-import useAllUsers from './../../../hooks/useAllUsers';
-import useBlogs from './../../../hooks/useBlogs';
+import useBloggerUsers from './../../../hooks/useBloggerUsers';
 
 const BloggerUser = () => {
 
-    const [bloggerUsers, setBloggerUsers] = useState([]);
-    const [allUsers] = useAllUsers();
-    const [blogs] = useBlogs();
+    const [bloggerUsers] = useBloggerUsers();
     const [displayCount, setDisplayCount] = useState(2);
     const [users] = useUsers();
     const currentUser = users.length > 0 ? users[0] : {};
-
-    useEffect(() => {
-        if (allUsers?.length > 0 && blogs?.length > 0) {
-            const filtered = allUsers.filter(user =>
-                blogs?.some(blog => blog?.owner_Email === user?.email)
-            );
-            setBloggerUsers(filtered);
-        }
-    }, [allUsers, blogs]);
 
     const handleSeeAll = () => {
         setDisplayCount(displayCount + 3);
@@ -68,7 +56,9 @@ const BloggerUser = () => {
                                         </div>
                                     </div>
                                     <div className="absolute group-hover:bottom-1 delay-300 -bottom-16 transition-all duration-500 right-1 rounded-lg">
-                                        <FollowFunctionality email={blog?.email} />
+                                        <FollowFunctionality 
+                                        bloggerEmail={blog?.email} 
+                                        />
                                     </div>
                                 </div>
                             </>

@@ -58,7 +58,7 @@ const NavBar = () => {
                                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                             {currentUser?.photo ? (
                                                 <div className="w-10 rounded-full">
-                                                    <img src={currentUser.photo} alt={currentUser?.name} />
+                                                    <img src={currentUser?.photo} alt={currentUser?.name} />
                                                 </div>
                                             ) : (
                                                 <div className="w-10 h-10 rounded-full bg-bodyColor pt-2">
@@ -105,7 +105,7 @@ const NavBar = () => {
                         }
                     </div>
                 </div>
-            </div >
+            </div>
         </>
 
     );
