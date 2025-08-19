@@ -33,7 +33,7 @@ const BlogDetails = () => {
                         <Link to={`/profile-blogger/${encodeURIComponent(owner_Email)}`}>
                             <h2 className="text-sm font-semibold text-textSmallGray">{owner_name}</h2>
                         </Link>
-                        <FollowFunctionality email={owner_Email}></FollowFunctionality>
+                        <FollowFunctionality bloggerEmail={owner_Email}></FollowFunctionality>
                         <div className="flex gap-1 items-center">
                             <BiSolidCategory title="category" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                             <span href="#" className="text-sm text-textSmallGray font-medium">{category}</span>
