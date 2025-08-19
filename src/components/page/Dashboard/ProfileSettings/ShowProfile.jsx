@@ -3,20 +3,24 @@ import useFollowers from "../../../../hooks/useFollowers";
 import { useEffect, useState } from "react";
 import { CiCalendarDate } from "react-icons/ci";
 import FollowFunctionality from './../../../Functionality/FollowFunctionality/FollowFunctionality';
+import { Link } from 'react-router-dom';
 
 
 const ShowProfile = () => {
 
     const [users] = useUsers();
     const [followers] = useFollowers();
-    const [isfollowers, setIsFollowers] = useState([]);
+    const [followed, setFollowed] = useState([]);
+    const currentUser = users?.length > 0 ? users[0] : null;
+    
     useEffect(() => {
-        setIsFollowers(followers);
-    }, [followers]);
-
-    const handleUnfollow = (email) => {
-        setIsFollowers((prevFollowers) => prevFollowers.filter(follow => follow.followersEmail !== email));
-    };
+        if (currentUser && followers) {
+            const checkFollowers = followers.filter(
+                f => f?.email === currentUser?.email
+            );
+            setFollowed(checkFollowers);
+        }
+    }, [followers, currentUser]);
 
     return (
         <>
@@ -135,7 +139,7 @@ const ShowProfile = () => {
             <div className="bg-mainTheme border border-borderColour rounded-xl px-5 py-10 mt-8">
                 <h1 className="text-xl font-bold text-black mb-10">Followers</h1>
                 {
-                    isfollowers?.length === 0 ?
+                    followed?.length === 0 ?
                         <>
                             <div className="my-20 flex flex-col justify-center items-center">
                                 <div>
@@ -148,7 +152,7 @@ const ShowProfile = () => {
                         <>
                             <div className="grid lg:grid-cols-4 grid-cols-1 gap-3">
                                 {
-                                    isfollowers?.map((follower) => (
+                                    followed?.map((follower) => (
                                         <>
                                             <div className="bg-white rounded-xl shadow-xl p-8 lg:max-w-lg w-full  hover:shadow-bodyColor border border-borderColour">
                                                 <div className="flex items-center space-x-4">
@@ -164,14 +168,13 @@ const ShowProfile = () => {
                                                 </div>
                                                 <div className="mt-4 flex justify-between items-center">
                                                     <FollowFunctionality
-                                                        email={follower.followersEmail}>
-                                                        onUnfollow={handleUnfollow}
+                                                        bloggerEmail={follower.followersEmail}>
                                                     </FollowFunctionality>
-                                                    {/* <div className="text-textSmallGray text-sm">
+                                                    <div className="text-textSmallGray text-sm">
                                                         <Link to={`/profile-blogger/${encodeURIComponent(follower?.followersEmail)}`}>
                                                             <span className="font-semibold">View Profile</span>
                                                         </Link>
-                                                    </div> */}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </>
