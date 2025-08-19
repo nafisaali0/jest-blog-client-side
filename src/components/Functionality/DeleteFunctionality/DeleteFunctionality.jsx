@@ -3,7 +3,7 @@ import Swal from "sweetalert2"
 import { PropTypes } from 'prop-types';
 
 
-const DeleteFunctionality = ({ baseLink, _id, wishList, setchangeWishListState, comments,setChangeCommentsState }) => {
+const DeleteFunctionality = ({ baseLink, refetch, _id, comments, setChangeCommentsState }) => {
 
     const handleDelete = () => {
 
@@ -29,13 +29,12 @@ const DeleteFunctionality = ({ baseLink, _id, wishList, setchangeWishListState, 
                                 'Your save blog has been deleted.',
                                 'success'
                             )
-                            // clear state after delete wishlist's blog
-                            const loadBlogAfterDelete = wishList.filter(blog => blog._id !== _id)
-                            setchangeWishListState(loadBlogAfterDelete)
 
                             // comment 
                             const loadCommentsAfterDelete = comments.filter(comment => comment._id !== _id)
                             setChangeCommentsState(loadCommentsAfterDelete)
+
+                            if (refetch) refetch(); // parent/hook থেকে data update হবে
                         }
 
                     })
@@ -55,8 +54,8 @@ export default DeleteFunctionality
 DeleteFunctionality.propTypes = {
     baseLink: PropTypes.string,
     _id: PropTypes.string,
+    refetch: PropTypes.func,
     wishList: PropTypes.array,
     comments: PropTypes.array,
-    setchangeWishListState: PropTypes.func,
     setChangeCommentsState: PropTypes.func
 };
