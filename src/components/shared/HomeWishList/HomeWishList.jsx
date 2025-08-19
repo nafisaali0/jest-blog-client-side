@@ -33,7 +33,7 @@ const HomeWishList = () => {
                             <h1 className="text-xl font-bold text-black my-5">Reading List</h1>
                             <div className="flex flex-col gap-5">
                                 {
-                                    sortRecentSaveBlogs.slice(0, 2).map(saveBlogs =>
+                                    sortRecentSaveBlogs?.slice(0, 2).map(saveBlogs =>
                                         <>
                                             <div className="flex flex-col justify-start">
                                                 <div className="relative flex flex-col md:space-x-3 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 border border-borderColour bg-mainTheme">
@@ -44,7 +44,7 @@ const HomeWishList = () => {
                                                                 <span className="mx-2 text-sm text-textSmallGray font-medium">{saveBlogs.owner_name}</span>
                                                             </Link>
                                                         </div>
-                                                        <Link to={`/blogdetails/${saveBlogs.blogId}`}>
+                                                        <Link to={`/blogdetails/${saveBlogs?.blogId}`}>
                                                             <h3 className="font-bold text-black text-xl">{saveBlogs.title}</h3>
                                                         </Link>
                                                         <div className="flex items-center">
@@ -55,15 +55,15 @@ const HomeWishList = () => {
                                                             <p className="text-textSmallGray text-sm font-medium md:block">{saveBlogs.date}</p>
                                                             <div className="flex space-x-2 item-center">
                                                                 <div className="flex items-center">
-                                                                    <LikeFunctionality id={saveBlogs._id}/>
+                                                                    <LikeFunctionality id={saveBlogs?.blogId}/>
                                                                     <span className="text-sm text-textSmallGray font-medium ml-1">
-                                                                        <TotalLikes id={saveBlogs.blogId}/>
+                                                                        <TotalLikes id={saveBlogs?.blogId}/>
                                                                     </span>
                                                                 </div>
                                                                 <div className="flex items-center">
                                                                     <AiOutlineComment title="comments" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                                                                     <span className="text-sm text-textSmallGray font-medium ml-1">
-                                                                        <BlogTotalComments id={saveBlogs.blogId}/>
+                                                                        <BlogTotalComments id={saveBlogs?.blogId}/>
                                                                     </span>
                                                                 </div>
                                                             </div>

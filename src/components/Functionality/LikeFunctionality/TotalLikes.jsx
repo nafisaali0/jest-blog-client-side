@@ -1,40 +1,20 @@
-import { useEffect, useState } from "react";
-import { PropTypes } from 'prop-types';
-
+import PropTypes from "prop-types";
+import useTotalLikes from "../../../hooks/useTotalLikes";
 
 const TotalLikes = ({ id }) => {
+    const { totalLikes, isLoading } = useTotalLikes(id);
 
-    const [likes, setLikes] = useState([])
-    const [totalLikes, setTotalLikes] = useState(0)
-
-    useEffect(() => {
-        fetch('https://blog-server-side-ochre.vercel.app/likes')
-            .then(response => response.json())
-            .then(data => {
-                setLikes(data);
-            });
-    }, []);
-
-    useEffect(() => {
-        const totalLikes = likes.reduce((acc, like) => {
-            if (like.blog_id === id) {
-                return acc + 1;
-            }
-            return acc;
-        }, 0);
-
-        setTotalLikes(totalLikes);
-    }, [likes, id]);
+    if (isLoading) return <span>Loading...</span>;
 
     return (
-        <>
-            <span>{totalLikes}</span>
-        </>
+        <span className="flex items-center gap-1 text-gray-600">
+            {totalLikes}
+        </span>
     );
 };
 
 TotalLikes.propTypes = {
-    id: PropTypes.number
+    id: PropTypes.string.isRequired,
 };
 
 export default TotalLikes;
