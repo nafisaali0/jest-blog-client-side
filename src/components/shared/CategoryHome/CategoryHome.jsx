@@ -1,24 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useBlogs from './../../../hooks/useBlogs';
 
 const CategoryHome = () => {
 
-    const [categorys, setCategorys] = useState([])//load category 
     const [uniqueCategories, setUniqueCategories] = useState([]);
     const [displayCount, setDisplayCount] = useState(6);
+    const [blogs, loading] = useBlogs();
 
     useEffect(() => {
-        fetch('https://blog-server-side-ochre.vercel.app/blogs')
-            .then(res => res.json())
-            .then(data => setCategorys(data))
-    }, [])
-    // console.log(categorys)
-    useEffect(() => {
-        const categories = [...new Set(categorys.map(blog => blog.category))];
-        setUniqueCategories(categories);
-    }, [categorys]);
-    // console.log(uniqueCategories)
-
+        if (!loading && blogs.length > 0) {
+            const categories = [...new Set(blogs.map(blog => blog.category))];
+            setUniqueCategories(categories);
+        }
+    }, [blogs, loading]);
     const handleSeeAll = () => {
         setDisplayCount(displayCount + 6);
     }

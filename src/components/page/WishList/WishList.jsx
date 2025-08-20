@@ -12,7 +12,7 @@ const WishList = () => {
     const [wishList, refetch] = useWishLIst()
 
     return (
-        <div>
+        <>
             <div className="flex justify-center items-center flex-col">
                 <h1 className="text-5xl font-bold text-black mb-10">Your Reading List</h1>
                 {
@@ -73,8 +73,6 @@ const WishList = () => {
                                                                 _id={wishBlog._id}
                                                                 baseLink="https://blog-server-side-ochre.vercel.app/wishlist"
                                                                 refetch={refetch} />
-                                                            {/* wishList={wishList}
-                                                                setchangeWishListState={setchangeWishListState} */}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -87,7 +85,7 @@ const WishList = () => {
 
                 }
             </div>
-        </div>
+        </>
     );
 };
 

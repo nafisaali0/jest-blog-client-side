@@ -28,7 +28,7 @@ const CategoryBlogs = () => {
                                     <figure>
                                         <img
                                             src={blog.details_image}
-                                            alt="Shoes"
+                                            alt="blog"
                                             className="w-full h-[250px] overflow-hidden object-cover" />
                                     </figure>
                                     <div className="p-5">
