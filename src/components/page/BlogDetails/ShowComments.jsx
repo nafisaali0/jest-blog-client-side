@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import DeleteFunctionality from '../../Functionality/DeleteFunctionality/DeleteFunctionality';
 
-const ShowComments = ({ comment, comments, setChangeCommentsState }) => {
+const ShowComments = ({ comment, refetch }) => {
     const { user } = useContext(AuthContext)
     const { _id } = comment
 
@@ -28,8 +28,7 @@ const ShowComments = ({ comment, comments, setChangeCommentsState }) => {
                                 <DeleteFunctionality
                                     _id={_id}
                                     baseLink="https://blog-server-side-ochre.vercel.app/comments"
-                                    comments={comments} 
-                                    setChangeCommentsState={setChangeCommentsState}
+                                    refetch={refetch}
                                 />
                             </> : ''
                     }
@@ -41,8 +40,7 @@ const ShowComments = ({ comment, comments, setChangeCommentsState }) => {
 
 ShowComments.propTypes = {
     comment: PropTypes.obj,
-    comments: PropTypes.array,
-    setChangeCommentsState: PropTypes.func
+    refetch: PropTypes.func,
 };
 
 export default ShowComments;

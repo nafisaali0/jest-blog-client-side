@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Swal from 'sweetalert2';
 import ShowComments from './ShowComments';
 import useUsers from '../../../hooks/useUsers';
+// import useComment from './../../../hooks/useComment';
+import useCommentsByid from '../../../hooks/useCommentsByBlogId';
 
 const CreateComment = ({ id, blog_Email }) => {
 
     const [users] = useUsers();
     const currentUser = users.length > 0 ? users[0] : {};
-    const [isButtonDisabled, setisButtonDisabled] = useState(false)//uses: comment post btn disabled for currentUser 
-    const [comments, setComments] = useState([]);//load all comments
-    const [changeCommentsState, setChangeCommentsState] = useState([]);//change comment state after delete comment
-
+    const [isButtonDisabled, setisButtonDisabled] = useState(false)
+    const [blogComments, refetch] = useCommentsByid(id)
 
     //create comment 
     const handlePostComment = e => {
@@ -55,41 +55,8 @@ const CreateComment = ({ id, blog_Email }) => {
         }
     }
 
-    // show comment from backend api
-    useEffect(() => {
-        fetch(`https://blog-server-side-ochre.vercel.app/comments?blog_id=${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setComments(data)
-                setChangeCommentsState(data)
-            })
-    }, [id])
     return (
         <>
-            {/* <form onSubmit={handlePostComment} disabled={isButtonDisabled}>
-                <div>
-                    <div className="flex gap-2 items-center space-x-3">
-                        <div className="avatar">
-                            <div className="w-8 rounded">
-                                <img src={currentUser.photo} />
-                            </div>
-                        </div>
-                        <div>
-                            <textarea
-                                rows={4}
-                                type="text"
-                                name="comment"
-                                placeholder="Write your thoughts here..."
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className="flex justify-end">
-                    <button className="">
-                        POST
-                    </button>
-                </div>
-            </form> */}
             <form onSubmit={handlePostComment} disabled={isButtonDisabled}>
                 <div className="flex gap-3 items-start w-full bg-mainTheme">
                     {/* Avatar */}
@@ -118,12 +85,12 @@ const CreateComment = ({ id, blog_Email }) => {
 
             <div className="flex flex-col items-start space-y-4">
                 {
-                    changeCommentsState.map(comment =>
+                    blogComments.map(comment =>
                         <ShowComments
                             key={comment._id}
                             comment={comment}
-                            comments={comments}
-                            setChangeCommentsState={setChangeCommentsState}>
+                            refetch={refetch}
+                        >
                         </ShowComments>
                     )
                 }

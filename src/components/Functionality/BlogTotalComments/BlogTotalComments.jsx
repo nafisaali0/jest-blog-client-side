@@ -1,25 +1,14 @@
-import { useEffect, useState } from "react";
-import useComment from "../../../hooks/useComment";
 import { PropTypes } from 'prop-types';
+import useCommentsByid from '../../../hooks/useCommentsByBlogId';
 
 const BlogTotalComments = ({ id }) => {
     
-    const [comments] = useComment();
-    const [totalComments, setTotalComments] = useState(0)
+    const [blogComments, loading] = useCommentsByid(id);
+    if (loading) return <span>Loading...</span>;
 
-    useEffect(() => {
-        const totalLikes = comments.reduce((acc, like) => {
-            if (like.blog_id === id) {
-                return acc + 1;
-            }
-            return acc;
-        }, 0);
-
-        setTotalComments(totalLikes);
-    }, [comments, id]);
     return (
         <>
-            <span>{totalComments}</span>
+            <span>{blogComments.length}</span>
         </>
     );
 };
