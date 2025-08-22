@@ -15,9 +15,10 @@ const TabHome = () => {
     const [recentBlogs, setRecentBlogs] = useState([])//show category from backend
     const [displayCount, setDisplayCount] = useState(6);//for all blogs btn
     const [displayCountSix, setDisplayCountSix] = useState(6);//for recent blogs btn
+    const [selectedTab, setSelectedTab] = useState(0);//for Tab list    
     // const [displayCountTopBg, setDisplayCountTopBg] = useState(6);
-    const [selectedTab, setSelectedTab] = useState(0);//for Tab list
 
+    // recent blog
     useEffect(() => {
         if (!blogs.length) return;
 
@@ -73,12 +74,12 @@ const TabHome = () => {
     const handleSeeAllRecent = () => {
         setDisplayCountSix(displayCountSix + 6);
     }
+    const handleTabSelect = (index) => {
+        setSelectedTab(index);
+    };    
     // const handleSeeAllTopBlog = () => {
     //     setDisplayCountTopBg(displayCountTopBg + 6);
     // }
-    const handleTabSelect = (index) => {
-        setSelectedTab(index);
-    };
 
     return (
         <>
