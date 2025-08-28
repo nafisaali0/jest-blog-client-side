@@ -1,6 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../../../Providers/AuthProvider";
-import useBlogs from './../../../../hooks/useBlogs';
+import { useEffect, useState } from "react";
 import useComment from './../../../../hooks/useComment';
 import { RiBloggerLine, RiUserFollowLine } from "react-icons/ri";
 import useLikes from './../../../../hooks/useLikes';
@@ -8,26 +6,19 @@ import useUsers from "../../../../hooks/useUsers";
 import useTotalFollower from "../../../../hooks/useTotalFollower";
 import { PiHeartBold } from "react-icons/pi";
 import { FaRegComment } from "react-icons/fa";
+import useUserblogs from "../../../../hooks/useUserblogs";
 
 const DashHomeBannerCard = () => {
 
-    const [blogs] = useBlogs();
     const [comments] = useComment();
     const [likes] = useLikes();
-    const { user } = useContext(AuthContext)
-    const [userBlogs, setUserBlogs] = useState([])
-    const [countCmtBlogs, setCountCmtBlogs] = useState([])
-    const [countLikeBlogs, setCountLikeBlogs] = useState([])
-    const [totalfollowers, setTotalfollowers] = useState(0)
+    const [countCmtBlogs, setCountCmtBlogs] = useState([]);
+    const [countLikeBlogs, setCountLikeBlogs] = useState([]);
+    const [totalfollowers, setTotalfollowers] = useState(0);
     const [totalFollower] = useTotalFollower()
     const [users] = useUsers();
-
     const userInfo = users?.length > 0 ? users[0] : null;
-
-    useEffect(() => {
-        const bloggerBlogs = blogs?.filter(blogger => blogger?.owner_Email === user?.email);
-        setUserBlogs(bloggerBlogs)
-    }, [blogs, user]);
+    const [userBlogs] = useUserblogs();
 
     useEffect(() => {
         // Count total comments for the user's blogs
@@ -67,7 +58,6 @@ const DashHomeBannerCard = () => {
 
         setTotalfollowers(totalFollowers);
     }, [totalFollower, userInfo]);
-
 
     return (
         <>
