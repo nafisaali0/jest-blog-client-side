@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import useComment from './../../../../hooks/useComment';
 import { RiBloggerLine, RiUserFollowLine } from "react-icons/ri";
 import useLikes from './../../../../hooks/useLikes';
-import useUsers from "../../../../hooks/useUsers";
-import useTotalFollower from "../../../../hooks/useTotalFollower";
+// import useUsers from "../../../../hooks/useUsers";
+// import useTotalFollower from "../../../../hooks/useTotalFollower";
 import { PiHeartBold } from "react-icons/pi";
 import { FaRegComment } from "react-icons/fa";
 import useUserblogs from "../../../../hooks/useUserblogs";
+import useFollowers from './../../../../hooks/useFollowers';
 
 const DashHomeBannerCard = () => {
 
@@ -14,11 +15,8 @@ const DashHomeBannerCard = () => {
     const [likes] = useLikes();
     const [countCmtBlogs, setCountCmtBlogs] = useState([]);
     const [countLikeBlogs, setCountLikeBlogs] = useState([]);
-    const [totalfollowers, setTotalfollowers] = useState(0);
-    const [totalFollower] = useTotalFollower()
-    const [users] = useUsers();
-    const userInfo = users?.length > 0 ? users[0] : null;
     const [userBlogs] = useUserblogs();
+    const [followers] = useFollowers();
 
     useEffect(() => {
         // Count total comments for the user's blogs
@@ -47,17 +45,6 @@ const DashHomeBannerCard = () => {
         };
         countTotalLike();
     }, [userBlogs, likes]);
-
-    useEffect(() => {
-        const totalFollowers = totalFollower.reduce((acc, flw) => {
-            if (flw?.followersEmail === userInfo?.email) {
-                return acc + 1;
-            }
-            return acc;
-        }, 0);
-
-        setTotalfollowers(totalFollowers);
-    }, [totalFollower, userInfo]);
 
     return (
         <>
@@ -107,7 +94,7 @@ const DashHomeBannerCard = () => {
                                 <RiUserFollowLine />
                             </div>
                             <div className="text-black text-4xl font-bold">
-                                {totalfollowers}
+                                {followers.length}
                             </div>
                         </div>
                     </div>
