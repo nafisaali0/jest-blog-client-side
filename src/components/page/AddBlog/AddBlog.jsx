@@ -13,7 +13,6 @@ const AddBlog = () => {
     const [users] = useUsers();
     const currentUser = users.length > 0 ? users[0] : {};
 
-    //for intent output 
     const [imagePreview, setImagePreview] = useState(null)
     const [formData, setFormData] = useState({
         title: "",
