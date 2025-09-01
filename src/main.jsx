@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import App from './App.jsx'
 import './index.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { RouterProvider } from "react-router-dom";
 import router from './Routes/Routes';
 import AuthProvider from './Providers/AuthProvider';
@@ -10,6 +11,11 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 const queryClient = new QueryClient()
+
+
+
+AOS.init();
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

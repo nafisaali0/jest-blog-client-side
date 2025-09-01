@@ -15,10 +15,24 @@ const Home = () => {
     <>
       <div className="max-w-[1300px] mx-auto overflow-hidden">
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 p-2'>
-          <div className='lg:col-span-2 w-full flex items-start flex-col'>
+          <div
+            className='lg:col-span-2 w-full flex items-start flex-col'
+            data-aos="fade-right"
+            data-aos-offset="500"
+            // data-aos-once="false"
+            data-aos-duration="3000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true">
             <TabHome />
           </div>
-          <div className="lg:col-span-1 flex items-stretch flex-col">
+          <div
+            className="lg:col-span-1 flex items-stretch flex-col"
+            data-aos="fade-left"
+            data-aos-offset="200"
+            // data-aos-once="false"
+            data-aos-duration="3000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true">
             <CategoryHome />
             <BloggerUser />
             <HomeFeaturesBlog />

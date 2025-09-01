@@ -76,7 +76,7 @@ const TabHome = () => {
     }
     const handleTabSelect = (index) => {
         setSelectedTab(index);
-    };    
+    };
     // const handleSeeAllTopBlog = () => {
     //     setDisplayCountTopBg(displayCountTopBg + 6);
     // }

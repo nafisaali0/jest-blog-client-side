@@ -6,11 +6,24 @@ const Network = () => {
         <>
             <div
                 className="hero h-[500px] my-16 rounded-xl"
-                style={{ backgroundImage: `url(${image1})`}}
+                style={{ backgroundImage: `url(${image1})` }}
+                data-aos="zoom-in"
+                data-aos-offset="500"
+                data-aos-once="false"
+                data-aos-duration="3000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
             >
                 <div className="hero-overlay bg-black/50 bg-opacity-50 rounded-xl"></div>
                 <div className="hero-content text-center">
-                    <div className="max-w-md">
+                    <div
+                        className="max-w-md"
+                        data-aos="zoom-in"
+                        data-aos-offset="500"
+                        data-aos-duration="4000"
+                        data-aos-easing="ease-in-out"
+                        data-aos-mirror="true">
+
                         <h1 className="mb-5 text-xl text-white font-bold">Join millions of others</h1>
                         <p className="mb-5 text-white text-sm font-medium">
                             Whether sharing your expertise, breaking news, or whatever’s on your mind, you’re in good company on Blogger. Sign up to discover why millions of people have published their passions here.
@@ -20,6 +33,7 @@ const Network = () => {
                                 <button className="buttonPrimary !border-white !text-white hover:!border-primaryColor">CREATE YOUR BLOG</button>
                             </Link>
                         </div>
+
                     </div>
                 </div>
             </div>
