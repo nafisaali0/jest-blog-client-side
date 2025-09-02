@@ -14,7 +14,13 @@ const WishList = () => {
     return (
         <>
             <div className="flex justify-center items-center flex-col">
-                <h1 className="text-5xl font-bold text-black mb-10">Your Reading List</h1>
+                <h1
+                    data-aos="fade-down"
+                    data-aos-offset="500"
+                    data-aos-duration="3000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-mirror="true"
+                    className="text-5xl font-bold text-black mb-10">Your Reading List</h1>
                 {
                     wishList?.length == 0 ?
                         <>
@@ -24,10 +30,16 @@ const WishList = () => {
                         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 lg:gap-4 gap-2">
                             <>
                                 {
-                                    wishList.map(wishBlog =>
+                                    wishList?.map(wishBlog =>
                                         <>
 
-                                            <div className="card space-y-2 h-96 border border-borderColour bg-mainTheme hover:shadow-xl">
+                                            <div
+                                                data-aos="fade-right"
+                                                data-aos-offset="500"
+                                                data-aos-duration="3000"
+                                                data-aos-easing="ease-in-out"
+                                                data-aos-mirror="true"
+                                                className="card space-y-2 h-96 border border-borderColour bg-mainTheme hover:shadow-xl">
                                                 <figure>
                                                     <img
                                                         src={wishBlog?.details_image}
@@ -70,7 +82,7 @@ const WishList = () => {
 
                                                         <div>
                                                             <DeleteFunctionality
-                                                                _id={wishBlog._id}
+                                                                _id={wishBlog?._id}
                                                                 baseLink="https://blog-server-side-ochre.vercel.app/wishlist"
                                                                 refetch={refetch} />
                                                         </div>

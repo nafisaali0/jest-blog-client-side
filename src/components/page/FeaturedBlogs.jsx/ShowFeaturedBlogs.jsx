@@ -59,7 +59,13 @@ const ShowFeaturedBlogs = ({ sortByWord }) => {
 
     return (
         <>
-            <div className='bg-base-100 text-xl drop-shadow-2xl'>
+            <div
+                data-aos="fade-right"
+                data-aos-offset="200"
+                data-aos-duration="3000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                className='bg-base-100 text-xl drop-shadow-2xl'>
                 <DataTable
                     columns={columns}
                     data={data}

@@ -14,9 +14,8 @@ const SignIn = () => {
     const handleSignIn = e => {
         e.preventDefault();
 
-        const email = e.target.email.value
-        const password = e.target.password.value
-        console.log(email, password)
+        const email = e?.target.email.value
+        const password = e?.target.password.value
 
         setSignInError('')
 
@@ -49,7 +48,12 @@ const SignIn = () => {
 
     return (
         <>
-            <div className="flex justify-center items-center my-10">
+            <div
+                data-aos="fade-down"
+                data-aos-offset="500"
+                data-aos-duration="3000"
+                data-aos-easing="ease-in-out"
+                className="flex justify-center items-center my-10">
                 <div className="lg:w-[500px] md:w-[450px]  h-full w-full flex flex-col bg-white border border-borderColour shadow-lg rounded-xl py-10 px-12 space-y-4">
                     <div className="text-center text-black text-xl font-bold mb-5">
                         <h5>Create A Free Account</h5>

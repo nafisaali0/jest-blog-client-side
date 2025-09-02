@@ -28,7 +28,7 @@ const Home = () => {
           <div
             className="lg:col-span-1 flex items-stretch flex-col"
             data-aos="fade-left"
-            data-aos-offset="200"
+            data-aos-offset="500"
             data-aos-duration="3000"
             data-aos-easing="ease-in-out"
             data-aos-mirror="true">

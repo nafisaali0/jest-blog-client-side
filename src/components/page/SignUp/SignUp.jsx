@@ -72,7 +72,13 @@ const SignUp = () => {
 
     return (
         <>
-            <div className="flex gap-5 md:flex-row lg:justify-around flex-col-reverse p-3">
+            <div
+                data-aos="fade-right"
+                data-aos-offset="500"
+                data-aos-duration="3000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                className="flex gap-5 md:flex-row lg:justify-around flex-col-reverse p-3">
                 <div className="md:flex-1 text-black space-y-7 w-full mt-6">
                     <figure className='flex flex-col justify-center items-center md:justify-start md:items-start'>
                         <Link to={'/'}>
@@ -88,7 +94,13 @@ const SignUp = () => {
                     </div>
                 </div>
 
-                <div className="lg:w-[500px] md:w-[420px] h-full w-full flex flex-col bg-white border border-borderColour shadow-lg rounded-xl py-10 px-12 space-y-4">
+                <div
+                    data-aos="zoom-in-left"
+                    data-aos-offset="500"
+                    data-aos-duration="3000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-mirror="true"
+                    className="lg:w-[500px] md:w-[420px] h-full w-full flex flex-col bg-white border border-borderColour shadow-lg rounded-xl py-10 px-12 space-y-4">
                     <div className="text-center text-black text-xl font-bold mb-5">
                         <h5>Create A Free Account</h5>
                     </div>
@@ -96,7 +108,7 @@ const SignUp = () => {
                         <GoogleSignIn />
                     </div>
                     <div className="text-center">
-                        <p className="inline font-semibold text-sm">or</p>
+                        <p className="font-semibold text-sm">or</p>
                     </div>
                     <div className="flex-auto">
                         <form role="form" onSubmit={handleSignUp} className='space-y-4'>

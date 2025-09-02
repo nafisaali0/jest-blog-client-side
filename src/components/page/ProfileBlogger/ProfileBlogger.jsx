@@ -13,7 +13,13 @@ const ProfileBlogger = () => {
     }
     return (
         <>
-            <div className="space-y-8">
+            <div
+                data-aos="fade-down"
+                data-aos-offset="500"
+                data-aos-duration="3000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                className="space-y-8">
                 <section className="w-full overflow-hidden dark:bg-mainTheme rounded-xl border border-borderColour">
                     <div className="w-full mx-auto">
                         <div className="w-full lg:h-[15rem] h-[12rem] bg-primaryLightColor"></div>

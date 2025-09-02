@@ -20,7 +20,13 @@ const FeatureBlog = () => {
 
     return (
         <div>
-            <div className="flex justify-center items-center flex-col space-y-3 mb-10">
+            <div
+                data-aos="fade-down"
+                data-aos-offset="500"
+                data-aos-duration="3000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                className="flex justify-center items-center flex-col space-y-3 mb-10">
                 <h1 className="text-5xl font-bold text-black">Featured Blogs</h1>
                 <p className="text-sm font-bold text-textSmallGray">This table content sort by blogs long description. Which are shown in decending order</p>
             </div>
