@@ -49,7 +49,7 @@ const DashHomeBannerCard = () => {
     return (
         <>
             <div
-                data-aos="fade-down"
+                data-aos="fade-right"
                 data-aos-offset="500"
                 data-aos-duration="3000"
                 data-aos-easing="ease-in-out"

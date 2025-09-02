@@ -1,8 +1,8 @@
 import { useState } from "react";
 import moment from 'moment';
-import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useUsers from "../../../hooks/useUsers";
+import { Slide, toast } from "react-toastify";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hostion_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -11,7 +11,7 @@ const AddBlog = () => {
 
     const axiosPublic = useAxiosPublic();
     const [users] = useUsers();
-    const currentUser = users.length > 0 ? users[0] : {};
+    const currentUser = users?.length > 0 ? users[0] : {};
 
     const [imagePreview, setImagePreview] = useState(null)
     const [formData, setFormData] = useState({
@@ -68,9 +68,17 @@ const AddBlog = () => {
             .then(data => {
                 console.log(data)
                 if (data.insertedId) {
-                    Swal.fire(
-                        'Successfully Created Blog'
-                    )
+                    toast.success('Blog Created Successfully!', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: true,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: 1,
+                        theme: "light",
+                        transition: Slide,
+                    });
                 }
             })
     }

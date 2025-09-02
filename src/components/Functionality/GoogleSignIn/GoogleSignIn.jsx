@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import moment from "moment";
 import { FcGoogle } from "react-icons/fc";
+import { Slide, toast } from "react-toastify";
 
 const GoogleSignIn = () => {
 
@@ -25,23 +25,34 @@ const GoogleSignIn = () => {
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
                         console.log(res.data);
-                        Swal.fire(
-                            'Successfull'
-                        ),
-                            navigate('/')
+                        toast.success('Login Successfully!', {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: true,
+                            closeOnClick: false,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: 1,
+                            theme: "light",
+                            transition: Slide,
+                        });
+                        navigate('/')
                     })
 
             })
             .catch(error => {
                 console.log(error)
-                return (
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Try Again',
-                        text: 'Can Not LogIn With Google',
-                        footer: { error }
-                    })
-                )
+                toast.error('Can Not LogIn!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: 1,
+                    theme: "light",
+                    transition: Slide,
+                });
             })
     }
     return (

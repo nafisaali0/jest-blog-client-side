@@ -2,10 +2,10 @@ import logo from '../../../assets/image/logo/logoBlack_noBG.png'
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import moment from "moment";
 import GoogleSignIn from '../../Functionality/GoogleSignIn/GoogleSignIn';
+import { Slide, toast } from 'react-toastify';
 
 
 const SignUp = () => {
@@ -29,11 +29,18 @@ const SignUp = () => {
         // grap error before data going to server
         if (!passwordRequirement.test(password)) {
             setSignUpError('Your password should be capital letter, regular expression and length would be 6')
-            return Swal.fire({
-                icon: 'error',
-                title: (signUpError),
-                text: 'Can Not Sign Up',
-            })
+            toast.error(`${signUpError}`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: 1,
+                theme: "light",
+                transition: Slide,
+            });
+            return;
         }
 
         // email/password signUp auth
@@ -45,12 +52,16 @@ const SignUp = () => {
                         .then(res => {
                             if (res.data.insertedId) {
                                 console.log('user add')
-                                Swal.fire({
-                                    position: "top-end",
-                                    icon: "success",
-                                    title: "Successful Sign Up",
-                                    showConfirmButton: false,
-                                    timer: 1500
+                                toast.success('Sign Up Successfully!', {
+                                    position: "top-right",
+                                    autoClose: 5000,
+                                    hideProgressBar: true,
+                                    closeOnClick: false,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: 1,
+                                    theme: "light",
+                                    transition: Slide,
                                 });
                                 navigate('/')
                             }
@@ -59,14 +70,26 @@ const SignUp = () => {
             })
             .catch(error => {
                 console.log(error)
-                return (
-                    setSignUpError(error.message),
-                    Swal.fire({
-                        icon: 'error',
-                        title: (signUpError),
-                        text: 'Can Not Sing Up',
-                    })
-                )
+                setSignUpError(error.message),
+                // return (
+                //     setSignUpError(error.message),
+                //     Swal.fire({
+                //         icon: 'error',
+                //         title: (signUpError),
+                //         text: 'Can Not Sing Up',
+                //     })
+                // )
+                toast.error(`${signUpError}`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: 1,
+                    theme: "light",
+                    transition: Slide,
+                });
             })
     }
 

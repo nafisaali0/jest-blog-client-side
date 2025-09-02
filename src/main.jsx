@@ -35,7 +35,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           draggable
           pauseOnHover
           theme="dark"
-          // transition:Slide,
         />
       </QueryClientProvider>
     </AuthProvider>

@@ -31,7 +31,7 @@ const DeleteFunctionality = ({ baseLink, refetch, _id, comments, setChangeCommen
                             )
 
                             // comment 
-                            const loadCommentsAfterDelete = comments.filter(comment => comment._id !== _id)
+                            const loadCommentsAfterDelete = comments?.filter(comment => comment?._id !== _id)
                             setChangeCommentsState(loadCommentsAfterDelete)
 
                             if (refetch) refetch(); 

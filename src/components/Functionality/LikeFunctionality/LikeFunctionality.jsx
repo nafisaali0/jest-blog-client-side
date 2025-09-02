@@ -1,29 +1,39 @@
-import Swal from "sweetalert2";
 import useUsers from './../../../hooks/useUsers';
 import { PropTypes } from 'prop-types';
 import useLikes from "../../../hooks/useLikes";
 import { AiFillHeart } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
+import { Slide, toast } from "react-toastify";
 
 
 const LikeFunctionality = ({ id }) => {
     const [initialLikes, refetch] = useLikes();
     const [users] = useUsers();
-    const user = users.length > 0 ? users[0] : null;
+    const user = users?.length > 0 ? users[0] : null;
 
-    const checkBlog = initialLikes.find(like => like.blog_id === id);
+    const checkBlog = initialLikes?.find(like => like?.blog_id === id);
 
     const handleLike = async () => {
         if (!user) {
-            Swal.fire("Please login to like posts!");
+            toast.info('Please login to like posts!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: 1,
+                theme: "light",
+                transition: Slide,
+            });
             return;
         }
 
         const newLike = {
             blog_id: id,
-            owner_name: user.name,
-            owner_image: user.photo,
-            owner_email: user.email,
+            owner_name: user?.name,
+            owner_image: user?.photo,
+            owner_email: user?.email,
             like: 1
         };
 
@@ -37,9 +47,29 @@ const LikeFunctionality = ({ id }) => {
             const data = await response.json();
 
             if (data.status === "liked") {
-                Swal.fire("You liked this post!");
+                toast.success('👍 Liked!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: 1,
+                    theme: "light",
+                    transition: Slide,
+                });
             } else if (data.status === "unliked") {
-                Swal.fire("You unliked this post!");
+                toast('👎 Unliked!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: 1,
+                    theme: "light",
+                    transition: Slide,
+                });
             }
 
             // fresh data আনো

@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import Swal from 'sweetalert2'
 import GoogleSignIn from "../../Functionality/GoogleSignIn/GoogleSignIn";
+import { Slide, toast } from "react-toastify";
 
 const SignIn = () => {
 
@@ -22,28 +22,38 @@ const SignIn = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result)
-                return (
-                    Swal.fire(
-                        'Login Successfully!'
-                    ),
-                    e.target.reset(),
+                toast.success('SignIn Successfully!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: 1,
+                    theme: "light",
+                    transition: Slide,
+                });
+                e.target.reset(),
                     navigate('/')
-                )
 
             })
             .catch(error => {
-                console.log(error)
-                setSignInError(error.message)
-                return (
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Try Again',
-                        text: 'Can Not LogIn',
-                        footer: (signInError)
-                    })
-                )
+                console.log(error);
+                setSignInError(error.message);
 
-            })
+                // Show toast error
+                toast.error(`Can Not SignIn: ${signInError}`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: 1,
+                    theme: "light",
+                    transition: Slide,
+                });
+            });
     }
 
     return (

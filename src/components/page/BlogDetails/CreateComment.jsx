@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import { useState } from "react";
-import Swal from 'sweetalert2';
 import ShowComments from './ShowComments';
 import useUsers from '../../../hooks/useUsers';
-// import useComment from './../../../hooks/useComment';
 import useCommentsByid from '../../../hooks/useCommentsByBlogId';
+import { Slide, toast } from 'react-toastify';
 
 const CreateComment = ({ id, blog_Email }) => {
 
@@ -27,13 +26,17 @@ const CreateComment = ({ id, blog_Email }) => {
         // currentUser cannot comment own blog
         if (currentUser?.email === blog_Email) {
             setisButtonDisabled(true)
-            return (
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Try Again',
-                    text: 'Sorry, You cannot comment in your own blog',
-                })
-            )
+            toast.info('You cannot comment on your own blog.', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: 1,
+                theme: "light",
+                transition: Slide,
+            });
         } else {
             //create comment to backend api
             fetch('https://blog-server-side-ochre.vercel.app/comments', {
@@ -47,9 +50,17 @@ const CreateComment = ({ id, blog_Email }) => {
                 .then(data => {
                     console.log(data)
                     if (data.insertedId) {
-                        Swal.fire(
-                            'Successfully add comment'
-                        )
+                        toast.success('Comment added successfully!', {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: true,
+                            closeOnClick: false,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: 1,
+                            theme: "light",
+                            transition: Slide,
+                        });
                     }
                 })
         }

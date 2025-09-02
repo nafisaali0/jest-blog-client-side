@@ -1,40 +1,40 @@
-import Swal from "sweetalert2";
 import useUsers from "../../../hooks/useUsers";
 import { PropTypes } from 'prop-types';
 import useFollowers from "../../../hooks/useFollowers";
 import { useEffect, useState } from "react";
 import useBloggerUsers from "../../../hooks/useBloggerUsers";
+import { Slide, toast } from "react-toastify";
 
 const FollowFunctionality = ({ bloggerEmail }) => {
 
     const [bloggerUsers] = useBloggerUsers();
     const [followers] = useFollowers();
     const [users] = useUsers();
-    const user = users.length > 0 ? users[0] : null;
+    const user = users?.length > 0 ? users[0] : null;
     const [isFollowing, setIsFollowing] = useState(false);
 
-    const isCurrentUserBlogger = bloggerUsers.some(b => b.email === user?.email);
+    const isCurrentUserBlogger = bloggerUsers?.some(b => b?.email === user?.email);
 
     useEffect(() => {
         if (user && followers) {
-            const following = followers.some(
-                f => f.email === user.email && f.followersEmail === bloggerEmail
+            const following = followers?.some(
+                f => f?.email === user?.email && f?.followersEmail === bloggerEmail
             );
             setIsFollowing(following);
         }
     }, [followers, user, bloggerEmail]);
 
     const handleFollow = async () => {
-        const bloggerInfo = bloggerUsers.find(b => b?.email === bloggerEmail);
+        const bloggerInfo = bloggerUsers?.find(b => b?.email === bloggerEmail);
         if (!bloggerInfo) return;
 
         const followingBloggerInfo = {
-            followersName: bloggerInfo.name,
-            followersEmail: bloggerInfo.email,
-            followersImage: bloggerInfo.photo,
-            name: user.name,
-            image: user.photo,
-            email: user.email,
+            followersName: bloggerInfo?.name,
+            followersEmail: bloggerInfo?.email,
+            followersImage: bloggerInfo?.photo,
+            name: user?.name,
+            image: user?.photo,
+            email: user?.email,
             follow: 1
         };
 
@@ -46,7 +46,17 @@ const FollowFunctionality = ({ bloggerEmail }) => {
             });
             const data = await response.json();
             if (data.insertedId) {
-                Swal.fire(`Following ${bloggerInfo.name}`);
+                toast.success(`Following ${bloggerInfo.name}`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: 1,
+                    theme: "light",
+                    transition: Slide,
+                });
                 setIsFollowing(true);
             }
         } catch (error) {
@@ -55,7 +65,7 @@ const FollowFunctionality = ({ bloggerEmail }) => {
     };
     const handleUnfollow = async () => {
         const followRecord = followers.find(
-            f => f.email === user.email && f.followersEmail === bloggerEmail
+            f => f?.email === user?.email && f?.followersEmail === bloggerEmail
         );
         if (!followRecord) return;
 
@@ -66,7 +76,17 @@ const FollowFunctionality = ({ bloggerEmail }) => {
             });
             const data = await response.json();
             if (data.deletedCount > 0) {
-                Swal.fire(`Unfollowed ${followRecord.followersName}`);
+                toast(`Unfollowed ${followRecord.followersName}`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: 1,
+                    theme: "light",
+                    transition: Slide,
+                });
                 setIsFollowing(false);
             }
         } catch (error) {

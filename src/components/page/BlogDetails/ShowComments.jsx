@@ -17,13 +17,13 @@ const ShowComments = ({ comment, refetch }) => {
                         </div>
                     </div>
                     <div className='font-semibold text-sm text-black'>
-                        <p>{comment.owner_name}</p>
-                        <p>{comment.comment}</p>
+                        <p>{comment?.owner_name}</p>
+                        <p>{comment?.comment}</p>
                     </div>
                 </div>
                 <div className='cursor-pointer'>
                     {
-                        user?.email === comment.owner_Email ?
+                        user?.email === comment?.owner_Email ?
                             <>
                                 <DeleteFunctionality
                                     _id={_id}

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import moment from 'moment';
-import Swal from "sweetalert2";
 import { useLoaderData } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useUsers from "../../../hooks/useUsers";
 import { FiEdit } from "react-icons/fi";
+import { Slide, toast } from "react-toastify";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hostion_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -14,7 +14,7 @@ const UpdateBlog = () => {
     const blogs = useLoaderData()
     const { _id, title, short_description, long_description, details_image, category } = blogs
     const [users] = useUsers();
-    const currentUser = users.length > 0 ? users[0] : {};
+    const currentUser = users?.length > 0 ? users[0] : {};
     const axiosPublic = useAxiosPublic();
     const [imagePreview, setImagePreview] = useState(details_image)
 
@@ -61,11 +61,17 @@ const UpdateBlog = () => {
             .then(data => {
                 console.log(data)
                 if (data.modifiedCount > 0) {
-                    Swal.fire(
-                        'Updated!',
-                        'Your blog has been Updated.',
-                        'success'
-                    )
+                    toast.success('Blog Updated Successfully!', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: true,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: 1,
+                        theme: "light",
+                        transition: Slide,
+                    });
                 }
 
             })
@@ -99,13 +105,13 @@ const UpdateBlog = () => {
                             <textarea type="text" name="title" defaultValue={title} placeholder="Title..." className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-xl text-black font-bold" />
                         </div>
                         <div>
-                            <textarea type="text" name="category" defaultValue={category} placeholder="Category" className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-md text-textSmallGray font-medium"/>
+                            <textarea type="text" name="category" defaultValue={category} placeholder="Category" className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-md text-textSmallGray font-medium" />
                         </div>
                         <div>
                             <textarea type="text" name="shortDes" defaultValue={short_description} placeholder="Write Your Short Description here.." className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-md text-textSmallGray font-medium" />
                         </div>
                         <div>
-                            <textarea type="text" name="longDes" defaultValue={long_description} placeholder="Write Your Long Description here.." className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-md text-textSmallGray font-medium"/>
+                            <textarea type="text" name="longDes" defaultValue={long_description} placeholder="Write Your Long Description here.." className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-md text-textSmallGray font-medium" />
                         </div>
                     </div>
                 </div>
