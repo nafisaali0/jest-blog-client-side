@@ -91,25 +91,25 @@ const AddBlog = () => {
                                     <div>
                                         <textarea
                                             placeholder="Title.."
-                                            type="text" name="title" value={formData.title} onChange={handleChange}
+                                            type="text" name="title" value={formData?.title} onChange={handleChange}
                                             className="resize-none w-full border-none focus:border-none bg-transparent text-xl focus:outline-none placeholder:text-textSmallGray text-black font-bold"
                                         ></textarea>
                                     </div>
                                     <div>
                                         <textarea
-                                            type="category" name="category" value={formData.category} onChange={handleChange} placeholder="Category"
+                                            type="category" name="category" value={formData?.category} onChange={handleChange} placeholder="Category"
                                             className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-md text-textSmallGray font-medium"
                                         ></textarea>
                                     </div>
                                     <div>
                                         <textarea
-                                            type="shortDes" name="shortDes" value={formData.shortDes} onChange={handleChange} placeholder="Write Your Short Description here.."
+                                            type="shortDes" name="shortDes" value={formData?.shortDes} onChange={handleChange} placeholder="Write Your Short Description here.."
                                             className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-md text-textSmallGray font-medium"
                                         ></textarea>
                                     </div>
                                     <div>
                                         <textarea
-                                            type="longDes" name="longDes" value={formData.longDes} onChange={handleChange} placeholder="Write Your Long Description here.."
+                                            type="longDes" name="longDes" value={formData?.longDes} onChange={handleChange} placeholder="Write Your Long Description here.."
                                             className="resize-none w-full border-none focus:border-none bg-transparent focus:outline-none text-md text-textSmallGray font-medium"
                                         ></textarea>
                                     </div>
@@ -134,13 +134,13 @@ const AddBlog = () => {
                                     <h1 type="text" name="title" placeholder="Title.." className="text-xl text-black font-bold placeholder:text-textSmallGray">{formData.title}</h1>
                                 </div>
                                 <div>
-                                    <p className="text-md text-textSmallGray font-medium">{formData.category}</p>
+                                    <p className="text-md text-textSmallGray font-medium">{formData?.category}</p>
                                 </div>
                                 <div>
-                                    <p className="text-md text-textSmallGray font-medium">{formData.shortDes}</p>
+                                    <p className="text-md text-textSmallGray font-medium">{formData?.shortDes}</p>
                                 </div>
                                 <div>
-                                    <p className="text-md text-textSmallGray font-medium">{formData.longDes}</p>
+                                    <p className="text-md text-textSmallGray font-medium">{formData?.longDes}</p>
                                 </div>
                             </div>
                         </div>

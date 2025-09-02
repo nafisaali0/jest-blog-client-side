@@ -8,7 +8,7 @@ const useTotalFollower = () => {
     const { data: totalFollower = [], isPending: loading, refetch } = useQuery({
         queryKey: ['totalFollower'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/followers`);
+            const res = await axiosPublic?.get(`/followers`);
             return res.data
         }
     })

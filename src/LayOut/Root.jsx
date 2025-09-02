@@ -5,8 +5,8 @@ import Footer from './../components/shared/Footer/Footer';
 const Root = () => {
     
     const location = useLocation();
-    const noFooter = location.pathname.includes('signin') || location.pathname.includes('signup') || location.pathname.includes('loader');
-    const noNavbar = location.pathname.includes('signin') || location.pathname.includes('signup');
+    const noFooter = location?.pathname.includes('signin') || location.pathname.includes('signup') || location.pathname.includes('loader');
+    const noNavbar = location?.pathname.includes('signin') || location.pathname.includes('signup') || location.pathname.includes('loader');
 
     return (
         <>

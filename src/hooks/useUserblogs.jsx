@@ -13,7 +13,7 @@ const useUserblogs = () => {
     useEffect(() => {
         if (blogs && userInfo?.email) {
             const bloggerBlogs = blogs.filter(
-                (blogger) => blogger?.owner_Email === userInfo.email
+                (blogger) => blogger?.owner_Email === userInfo?.email
             );
             setUserBlogs(bloggerBlogs);
         }

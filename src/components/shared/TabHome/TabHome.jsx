@@ -55,14 +55,14 @@ const TabHome = () => {
 
     // new:Top blog, that only give top comments blog.
     useEffect(() => {
-        if (!blogs.length || !comments.length) return;
+        if (!blogs?.length || !comments?.length) return;
 
         const sorted = [...blogs]
             .map(blog => ({
                 ...blog,
-                commentCount: comments.filter(c => c.blog_id === blog._id).length,
+                commentCount: comments?.filter(c => c?.blog_id === blog?._id).length,
             }))
-            .sort((a, b) => b.commentCount - a.commentCount)
+            .sort((a, b) => b?.commentCount - a?.commentCount)
             .slice(0, 5);
 
         setSortedBlogs(sorted);
@@ -93,22 +93,22 @@ const TabHome = () => {
                     <TabPanel>
                         <div className="grid gap-5">
                             {
-                                blogs.slice(0, displayCount).map(blog =>
+                                blogs?.slice(0, displayCount).map(blog =>
                                     <BlogsShow
-                                        key={blog._id}
+                                        key={blog?._id}
                                         blog={blog}>
                                     </BlogsShow>
                                 )
                             }
                         </div>
-                        {displayCount <= blogs.length &&
+                        {displayCount <= blogs?.length &&
                             <button className="buttonView mt-4 font-semibold" onClick={handleSeeAll}>View More</button>
                         }
                     </TabPanel>
                     <TabPanel>
                         <div className="grid gap-5">
                             {
-                                recentBlogs.slice(0, displayCountSix).map(blog =>
+                                recentBlogs?.slice(0, displayCountSix).map(blog =>
                                     <ShowRecentBlog
                                         key={blog._id}
                                         blog={blog}>
@@ -123,7 +123,7 @@ const TabHome = () => {
                     <TabPanel>
                         <div className="grid gap-5">
                             {
-                                sortedBlogs.map(blog =>
+                                sortedBlogs?.map(blog =>
                                     <ShowTopBlogs
                                         key={blog._id}
                                         blog={blog}>

@@ -11,7 +11,7 @@ const useLikes = () => {
     const { data: initialLikes = [], isPending: loading, refetch } = useQuery({
         queryKey: ['initialLikes', user?.email],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/likes?email=${user.email}`);
+            const res = await axiosPublic?.get(`/likes?email=${user?.email}`);
             return res.data
         }
     })

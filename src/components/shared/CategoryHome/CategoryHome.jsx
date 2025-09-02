@@ -9,8 +9,8 @@ const CategoryHome = () => {
     const [blogs, loading] = useBlogs();
 
     useEffect(() => {
-        if (!loading && blogs.length > 0) {
-            const categories = [...new Set(blogs.map(blog => blog.category))];
+        if (!loading && blogs?.length > 0) {
+            const categories = [...new Set(blogs?.map(blog => blog?.category))];
             setUniqueCategories(categories);
         }
     }, [blogs, loading]);
@@ -23,7 +23,7 @@ const CategoryHome = () => {
             <div className="w-full">
                 <h1 className="text-xl font-bold text-black my-5">Category</h1>
                 <div className="flex flex-wrap gap-4 lg:gap-2">
-                    {uniqueCategories.slice(0, displayCount).map(category => (
+                    {uniqueCategories?.slice(0, displayCount)?.map(category => (
                         <>
                             <Link to={`/blogs/category/${category}`}>
                                 <button key={category} className="buttonCategory">
@@ -35,7 +35,7 @@ const CategoryHome = () => {
                 </div>
                 <div>
                     {
-                        uniqueCategories.length > 3 && displayCount < uniqueCategories.length &&
+                        uniqueCategories?.length > 3 && displayCount < uniqueCategories?.length &&
                         <button className="buttonView mt-4 font-semibold" onClick={handleSeeAll}>View More</button>
                     }
                 </div>

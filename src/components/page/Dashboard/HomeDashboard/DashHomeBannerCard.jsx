@@ -37,9 +37,9 @@ const DashHomeBannerCard = () => {
         let totalLikes = 0;
         let blogLikes = 0;
         const countTotalLike = () => {
-            userBlogs.forEach(blog => {
-                blogLikes = likes.filter(like => like.blog_id === blog._id)
-                totalLikes += blogLikes.length;
+            userBlogs?.forEach(blog => {
+                blogLikes = likes?.filter(like => like?.blog_id === blog?._id)
+                totalLikes += blogLikes?.length;
             });
             setCountLikeBlogs(totalLikes);
         };
@@ -64,7 +64,7 @@ const DashHomeBannerCard = () => {
                                 <RiBloggerLine />
                             </div>
                             <div className="text-black text-4xl font-bold">
-                                {userBlogs.length}
+                                {userBlogs?.length}
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,7 @@ const DashHomeBannerCard = () => {
                                 <RiUserFollowLine />
                             </div>
                             <div className="text-black text-4xl font-bold">
-                                {followers.length}
+                                {followers?.length}
                             </div>
                         </div>
                     </div>

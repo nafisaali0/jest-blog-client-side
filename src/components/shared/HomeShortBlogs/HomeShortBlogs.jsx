@@ -14,9 +14,9 @@ const HomeShortBlogs = () => {
     const [blogs] = useBlogs();
     const [shortBlogs, setShortBlogs] = useState([])
     useEffect(() => {
-        const sortload = blogs.sort((a, b) =>
+        const sortload = blogs?.sort((a, b) =>
             //in below sorting based on assending order 
-            a.long_description.length - b.long_description.length
+            a?.long_description.length - b?.long_description.length
         );
         setShortBlogs(sortload)
     }, [blogs])
@@ -51,7 +51,7 @@ const HomeShortBlogs = () => {
                             modules={[Autoplay, Pagination]}
                             className="mySwiper"
                         >
-                            {shortBlogs.slice(0, 4).map((blog, index) => (
+                            {shortBlogs?.slice(0, 4)?.map((blog, index) => (
                                 <SwiperSlide key={index}>
                                     <div
                                         className="relative hero h-[500px] bg-no-repeat rounded-xl" style={{ backgroundImage: `url(${blog.details_image})` }}
@@ -63,10 +63,10 @@ const HomeShortBlogs = () => {
                                         data-aos-mirror="true">
                                         <div className="hero-overlay bg-black bg-opacity-50 rounded-xl"></div>
                                         <div className="card-body absolute w-full bottom-8 left-0 md:bottom-12 md:left-12 text-white">
-                                            <h2 className="font-bold text-xl">{blog.category}</h2>
-                                            <p className="text-xl font-semibold">{blog.title}</p>
+                                            <h2 className="font-bold text-xl">{blog?.category}</h2>
+                                            <p className="text-xl font-semibold">{blog?.title}</p>
                                             <div className="flex justify-start items-start">
-                                                <Link to={`/blogdetails/${blog._id}`} target="_blank">
+                                                <Link to={`/blogdetails/${blog?._id}`} target="_blank">
                                                     <button className="py-2 px-4 font-semibold rounded border-primaryColor bg-primaryColor text-white hover:bg-primaryHover flex justify-center items-center gap-1">
                                                         <span>Details</span>
                                                         <svg
@@ -122,16 +122,16 @@ const HomeShortBlogs = () => {
                                         data-aos-easing="ease-in-out"
                                         data-aos-mirror="true">
                                         <div className="relative">
-                                            <figure><img className="w-full h-[208px] rounded-t-xl" src={blog.details_image} alt="Shoes" /></figure>
+                                            <figure><img className="w-full h-[208px] rounded-t-xl" src={blog?.details_image} alt="Shoes" /></figure>
                                         </div>
                                         <div className="absolute bottom-36 left-0">
-                                            <span className="bg-textSmallGray text-white text-sm font-medium px-3 py-1 border-1 border-textSmallGray rounded-sm">{blog.category}</span>
+                                            <span className="bg-textSmallGray text-white text-sm font-medium px-3 py-1 border-1 border-textSmallGray rounded-sm">{blog?.category}</span>
                                         </div>
                                         <div className="p-5 mb-3">
-                                            <Link to={`/blogdetails/${blog._id}`} target="_blank">
-                                                <h1 className="text-lg font-bold text-black">{blog.title}</h1>
+                                            <Link to={`/blogdetails/${blog?._id}`} target="_blank">
+                                                <h1 className="text-lg font-bold text-black">{blog?.title}</h1>
                                             </Link>
-                                            <p className="text-sm font-semibold text-textSmallGray">{blog.date}</p>
+                                            <p className="text-sm font-semibold text-textSmallGray">{blog?.date}</p>
                                         </div>
                                     </div>
                                 </SwiperSlide>

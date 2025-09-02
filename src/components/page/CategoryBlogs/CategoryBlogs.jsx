@@ -53,7 +53,7 @@ const CategoryBlogs = () => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <p className="text-sm font-medium text-black">{blog.owner_name}</p>
+                                                <p className="text-sm font-medium text-black">{blog?.owner_name}</p>
                                             </div>
                                         </div>
                                         <Link to={`/blogdetails/${blog?._id}`}>

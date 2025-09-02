@@ -32,7 +32,7 @@ const ShowProfile = () => {
                 data-aos-mirror="false"
                 data-aos-easing="ease-in">
                 {
-                    users.map(userProfile =>
+                    users?.map(userProfile =>
                         <>
                             <section className="w-full overflow-hidden dark:bg-mainTheme rounded-xl border border-borderColour">
                                 <div className="w-full mx-auto">
@@ -56,12 +56,12 @@ const ShowProfile = () => {
                                     </div>
                                     <div
                                         className="lg:w-[40%] md:w-[94%] w-[92%] mx-auto flex flex-col gap-4 justify-center items-center relative lg:-top-[6rem] md:-top-[4rem] -top-[2.2rem]">
-                                        <h1 className="text-center text-black font-bold text-xl">{userProfile.name}</h1>
-                                        <p className="w-full text-textSmallGray text-md font-medium text-center">{userProfile.email}</p>
+                                        <h1 className="text-center text-black font-bold text-xl">{userProfile?.name}</h1>
+                                        <p className="w-full text-textSmallGray text-md font-medium text-center">{userProfile?.email}</p>
                                         {
                                             userProfile?.bio ?
                                                 <>
-                                                    <p className="w-full text-textSmallGray text-md text-pretty text-center">{userProfile.bio}</p>
+                                                    <p className="w-full text-textSmallGray text-md text-pretty text-center">{userProfile?.bio}</p>
                                                 </>
                                                 :
                                                 <>
@@ -73,7 +73,7 @@ const ShowProfile = () => {
                                             {
                                                 userProfile?.github ?
                                                     <>
-                                                        <a href={userProfile.github}>
+                                                        <a href={userProfile?.github}>
                                                             <div className="p-2">
                                                                 <svg
                                                                     className="w-8 h-8 text-white cursor-pointer"
@@ -98,7 +98,7 @@ const ShowProfile = () => {
                                             {
                                                 userProfile?.linkedin ?
                                                     <>
-                                                        <a href={userProfile.linkedin}>
+                                                        <a href={userProfile?.linkedin}>
                                                             <div data-title="LinkedIn" className="p-2">
                                                                 <svg className="w-8 h-8 text-white cursor-pointer" aria-hidden="true"
                                                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -114,7 +114,7 @@ const ShowProfile = () => {
                                             {
                                                 userProfile?.protfolio ?
                                                     <>
-                                                        <a href={userProfile.protfolio}>
+                                                        <a href={userProfile?.protfolio}>
                                                             <div className="p-2">
                                                                 <svg
                                                                     className="w-8 h-8 text-white cursor-pointer"
@@ -130,7 +130,7 @@ const ShowProfile = () => {
                                         </div>
                                         <div className="w-full mx-auto  flex justify-center text-textSmallGray text-md text-pretty sm:text-center text-justify gap-2 items-center">
                                             <span><CiCalendarDate /></span>
-                                            <h1>{userProfile.date}</h1>
+                                            <h1>{userProfile?.date}</h1>
                                         </div>
                                     </div>
                                 </div>

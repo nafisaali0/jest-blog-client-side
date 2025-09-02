@@ -9,9 +9,9 @@ const FeatureBlog = () => {
 
 
     useEffect(() => {
-        const sortload = blog.sort((a, b) =>
+        const sortload = blog?.sort((a, b) =>
             // in below sorting based on decending order
-            b.long_description.length - a.long_description.length
+            b?.long_description.length - a?.long_description.length
             //in below sorting based on assending order (small to large)
             // a.long_description.length - b.long_description.length
         );

@@ -7,7 +7,7 @@ const useComment = () => {
     const { data: comments = [], isPending: loading, refetch } = useQuery({
         queryKey: ['comments'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/comments');
+            const res = await axiosPublic?.get('/comments');
             return res.data
         }
     })

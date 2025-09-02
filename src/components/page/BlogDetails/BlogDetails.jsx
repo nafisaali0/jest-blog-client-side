@@ -24,7 +24,7 @@ const BlogDetails = () => {
                     <div className="text-5xl font-bold text-black">
                         <h1>{title}</h1>
                     </div>
-                    <div className="flex flex-row gap-2 items-center px-3 py-7 border-b-2 border-borderColour drop-shadow-sm">
+                    <div className="flex flex-row gap-2 items-center px-3 py-5 border-b-2 border-borderColour drop-shadow-sm">
                         <div className="avatar">
                             <div className="w-8 rounded">
                                 <img src={owner_image} />
@@ -40,7 +40,7 @@ const BlogDetails = () => {
                         </div>
                         <div className="text-sm font-semibold text-textSmallGray">. {date}</div>
                     </div>
-                    <div className="flex flex-row justify-between items-center px-3 py-7 border-b-2 border-borderColour drop-shadow-sm">
+                    <div className="flex flex-row justify-between items-center px-3 py-5 border-b-2 border-borderColour drop-shadow-sm">
                         <div className="flex flex-row gap-2 items-center">
                             <div className="flex justify-center space-x-1">
                                 <LikeFunctionality id={_id}/>

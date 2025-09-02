@@ -11,7 +11,7 @@ const useFollowers = () => {
     const { data: followers = [], isPending: loading, refetch } = useQuery({
         queryKey: ['followers',user?.email],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/followers?email=${user.email}`);
+            const res = await axiosPublic?.get(`/followers?email=${user?.email}`);
             return res.data
         }
     })

@@ -16,9 +16,9 @@ const HomeFeaturesBlog = () => {
     }, [])
 
     useEffect(() => {
-        const sortload = blogs.sort((a, b) =>
+        const sortload = blogs?.sort((a, b) =>
             // in below sorting based on decending order
-            b.long_description.length - a.long_description.length
+            b?.long_description.length - a?.long_description?.length
         );
         setLongBlogs(sortload)
     }, [blogs])
@@ -30,20 +30,20 @@ const HomeFeaturesBlog = () => {
                 <p className='text-sm text-textSmallGray font-bold'>Long Blogs</p>
                 <div className="flex flex-col gap-5 my-5">
                     {
-                        longBlogs.slice(0, 3).map(saveBlogs =>
+                        longBlogs?.slice(0, 3)?.map(saveBlogs =>
                             <>
                                 <div className="w-full border border-borderColour bg-mainTheme rounded-xl shadow-lg">
                                     <div className="md:flex">
                                         <div className="md:shrink-0">
-                                            <img src={saveBlogs.details_image} className="h-full w-full object-cover lg:w-40"/>
+                                            <img src={saveBlogs?.details_image} className="h-full w-full object-cover lg:w-40"/>
                                         </div>
                                         <div className="p-2 space-y-2">
                                             <div className="flex items-center gap-1">
                                                 <BiSolidCategory title="category" className="text-textSmallGray" style={{ width: '15px', height: '15px' }} />
-                                                <span className="text-sm text-textSmallGray font-medium">{saveBlogs.category}</span>
+                                                <span className="text-sm text-textSmallGray font-medium">{saveBlogs?.category}</span>
                                             </div>
-                                            <Link to={`/blogdetails/${saveBlogs._id}`} className="block lg:text-md font-bold text-black hover:underline">
-                                                {saveBlogs.title}
+                                            <Link to={`/blogdetails/${saveBlogs?._id}`} className="block lg:text-md font-bold text-black hover:underline">
+                                                {saveBlogs?.title}
                                             </Link>
                                         </div>
                                     </div>

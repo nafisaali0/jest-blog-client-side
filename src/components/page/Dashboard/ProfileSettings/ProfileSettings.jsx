@@ -80,7 +80,7 @@ const ProfileSettings = () => {
                 className="bg-mainTheme rounded-xl p-6">
                 <div className="my-5">
                     {
-                        users.map(currentUser =>
+                        users?.map(currentUser =>
                             <>
                                 <form onSubmit={(e) => handleUpdateProfile(e, currentUser?._id)}>
                                     <div className="flex items-center space-x-8 mb-5">

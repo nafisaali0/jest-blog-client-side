@@ -22,7 +22,7 @@ const BloggerUser = () => {
                 <h1 className="text-xl font-bold text-black my-5">Blogger</h1>
                 <div className="grid gap-5">
                     {
-                        bloggerUsers?.slice(0, displayCount).map(blog =>
+                        bloggerUsers?.slice(0, displayCount)?.map(blog =>
                             <>
                                 <div
                                     className="w-full bg-mainTheme relative shadow-lg overflow-hidden hover:shadow-xl group rounded-xl p-5 transition-all duration-500 transform">
@@ -33,7 +33,7 @@ const BloggerUser = () => {
 
                                             {
                                                 currentUser?.email !== blog?.email ?
-                                                    <Link className='text-xm font-bold' to={`/profile-blogger/${encodeURIComponent(blog.email)}`}>
+                                                    <Link className='text-xm font-bold' to={`/profile-blogger/${encodeURIComponent(blog?.email)}`}>
                                                         <h1 className="text-black font-bold">
                                                             {blog?.name}
                                                         </h1>

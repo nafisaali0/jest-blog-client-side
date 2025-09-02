@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import useAllUsers from "../../../hooks/useAllUsers";
 import { CiCalendarDate } from "react-icons/ci";
+import Loader from "../../shared/Loader/Loader";
 
 const ProfileBlogger = () => {
     const { email } = useParams();
@@ -9,8 +10,11 @@ const ProfileBlogger = () => {
     const profileBlogger = allUsers?.find(user => user?.email === decodedEmail);
 
     if (!profileBlogger) {
-        return <p>Loading user details...</p>;
+        return <Loader />;
     }
+    // if (!profileBlogger) {
+    //     return <p>Loading user details...</p>;
+    // }
     return (
         <>
             <div

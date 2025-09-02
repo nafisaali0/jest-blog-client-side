@@ -8,7 +8,7 @@ const useAllUsers = () => {
     const { data: allUsers = [], isPending: loading, refetch } = useQuery({
         queryKey: ['allusers'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/users');
+            const res = await axiosPublic?.get('/users');
             return res.data
         }
     })

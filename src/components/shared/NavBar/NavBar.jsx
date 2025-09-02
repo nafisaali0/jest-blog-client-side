@@ -46,7 +46,7 @@ const NavBar = () => {
                                 <>
                                     <div className="hidden md:flex mx-3">
                                         {
-                                            location.pathname !== '/addblog' ?
+                                            location?.pathname !== '/addblog' ?
                                                 <button className="buttonPrimary">
                                                     <span><Link to={"/addblog"}>Create Blog</Link></span>
                                                 </button>
