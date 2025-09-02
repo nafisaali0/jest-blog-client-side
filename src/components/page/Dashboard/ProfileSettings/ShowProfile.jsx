@@ -12,7 +12,7 @@ const ShowProfile = () => {
     const [followers] = useFollowers();
     const [followed, setFollowed] = useState([]);
     const currentUser = users?.length > 0 ? users[0] : null;
-    
+
     useEffect(() => {
         if (currentUser && followers) {
             const checkFollowers = followers.filter(
@@ -25,7 +25,12 @@ const ShowProfile = () => {
     return (
         <>
             {/* user profile */}
-            <div>
+            <div
+                data-aos="fade-down"
+                data-aos-offset="200"
+                data-aos-duration="3000"
+                data-aos-mirror="false"
+                data-aos-easing="ease-in">
                 {
                     users.map(userProfile =>
                         <>
@@ -136,7 +141,13 @@ const ShowProfile = () => {
                 }
             </div>
             {/* followers */}
-            <div className="bg-mainTheme border border-borderColour rounded-xl px-5 py-10 mt-8">
+            <div
+                data-aos="fade-left"
+                data-aos-offset="200"
+                data-aos-duration="3000"
+                data-aos-mirror="false"
+                data-aos-easing="ease-in"
+                className="bg-mainTheme border border-borderColour rounded-xl px-5 py-10 mt-8">
                 <h1 className="text-xl font-bold text-black mb-10">Followers</h1>
                 {
                     followed?.length === 0 ?

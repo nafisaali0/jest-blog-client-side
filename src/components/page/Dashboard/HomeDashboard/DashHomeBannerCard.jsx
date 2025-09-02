@@ -48,7 +48,13 @@ const DashHomeBannerCard = () => {
 
     return (
         <>
-            <div className="flex justify-start items-start">
+            <div
+                data-aos="fade-down"
+                data-aos-offset="500"
+                data-aos-duration="3000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                className="flex justify-start items-start">
                 <div className="grid lg:grid-cols-4 grid-cols-2 md:gap-3 gap-1">
                     {/* total blog */}
                     <div className="bg-mainTheme rounded-xl border border-borderColour px-5 py-3 lg:w-72 md:w-60 ">

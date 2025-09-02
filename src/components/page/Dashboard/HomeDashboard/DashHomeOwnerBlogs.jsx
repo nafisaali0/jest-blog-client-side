@@ -11,7 +11,13 @@ const DashHomeOwnerBlogs = () => {
 
     return (
         <>
-            <div className="bg-mainTheme border border-borderColour rounded-xl px-5 py-10">
+            <div
+                data-aos="fade-left"
+                data-aos-offset="200"
+                data-aos-duration="3000"
+                data-aos-mirror="false"                
+                data-aos-easing="ease-in"
+                className="bg-mainTheme border border-borderColour rounded-xl px-5 py-10">
                 <h1 className="text-xl font-bold text-black mb-5">Your Blogs</h1>
                 <div>
                     {

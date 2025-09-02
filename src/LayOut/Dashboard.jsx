@@ -7,8 +7,15 @@ const Dashboard = () => {
     return (
         <>
             <div className="flex bg-mainTheme">
-                <div className={`w-16 md:w-60 fixed left-0 top-0 h-screen border-r border-borderColour
-                    ${isOpen ? "w-60 border-r border-borderColour bg-mainTheme z-50" : "w-16"} `}>
+                <div
+                    data-aos="fade-right"
+                    data-aos-offset="500"
+                    data-aos-duration="3000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-mirror="true"
+                    className={`w-16 md:w-60 fixed left-0 top-0 h-screen border-r border-borderColour
+                    ${isOpen ? "w-60 border-r border-borderColour bg-mainTheme z-50" : "w-16"} `}
+                >
                     <NavDashboard
                         isOpen={isOpen}
                         setIsOpen={setIsOpen}

@@ -71,7 +71,13 @@ const ProfileSettings = () => {
 
     return (
         <>
-            <div className="bg-mainTheme rounded-xl p-6">
+            <div
+                data-aos="fade-left"
+                data-aos-offset="200"
+                data-aos-duration="3000"
+                data-aos-mirror="false"
+                data-aos-easing="ease-in"
+                className="bg-mainTheme rounded-xl p-6">
                 <div className="my-5">
                     {
                         users.map(currentUser =>

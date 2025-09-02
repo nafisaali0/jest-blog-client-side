@@ -8,7 +8,13 @@ const DashHomeBanner = () => {
     const { user } = useContext(AuthContext)
     return (
         <>
-            <div className="flex flex-col justify-start items-start px-5 py-3 space-y-1 bg-mainTheme rounded-xl">
+            <div
+                data-aos="fade-down"
+                data-aos-offset="500"
+                data-aos-duration="3000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                className="flex flex-col justify-start items-start px-5 py-3 space-y-1 bg-mainTheme rounded-xl">
                 <p className="text-sm font-medium text-textSmallGray">{moment().format("MMM DD YYYY")}</p>
                 {
                     user?.displayName ?
