@@ -28,16 +28,16 @@ const Footer = () => {
                         </div>
                         <div className='text-sm font-medium text-mainTheme'>
                             <h6 className="font-bold text-lg text-white">Pages</h6>
-                            <a href='https://blog-server-side-ochre.vercel.app/' className="link link-hover">Home</a>
-                            <a href='https://blog-server-side-ochre.vercel.app/addblog' className="link link-hover">Create Blogs</a>
-                            <a href='https://blog-server-side-ochre.vercel.app/wishlist' className="link link-hover">Reading List</a>
-                            <a href='https://blog-server-side-ochre.vercel.app/dashboard' className="link link-hover">Dashboard</a>
+                            <a href='/' className="link link-hover">Home</a>
+                            <a href='/addblog' className="link link-hover">Create Blogs</a>
+                            <a href='/wishlist' className="link link-hover">Reading List</a>
+                            <a href='/dashboard' className="link link-hover">Dashboard</a>
                         </div>
                         <div className='text-sm font-medium text-mainTheme'>
                             <h6 className="font-bold text-lg text-white">Pages</h6>
-                            <a href='https://blog-server-side-ochre.vercel.app/featureblog' className="link link-hover">Feature Blog</a>
-                            <a href='https://blog-server-side-ochre.vercel.app/dashboard/profile' className="link link-hover">User Profile</a>
-                            <a href='https://blog-server-side-ochre.vercel.app/dashboard/profile-setting' className="link link-hover">Settings</a>
+                            <a href='/featureblog' className="link link-hover">Feature Blog</a>
+                            <a href='/dashboard/profile' className="link link-hover">User Profile</a>
+                            <a href='/dashboard/profile-setting' className="link link-hover">Settings</a>
                         </div>
                         <div className='text-sm font-medium text-mainTheme'>
                             <h6 className="font-bold text-lg text-white">Solution</h6>
