@@ -19,7 +19,6 @@ const Home = () => {
             className='lg:col-span-2 w-full flex items-start flex-col'
             data-aos="fade-right"
             data-aos-offset="500"
-            // data-aos-once="false"
             data-aos-duration="3000"
             data-aos-easing="ease-in-out"
             data-aos-mirror="true">
@@ -29,7 +28,6 @@ const Home = () => {
             className="lg:col-span-1 flex items-stretch flex-col"
             data-aos="fade-left"
             data-aos-offset="200"
-            // data-aos-once="false"
             data-aos-duration="3000"
             data-aos-easing="ease-in-out"
             data-aos-mirror="true">
