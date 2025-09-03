@@ -14,7 +14,7 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
 
     const { user, logOut } = useContext(AuthContext)
     const [users] = useUsers();
-    const currentUser = users.length > 0 ? users[0] : {};
+    const currentUser = users?.length > 0 ? users[0] : {};
     const location = useLocation()
     const ifActive = (path) => location.pathname === path;
 

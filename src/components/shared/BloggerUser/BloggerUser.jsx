@@ -10,7 +10,7 @@ const BloggerUser = () => {
     const [bloggerUsers] = useBloggerUsers();
     const [displayCount, setDisplayCount] = useState(2);
     const [users] = useUsers();
-    const currentUser = users.length > 0 ? users[0] : {};
+    const currentUser = users?.length > 0 ? users[0] : {};
 
     const handleSeeAll = () => {
         setDisplayCount(displayCount + 3);

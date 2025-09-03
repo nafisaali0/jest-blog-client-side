@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+body {
+  font-family: "Lora", serif;
+}
+
+/* button style */
+
 /* primary button */
 .buttonPrimary {
   background: transparent;
@@ -90,10 +97,10 @@
 .buttonCategory {
   position: relative;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  box-shadow: 0 8px 10px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  padding-block: 0.5rem;
-  padding-inline: 1.25rem;
+  padding-block: 0.4rem;
+  padding-inline: 1rem;
   background-color: #ffffffe6;
   border-radius: 9999px;
   color: #000000;
@@ -101,8 +108,8 @@
   border: 2px solid #ffffff4d;
   outline: none;
   overflow: hidden;
-  font-size: 15px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .buttonCategory:hover {

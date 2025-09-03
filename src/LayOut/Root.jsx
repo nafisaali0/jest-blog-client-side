@@ -17,7 +17,7 @@ const Root = () => {
             setLoading(false);
         }, 2000);
 
-        return () => clearTimeout(timer); // cleanup
+        return () => clearTimeout(timer);
     }, []);
 
     if (loading) {
