@@ -117,28 +117,3 @@ CreateComment.propTypes = {
 };
 
 export default CreateComment;
-
-
-{/* <div className="form-control space-y-4">
-                    <label className="flex items-start space-x-3">
-                        <span className="flex-shrink-0">
-                            <img
-                                className="w-12 h-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 object-cover"
-                                src={currentUser.photo}
-                                alt="User avatar"
-                            />
-                        </span>
-                        <textarea
-                            rows={4}
-                            type="text"
-                            name="comment"
-                            placeholder="Write your thoughts here..."
-                            className="w-full rounded-xl p-3 outline-none"
-                        />
-                    </label>
-                    <div className="flex justify-end">
-                        <button className="btn bg-light_purple text-white hover:bg-hover_btn border-none px-6 py-2 rounded-full">
-                            POST
-                        </button>
-                    </div>
-                </div> */}

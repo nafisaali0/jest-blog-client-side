@@ -14,10 +14,7 @@ import {
 import { ToastContainer } from 'react-toastify';
 const queryClient = new QueryClient()
 
-
-
 AOS.init();
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

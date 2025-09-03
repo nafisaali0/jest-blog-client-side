@@ -8,9 +8,9 @@ const Network = () => {
                 className="hero h-[500px] my-16 rounded-xl"
                 style={{ backgroundImage: `url(${image1})` }}
                 data-aos="zoom-in"
-                data-aos-offset="500"
+                data-aos-offset="200"
                 data-aos-duration="3000"
-                data-aos-easing="ease-in-out"
+                data-aos-easing="ease-in"
                 data-aos-mirror="true"
             >
                 <div className="hero-overlay bg-black/50 bg-opacity-50 rounded-xl"></div>

@@ -11,7 +11,7 @@ const NavBar = () => {
 
     const { user, logOut } = useContext(AuthContext)
     const [users] = useUsers();
-    const currentUser = users.length > 0 ? users[0] : {};
+    const currentUser = users?.length > 0 ? users[0] : {};
 
     const handleLogOut = () => {
         logOut(user)

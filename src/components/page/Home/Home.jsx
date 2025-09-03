@@ -11,7 +11,8 @@ import useWishLIst from '../../../hooks/useWishList';
 const Home = () => {
 
   const [wishList] = useWishLIst();
-  
+
+
   return (
     <>
       <div className="max-w-[1300px] mx-auto overflow-hidden">

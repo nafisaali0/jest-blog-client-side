@@ -6,7 +6,6 @@ import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
 import BlogTotalComments from "../../Functionality/BlogTotalComments/BlogTotalComments";
 import useWishLIst from './../../../hooks/useWishList';
 
-
 const WishList = () => {
 
     const [wishList, refetch] = useWishLIst()
