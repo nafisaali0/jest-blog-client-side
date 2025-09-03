@@ -14,6 +14,7 @@ export default {
       white: " #ffff",
       textSmallGray: "#6B6B6B",
       mainTheme: "#ffffffE6",
+      iconRed:"#F40009",
     },
     extend: {},
   },
