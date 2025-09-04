@@ -1,28 +1,69 @@
-## Blog Web Application
-This project by react  + express js + mongo DB
+# JestBlog
 
-### Features : 
-1. Home
-2. Add Blog
-3. All Blogs
-4. Feature Blog
-5. WishList
-   
-### Explain about the feature of project : 
+**JestBlog** is a full-stack blog application that allows users to create, read, update, and delete blogs. It includes features such as **likes/unlikes**, **comments**, and a **wishlist/reading list**. Each user has a personalized **dashboard** that displays their total comments, likes, followers, and blogs. Users can also manage their profiles through profile settings.  
 
-1.In home page has 
-Category : you can show blog to click selected category , 
-Recent Blogs : in this section blogs are sorted by time and date, 
-Blogger(who added blog) : you can show all blogger you already add blog and you can follow,
-newsletter : you send your email you will get thank you pop up
-i use react skeleton blogger and recent blogs section and also to click recent blogs image you can see full image of unique blogs to create this help of react photo review. 
+🔗 **Live Demo:** [https://jestblog.netlify.app/](https://jestblog.netlify.app/)
 
-2. Add Blog  you can create new blog and each blog load in database which is connect to the server and show it in unique api called 'blogs'.
-  
-3. In All blogs page you will be show all blogs those are already created by user.you can search by blog titles and sort blog to click category. Category given in dropdown. you can go blogs details bage through details button and also can add unique blog to wishlist through wishlist button. In blogs details page you can show details about that blog which blog you selected. And you can comment. If you owner of the blog for that you cannot comment you can comment different blogger's blog. And comments are load in different database which is comment and you can show other user comments and you can delete your comment can't delete other user comment.
+---
 
-4.Feature Blog page you will be show blogs which blogs long_description are getter then other blog's. I mean all blogs are sorted in decending order based on blogs long_description. It presented in table. I use react-data-table here.
+## ✨ Features
 
-5.In WishList  you will be show your choosen blogs. you can see it and delete it also. it store in different database which in called wishlist .
+- 🔐 **Authentication & Profiles** – User login, registration, profile view & profile settings  
+- 📝 **Blog Management (CRUD)** – Create, read, update, and delete blogs  
+- 👍 **Like / Unlike** – Engage with blog posts  
+- 💬 **Comment System** – Add and manage comments on blogs  
+- 📚 **Wishlist / Reading List** – Save blogs for later reading  
+- 📊 **User Dashboard** – View stats (total comments, likes, followers, blogs)  
+- 📱 **Responsive Design** – Built with Tailwind CSS for a clean and adaptive UI  
 
-# Live LinK In Project: <a href="https://jestblog-blog-website.netlify.app/">JestBlog</a>
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+- React.js  
+- Tailwind CSS  
+- TanStack Query (React Query)  
+- Axios  
+
+**Backend:**
+- Node.js  
+- Express.js  
+- MongoDB  
+
+**Others:**
+- Custom React Hooks  
+- REST API  
+- Firebase  
+
+---
+
+## 📂 Project Structure
+
+```plaintext
+jest-blog/
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/          # Static assets (images, icons, etc.)
+│   ├── components/      # Reusable components
+│   │   └── Functionality/ # Feature-specific components
+│   ├── page/            # Page-level components (Home, Blog, etc.)
+│   ├── shared/          # Shared components (Navbar, Footer, etc.)
+│   ├── FireBase/        # Firebase config & auth logic
+│   ├── hooks/           # Custom React hooks
+│   ├── LayOut/          # Layout components (Dashboard, Main layout)
+│   ├── Providers/       # Context providers (AuthProvider)
+│   ├── Routes/          # React Router configuration
+│   ├── index.css        # Tailwind base styles
+│   └── main.jsx         # App entry point
+│
+├── .env.local           # Environment variables
+├── .eslintrc.cjs        # ESLint configuration
+├── .gitignore
+├── index.html           # Root HTML file
+├── package.json
+├── package-lock.json
+├── postcss.config.js
+├── README.md
+└── tailwind.config.js   # Tailwind configuration
