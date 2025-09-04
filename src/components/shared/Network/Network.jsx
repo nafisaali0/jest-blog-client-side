@@ -1,4 +1,4 @@
-import image1 from '../../../assets/image/network/image2.jpg'
+import image1 from '../../../assets/image/network/network.jpg'
 import { Link } from 'react-router-dom';
 
 const Network = () => {
@@ -11,7 +11,6 @@ const Network = () => {
                 data-aos-offset="200"
                 data-aos-duration="3000"
                 data-aos-easing="ease-in"
-                data-aos-mirror="true"
             >
                 <div className="hero-overlay bg-black/50 bg-opacity-50 rounded-xl"></div>
                 <div className="hero-content text-center">

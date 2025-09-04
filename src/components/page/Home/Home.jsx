@@ -12,7 +12,6 @@ const Home = () => {
 
   const [wishList] = useWishLIst();
 
-
   return (
     <>
       <div className="max-w-[1300px] mx-auto overflow-hidden">
@@ -20,10 +19,9 @@ const Home = () => {
           <div
             className='lg:col-span-2 w-full flex items-start flex-col'
             data-aos="fade-right"
-            data-aos-offset="500"
+            data-aos-offset="200"
             data-aos-duration="3000"
-            data-aos-easing="ease-in-out"
-            data-aos-mirror="true">
+            data-aos-easing="ease-in">
             <TabHome />
           </div>
           <div
@@ -31,7 +29,7 @@ const Home = () => {
             data-aos="fade-left"
             data-aos-offset="500"
             data-aos-duration="3000"
-            data-aos-easing="ease-in-out"
+            data-aos-easing="ease-in"
             data-aos-mirror="true">
             <CategoryHome />
             <BloggerUser />

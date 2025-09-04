@@ -28,10 +28,9 @@ const HomeShortBlogs = () => {
                     className="mb-10"
                     data-aos="fade-left"
                     data-aos-offset="200"
-                    data-aos-once="false"
                     data-aos-duration="3000"
-                    data-aos-easing="ease-in-out"
-                    data-aos-mirror="true">
+                    data-aos-easing="ease-in"
+                >
                     <h1 className="font-bold text-xl uppercase">Short Blogs</h1>
                     <p className="font-semibold text-lg text-textSmallGray capitalize my-3">Read quickly. Save time and gain knowledge.</p>
                 </div>
@@ -55,12 +54,13 @@ const HomeShortBlogs = () => {
                                 <SwiperSlide key={index}>
                                     <div
                                         className="relative hero h-[500px] bg-no-repeat rounded-xl" style={{ backgroundImage: `url(${blog.details_image})` }}
-                                        data-aos="fade-left"
-                                        data-aos-offset="200"
-                                        data-aos-once="false"
-                                        data-aos-duration="3000"
-                                        data-aos-easing="ease-in-out"
-                                        data-aos-mirror="true">
+                                    // data-aos="fade-left"
+                                    // data-aos-offset="200"
+                                    // data-aos-once="false"
+                                    // data-aos-duration="3000"
+                                    // data-aos-easing="ease-in-out"
+                                    // data-aos-mirror="true"
+                                    >
                                         <div className="hero-overlay bg-black bg-opacity-50 rounded-xl"></div>
                                         <div className="card-body absolute w-full bottom-8 left-0 md:bottom-12 md:left-12 text-white">
                                             <h2 className="font-bold text-xl">{blog?.category}</h2>
@@ -115,12 +115,12 @@ const HomeShortBlogs = () => {
                                 <SwiperSlide key={index}>
                                     <div
                                         className="card h-[350px] bg-mainTheme rounded-xl"
-                                        data-aos="fade-right"
-                                        data-aos-offset="200"
-                                        data-aos-once="false"
-                                        data-aos-duration="3000"
-                                        data-aos-easing="ease-in-out"
-                                        data-aos-mirror="true">
+                                    // data-aos="fade-right"
+                                    // data-aos-offset="200"
+                                    // data-aos-once="false"
+                                    // data-aos-duration="3000"
+                                    // data-aos-easing="ease-in"
+                                    >
                                         <div className="relative">
                                             <figure><img className="w-full h-[208px] rounded-t-xl" src={blog?.details_image} alt="Shoes" /></figure>
                                         </div>
