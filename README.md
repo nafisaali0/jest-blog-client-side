@@ -67,3 +67,72 @@ jest-blog/
 ├── postcss.config.js
 ├── README.md
 └── tailwind.config.js   # Tailwind configuration
+```
+## 🚀 Getting Started
+
+Follow these instructions to set up the project locally for development and testing.
+
+---
+
+## 📋 Prerequisites
+
+Before running the project, make sure you have:
+
+- **Node.js** (LTS recommended)  
+- **MongoDB** (local installation or MongoDB Atlas)  
+
+---
+
+## 📥 Installation
+
+1. **Clone the repository**:
+
+```bash
+git clone https://github.com/your-username/jestblog.git
+cd jestblog
+```
+
+2. **Install dependencies**:
+```npm install```
+
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env.local` file in the **root directory of the frontend project**:
+
+```env
+VITE_IMAGE_HOSTING_KEY=your_image_hosting_key
+```
+⚠️ The backend `.env` file contains database credentials. Check the backend repository for details.
+
+
+---
+
+
+ ## 🖥️ Backend Repository
+
+The backend for JestBlog is built with **Express.js** and **MongoDB**.  
+You can find it here: [JestBlog Backend](https://github.com/nafisaali0/jest-blog-server-side)
+
+
+---
+
+
+## ▶️ Run the Application
+
+Start the frontend development server:
+
+```bash
+npm run dev
+```
+
+---
+
+## 🌐 Development URLs
+
+- **Client:** [http://localhost:5173](http://localhost:5173)  
+- **Server:** [http://localhost:5000](http://localhost:5000)
+
+
