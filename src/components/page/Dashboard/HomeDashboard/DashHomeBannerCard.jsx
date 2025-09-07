@@ -38,7 +38,7 @@ const DashHomeBannerCard = () => {
         let blogLikes = 0;
         const countTotalLike = () => {
             userBlogs?.forEach(blog => {
-                blogLikes = likes?.filter(like => like?.blog_id === blog?._id)
+                blogLikes = likes?.filter(like => like?.blogId === blog?._id)
                 totalLikes += blogLikes?.length;
             });
             setCountLikeBlogs(totalLikes);

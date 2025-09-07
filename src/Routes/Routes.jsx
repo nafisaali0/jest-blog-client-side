@@ -17,51 +17,52 @@ import ProfileSettings from "../components/page/Dashboard/ProfileSettings/Profil
 import ShowProfile from "../components/page/Dashboard/ProfileSettings/ShowProfile";
 import Loader from "../components/shared/Loader/Loader";
 import ProfileBlogger from "../components/page/ProfileBlogger/ProfileBlogger";
+import LikeTesting from "../components/page/LikeTesting/LikeTesting";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Root/>,
-        errorElement: <ErrorPage/>,
+        element: <Root />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
-                element: <Home/>,
+                element: <Home />,
             },
             {
                 path: '/signin',
-                element: <SignIn/>
+                element: <SignIn />
             },
             {
                 path: '/signup',
-                element: <SignUp/>
+                element: <SignUp />
             },
             {
                 path: '/addblog',
-                element: <PrivateRoutes><AddBlog/></PrivateRoutes>
+                element: <PrivateRoutes><AddBlog /></PrivateRoutes>
             },
             {
                 path: '/blogdetails/:id',
-                element: <PrivateRoutes><BlogDetails/></PrivateRoutes>,
+                element: <PrivateRoutes><BlogDetails /></PrivateRoutes>,
                 loader: ({ params }) => fetch(`https://blog-server-side-ochre.vercel.app/blogs/${params.id}`)
             },
             {
                 path: '/update/:id',
-                element: <PrivateRoutes><UpdateBlog/></PrivateRoutes>,
+                element: <PrivateRoutes><UpdateBlog /></PrivateRoutes>,
                 loader: ({ params }) => fetch(`https://blog-server-side-ochre.vercel.app/blogs/${params.id}`)
             },
             {
                 path: '/wishlist',
-                element: <PrivateRoutes><WishList/></PrivateRoutes>,
+                element: <PrivateRoutes><WishList /></PrivateRoutes>,
             },
             {
                 path: '/featureblog',
-                element: <FeatureBlog/>,
+                element: <FeatureBlog />,
                 loader: () => fetch('https://blog-server-side-ochre.vercel.app/blogs')
             },
             {
                 path: '/blogs/category/:category',
-                element: <CategoryBlogs/>,
+                element: <CategoryBlogs />,
                 loader: ({ params }) => fetch(`https://blog-server-side-ochre.vercel.app/blogs/category/${params.category}`)
             },
             {
@@ -74,25 +75,29 @@ const router = createBrowserRouter([
             },
             {
                 path: '/loader',
-                element: <Loader/>
+                element: <Loader />
+            },
+            {
+                path: '/likeTesting',
+                element: <LikeTesting />
             },
         ],
     },
     {
         path: '/dashboard',
-        element: <PrivateRoutes><Dashboard/></PrivateRoutes>,
+        element: <PrivateRoutes><Dashboard /></PrivateRoutes>,
         children: [
             {
                 path: '/dashboard',
-                element: <PrivateRoutes><HomeDashboard/></PrivateRoutes>,
+                element: <PrivateRoutes><HomeDashboard /></PrivateRoutes>,
             },
             {
                 path: '/dashboard/profile-setting',
-                element: <PrivateRoutes><ProfileSettings/></PrivateRoutes>,
+                element: <PrivateRoutes><ProfileSettings /></PrivateRoutes>,
             },
             {
                 path: '/dashboard/profile',
-                element: <PrivateRoutes><ShowProfile/></PrivateRoutes>,
+                element: <PrivateRoutes><ShowProfile /></PrivateRoutes>,
             },
 
         ]
