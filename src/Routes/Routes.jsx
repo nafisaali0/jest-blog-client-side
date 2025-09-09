@@ -17,7 +17,6 @@ import ProfileSettings from "../components/page/Dashboard/ProfileSettings/Profil
 import ShowProfile from "../components/page/Dashboard/ProfileSettings/ShowProfile";
 import Loader from "../components/shared/Loader/Loader";
 import ProfileBlogger from "../components/page/ProfileBlogger/ProfileBlogger";
-import LikeTesting from "../components/page/LikeTesting/LikeTesting";
 
 const router = createBrowserRouter([
     {
@@ -76,10 +75,6 @@ const router = createBrowserRouter([
             {
                 path: '/loader',
                 element: <Loader />
-            },
-            {
-                path: '/likeTesting',
-                element: <LikeTesting />
             },
         ],
     },

@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import useComment from './../../../../hooks/useComment';
 import { RiBloggerLine, RiUserFollowLine } from "react-icons/ri";
 import useLikes from './../../../../hooks/useLikes';
-// import useUsers from "../../../../hooks/useUsers";
-// import useTotalFollower from "../../../../hooks/useTotalFollower";
 import { PiHeartBold } from "react-icons/pi";
 import { FaRegComment } from "react-icons/fa";
 import useUserblogs from "../../../../hooks/useUserblogs";
-import useFollowers from './../../../../hooks/useFollowers';
+import useTotalFollower from "../../../../hooks/useTotalFollower";
+import useUsers from "../../../../hooks/useUsers";
 
 const DashHomeBannerCard = () => {
 
@@ -16,7 +15,9 @@ const DashHomeBannerCard = () => {
     const [countCmtBlogs, setCountCmtBlogs] = useState([]);
     const [countLikeBlogs, setCountLikeBlogs] = useState([]);
     const [userBlogs] = useUserblogs();
-    const [followers] = useFollowers();
+    const [users] = useUsers();
+    const currentUser = users?.length > 0 ? users[0] : {};
+    const [totalFollower] = useTotalFollower();
 
     useEffect(() => {
         // Count total comments for the user's blogs
@@ -46,6 +47,10 @@ const DashHomeBannerCard = () => {
         countTotalLike();
     }, [userBlogs, likes]);
 
+    const userFollowersCount = totalFollower?.filter(
+        (follower) => follower?.followersEmail === currentUser?.email
+    )?.length || 0;
+    
     return (
         <>
             <div
@@ -100,7 +105,7 @@ const DashHomeBannerCard = () => {
                                 <RiUserFollowLine />
                             </div>
                             <div className="text-black text-4xl font-bold">
-                                {followers?.length}
+                                {userFollowersCount}
                             </div>
                         </div>
                     </div>

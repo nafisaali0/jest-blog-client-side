@@ -1,6 +1,5 @@
 import useUsers from "../../../../hooks/useUsers";
 import useFollowers from "../../../../hooks/useFollowers";
-import { useEffect, useState } from "react";
 import { CiCalendarDate } from "react-icons/ci";
 import FollowFunctionality from './../../../Functionality/FollowFunctionality/FollowFunctionality';
 import { Link } from 'react-router-dom';
@@ -10,17 +9,13 @@ const ShowProfile = () => {
 
     const [users] = useUsers();
     const [followers] = useFollowers();
-    const [followed, setFollowed] = useState([]);
-    const currentUser = users?.length > 0 ? users[0] : null;
-
-    useEffect(() => {
-        if (currentUser && followers) {
-            const checkFollowers = followers.filter(
-                f => f?.email === currentUser?.email
-            );
-            setFollowed(checkFollowers);
-        }
-    }, [followers, currentUser]);
+    //     if (currentUser && followers) {
+    //         const checkFollowers = followers.filter(
+    //             f => f?.email === currentUser?.email
+    //         );
+    //         setFollowed(checkFollowers);
+    //     }
+    // }, [followers, currentUser]);
 
     return (
         <>
@@ -150,7 +145,7 @@ const ShowProfile = () => {
                 className="bg-mainTheme border border-borderColour rounded-xl px-5 py-10 mt-8">
                 <h1 className="text-xl font-bold text-black mb-10">Followers</h1>
                 {
-                    followed?.length === 0 ?
+                    followers?.length === 0 ?
                         <>
                             <div className="my-20 flex flex-col justify-center items-center">
                                 <div>
@@ -163,7 +158,7 @@ const ShowProfile = () => {
                         <>
                             <div className="grid lg:grid-cols-4 grid-cols-1 gap-3">
                                 {
-                                    followed?.map((follower) => (
+                                    followers?.map((follower) => (
                                         <>
                                             <div className="bg-white rounded-xl shadow-xl p-8 lg:max-w-lg w-full  hover:shadow-bodyColor border border-borderColour">
                                                 <div className="flex items-center space-x-4">

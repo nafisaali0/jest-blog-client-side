@@ -4,10 +4,8 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import { BiSolidCategory } from "react-icons/bi";
 import { AiOutlineComment } from "react-icons/ai";
 import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
-// import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
-// import TotalLikes from "../../Functionality/LikeFunctionality/TotalLikes";
 import BlogTotalComments from './../../Functionality/BlogTotalComments/BlogTotalComments';
-import LikeTesting from "../../page/LikeTesting/LikeTesting";
+import LikeFunctionality from "../../Functionality/LikeFunctionality/LikeFunctionality";
 
 const BlogsShow = ({ blog }) => {
 
@@ -43,7 +41,7 @@ const BlogsShow = ({ blog }) => {
                         <div className="mt-auto flex flex-row justify-between items-end">
                             <div className="flex flex-1 flex-row space-x-3 item-center mt-5 self-end">
                                 <p className="text-sm text-textSmallGray font-medium md:block">{date}</p>
-                                <LikeTesting blogId={_id} />
+                                <LikeFunctionality blogId={_id} />
                                 <div className="flex justify-center space-x-1">
                                     <AiOutlineComment title="comments" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                                     <span className="text-sm text-textSmallGray font-medium ml-1">
