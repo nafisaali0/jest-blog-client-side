@@ -1,8 +1,6 @@
 import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { AiOutlineComment } from "react-icons/ai";
-// import BlogTotalComments from "../../shared/BlogTotalComments/BlogTotalComments";
 import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
-import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
 import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
 import BlogTotalComments from "../../Functionality/BlogTotalComments/BlogTotalComments";
 
@@ -63,12 +61,7 @@ const CategoryBlogs = () => {
                                         <div className="flex flex-row justify-between mt-5 self-end">
                                             <div className="flex flex-row space-x-2">
                                                 <p className="text-sm text-textSmallGray font-medium">{blog?.date}</p>
-                                                <div className="flex space-x-1">
-                                                    <LikeFunctionality id={blog?._id} />
-                                                    <span className="text-sm text-textSmallGray font-medium ml-1">
-                                                        <TotalLikes id={blog?._id} />
-                                                    </span>
-                                                </div>
+                                                <LikeFunctionality blogId={blog?._id}/>
                                                 <div className="flex space-x-1">
                                                     <AiOutlineComment title="comments" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                                                     <span className="text-sm text-textSmallGray font-medium ml-1">

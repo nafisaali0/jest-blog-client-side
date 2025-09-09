@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { AiOutlineComment } from 'react-icons/ai';
 import DeleteFunctionality from "../../Functionality/DeleteFunctionality/DeleteFunctionality";
 import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
-import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
 import BlogTotalComments from "../../Functionality/BlogTotalComments/BlogTotalComments";
 import useWishLIst from './../../../hooks/useWishList';
 
@@ -65,12 +64,7 @@ const WishList = () => {
                                                     <div className="flex flex-row justify-between mt-5 self-end">
                                                         <div className="flex flex-row space-x-2">
                                                             <p className="text-sm text-textSmallGray font-medium">{wishBlog.date}</p>
-                                                            <div className="flex space-x-1">
-                                                                <LikeFunctionality id={wishBlog?.blogId} />
-                                                                <span className="text-sm text-textSmallGray font-medium ml-1">
-                                                                    <TotalLikes id={wishBlog?.blogId} />
-                                                                </span>
-                                                            </div>
+                                                            <LikeFunctionality blogId={wishBlog?.blogId} />
                                                             <div className="flex space-x-1">
                                                                 <AiOutlineComment title="comments" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                                                                 <span className="text-sm text-textSmallGray font-medium ml-1">

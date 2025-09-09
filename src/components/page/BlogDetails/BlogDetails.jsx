@@ -4,7 +4,6 @@ import { BiSolidCategory } from "react-icons/bi";
 import { AiOutlineComment } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import SaveBlogsFunctionality from './../../Functionality/SaveBlogsFunctionality/SaveBlogsFunctionality';
-import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
 import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
 import BlogTotalComments from './../../Functionality/BlogTotalComments/BlogTotalComments';
 import FollowFunctionality from './../../Functionality/FollowFunctionality/FollowFunctionality';
@@ -47,12 +46,7 @@ const BlogDetails = () => {
                     </div>
                     <div className="flex flex-row justify-between items-center px-3 py-5 border-b-2 border-borderColour drop-shadow-sm">
                         <div className="flex flex-row gap-2 items-center">
-                            <div className="flex justify-center space-x-1">
-                                <LikeFunctionality id={_id} />
-                                <span className="text-sm text-textSmallGray font-medium ml-1">
-                                    <TotalLikes id={_id} />
-                                </span>
-                            </div>
+                            <LikeFunctionality blogId={_id} />
                             <div className="flex justify-center space-x-1">
                                 <AiOutlineComment title="comments" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                                 <span className="text-sm text-textSmallGray font-medium ml-1">

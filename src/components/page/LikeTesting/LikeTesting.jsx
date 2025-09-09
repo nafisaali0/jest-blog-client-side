@@ -1,6 +1,8 @@
 import useUsers from "../../../hooks/useUsers";
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { HiOutlineHeart } from "react-icons/hi";
+import { HiMiniHeart } from "react-icons/hi2";
 
 
 const LikeTesting = ({ blogId }) => {
@@ -12,7 +14,6 @@ const LikeTesting = ({ blogId }) => {
     const [liked, setLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(0);
 
-    // ✅ Load count + liked status
     useEffect(() => {
         if (!blogId || !userEmail) return;
 
@@ -25,7 +26,6 @@ const LikeTesting = ({ blogId }) => {
         fetchLikes();
     }, [blogId, userEmail, axiosPublic]);
 
-    // ✅ Toggle like/unlike
     const handleLike = async () => {
         if (!userEmail) {
             alert("Please login to like this post.");
@@ -39,11 +39,14 @@ const LikeTesting = ({ blogId }) => {
 
     return (
         <>
-            <div className="flex items-center space-x-2">
-                <button onClick={handleLike} className="text-2xl">
-                    {liked ? "❤️" : "🤍"}
-                </button>
-                <span>{likeCount}</span>
+            <div className="flex justify-center items-center space-x-1">
+                <div onClick={handleLike} className="text-2xl">
+                    {liked ?
+                        <div className="text-sm text-iconRed font-medium"><HiMiniHeart/></div>
+                        :
+                        <div className="text-sm text-textSmallGray font-medium"><HiOutlineHeart/></div>}
+                </div>
+                <span className="text-sm text-textSmallGray font-medium">{likeCount}</span>
             </div>
         </>
     )

@@ -6,7 +6,6 @@ import { BiSolidCategory } from "react-icons/bi";
 import { AiOutlineComment } from "react-icons/ai";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import LikeFunctionality from './../../Functionality/LikeFunctionality/LikeFunctionality';
-import TotalLikes from './../../Functionality/LikeFunctionality/TotalLikes';
 import BlogTotalComments from './../../Functionality/BlogTotalComments/BlogTotalComments';
 
 const HomeWishList = () => {
@@ -54,12 +53,7 @@ const HomeWishList = () => {
                                                         <div className="flex justify-between items-center">
                                                             <p className="text-textSmallGray text-sm font-medium md:block">{saveBlogs?.date}</p>
                                                             <div className="flex space-x-2 item-center">
-                                                                <div className="flex items-center">
-                                                                    <LikeFunctionality id={saveBlogs?.blogId}/>
-                                                                    <span className="text-sm text-textSmallGray font-medium ml-1">
-                                                                        <TotalLikes id={saveBlogs?.blogId}/>
-                                                                    </span>
-                                                                </div>
+                                                                 <LikeFunctionality blogId={saveBlogs?.blogId}/>
                                                                 <div className="flex items-center">
                                                                     <AiOutlineComment title="comments" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                                                                     <span className="text-sm text-textSmallGray font-medium ml-1">

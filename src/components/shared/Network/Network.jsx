@@ -9,7 +9,7 @@ const Network = () => {
                 style={{ backgroundImage: `url(${image1})` }}
                 data-aos="zoom-in"
                 data-aos-offset="200"
-                data-aos-duration="3000"
+                data-aos-duration="2000"
                 data-aos-easing="ease-in"
             >
                 <div className="hero-overlay bg-black/50 bg-opacity-50 rounded-xl"></div>

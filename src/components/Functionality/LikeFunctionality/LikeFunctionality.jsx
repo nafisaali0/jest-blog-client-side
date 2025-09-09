@@ -1,91 +1,54 @@
-import useUsers from './../../../hooks/useUsers';
+import useUsers from "../../../hooks/useUsers";
+import { useEffect, useState } from "react";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { HiOutlineHeart } from "react-icons/hi";
+import { HiMiniHeart } from "react-icons/hi2";
 import { PropTypes } from 'prop-types';
-import useLikes from "../../../hooks/useLikes";
-import { AiFillHeart } from "react-icons/ai";
-import { FcLike } from "react-icons/fc";
-import { Slide, toast } from "react-toastify";
 
 
-const LikeFunctionality = ({ id }) => {
-    const [initialLikes, refetch] = useLikes();
+const LikeFunctionality = ({ blogId }) => {
+    const axiosPublic = useAxiosPublic();
     const [users] = useUsers();
     const user = users?.length > 0 ? users[0] : null;
+    const userEmail = user?.email;
 
-    const checkBlog = initialLikes?.find(like => like?.blog_id === id);
+    const [liked, setLiked] = useState(false);
+    const [likeCount, setLikeCount] = useState(0);
+
+    useEffect(() => {
+        if (!blogId || !userEmail) return;
+
+        const fetchLikes = async () => {
+            const res = await axiosPublic.get(`/likes/${blogId}/${userEmail}`);
+            setLikeCount(res.data.count || 0);
+            setLiked(res.data.liked);
+        };
+
+        fetchLikes();
+    }, [blogId, userEmail, axiosPublic]);
 
     const handleLike = async () => {
-        if (!user) {
-            toast.info('Please login to like posts!', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: true,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: 1,
-                theme: "light",
-                transition: Slide,
-            });
+        if (!userEmail) {
+            alert("Please login to like this post.");
             return;
         }
 
-        // const newLike = {
-        //     blog_id: id,
-        //     owner_name: user?.name,
-        //     owner_image: user?.photo,
-        //     owner_email: user?.email,
-        //     like: 1
-        // };
-
-        // try {
-        //     const response = await fetch("https://blog-server-side-ochre.vercel.app/likes", {
-        //         method: "POST",
-        //         headers: { "content-type": "application/json" },
-        //         body: JSON.stringify(newLike),
-        //     });
-
-        //     const data = await response.json();
-
-        //     if (data.status === "liked") {
-        //         toast.success('👍 Liked!', {
-        //             position: "top-right",
-        //             autoClose: 5000,
-        //             hideProgressBar: true,
-        //             closeOnClick: false,
-        //             pauseOnHover: true,
-        //             draggable: true,
-        //             progress: 1,
-        //             theme: "light",
-        //             transition: Slide,
-        //         });
-        //     } else if (data.status === "unliked") {
-        //         toast('👎 Unliked!', {
-        //             position: "top-right",
-        //             autoClose: 5000,
-        //             hideProgressBar: true,
-        //             closeOnClick: false,
-        //             pauseOnHover: true,
-        //             draggable: true,
-        //             progress: 1,
-        //             theme: "light",
-        //             transition: Slide,
-        //         });
-        //     }
-
-        //     // fresh data আনো
-        //     refetch();
-        // } catch (error) {
-        //     console.error("Error liking/unliking:", error);
-        // }
+        const res = await axiosPublic.post("/likes", { blogId, userEmail });
+        setLiked(res.data.liked);
+        setLikeCount(res.data.count);
     };
 
     return (
         <>
-            {checkBlog ? (
-                <FcLike title="Unlike" onClick={handleLike} className="cursor-pointer" style={{ width: "20px", height: "20px" }} />
-            ) : (
-                <AiFillHeart title="Like" onClick={handleLike} className="text-[#6B6B6B] cursor-pointer" style={{ width: "20px", height: "20px" }} />
-            )}
+            <div className="flex justify-center items-center space-x-1">
+                <div onClick={handleLike} className="text-2xl">
+                    {liked ?
+                        <div className="text-sm text-iconRed font-medium"><HiMiniHeart /></div>
+                        :
+                        <div className="text-sm text-textSmallGray font-medium"><HiOutlineHeart /></div>}
+                </div>
+                <span className="text-sm text-textSmallGray font-medium">{likeCount}</span>
+            </div>
         </>
     );
 };
@@ -94,5 +57,5 @@ const LikeFunctionality = ({ id }) => {
 
 export default LikeFunctionality;
 LikeFunctionality.propTypes = {
-    id: PropTypes.number
+    blogId: PropTypes.number
 };

@@ -43,13 +43,7 @@ const BlogsShow = ({ blog }) => {
                         <div className="mt-auto flex flex-row justify-between items-end">
                             <div className="flex flex-1 flex-row space-x-3 item-center mt-5 self-end">
                                 <p className="text-sm text-textSmallGray font-medium md:block">{date}</p>
-                                <div className="flex justify-center space-x-1">
-                                    {/* <LikeFunctionality id={_id}/> */}
-                                    <LikeTesting blogId={_id} />
-                                    <span className="text-sm text-textSmallGray font-medium ml-1">
-                                        {/* <TotalLikes id={_id}/> */}
-                                    </span>
-                                </div>
+                                <LikeTesting blogId={_id} />
                                 <div className="flex justify-center space-x-1">
                                     <AiOutlineComment title="comments" className="text-textSmallGray" style={{ width: '20px', height: '20px' }} />
                                     <span className="text-sm text-textSmallGray font-medium ml-1">
