@@ -24,7 +24,7 @@ const ProfileBlogger = () => {
                 data-aos-easing="ease-in-out"
                 data-aos-mirror="true"
                 className="space-y-8">
-                <section className="w-full overflow-hidden dark:bg-mainTheme rounded-xl border border-borderColour">
+                <section className="w-full overflow-hidden bg-mainTheme rounded-xl border border-borderColour">
                     <div className="w-full mx-auto">
                         <div className="w-full lg:h-[15rem] h-[12rem] bg-primaryLightColor"></div>
                         <div className="w-full mx-auto flex justify-center">

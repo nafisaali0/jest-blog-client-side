@@ -25,7 +25,8 @@ const ShowProfile = () => {
                 data-aos-offset="200"
                 data-aos-duration="3000"
                 data-aos-mirror="false"
-                data-aos-easing="ease-in">
+                data-aos-easing="ease-in"
+                >
                 {
                     users?.map(userProfile =>
                         <>
