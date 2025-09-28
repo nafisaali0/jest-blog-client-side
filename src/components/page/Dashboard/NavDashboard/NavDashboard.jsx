@@ -43,7 +43,7 @@ const NavDashboard = ({ isOpen, setIsOpen }) => {
                         <img className="w-[37px]" src={bar} alt="" />
                     </figure>
                     <Link to={'/'}>
-                        <h1 className={`md:flex  text-[26px] font-semibold text-black ${isOpen ? "flex" : "hidden"}`}>JEST BLOG</h1>
+                        <h1 className={`md:flex text-[26px] font-semibold text-black ${isOpen ? "flex" : "hidden"}`}>JEST BLOG</h1>
                     </Link>
                 </div>
 
